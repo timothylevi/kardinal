@@ -19,6 +19,20 @@ class User < ActiveRecord::Base
     self.session_token ||= User.generate_token
   end
 
+  def reset_session_token!
+    self.session_token = User.generate_token
+    self.save!
+  end
+
+  def password=(secret)
+    @password = secret
+    self.pw_digest = BCrypt::Password.create(secret)
+  end
+
+  def is_password?(password)
+    BCrypt::Password.new(self.pw_digest).is_password?(password)
+  end
+
   def first_name
     split_name = self.name.split
     @first_name = split_name.shift
