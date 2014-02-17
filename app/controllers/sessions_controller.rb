@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
       if @user.is_password?(params[:user][:password])
         login(@user)
-        render json: @user
+        redirect_to @user
       else
         flash.now[:errors] = ["Username or password is incorrect."]
         render :new
