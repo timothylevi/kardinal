@@ -1,11 +1,13 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :password, :name
-  attr_reader :first_name, :last_name
+  attr_reader :first_name, :last_name, :password
 
   before_validation :ensure_tokens
 
+  validates :email, uniqueness: true
   validates :email, :pw_digest, :name, :pwreset_token,
             :auth_token, :session_token, presence: true
+  validates :password, length: { minimum: 6, allow_nil: true }
 
   def self.generate_token
     SecureRandom.urlsafe_base64(16)
