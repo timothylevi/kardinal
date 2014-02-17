@@ -6,8 +6,5 @@ FactoryGirl.define do
     f.pw_digest Faker::Internet.password
     f.name "#{Faker::Name.first_name} #{Faker::Name.last_name}"
     f.authorized false
-    f.pwreset_token Faker::Number.number(15)
-    f.auth_token Faker::Number.number(15)
-    f.session_token Faker::Number.number(15)
   end
 end
