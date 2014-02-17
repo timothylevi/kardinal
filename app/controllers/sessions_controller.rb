@@ -4,7 +4,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:user][:email])
+    begin
+      @user = User.find_by_email(params[:user][:email])
 
     if @user
       if @user.is_password?(params[:user][:password])
