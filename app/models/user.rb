@@ -25,6 +25,8 @@ class User < ActiveRecord::Base
             :auth_token, :session_token, presence: true # tested!
   validates :password, length: { minimum: 6, allow_nil: true } # tested!
 
+  has_many :contact_details, as: :contactable
+
   def self.generate_token # tested!
     SecureRandom.urlsafe_base64(16)
   end
