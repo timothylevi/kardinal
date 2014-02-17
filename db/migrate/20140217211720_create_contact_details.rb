@@ -13,5 +13,7 @@ class CreateContactDetails < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :contact_details, [:contactable_id, :contactable_type]
   end
 end

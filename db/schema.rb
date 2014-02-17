@@ -11,7 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140217162000) do
+ActiveRecord::Schema.define(:version => 20140217211720) do
+
+  create_table "contact_details", :force => true do |t|
+    t.string   "street_address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip",              :null => false
+    t.string   "country"
+    t.datetime "birthday"
+    t.text     "description"
+    t.integer  "contactable_id",   :null => false
+    t.string   "contactable_type", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "contact_details", ["contactable_id", "contactable_type"], :name => "index_contact_details_on_contactable_id_and_contactable_type"
 
   create_table "users", :force => true do |t|
     t.string   "email",                          :null => false
