@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20140217211720) do
     t.string   "state"
     t.string   "zip",              :null => false
     t.string   "country"
+    t.string   "phone"
     t.datetime "birthday"
     t.text     "description"
     t.integer  "contactable_id",   :null => false
