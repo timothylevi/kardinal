@@ -1,12 +1,17 @@
 <h2>Sign Up or Log In</h2>
 
 <form action="<%= session_url %>" method="post">
+  <ul>
+  <% @user.errors.full_messages.try(:each) { |message| %>
+    <li><%= message %></li>
+  <% } %>
+  </ul>
   <label>Email:<br>
     <input type="text" name="user[email]" value="<% @user.email %>">
   </label><br>
 
   <label>Password:<br>
-    <input type="text" name="user[password]">
+    <input type="password" name="user[password]">
   </label><br>
 
   <label>Name:<br>
