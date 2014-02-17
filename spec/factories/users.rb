@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id            :integer          not null, primary key
+#  email         :string(255)      not null
+#  pw_digest     :string(255)      not null
+#  name          :string(255)      not null
+#  authorized    :string(255)      default("f")
+#  pwreset_token :string(255)      not null
+#  auth_token    :string(255)      not null
+#  session_token :string(255)      not null
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do

@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id            :integer          not null, primary key
+#  email         :string(255)      not null
+#  pw_digest     :string(255)      not null
+#  name          :string(255)      not null
+#  authorized    :string(255)      default("f")
+#  pwreset_token :string(255)      not null
+#  auth_token    :string(255)      not null
+#  session_token :string(255)      not null
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
 class User < ActiveRecord::Base
   attr_accessible :email, :password, :name
   attr_reader :first_name, :last_name, :password
