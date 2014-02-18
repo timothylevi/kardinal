@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   def create_user(user, contact)
     user.save && user.contact_details.create(contact)
+
     return user
   end
 end

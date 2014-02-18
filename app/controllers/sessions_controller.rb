@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     if @user
       if @user.is_password?(params[:user][:password])
         login(@user)
-        redirect_to @user
+        redirect_to me_url
       else
         flash.now[:errors] = ["Username or password is incorrect."]
         render :new
@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
 
       if create_user(@user, contact).valid?
         login(@user)
-        redirect_to @user
+        redirect_to me_edit_url
       else
         flash[:errors] = @user.errors.full_messages
 
