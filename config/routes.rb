@@ -7,6 +7,8 @@ Cardinal::Application.routes.draw do
   get '/me', to: 'users#me'
   get '/me/edit', to: 'users#edit'
 
+  root to: "petitions#index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
