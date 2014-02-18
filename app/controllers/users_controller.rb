@@ -8,4 +8,8 @@ class UsersController < ApplicationController
     render :show
   end
 
+  def edit
+    @user = current_user
+    @contact_detail = @user.contact_details.first
+  end
 end
