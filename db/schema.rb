@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140218160328) do
+ActiveRecord::Schema.define(:version => 20140218164425) do
 
   create_table "contact_details", :force => true do |t|
     t.string   "street_address"
@@ -30,6 +30,18 @@ ActiveRecord::Schema.define(:version => 20140218160328) do
   end
 
   add_index "contact_details", ["contactable_id", "contactable_type"], :name => "index_contact_details_on_contactable_id_and_contactable_type"
+
+  create_table "petitions", :force => true do |t|
+    t.integer  "creator_id"
+    t.string   "title"
+    t.text     "body"
+    t.text     "background"
+    t.boolean  "approved"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "petitions", ["creator_id"], :name => "index_petitions_on_creator_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                          :null => false
