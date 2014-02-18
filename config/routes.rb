@@ -3,6 +3,7 @@ Cardinal::Application.routes.draw do
   resources :users, only: [:edit, :update, :destroy, :show]
 
   get '/login', to: 'sessions#new'
+  get '/me', to: 'users#me'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
