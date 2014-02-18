@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140218164425) do
+ActiveRecord::Schema.define(:version => 20140218165355) do
 
   create_table "contact_details", :force => true do |t|
     t.string   "street_address"
@@ -32,13 +32,13 @@ ActiveRecord::Schema.define(:version => 20140218164425) do
   add_index "contact_details", ["contactable_id", "contactable_type"], :name => "index_contact_details_on_contactable_id_and_contactable_type"
 
   create_table "petitions", :force => true do |t|
-    t.integer  "creator_id"
-    t.string   "title"
-    t.text     "body"
-    t.text     "background"
-    t.boolean  "approved"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "creator_id",                    :null => false
+    t.string   "title",                         :null => false
+    t.text     "body",                          :null => false
+    t.text     "background",                    :null => false
+    t.boolean  "approved",   :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   add_index "petitions", ["creator_id"], :name => "index_petitions_on_creator_id"
@@ -56,5 +56,16 @@ ActiveRecord::Schema.define(:version => 20140218164425) do
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+
+  create_table "victories", :force => true do |t|
+    t.integer  "petition_id",  :null => false
+    t.string   "text",         :null => false
+    t.string   "description",  :null => false
+    t.date     "victory_date", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "victories", ["petition_id"], :name => "index_victories_on_petition_id"
 
 end

@@ -1,11 +1,11 @@
 class CreatePetitions < ActiveRecord::Migration
   def change
     create_table :petitions do |t|
-      t.integer :creator_id
-      t.string :title
-      t.text :body
-      t.text :background
-      t.boolean :approved
+      t.integer :creator_id, null: false
+      t.string :title, null: false
+      t.text :body, null: false
+      t.text :background, null: false
+      t.boolean :approved, default: false
 
       t.timestamps
     end
