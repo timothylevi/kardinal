@@ -1,8 +1,10 @@
 <ul>
   <% @petitions.each do |petition| %>
   <li>
-    <h3><%= petition.title %></h3>
-    <summary>by: <%= petition.creator.name %></summary>
+    <h3><%= link_to petition.title, petition_url(petition) %></h3>
+    <summary>
+      by: <%= link_to petition.creator.name, user_url(petition.creator) %>
+    </summary>
   </li>
   <% end %>
 </ul>
