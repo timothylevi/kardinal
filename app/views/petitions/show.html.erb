@@ -1,0 +1,10 @@
+<h3><%= @petition.title %></h3>
+<p><small>Petition by:</small><br>
+  <%= link_to @creator.name, user_url(@creator) %><br>
+  <%= @creator.contact_details.first.city %>,
+  <%= @creator.contact_details.first.state %></p>
+<hr>
+<p><small>Petition background:</small><br>
+  <%= @petition.background %></p>
+<p><small>Petition text:</small><br>
+  <%= @petition.body %></p>
