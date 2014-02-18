@@ -9,7 +9,9 @@ module ApplicationHelper
   end
 
   def require_logged_in
-    redirect_to login_url unless logged_in?
+    unless logged_in?
+      redirect_to login_url, alert: ["You must be logged in to do that!"]
+    end
   end
 
   def current_user

@@ -22,8 +22,6 @@ class SessionsController < ApplicationController
         login(@user)
         redirect_to me_edit_url
       else
-        flash[:errors] = @user.errors.full_messages
-
         render :new
       end
     end
