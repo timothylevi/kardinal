@@ -40,4 +40,12 @@ class PetitionsController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    @petition = Petition.find(params[:id])
+    @petition.destroy
+
+    flash[:notices] = "#{@petition} deleted"
+    redirect_to current_user
+  end
 end
