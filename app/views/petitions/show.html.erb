@@ -1,4 +1,7 @@
 <h3><%= @petition.title %></h3>
+<% if current_user == @petition.creator %>
+  <%= link_to "Edit petition", edit_petition_url(@petition) %>
+<% end %>
 <p><small>Petition by:</small><br>
   <%= link_to @creator.name, user_url(@creator) %><br>
   <%= @creator.contact_details.first.city %>,
