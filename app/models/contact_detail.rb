@@ -20,7 +20,8 @@
 class ContactDetail < ActiveRecord::Base
   attr_accessible :street_address, :city, :state,
                   :zip, :phone, :country, :birthday,
-                  :description, :contactable_id, :contactable_type
+                  :description, :website, :contactable_id,
+                  :contactable_type
 
   validates :zip, :contactable_id, :contactable_type,
             presence: true
