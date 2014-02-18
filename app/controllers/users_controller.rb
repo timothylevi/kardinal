@@ -21,13 +21,10 @@ class UsersController < ApplicationController
     @contact_detail = @user.contact_details.first
 
     if @user.update_attributes(params[:user]) &&
-       @contact_detail.update_attributes(params[:contact_details])
+      @contact_detail.update_attributes(params[:contact_details])
+      flash[:notices] = "Your profile was successfully updated!"
       redirect_to me_url
     else
-      flash.now[:errors] ||= []
-      flash.now[:errors] << @user.errors.full_messages if @user.errors
-      flash.now[:errors] << @contact_detail.errors.full_messages if
-        @contact_detail.errors
       render :edit
     end
   end

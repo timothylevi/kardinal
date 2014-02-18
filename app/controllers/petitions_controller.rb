@@ -13,15 +13,16 @@ class PetitionsController < ApplicationController
   end
 
   def create
-    current_user.petitions.build(params[:petition])
+    @petition = Petition.new(params[:petition])
 
-    if current_user.save
-      flash[:notices] = "Petition saved!"
+
+    if @petition.valid?
+
+      current_user.petitions.build(params[:petition])
+      current_user.save
+      flash[:notices] = "Your petition was successfully created!"
       redirect_to petition_url(current_user.petitions.last)
     else
-      @petition = Petition.new(params[:petition])
-      @petition.valid?
-
       render :new
     end
   end
@@ -34,7 +35,7 @@ class PetitionsController < ApplicationController
     @petition = Petition.find(params[:id])
 
     if @petition.update_attributes(params[:petition])
-      flash[:notices] = "Petition updated!"
+      flash[:notices] = "Your petition was successfully updated!"
       redirect_to @petition
     else
       render :edit
@@ -45,7 +46,7 @@ class PetitionsController < ApplicationController
     @petition = Petition.find(params[:id])
     @petition.destroy
 
-    flash[:notices] = "\"#{@petition.title}\" deleted"
-    redirect_to current_user
+    flash[:notices] = "Your petition was successfully deleted."
+    redirect_to me_url
   end
 end
