@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
     if @user.update_attributes(params[:user]) &&
        @contact_detail.update_attributes(params[:contact_details])
-      redirect_to @user
+      redirect_to me_url
     else
       flash.now[:errors] ||= []
       flash.now[:errors] << @user.errors.full_messages if @user.errors
