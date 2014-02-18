@@ -29,6 +29,12 @@ class PetitionsController < ApplicationController
 
   def edit
     @petition = Petition.find(params[:id])
+    @creator = @petition.creator
+
+    if current_user != @creator
+      flash[:show] = "You can only edit petitions you've created."
+      redirect_to @petition
+    end
   end
 
   def update
