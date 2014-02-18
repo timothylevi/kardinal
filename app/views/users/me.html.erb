@@ -1,2 +1,4 @@
 <%= render "profile" %>
 <%= link_to "Edit Profile", me_edit_url %>
+<hr>
+<%= render "petitions/list", petitions: current_user.petitions %>

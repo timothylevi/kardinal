@@ -1,0 +1,9 @@
+<h2>Petitions</h2>
+<ul>
+  <% petitions.each do |petition| %>
+  <li>
+    <h3><%= petition.title %></h3>
+    <summary><%= petition.body %></summary>
+  </li>
+  <% end %>
+</ul>

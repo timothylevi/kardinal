@@ -1,5 +1,5 @@
 <section>
-  <h2><%= @user.first_name %></h2>
+  <h2><%= @user.name %></h2>
   <ul>
     <% if @contact_detail.city.length > 1 && @contact_detail.state.length > 1 %>
     <li><%= @contact_detail.city %>, <%= @contact_detail.state %></li>
