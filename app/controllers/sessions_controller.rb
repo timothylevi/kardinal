@@ -30,6 +30,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    # need to write this
+    logout
+    redirect_to login_url
   end
 end
