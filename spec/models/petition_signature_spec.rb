@@ -9,11 +9,8 @@
 #  updated_at  :datetime         not null
 #
 
-class PetitionSignatures < ActiveRecord::Base
-  attr_accessible :user_id, :petition_id
+require 'spec_helper'
 
-  validates :user_id, :petition_id, presence: true
-
-  belongs_to :user
-  belongs_to :petition
+describe PetitionSignature do
+  pending "add some examples to (or delete) #{__FILE__}"
 end

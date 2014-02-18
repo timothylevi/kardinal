@@ -9,9 +9,11 @@
 #  updated_at  :datetime         not null
 #
 
-# Read about factories at https://github.com/thoughtbot/factory_girl
+class PetitionSignature < ActiveRecord::Base
+  attr_accessible :user_id, :petition_id
 
-FactoryGirl.define do
-  factory :petition_signature, :class => 'PetitionSignatures' do
-  end
+  validates :user_id, :petition_id, presence: true
+
+  belongs_to :user
+  belongs_to :petition
 end
