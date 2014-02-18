@@ -25,4 +25,19 @@ class PetitionsController < ApplicationController
       render :new
     end
   end
+
+  def edit
+    @petition = Petition.find(params[:id])
+  end
+
+  def update
+    @petition = Petition.find(params[:id])
+
+    if @petition.update_attributes(params[:petition])
+      flash[:notices] = "Petition updated!"
+      redirect_to @petition
+    else
+      render :edit
+    end
+  end
 end
