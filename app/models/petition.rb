@@ -13,5 +13,8 @@
 #
 
 class Petition < ActiveRecord::Base
-  # attr_accessible :title, :body
+  attr_accessible :title, :body, :background
+
+  validates :title, :body, :background, presence: true
+  validates :title, uniqueness: true
 end
