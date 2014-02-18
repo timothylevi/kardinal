@@ -15,7 +15,7 @@
 class Petition < ActiveRecord::Base
   attr_accessible :title, :body, :background
 
-  validates :title, :body, :background, presence: true
+  validates :creator_id, :title, :body, :background, presence: true
   validates :title, uniqueness: true
 
   belongs_to :creator,
