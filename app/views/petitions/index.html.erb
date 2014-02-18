@@ -1,0 +1,8 @@
+<ul>
+  <% @petitions.each do |petition| %>
+  <li>
+    <h3><%= petition.title %></h3>
+    <summary>by: <%= petition.creator.name %></summary>
+  </li>
+  <% end %>
+</ul>
