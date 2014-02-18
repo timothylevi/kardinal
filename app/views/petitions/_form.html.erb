@@ -1,0 +1,32 @@
+<% title = (petition.persisted? ? "Edit this petition" : "Start a petition") %>
+<% action = (petition.persisted? ? petition_url(petition) : petitions_url)%>
+<% form_method = (petition.persisted? ? "put" : "post")%>
+
+<h2><%= title %></h2>
+
+<form action="<%= action %>" method="post">
+  <input type="hidden" name="authenticity_token"
+         value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="<%= form_method %>">
+
+  <ul>
+  <% petition.errors.full_messages.try(:each) { |message| %>
+   <li><%= message %></li>
+  <% } %>
+  </ul>
+
+  <label>Title:<br>
+    <input type="text" name="petition[title]" value="<%= petition.title %>">
+  </label><br>
+
+  <label>Background:<br>
+    <textarea name="petition[background]"><%= petition.background %></textarea>
+  </label><br>
+
+  <label>Body:<br>
+    <textarea name="petition[body]"><%= petition.body %></textarea>
+  </label><br>
+
+  <input type="submit">
+
+</form>
