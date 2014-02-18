@@ -8,6 +8,7 @@
 #  state            :string(255)
 #  zip              :string(255)      not null
 #  country          :string(255)
+#  phone            :string(255)
 #  birthday         :datetime
 #  description      :text
 #  contactable_id   :integer          not null
