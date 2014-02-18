@@ -27,6 +27,12 @@ class User < ActiveRecord::Base
 
   has_many :contact_details, as: :contactable
 
+  has_many :petitions,
+    class_name: "Petition",
+    foreign_key: :creator_id,
+    primary_key: :id,
+    dependent: :destroy
+
   def self.generate_token # tested!
     SecureRandom.urlsafe_base64(16)
   end
