@@ -1,0 +1,8 @@
+<section>
+  <h2><%= @user.first_name %></h2>
+  <ul>
+    <li><%= @contact_detail.city %>, <%= @contact_detail.state %></li>
+    <li><%= link_to @contact_detail.website, "http://#{@contact_detail.website}" %></li>
+  </ul>
+  <p><%= @contact_detail.description %></p>
+</section>
