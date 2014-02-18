@@ -1,6 +1,7 @@
 Cardinal::Application.routes.draw do
   resource :session, only: [:create, :destroy]
   resources :users, only: [:update, :destroy, :show]
+  resources :petitions
 
   get '/login', to: 'sessions#new'
   get '/me', to: 'users#me'
