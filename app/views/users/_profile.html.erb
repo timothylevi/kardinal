@@ -1,8 +1,14 @@
 <section>
   <h2><%= @user.first_name %></h2>
   <ul>
+    <% if @contact_detail.city.length > 1 && @contact_detail.state.length > 1 %>
     <li><%= @contact_detail.city %>, <%= @contact_detail.state %></li>
+    <% end %>
+    <% if @contact_detail.website.length > 1 %>
     <li><%= link_to @contact_detail.website, "http://#{@contact_detail.website}" %></li>
+    <% end %>
   </ul>
+  <% if @contact_detail.description.length > 1 %>
   <p><%= @contact_detail.description %></p>
+  <% end %>
 </section>
