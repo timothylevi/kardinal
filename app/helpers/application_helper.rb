@@ -10,7 +10,7 @@ module ApplicationHelper
 
   def require_logged_in
     unless logged_in?
-      redirect_to login_url, alert: ["You must be logged in to do that!"]
+      redirect_to login_url, alert: "You must be logged in to go there."
     end
   end
 
@@ -23,5 +23,11 @@ module ApplicationHelper
     current_user.reset_session_token!
     session[:token] = nil
     # session[:last_visited] = nil
+  end
+
+  def require_not_logged_in
+    unless !logged_in?
+      redirect_to petitions_url, alert: "You can't go there while logged in."
+    end
   end
 end

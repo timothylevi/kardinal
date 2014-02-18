@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_filter :require_not_logged_in, except: [:destroy]
+
   def new
     @user = User.new
   end
