@@ -3,15 +3,8 @@ class ApplicationController < ActionController::Base
 
   include ApplicationHelper
 
-  def create_user(user)
-    @user = user
-
-    if @user.save
-      login(user)
-      redirect_to @user
-    else
-      flash.now[:errors] = @user.errors.full_messages
-      render :new
-    end
+  def create_user(user, contact)
+    user.save && user.contact_deatils.create(contact)
+    return user
   end
 end

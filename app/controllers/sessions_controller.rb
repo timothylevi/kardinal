@@ -16,10 +16,16 @@ class SessionsController < ApplicationController
       end
     else
       @user = User.new(params[:user])
+      contact = params[:contact_details]
 
-      create_user(@user)
+      if create_user(@user, contact).valid?
+        login(@user)
+        redirect_to @user
+      else
+        flash[:errors] = @user.errors.full_messages
 
-      @user.contact_details.create(params[:contact_details])
+        render :new
+      end
     end
   end
 
