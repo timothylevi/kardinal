@@ -101,6 +101,7 @@ GEM
     multi_json (1.8.4)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
+    pg (0.17.1)
     polyglot (0.3.3)
     pry (0.9.12.6)
       coderay (~> 1.0)
@@ -190,6 +191,7 @@ DEPENDENCIES
   guard-rspec
   jquery-rails
   launchy
+  pg
   rails (= 3.2.16)
   rspec-rails
   sass-rails (~> 3.2.3)
