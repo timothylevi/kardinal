@@ -1,0 +1,61 @@
+<form action="<%= session_url %>" method="post">
+  <ul>
+  <% @user.errors.full_messages.try(:each) { |message| %>
+    <li><%= message %></li>
+  <% } %>
+  <% @contact_detail.errors.full_messages.try(:each) { |message| %>
+    <li><%= message %></li>
+  <% } %>
+  </ul>
+  <label>Email:<br>
+    <input type="text" name="user[email]"
+           value="<%= @user.email %>">
+  </label><br>
+
+  <label>Name:<br>
+    <input type="text" name="user[name]"
+           value="<%= @user.name %>">
+  </label><br>
+
+  <label>Street Address:<br>
+    <input type="text" name="contact_details[street_address]"
+           value="<%= @contact_detail.street_address %>">
+  </label><br>
+
+  <label>City:<br>
+    <input type="text" name="contact_details[city]"
+           value="<%= @contact_detail.city %>">
+  </label><br>
+
+  <label>State:<br>
+    <input type="text" name="contact_details[state]"
+           value="<%= @contact_detail.state %>">
+  </label><br>
+
+  <label>Zip:<br>
+    <input type="text" name="contact_details[zip]"
+           value="<%= @contact_detail.zip %>">
+  </label><br>
+
+  <label>Country:<br>
+    <input type="text" name="contact_details[country]"
+           value="<%= @contact_detail.country %>">
+  </label><br>
+
+  <label>Phone:<br>
+    <input type="text" name="contact_details[phone]"
+           value="<%= @contact_detail.phone %>">
+  </label><br>
+
+  <label>Birthday:<br>
+    <input type="date" name="contact_details[birthday]"
+           value="<%= @contact_detail.birthday %>">
+  </label><br>
+
+  <label>Description:<br>
+    <textarea name="contact_details[description]"
+              value="<%= @contact_detail.description %>"></textarea>
+  </label><br>
+
+  <input type="submit">
+</form>
