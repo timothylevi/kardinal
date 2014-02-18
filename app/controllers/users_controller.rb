@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_filter :require_logged_in
+
   def show
     @user = User.find(params[:id])
     @contact_detail = @user.contact_details.first
