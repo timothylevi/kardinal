@@ -1,9 +1,10 @@
 Cardinal::Application.routes.draw do
   resource :session, only: [:create, :destroy]
-  resources :users, only: [:edit, :update, :destroy, :show]
+  resources :users, only: [:update, :destroy, :show]
 
   get '/login', to: 'sessions#new'
   get '/me', to: 'users#me'
+  get '/me/edit', to: 'users#edit'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
