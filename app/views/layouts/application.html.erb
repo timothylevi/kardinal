@@ -10,7 +10,10 @@
   <nav>
     <ul>
       <li><%= link_to "Petitions", petitions_url %></li>
-      <li><%= link_to "Back", :back %></li>
+      <% if logged_in? %>
+      <li><%= link_to current_user.name, me_url %></li>
+      <li><%= button_to "Log out", session_url, method: :delete %></li>
+      <% end %>
     </ul>
   </nav>
 
@@ -21,8 +24,5 @@
   </ul>
 
 <%= yield %>
-<% if logged_in? %>
-<%= button_to "Log out", session_url, method: :delete %>
-<% end %>
 </body>
 </html>
