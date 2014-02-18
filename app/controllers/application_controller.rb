@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
 
   def create_user(user, contact)
-    user.save && user.contact_deatils.create(contact)
+    user.save && user.contact_deatil.create(contact)
     return user
   end
 end
