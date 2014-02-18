@@ -1,8 +1,13 @@
 <section>
   <h2><%= @user.name %></h2>
   <ul>
+    <% unless @contact_detail.city.blank? || @contact_detail.state.blank? %>
     <li><%= @contact_detail.city %>, <%= @contact_detail.state %></li>
+    <% end %>
+
+    <% unless @contact_detail.website.blank? %>
     <li><%= link_to @contact_detail.website, "http://#{@contact_detail.website}" %></li>
+    <% end %>
   </ul>
   <p><%= @contact_detail.description %></p>
 </section>
