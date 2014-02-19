@@ -7,9 +7,10 @@
 #  title      :string(255)      not null
 #  body       :text             not null
 #  background :text             not null
-#  approved   :boolean          default(FALSE)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  approved   :string(255)      default("Pending")
+#  goal       :integer
 #
 
 require 'spec_helper'
