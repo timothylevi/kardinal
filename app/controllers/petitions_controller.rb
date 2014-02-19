@@ -6,6 +6,7 @@ class PetitionsController < ApplicationController
   def show
     @petition = Petition.find(params[:id])
     @creator = @petition.creator
+    @petition_signature = PetitionSignature.find_single(current_user.id, @petition.id) || PetitionSignature.new
   end
 
   def new

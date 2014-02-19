@@ -16,4 +16,8 @@ class PetitionSignature < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :petition
+
+  def self.find_single(user_id, petition_id)
+    PetitionSignature.find_by_user_id_and_petition_id(user_id, petition_id)
+  end
 end

@@ -12,3 +12,15 @@
   <%= @petition.background %></p>
 <p><small>Petition text:</small><br>
   <%= @petition.body %></p>
+
+  <%#= button_to "Sign", petition_petition_signature_index_url(@petition)%>
+
+  <form
+    action="<%= petition_petition_signature_index_url(@petition) %>"
+    method="post">
+    <input name="authenticity_token"
+      type="hidden"
+      value="<%= form_authenticity_token %>">
+
+    <input type="submit" value="Sign" <%= "disabled" if @petition_signature.persisted? %>>
+  </form>
