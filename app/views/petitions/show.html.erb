@@ -1,7 +1,9 @@
 <h3><%= @petition.title %></h3>
-<% if current_user == @petition.creator %>
+<% if current_user == @petition.creator && @petition.victory.nil? %>
   <%= link_to "Edit petition", edit_petition_url(@petition) %>
   <%= button_to "Delete petition", petition_url(@petition), method: :delete%>
+<% else %>
+  <p>Congratulations on your victory! Editing is disabled.</p>
 <% end %>
 <p><small>Petition by:</small><br>
   <%= link_to @creator.name, user_url(@creator) %><br>

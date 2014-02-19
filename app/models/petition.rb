@@ -16,7 +16,7 @@
 class Petition < ActiveRecord::Base
   attr_accessible :title, :body, :background
 
-  validates :creator_id, :title, :body, :background, presence: true
+  validates :title, :body, :background, presence: true
   validates :title, uniqueness: true
   validates :approved, inclusion: {in: %w(Approved Pending Denied)}
 
@@ -27,5 +27,13 @@ class Petition < ActiveRecord::Base
 
   has_many :petition_signatures
 
-  has_many :signatures, through: :petition_signatures, source: :user
+  has_many :supporters, through: :petition_signatures, source: :user
+
+  has_one :victory
+
+  def self.get_non_victories
+    ids = []
+    Victory.pluck(:petition_id)
+    Petition.includes(:creator, :petition_signatures).where("id NOT IN (?)", ids)
+  end
 end

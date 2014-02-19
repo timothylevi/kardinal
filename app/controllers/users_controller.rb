@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+                .includes(:contact_details, :signed_petitions, petitions: :victory)
     @contact_detail = @user.contact_details.first
   end
 

@@ -1,1 +1,17 @@
 <%= render "form", petition: @petition %>
+
+<h2>Declare a Victory</h2>
+<form action="<%= petition_victories_url(@petition) %>" method="post">
+  <input type="hidden" name="authenticity_token"
+         value="<%= form_authenticity_token %>">
+
+  <label>Description:<br>
+    <input type="text" name="victory[description]">
+  </label><br>
+
+  <label>Message:<br>
+    <textarea name="victory[message]"></textarea>
+  </label><br>
+
+  <input type="submit">
+</form>

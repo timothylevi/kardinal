@@ -1,8 +1,9 @@
 class PetitionsController < ApplicationController
   def index
-    @petitions = Petition.includes(:signatures)
+    @petitions = Petition.get_non_victories # Petition.includes(:signatures)
   end
 
+  # is there a better way to do this?
   def show
     @petition = Petition.find(params[:id])
     @creator = @petition.creator
