@@ -18,6 +18,7 @@ class Petition < ActiveRecord::Base
 
   validates :creator_id, :title, :body, :background, presence: true
   validates :title, uniqueness: true
+  validates :approved, inclusion: {in: %w(Approved Pending Denied)}
 
   belongs_to :creator,
     class_name: "User",

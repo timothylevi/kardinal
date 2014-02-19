@@ -24,6 +24,7 @@ class User < ActiveRecord::Base
   validates :email, :pw_digest, :name, :pwreset_token,
             :activation_token, :session_token, presence: true # tested!
   validates :password, length: { minimum: 6, allow_nil: true } # tested!
+  validates :activated, inclusion: {in: [true, false]}
 
   has_many :petition_signatures
   has_many :contact_details, as: :contactable
