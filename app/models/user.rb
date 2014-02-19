@@ -25,13 +25,15 @@ class User < ActiveRecord::Base
             :auth_token, :session_token, presence: true # tested!
   validates :password, length: { minimum: 6, allow_nil: true } # tested!
 
+  has_many :petition_signatures
   has_many :contact_details, as: :contactable
-
   has_many :petitions,
     class_name: "Petition",
     foreign_key: :creator_id,
     primary_key: :id,
     dependent: :destroy
+
+  has_many :signed_petitions, through: :petition_signatures, source: :petition
 
   def self.generate_token # tested!
     SecureRandom.urlsafe_base64(16)

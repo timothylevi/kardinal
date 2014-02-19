@@ -22,4 +22,8 @@ class Petition < ActiveRecord::Base
     class_name: "User",
     foreign_key: :creator_id,
     primary_key: :id
+
+  has_many :petition_signatures
+
+  has_many :signatures, through: :petition_signatures, source: :user
 end
