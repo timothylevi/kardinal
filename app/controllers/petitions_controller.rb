@@ -1,6 +1,6 @@
 class PetitionsController < ApplicationController
   def index
-    @petitions = Petition.all
+    @petitions = Petition.includes(:signatures)
   end
 
   def show
