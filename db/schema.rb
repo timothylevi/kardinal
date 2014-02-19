@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140218233836) do
+ActiveRecord::Schema.define(:version => 20140218235241) do
 
   create_table "contact_details", :force => true do |t|
     t.string   "street_address"
@@ -53,15 +53,15 @@ ActiveRecord::Schema.define(:version => 20140218233836) do
   add_index "petitions", ["creator_id"], :name => "index_petitions_on_creator_id"
 
   create_table "users", :force => true do |t|
-    t.string   "email",                          :null => false
-    t.string   "pw_digest",                      :null => false
-    t.string   "name",                           :null => false
-    t.string   "authorized",    :default => "f"
-    t.string   "pwreset_token",                  :null => false
-    t.string   "auth_token",                     :null => false
-    t.string   "session_token",                  :null => false
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+    t.string   "email",                             :null => false
+    t.string   "pw_digest",                         :null => false
+    t.string   "name",                              :null => false
+    t.string   "pwreset_token",                     :null => false
+    t.string   "session_token",                     :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+    t.string   "activated",        :default => "f"
+    t.string   "activation_token"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
