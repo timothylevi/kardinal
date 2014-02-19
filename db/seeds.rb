@@ -8,7 +8,7 @@
 
 100.times do |i|
   User.create(email: Faker::Internet.safe_email,
-              password: Faker::Internet.password,
+              password: "password",
               name: Faker::Name.name)
 end
 
