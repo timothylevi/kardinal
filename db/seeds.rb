@@ -37,3 +37,11 @@ while i < User.last.id do
 
   i += 1
 end
+
+1000.times do
+  j = rand(User.first.id..User.last.id)
+  k = rand(Petition.first.id..Petition.last.id)
+  unless PetitionSignature.find_single(j, k)
+    PetitionSignature.create(user_id: j, petition_id: k)
+  end
+end
