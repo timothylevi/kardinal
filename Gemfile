@@ -7,6 +7,7 @@ gem 'pg'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'bcrypt-ruby', require: 'bcrypt'
 gem 'annotate'
+gem 'congress'
 
 # Gems used only for assets and not required
 # in production environments by default.

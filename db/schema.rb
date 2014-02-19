@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140219035521) do
+ActiveRecord::Schema.define(:version => 20140219200707) do
 
   create_table "contact_details", :force => true do |t|
     t.string   "street_address"
@@ -27,6 +27,9 @@ ActiveRecord::Schema.define(:version => 20140219035521) do
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.string   "website"
+    t.string   "twitter_id"
+    t.string   "facebook_id"
+    t.string   "contact_form"
   end
 
   add_index "contact_details", ["contactable_id", "contactable_type"], :name => "index_contact_details_on_contactable_id_and_contactable_type"
@@ -53,6 +56,16 @@ ActiveRecord::Schema.define(:version => 20140219035521) do
 
   add_index "petitions", ["creator_id"], :name => "index_petitions_on_creator_id"
 
+  create_table "recipients", :force => true do |t|
+    t.string   "title",       :null => false
+    t.string   "first_name",  :null => false
+    t.string   "middle_name"
+    t.string   "last_name"
+    t.string   "bioguide_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email",                             :null => false
     t.string   "pw_digest",                         :null => false
@@ -75,6 +88,6 @@ ActiveRecord::Schema.define(:version => 20140219035521) do
     t.text     "message",     :null => false
   end
 
-  add_index "victories", ["petition_id"], :name => "index_victories_on_petition_id"
+  add_index "victories", ["petition_id"], :name => "index_victories_on_petition_id", :unique => true
 
 end

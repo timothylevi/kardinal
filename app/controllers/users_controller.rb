@@ -2,8 +2,7 @@ class UsersController < ApplicationController
   before_filter :require_logged_in
 
   def show
-    @user = User.find(params[:id])
-                .includes(:contact_details, :signed_petitions, petitions: :victory)
+    @user = User.includes(:contact_details, :signed_petitions, petitions: :victory).find(params[:id])
     @contact_detail = @user.contact_details.first
   end
 

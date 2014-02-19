@@ -16,6 +16,9 @@
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  website          :string(255)
+#  twitter_id       :string(255)
+#  facebook_id      :string(255)
+#  contact_form     :string(255)
 #
 
 require 'spec_helper'
