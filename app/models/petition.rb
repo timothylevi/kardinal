@@ -35,7 +35,6 @@ class Petition < ActiveRecord::Base
   has_one :victory
 
   def self.get_non_victories
-    ids = Victory.pluck(:petition_id)
-    Petition.includes(:creator, :petition_signatures).where("id NOT IN (?)", ids)
+    Petition.includes(:creator, :petition_signatures).where(is_victory: false)
   end
 end
