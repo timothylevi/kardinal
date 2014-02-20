@@ -11,6 +11,7 @@ class PetitionsController < ApplicationController
 
   def new
     @petition = Petition.new
+    @recipients = Recipient.order(:gov_state, :last_name)
   end
 
   def create
