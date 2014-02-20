@@ -21,6 +21,7 @@ class PetitionsController < ApplicationController
     if @petition.valid?
 
       current_user.petitions.build(params[:petition])
+
       current_user.save
       flash[:notices] = "Your petition was successfully created!"
       redirect_to petition_url(current_user.petitions.last)
