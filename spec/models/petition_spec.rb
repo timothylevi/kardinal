@@ -11,6 +11,7 @@
 #  updated_at :datetime         not null
 #  approved   :string(255)      default("Pending")
 #  goal       :integer
+#  is_victory :boolean
 #
 
 require 'spec_helper'

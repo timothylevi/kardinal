@@ -11,6 +11,7 @@
 #  updated_at :datetime         not null
 #  approved   :string(255)      default("Pending")
 #  goal       :integer
+#  is_victory :boolean
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl
