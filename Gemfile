@@ -9,6 +9,8 @@ gem 'figaro'
 gem 'bcrypt-ruby', require: 'bcrypt'
 gem 'annotate'
 gem 'congress'
+gem 'paperclip'
+gem 'aws-sdk'
 
 # Gems used only for assets and not required
 # in production environments by default.
