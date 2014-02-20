@@ -32,7 +32,7 @@ class Petition < ActiveRecord::Base
   has_many :recipients, through: :petition_recipients, source: :recipient
   has_many :supporters, through: :petition_signatures, source: :user
 
-  has_one :victory
+  has_one :victory, dependent: :destroy
 
   def self.get_non_victories
     Petition.includes(:creator, :petition_signatures).where(is_victory: false)
