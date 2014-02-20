@@ -10,6 +10,9 @@
 #  bioguide_id :string(255)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  gov_state   :string(255)
+#  office      :string(255)
+#  party       :string(255)
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl
