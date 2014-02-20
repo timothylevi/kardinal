@@ -13,15 +13,13 @@
 #  activated        :string(255)      default("f")
 #  activation_token :string(255)
 #
-
 class User < ActiveRecord::Base
   attr_accessible :email, :password, :name, :contact_details, :image
   attr_reader :first_name, :last_name, :password
 
   has_attached_file :image, :styles => {
-    :profile => "200x200#",
-    :thumbnail => "25x25#"
-  }
+                      :profile => "200x200#",
+                      :thumbnail => "25x25#"}
 
   before_validation :ensure_tokens # tested!
 
@@ -31,7 +29,9 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true } # tested!
   validates :activated, inclusion: {in: ["t", "f"]}
 
-  has_one :image, as: :imageable, dependent: :destroy
+  validates_attachment :image,
+    :content_type => { :content_type => ["image/jpg", "image/gif", "image/png"] }
+
   has_many :recipients, foreign_key: :creator_id
   has_many :petition_signatures, dependent: :destroy
   has_many :contact_details, as: :contactable, dependent: :destroy
