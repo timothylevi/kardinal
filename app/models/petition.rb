@@ -26,7 +26,9 @@ class Petition < ActiveRecord::Base
     primary_key: :id
 
   has_many :petition_signatures
+  has_many :petition_recipients, dependent: :destroy
 
+  has_many :recipients, through: :petition_recipients, source: :recipient
   has_many :supporters, through: :petition_signatures, source: :user
 
   has_one :victory

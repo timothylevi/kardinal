@@ -10,5 +10,10 @@
 #
 
 class PetitionRecipient < ActiveRecord::Base
-  # attr_accessible :title, :body
+  attr_accessible :petition_id, :recipient_id
+
+  validates :petition_id, :recipient_id, presence: true
+
+  belongs_to :petition
+  belongs_to :recipient
 end

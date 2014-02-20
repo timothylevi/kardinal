@@ -17,7 +17,14 @@
 
 class Recipient < ActiveRecord::Base
   attr_accessible :title, :first_name, :middle_name, :last_name,
-                  :bioguide_id, :contact_details
+                  :bioguide_id, :gov_state, :office, :party, :contact_details
 
   has_many :contact_details, as: :contactable, dependent: :destroy
+  has_many :petition_recipients, dependent: :destroy
+
+  has_many :petitions, through: :petition_recipients, source: :petition
+
+  def prettify_title
+    return "#{self.gov_state} - #{self.title}. #{self.first_name} #{self.last_name} (#{self.party})"
+  end
 end
