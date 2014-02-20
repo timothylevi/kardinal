@@ -46,6 +46,9 @@
         <%= state %>
       </option>
       <% end %>
+      <option value="US" <%= "selected" if @contact_detail.state == "US" %>>
+        US
+      </option>
     </select>
   </label><br>
 
