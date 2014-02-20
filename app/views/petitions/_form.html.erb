@@ -45,6 +45,9 @@
     </option>
     <% end %>
   </select>
+  <br>
+  <%= link_to "Create Recipient", new_recipient_url %>
+
 
   <ul>
   <% petition.errors.full_messages.try(:each) { |message| %>
