@@ -10,7 +10,7 @@
   <input type="hidden" name="_method" value="<%= form_method %>">
 
   <select name="petition[recipient_ids][]" >
-    <option value="">-----</option>
+    <option value=""></option>
     <% recipients.each do |recipient| %>
     <option
       value="<%= recipient.id %>"
@@ -22,7 +22,7 @@
     <% end %>
   </select>
   <select name="petition[recipient_ids][]" >
-    <option value="">-----</option>
+    <option value=""></option>
     <% recipients.each do |recipient| %>
     <option
       value="<%= recipient.id %>"
@@ -34,7 +34,7 @@
     <% end %>
   </select>
   <select name="petition[recipient_ids][]" >
-    <option value="">-----</option>
+    <option value=""></option>
     <% recipients.each do |recipient| %>
     <option
       value="<%= recipient.id %>"

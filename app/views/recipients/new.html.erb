@@ -14,9 +14,15 @@
   </ul>
 
   <label>Title:<br>
-    <input type="text" name="recipient[title]"
-           value="<%= @recipient.title %>">
+    <select name="recipient[title]">
+      <% Recipient.possible_titles.each do |title| %>
+      <option value="<%= title %>" <%= "selected" if @recipient.title == title %>>
+        <%= title %>
+      </option>
+      <% end %>
+    </select>
   </label><br>
+
 
   <label>First Name:<br>
     <input type="text" name="recipient[first_name]"
