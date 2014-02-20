@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140220060635) do
+ActiveRecord::Schema.define(:version => 20140220144321) do
 
   create_table "contact_details", :force => true do |t|
     t.string   "street_address"
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(:version => 20140220060635) do
     t.string   "gov_state"
     t.string   "office"
     t.string   "party"
+    t.string   "email"
   end
 
   add_index "recipients", ["bioguide_id"], :name => "index_recipients_on_bioguide_id"
