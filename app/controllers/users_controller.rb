@@ -23,6 +23,9 @@ class UsersController < ApplicationController
 
     if @user.update_attributes(params[:user]) &&
       @contact_detail.update_attributes(params[:contact_details])
+
+      @user.image_from_url unless params[:user][:image]
+
       flash[:notices] = "Your profile was successfully updated!"
       redirect_to me_url
     else
