@@ -1,4 +1,9 @@
-<h3><%= @petition.title %></h3>
+<h2><%= @petition.title %></h2>
+
+<% if @petition_signature.persisted? %>
+<h4>You've signed this petition!</h4>
+<% end %>
+
 <% if current_user == @petition.creator && @petition.victory.nil? %>
   <%= link_to "Edit petition", edit_petition_url(@petition) %>
   <%= button_to "Delete petition", petition_url(@petition), method: :delete%>
