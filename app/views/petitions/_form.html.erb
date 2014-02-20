@@ -9,10 +9,40 @@
          value="<%= form_authenticity_token %>">
   <input type="hidden" name="_method" value="<%= form_method %>">
 
-  <select>
-    <option name="petition[recipient_ids][]" value=""></option>
+  <select name="petition[recipient_ids][]" >
+    <option value="">-----</option>
     <% recipients.each do |recipient| %>
-    <option name="petition[recipient_ids][]" value="<%= recipient.id %>"><%= recipient.prettify_title %></option>
+    <option
+      value="<%= recipient.id %>"
+      <% if petition.recipients[0] %>
+      <%= "selected" if petition.recipients[0].id == recipient.id %>
+      <% end %>>
+      <%= recipient.prettify_title %>
+    </option>
+    <% end %>
+  </select>
+  <select name="petition[recipient_ids][]" >
+    <option value="">-----</option>
+    <% recipients.each do |recipient| %>
+    <option
+      value="<%= recipient.id %>"
+      <% if petition.recipients[1] %>
+      <%= "selected" if petition.recipients[1].id == recipient.id %>
+      <% end %>>
+      <%= recipient.prettify_title %>
+    </option>
+    <% end %>
+  </select>
+  <select name="petition[recipient_ids][]" >
+    <option value="">-----</option>
+    <% recipients.each do |recipient| %>
+    <option
+      value="<%= recipient.id %>"
+      <% if petition.recipients[2] %>
+      <%= "selected" if petition.recipients[2].id == recipient.id %>
+      <% end %>>
+      <%= recipient.prettify_title %>
+    </option>
     <% end %>
   </select>
 
