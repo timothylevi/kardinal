@@ -15,7 +15,7 @@
 #
 
 class Petition < ActiveRecord::Base
-  attr_accessible :title, :body, :background, :recipient_ids
+  attr_accessible :title, :body, :background, :is_victory, :recipient_ids
 
   validates :title, :body, :background, presence: true
   # validates :title, uniqueness: true
