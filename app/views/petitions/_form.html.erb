@@ -9,6 +9,13 @@
          value="<%= form_authenticity_token %>">
   <input type="hidden" name="_method" value="<%= form_method %>">
 
+  <select>
+    <option name="petition[recipient_ids][]" value=""></option>
+    <% recipients.each do |recipient| %>
+    <option name="petition[recipient_ids][]" value="<%= recipient.id %>"><%= recipient.prettify_title %></option>
+    <% end %>
+  </select>
+
   <ul>
   <% petition.errors.full_messages.try(:each) { |message| %>
    <li><%= message %></li>
