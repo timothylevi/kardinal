@@ -18,6 +18,11 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :name, :contact_details, :image
   attr_reader :first_name, :last_name, :password
 
+  has_attached_file :image, :styles => {
+    :big => "200x200#",
+    :small => "25x25#"
+  }
+
   before_validation :ensure_tokens # tested!
 
   validates :email, uniqueness: true # tested!
@@ -37,11 +42,6 @@ class User < ActiveRecord::Base
     dependent: :destroy
 
   has_many :signed_petitions, through: :petition_signatures, source: :petition
-
-  has_attached_file :image, :styles => {
-    :big => "200x200#",
-    :small => "25x25#"
-  }
 
   def self.generate_token # tested!
     SecureRandom.urlsafe_base64(16)
