@@ -1,6 +1,6 @@
 class PetitionsController < ApplicationController
   def index
-    @petitions = Petition.get_non_victories.limit(10) # Petition.includes(:signatures)
+    @petitions = Petition.get_non_victories.limit(10)
   end
 
   def show
