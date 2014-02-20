@@ -17,7 +17,7 @@
       <% if petition.recipients[0] %>
       <%= "selected" if petition.recipients[0].id == recipient.id %>
       <% end %>>
-      <%= recipient.prettify_title %>
+      <%= recipient.list_name %>
     </option>
     <% end %>
   </select>
@@ -29,7 +29,7 @@
       <% if petition.recipients[1] %>
       <%= "selected" if petition.recipients[1].id == recipient.id %>
       <% end %>>
-      <%= recipient.prettify_title %>
+      <%= recipient.list_name %>
     </option>
     <% end %>
   </select>
@@ -41,7 +41,7 @@
       <% if petition.recipients[2] %>
       <%= "selected" if petition.recipients[2].id == recipient.id %>
       <% end %>>
-      <%= recipient.prettify_title %>
+      <%= recipient.list_name %>
     </option>
     <% end %>
   </select>

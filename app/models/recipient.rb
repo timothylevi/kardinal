@@ -30,7 +30,7 @@ class Recipient < ActiveRecord::Base
     %w(Mr Ms Mx Sen Rep Del Com)
   end
 
-  def prettify_title
+  def list_name
     return "#{self.gov_state} #{self.title}. #{self.first_name} #{self.last_name}"
   end
 end
