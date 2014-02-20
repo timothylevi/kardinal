@@ -26,6 +26,10 @@ class Recipient < ActiveRecord::Base
 
   has_many :petitions, through: :petition_recipients, source: :petition
 
+  def self.possible_titles
+    %w(Mr Ms Mx Sen Rep Del Com)
+  end
+
   def prettify_title
     return "#{self.gov_state} #{self.title}. #{self.first_name} #{self.last_name}"
   end
