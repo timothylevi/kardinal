@@ -14,9 +14,12 @@
 
 <p><small>Petition by:</small><br>
   <%= link_to @creator.name, user_url(@creator) %><br>
-  <%= @creator.contact_details.first.city %>,
-  <%= @creator.contact_details.first.state %></p>
-<hr>
+  <% if @creator.contact_details[0] %>
+  <% unless @creator.contact_details[0].city.blank? || @creator.contact_details[0].state.blank? %>
+    <%= @creator.contact_details[0].city %>, <%= @creator.contact_details[0].state %>
+    <% end %>
+    <% end %></p>
+  <hr>
 <p><small>Petition background:</small><br>
   <%= @petition.background %></p>
 <p><small>Petition text:</small><br>
