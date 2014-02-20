@@ -12,7 +12,7 @@
 <% unless @petition.recipients.empty? %>
 <ul>Petitioning
   <% @petition.recipients.each do |recipient| %>
-  <li><%= recipient.prettify_title %></li>
+  <li><%= recipient.list_name %></li>
   <% end %>
 </ul>
 <% end %>
