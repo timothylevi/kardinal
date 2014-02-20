@@ -34,9 +34,9 @@ class ContactDetail < ActiveRecord::Base
   belongs_to :contactable, polymorphic: true
 
   def self.states
-    %w(n/a AL AK AZ AR CA CO CT DE DC FL GA HI ID IL IN IA KS KY
-           LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH
-           OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY PR AS GU
-           MP VI UM FM PW)
+    %w(-- AL AK AZ AR CA CO CT DE DC FL GA HI ID IL IN IA KS KY
+          LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH
+          OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY PR AS GU
+          MP VI UM FM PW)
   end
 end
