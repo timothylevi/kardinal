@@ -47,6 +47,11 @@ class User < ActiveRecord::Base
     SecureRandom.urlsafe_base64(16)
   end
 
+  def image_from_url(url="https://s3.amazonaws.com/changeorg_clone_dev/default.png")
+    self.image = URI.parse(url)
+    self.save!
+  end
+
   def ensure_tokens # tested!
     self.pwreset_token ||= User.generate_token
     self.activation_token ||= User.generate_token
