@@ -19,8 +19,8 @@ class User < ActiveRecord::Base
   attr_reader :first_name, :last_name, :password
 
   has_attached_file :image, :styles => {
-    :big => "200x200#",
-    :small => "25x25#"
+    :profile => "200x200#",
+    :thumbnail => "25x25#"
   }
 
   before_validation :ensure_tokens # tested!
