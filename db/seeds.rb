@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Congress.key = "676f1c6b8413438eab6c84708c2a69a4"
+Congress.key = ENV["CONGRESS_KEY"]
 
 # 100.times do |i|
 #   User.create!(email: Faker::Internet.safe_email,
