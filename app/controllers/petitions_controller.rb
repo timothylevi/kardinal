@@ -3,9 +3,8 @@ class PetitionsController < ApplicationController
     @petitions = Petition.get_non_victories # Petition.includes(:signatures)
   end
 
-  # is there a better way to do this?
   def show
-    @petition = Petition.find(params[:id])
+    @petition = Petition.includes(creator: :contact_details).find(params[:id])
     @creator = @petition.creator
     @petition_signature = PetitionSignature.find_single(current_user.id, @petition.id) || PetitionSignature.new
   end
