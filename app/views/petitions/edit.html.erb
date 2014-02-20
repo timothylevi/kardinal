@@ -1,4 +1,4 @@
-<%= render "form", petition: @petition %>
+<%= render "form", petition: @petition, recipients: @recipients %>
 
 <h2>Declare a Victory</h2>
 <form action="<%= petition_victories_url(@petition) %>" method="post">
