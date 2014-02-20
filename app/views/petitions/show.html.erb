@@ -30,8 +30,6 @@
 <p><small>Petition text:</small><br>
   <%= @petition.body %></p>
 
-  <%#= button_to "Sign", petition_petition_signature_index_url(@petition)%>
-
   <form
     action="<%= petition_petition_signature_index_url(@petition) %>"
     method="post">
