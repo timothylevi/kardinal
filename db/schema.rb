@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140220145024) do
+ActiveRecord::Schema.define(:version => 20140220150206) do
 
   create_table "contact_details", :force => true do |t|
     t.string   "street_address"
@@ -61,10 +61,12 @@ ActiveRecord::Schema.define(:version => 20140220145024) do
     t.datetime "updated_at",                        :null => false
     t.string   "approved",   :default => "Pending"
     t.integer  "goal"
+    t.boolean  "victory"
   end
 
   add_index "petitions", ["creator_id", "title"], :name => "index_petitions_on_creator_id_and_title"
   add_index "petitions", ["creator_id"], :name => "index_petitions_on_creator_id"
+  add_index "petitions", ["victory"], :name => "index_petitions_on_victory"
 
   create_table "recipients", :force => true do |t|
     t.string   "title",       :null => false
