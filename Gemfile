@@ -9,7 +9,7 @@ gem 'figaro'
 gem 'bcrypt-ruby', require: 'bcrypt'
 gem 'annotate'
 gem 'congress'
-gem 'paperclip'
+gem 'paperclip', '~> 3.5.3'
 gem 'aws-sdk'
 
 # Gems used only for assets and not required

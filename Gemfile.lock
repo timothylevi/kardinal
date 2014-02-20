@@ -126,7 +126,7 @@ GEM
     multipart-post (1.2.0)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
-    paperclip (4.1.0)
+    paperclip (3.5.4)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
@@ -226,7 +226,7 @@ DEPENDENCIES
   guard-rspec
   jquery-rails
   launchy
-  paperclip
+  paperclip (~> 3.5.3)
   pg
   rails (= 3.2.16)
   rspec-rails

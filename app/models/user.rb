@@ -15,7 +15,7 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :password, :name, :contact_details
+  attr_accessible :email, :password, :name, :contact_details, :image
   attr_reader :first_name, :last_name, :password
 
   before_validation :ensure_tokens # tested!
@@ -26,6 +26,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true } # tested!
   validates :activated, inclusion: {in: ["t", "f"]}
 
+  has_one :image, as: :imageable, dependent: :destroy
   has_many :recipients, foreign_key: :creator_id
   has_many :petition_signatures, dependent: :destroy
   has_many :contact_details, as: :contactable, dependent: :destroy

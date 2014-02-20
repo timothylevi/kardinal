@@ -1,5 +1,6 @@
 <h2>Edit Profile</h2>
-<form action="<%= user_url(@user) %>" method="post">
+<form action="<%= user_url(@user) %>" method="post"
+      enctype="multipart/form-data">
   <input type="hidden" name="_method" value="put">
   <input type="hidden" name="authenticity_token"
          value="<%= form_authenticity_token %>">
@@ -12,6 +13,11 @@
     <li><%= message %></li>
   <% } %>
   </ul>
+
+  <label>Photo:<br>
+    <input type="file" name="user[image]" value="">
+  </label><br>
+
   <label>Email:<br>
     <input type="text" name="user[email]"
            value="<%= @user.email %>">
