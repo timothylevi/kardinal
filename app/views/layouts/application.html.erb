@@ -14,6 +14,8 @@
       <% if logged_in? %>
       <li><%= link_to current_user.name, me_url %></li>
       <li><%= button_to "Log out", session_url, method: :delete %></li>
+      <% else %>
+      <li><%= link_to "Sign In", login_url %>
       <% end %>
     </ul>
   </nav>
