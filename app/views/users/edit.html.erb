@@ -33,8 +33,13 @@
   </label><br>
 
   <label>State:<br>
-    <input type="text" name="contact_details[state]"
-           value="<%= @contact_detail.state %>">
+    <select name="contact_details[state]">
+      <% ContactDetail.states.each do |state| %>
+      <option value="<%= state %>" <%= "selected" if @contact_detail.state == state %>>
+        <%= state %>
+      </option>
+      <% end %>
+    </select>
   </label><br>
 
   <label>Zip:<br>
