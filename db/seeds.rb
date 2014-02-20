@@ -54,11 +54,12 @@ legislators.each do |legislator|
     first_name: legislator[:first_name],
     middle_name: legislator[:middle_name],
     last_name: legislator[:last_name],
-    bioguide_id: legislator[:bioguide_id])
+    bioguide_id: legislator[:bioguide_id],
+    gov_state: legislator[:state],
+    office: legislator[:office],
+    party: legislator[:party])
 
   recipient.contact_details.create!(
-    street_address: legislator[:office],
-    state: legislator[:state_name],
     phone: legislator[:phone],
     birthday: legislator[:birthday],
     website: legislator[:website],
