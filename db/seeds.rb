@@ -1,17 +1,15 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
+# User.destroy_all
+# ContactDetail.destroy_all
+# Petition.destroy_all
+# Victory.destroy_all
+# Recipient.destroy_all
+# PetitionRecipient.destroy_all
+# PetitionSignature.destroy_all
 #
-# Examples:
+# -----
 #
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
-Congress.key = ENV["CONGRESS_KEY"]
-u = User.create!(
-              email: "tlc9406@gmail.com",
-              password: "password",
-              name: "Timothy Levi Campbell")
-
+# Congress.key = ENV["CONGRESS_KEY"]
+#
 # def create_petition(user, count)
 #   count.times do |i|
 #     user.petitions.create(
@@ -25,14 +23,21 @@ u = User.create!(
 #   petition.create_victory(
 #   description: Faker::Lorem.paragraph(1),
 #   message: Faker::Lorem.paragraph(6))
+#   petition.update_attributes(is_victory: true)
 # end
 #
-# 200.times do |i|
+# u = User.create!(
+#               email: "tlc9406@gmail.com",
+#               password: "password",
+#               name: "Timothy Levi Campbell")
+#
+# 100.times do |i|
 #   name = Faker::Name.name
 #
-#   User.create(email: Faker::Internet.email(name),
+#   u = User.new(email: Faker::Internet.email(name),
 #               password: "password",
 #               name: name)
+#   u.image_from_url
 # end
 #
 # User.find_in_batches do |batch|
@@ -56,37 +61,51 @@ u = User.create!(
 # end
 #
 # 10000.times do
-#   j = rand(User.first.id..User.last.id)
-#   k = rand(Petition.first.id..Petition.last.id)
+#   j = User.find(rand(User.first.id..User.last.id))
+#   k = Petition.find(rand(Petition.first.id..Petition.last.id))
 #   unless PetitionSignature.find_single(j, k)
-#     PetitionSignature.create(user_id: j, petition_id: k)
+#     PetitionSignature.create(user_id: j.id, petition_id: k.id)
 #   end
 # end
+#
 
-legislators = Congress.legislators(per_page: "all")[:results]
-
-legislators.each do |legislator|
-  recipient = u.recipients.create(
-    title: legislator[:title],
-    first_name: legislator[:first_name],
-    middle_name: legislator[:middle_name],
-    last_name: legislator[:last_name],
-    bioguide_id: legislator[:bioguide_id],
-    gov_state: legislator[:state],
-    office: legislator[:office],
-    party: legislator[:party])
-
-  recipient.contact_details.create(
-    phone: legislator[:phone],
-    birthday: legislator[:birthday],
-    website: legislator[:website],
-    contact_form: legislator[:contact_form],
-    twitter_id: legislator[:twitter_id],
-    facebook_id: legislator[:facebook_id],
-    zip: "xxxxx"
-  )
-end
-
+# u = User.first
+#
+# legislators = Congress.legislators(per_page: "all")[:results]
+#
+# legislators.each do |legislator|
+#   recipient = u.recipients.create(
+#     title: legislator[:title],
+#     first_name: legislator[:first_name],
+#     middle_name: legislator[:middle_name],
+#     last_name: legislator[:last_name],
+#     bioguide_id: legislator[:bioguide_id],
+#     gov_state: legislator[:state],
+#     office: legislator[:office],
+#     party: legislator[:party])
+#
+#   recipient.contact_details.create(
+#     phone: legislator[:phone],
+#     birthday: legislator[:birthday],
+#     website: legislator[:website],
+#     contact_form: legislator[:contact_form],
+#     twitter_id: legislator[:twitter_id],
+#     facebook_id: legislator[:facebook_id],
+#     zip: "xxxxx"
+#   )
+# end
+#
+#
+# User.find_in_batches do |batch|
+#   batch.each do |user|
+#     if (user.id % 2 == 0)
+#       create_petition(user, 1)
+#     elsif (user.id % 3 == 0)
+#       create_petition(user, 2)
+#     end
+#   end
+# end
+#
 # Petition.find_in_batches do |batch|
 #   batch.each do |petition|
 #     3.times do
