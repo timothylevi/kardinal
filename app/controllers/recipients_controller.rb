@@ -6,6 +6,7 @@ class RecipientsController < ApplicationController
 
   def create
     @recipient = Recipient.new(params[:recipient])
+    @recipient.creator_id = current_user.id
     @contact_detail = ContactDetail.new(params[:contact_detail])
 
     if @recipient.save &&
