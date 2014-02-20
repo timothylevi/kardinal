@@ -2,16 +2,20 @@
 #
 # Table name: users
 #
-#  id               :integer          not null, primary key
-#  email            :string(255)      not null
-#  pw_digest        :string(255)      not null
-#  name             :string(255)      not null
-#  pwreset_token    :string(255)      not null
-#  session_token    :string(255)      not null
-#  created_at       :datetime         not null
-#  updated_at       :datetime         not null
-#  activated        :string(255)      default("f")
-#  activation_token :string(255)
+#  id                 :integer          not null, primary key
+#  email              :string(255)      not null
+#  pw_digest          :string(255)      not null
+#  name               :string(255)      not null
+#  pwreset_token      :string(255)      not null
+#  session_token      :string(255)      not null
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  activated          :string(255)      default("f")
+#  activation_token   :string(255)
+#  image_file_name    :string(255)
+#  image_content_type :string(255)
+#  image_file_size    :integer
+#  image_updated_at   :datetime
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl
