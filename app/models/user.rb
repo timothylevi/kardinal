@@ -38,6 +38,11 @@ class User < ActiveRecord::Base
 
   has_many :signed_petitions, through: :petition_signatures, source: :petition
 
+  has_attached_file :image, :styles => {
+    :big => "200x200#",
+    :small => "25x25#"
+  }
+
   def self.generate_token # tested!
     SecureRandom.urlsafe_base64(16)
   end
