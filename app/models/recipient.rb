@@ -19,7 +19,7 @@ class Recipient < ActiveRecord::Base
   attr_accessible :title, :first_name, :middle_name, :last_name,
                   :bioguide_id, :gov_state, :office, :party, :contact_details
 
-  validates :first_name, :last_name, :gov_state
+  validates :title, :first_name, :last_name, :gov_state, presence: true
 
   has_many :contact_details, as: :contactable, dependent: :destroy
   has_many :petition_recipients, dependent: :destroy
