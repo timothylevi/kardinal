@@ -26,7 +26,7 @@ class Recipient < ActiveRecord::Base
 
   has_many :petitions, through: :petition_recipients, source: :petition
 
-  def self.possible_titles
+  def self.list_titles
     %w(Mr Ms Mx Sen Rep Del Com)
   end
 

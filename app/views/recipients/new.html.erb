@@ -15,7 +15,7 @@
 
   <label>Title:<br>
     <select name="recipient[title]">
-      <% Recipient.possible_titles.each do |title| %>
+      <% Recipient.list_titles.each do |title| %>
       <option value="<%= title %>" <%= "selected" if @recipient.title == title %>>
         <%= title %>
       </option>
