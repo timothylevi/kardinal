@@ -14,6 +14,7 @@
 #  office      :string(255)
 #  party       :string(255)
 #  email       :string(255)
+#  creator_id  :integer
 #
 
 require 'spec_helper'

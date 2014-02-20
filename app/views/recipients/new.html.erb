@@ -61,6 +61,11 @@
     <li><%= message %></li>
   <% } %>
 
+  <label>Email:<br>
+    <input type="text" name="recipient[email]"
+           value="<%= @recipient.email %>">
+  </label><br>
+
   <label>Street Address:<br>
     <input type="text" name="contact_details[street_address]"
            value="<%= @contact_detail.street_address %>">
