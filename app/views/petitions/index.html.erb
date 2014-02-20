@@ -8,7 +8,9 @@
       <% else %>
         <% text = "Sign" %>
       <% end %>
-      by: <%= link_to petition.creator.name, user_url(petition.creator) %> ·
+      <%# this cond will need to be changed by adding a default image for users %>
+      <img src="<%= petition.creator.image.url(:thumbnail) %>">
+      <%= link_to petition.creator.name, user_url(petition.creator) %> ·
       <%= petition.petition_signatures.length %> signatures ·
 
       <%= link_to text, petition_url(petition) %>

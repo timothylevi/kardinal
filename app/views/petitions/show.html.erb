@@ -18,6 +18,7 @@
 <% end %>
 
 <p><small>Petition by:</small><br>
+  <img src="<%= @creator.image.url(:thumbnail) %>">
   <%= link_to @creator.name, user_url(@creator) %><br>
   <% if @creator.contact_details[0] %>
   <% unless @creator.contact_details[0].city.blank? || @creator.contact_details[0].state.blank? %>

@@ -3,7 +3,8 @@
   <li>
     <h3><%= link_to victory.petition.title, petition_url(victory.petition) %></h3>
     <summary>
-      by: <%= link_to victory.petition.creator.name, user_url(victory.petition.creator) %> ·
+      <img src="<%= victory.petition.creator.image.url(:thumbnail) %>">
+      <%= link_to victory.petition.creator.name, user_url(victory.petition.creator) %> ·
       <%= victory.petition.petition_signatures.length %> signatures · <%= victory.created_at %>
     </summary>
     <p>
