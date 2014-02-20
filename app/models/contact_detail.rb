@@ -28,8 +28,8 @@ class ContactDetail < ActiveRecord::Base
                   :description, :website, :contactable_id,
                   :contactable_type
 
-  validates :zip, :contactable_id, :contactable_type,
-            presence: true
+  validates :zip, presence: true
+  # validates :contactable_id, :contactable_type, presence: true
 
   belongs_to :contactable, polymorphic: true
 
