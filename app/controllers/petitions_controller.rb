@@ -4,7 +4,7 @@ class PetitionsController < ApplicationController
   end
 
   def show
-    @petition = Petition.includes(creator: :contact_details).find(params[:id])
+    @petition = Petition.includes(:recipients, creator: :contact_details).find(params[:id])
     @creator = @petition.creator
     @petition_signature = PetitionSignature.find_single(current_user.id, @petition.id) || PetitionSignature.new
   end
