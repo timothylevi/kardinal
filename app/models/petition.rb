@@ -17,7 +17,7 @@ class Petition < ActiveRecord::Base
   attr_accessible :title, :body, :background, :recipient_ids
 
   validates :title, :body, :background, presence: true
-  validates :title, uniqueness: true
+  # validates :title, uniqueness: true
   validates :approved, inclusion: {in: %w(Approved Pending Denied)}
 
   belongs_to :creator,
