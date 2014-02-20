@@ -13,11 +13,13 @@
 #  gov_state   :string(255)
 #  office      :string(255)
 #  party       :string(255)
+#  email       :string(255)
 #
 
 class Recipient < ActiveRecord::Base
   attr_accessible :title, :first_name, :middle_name, :last_name,
-                  :bioguide_id, :gov_state, :office, :party, :contact_details
+                  :bioguide_id, :gov_state, :office, :party,
+                  :email
 
   validates :title, :first_name, :last_name, :gov_state, presence: true
 

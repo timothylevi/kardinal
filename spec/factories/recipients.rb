@@ -13,6 +13,7 @@
 #  gov_state   :string(255)
 #  office      :string(255)
 #  party       :string(255)
+#  email       :string(255)
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl
