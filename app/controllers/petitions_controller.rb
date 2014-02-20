@@ -33,6 +33,7 @@ class PetitionsController < ApplicationController
   def edit
     @petition = Petition.find(params[:id])
     @creator = @petition.creator
+    @recipients = Recipient.order(:gov_state, :last_name)
 
     if current_user != @creator
       flash[:show] = "You can only edit petitions you've created."
