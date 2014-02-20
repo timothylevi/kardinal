@@ -22,12 +22,15 @@ class Recipient < ActiveRecord::Base
                   :bioguide_id, :gov_state, :office, :party,
                   :email
 
-  validates :title, :first_name, :last_name, :gov_state, presence: true
+  validates :title, :first_name, :last_name, :gov_state,
+            :creator_id, presence: true
 
   has_many :contact_details, as: :contactable, dependent: :destroy
   has_many :petition_recipients, dependent: :destroy
 
   has_many :petitions, through: :petition_recipients, source: :petition
+
+  belongs_to :creator, class_name: "User"
 
   def self.list_titles
     %w(Mr Ms Mx Sen Rep Del Com)
