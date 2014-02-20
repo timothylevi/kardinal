@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
 
   def me
+    # can this be optimized as much as User#show?
     @user = current_user
     @contact_detail = @user.contact_details.first
   end
