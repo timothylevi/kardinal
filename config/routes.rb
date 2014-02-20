@@ -6,6 +6,8 @@ Cardinal::Application.routes.draw do
     resources :victories, only: :create
   end
 
+  resources :recipients, only: [:new, :update]
+
   resources :victories, only: [:index, :create]
 
   get '/login', to: 'sessions#new'
