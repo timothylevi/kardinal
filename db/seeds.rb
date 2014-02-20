@@ -7,6 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Congress.key = ENV["CONGRESS_KEY"]
+u = User.create!(
+              email: "tlc9406@gmail.com",
+              password: "password",
+              name: "Timothy Levi Campbell")
 
 # def create_petition(user, count)
 #   count.times do |i|
@@ -62,7 +66,7 @@ Congress.key = ENV["CONGRESS_KEY"]
 legislators = Congress.legislators(per_page: "all")[:results]
 
 legislators.each do |legislator|
-  recipient = Recipient.create(
+  recipient = u.recipients.create(
     title: legislator[:title],
     first_name: legislator[:first_name],
     middle_name: legislator[:middle_name],
