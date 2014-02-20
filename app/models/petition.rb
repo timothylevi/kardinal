@@ -25,7 +25,7 @@ class Petition < ActiveRecord::Base
     foreign_key: :creator_id,
     primary_key: :id
 
-  has_many :petition_signatures
+  has_many :petition_signatures, dependent: :destroy
   has_many :petition_recipients, dependent: :destroy
 
   has_many :recipients, through: :petition_recipients, source: :recipient

@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true } # tested!
   validates :activated, inclusion: {in: ["t", "f"]}
 
-  has_many :petition_signatures
+  has_many :petition_signatures, dependent: :destroy
   has_many :contact_details, as: :contactable, dependent: :destroy
   has_many :petitions,
     class_name: "Petition",
