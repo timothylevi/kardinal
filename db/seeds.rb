@@ -85,6 +85,8 @@ puts "5. Start Creating PetitionSignatures"
 end
 puts "   End Creating PetitionSignatures"
 
+m = User.first
+
 puts "6. Creates Recipients"
 
 legislators = Congress.legislators(per_page: "all")[:results]
@@ -109,8 +111,6 @@ legislators.each do |legislator|
     facebook_id: legislator[:facebook_id],
     zip: "xxxxx"
   )
-
-  recipient.set_image
 end
 puts "   Finishes creating recipients"
 
