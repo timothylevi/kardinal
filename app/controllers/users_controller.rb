@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
-  before_filter :require_logged_in
+  before_filter :require_logged_in, except: :new
+
+  def new
+    @user = User.new
+  end
 
   def show
     @user = User.includes(:contact_details, :signed_petitions, petitions: :victory).find(params[:id])
@@ -23,8 +27,6 @@ class UsersController < ApplicationController
 
     if @user.update_attributes(params[:user]) &&
       @contact_detail.update_attributes(params[:contact_details])
-
-      @user.image_from_url unless params[:user][:image]
 
       flash[:notices] = "Your profile was successfully updated!"
       redirect_to me_url
