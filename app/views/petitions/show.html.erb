@@ -10,14 +10,17 @@
 <% end %>
 
 <% unless @petition.recipients.empty? %>
-<ul>Petitioning
-  <% @petition.recipients.each do |recipient| %>
-  <li>
-    <img src="<%= recipient.image.url(:thumbnail) %>">
-    <%= recipient.list_name %>
-  </li>
-  <% end %>
-</ul>
+<details>
+  <summary>Petitioning:</summary>
+  <ul>
+    <% @petition.recipients.each do |recipient| %>
+    <li>
+      <img src="<%= recipient.image.url(:thumbnail) %>">
+      <%= recipient.list_name %>
+    </li>
+    <% end %>
+  </ul>
+</details>
 <% end %>
 
 <p><small>Petition by:</small><br>
