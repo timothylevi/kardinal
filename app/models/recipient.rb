@@ -49,6 +49,7 @@ class Recipient < ActiveRecord::Base
       begin
         recipient.image = url
         recipient.save
+        puts "Saving image for #{recipient.list_name}..."
       rescue
       end
     end
