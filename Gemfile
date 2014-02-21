@@ -5,6 +5,8 @@ gem 'pg'
 gem 'figaro'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'faker'
+
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -29,7 +31,7 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
-  gem 'faker'
+  # gem 'faker'
   gem 'better_errors'
   gem 'binding_of_caller'
 end
