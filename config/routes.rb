@@ -1,6 +1,6 @@
 Cardinal::Application.routes.draw do
-  resource :session, only: [:create, :destroy]
-  resources :users, only: [:update, :destroy, :show]
+  resource :session, only: [:new, :create, :destroy]
+  resources :users, only: [:new, :update, :destroy, :show]
   resources :petitions do
     resources :petition_signatures, only: :create, as: :petition_signature
     resources :victories, only: :create
@@ -16,7 +16,7 @@ Cardinal::Application.routes.draw do
   get '/me', to: 'users#me'
   get '/me/edit', to: 'users#edit'
 
-  root to: "sessions#new"
+  root to: "static_pages#root"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
