@@ -1,4 +1,5 @@
 <form action="<%= session_url %>" method="post">
+  <a href="/auth/facebook">Sign In via Facebook</a>
   <ul>
   <% user.errors.full_messages.try(:each) { |message| %>
     <li><%= message %></li>

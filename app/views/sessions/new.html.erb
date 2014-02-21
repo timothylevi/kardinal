@@ -1,6 +1,6 @@
-<h2>Sign Up or Log In</h2>
-
 <form action="<%= session_url %>" method="post">
+  <h2>Sign Up or Log In</h2>
+  <a href="/auth/facebook">Sign In via Facebook</a>
   <ul>
   <% @user.errors.full_messages.try(:each) { |message| %>
     <li><%= message %></li>
