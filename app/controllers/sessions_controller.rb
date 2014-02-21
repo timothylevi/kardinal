@@ -13,12 +13,20 @@ class SessionsController < ApplicationController
       if @user
         login(@user)
         flash[:notices] = "Welcome back, #{@user.first_name}!"
-        redirect_to me_url
+        # DONE
+        # if a user does exist with an associated fb uid
+        # user should be redirected back to the root url
+        redirect_to root_url
       else
         @user = User.create_from_fb(fb_data)
         login(@user)
         flash[:notices] = "Welcome, #{@user.first_name}!"
-        redirect_to me_url
+        # DONE
+        # if a user does not exist by fb uid
+        # then they should be created (^)
+        # upon successful creation
+        # user should be redirected to their edit page
+        redirect_to me_edit_url
       end
 
     else
@@ -28,9 +36,16 @@ class SessionsController < ApplicationController
         if @user.is_password?(params[:user][:password])
           login(@user)
           flash[:notices] = "Welcome back, #{@user.first_name}!"
+          # DONE
+          # if a user does exist, and login is successful
+          # user should be redirected to the root page
           redirect_to root_url
         else
           flash.now[:errors] = "Your username or password is incorrect."
+          # DONE
+          # if a user does exist, but has errors upon login
+          # then they should go to Session#new and
+          # flash login errors
           render :new
         end
       else
@@ -40,9 +55,17 @@ class SessionsController < ApplicationController
         if create_user(@user, contact).valid?
           login(@user)
           flash[:notices] = "Welcome, #{@user.first_name}!"
+          # DONE
+          # if a user does not exist and user creation is valid
+          # then they should go to their edit page
           redirect_to me_edit_url
         else
-          render :new
+          # DONE-ish
+          # if a user does not exist and has errors upon creation
+          # then they should go to a User#new view
+          # and flash the errors
+          flash[:errors] = @user.errors.full_messages
+          redirect_to new_user_url
         end
       end
     end
