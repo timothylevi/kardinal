@@ -64,7 +64,6 @@ class User < ActiveRecord::Base
     u.contact_details.create(
       zip: "Please set!",
       facebook_id: u.uid,
-      website: fb_data[:info][:urls][:Facebook],
       city: location[0],
       state: location[1])
     return u
