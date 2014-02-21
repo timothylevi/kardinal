@@ -51,10 +51,24 @@ class User < ActiveRecord::Base
     SecureRandom.urlsafe_base64(16)
   end
 
-  # def set_image(url="https://s3.amazonaws.com/changeorg_clone_dev/default.png")
-  #   puts " -- Saving #{self.name}'s image"
-  #   self.image = URI.parse(url)
-  # end
+  def self.create_from_fb(fb_data)
+    location = fb_data[:info][:location].split(", ") if fb_data[:info][:location]
+
+    u = User.create!(
+      uid: fb_data[:uid],
+      provider: fb_data[:provider],
+      email: fb_data[:info][:email],
+      name: fb_data[:info][:name],
+      password: Faker::Internet.password,
+      image: fb_data[:info][:image])
+    u.contact_details.create(
+      zip: "Please set!",
+      facebook_id: u.uid,
+      website: fb_data[:info][:urls][:Facebook],
+      city: location[0],
+      state: location[1])
+    return u
+  end
 
   def ensure_tokens # tested!
     self.pwreset_token ||= User.generate_token
