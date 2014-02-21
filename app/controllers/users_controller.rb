@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     @contact_detail = @user.contact_details.first
-
+    fail
     if @user.update_attributes(params[:user]) &&
       @contact_detail.update_attributes(params[:contact_details])
 

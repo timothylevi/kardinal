@@ -44,23 +44,27 @@ class Recipient < ActiveRecord::Base
 
   belongs_to :creator, class_name: "User"
 
+  def self.set_images
+    Recipient.all.each do |recipient|
+
+      url = "http://theunitedstates.io/images/congress/original/#{recipient.bioguide_id}.jpg"
+
+      begin
+        # p url
+        # p open(url)
+        # puts
+        recipient.image = open(url)
+        recipient.save
+      rescue
+      end
+    end
+  end
+
   def self.list_titles
     %w(Mr Ms Mx Sen Rep Del Com)
   end
 
   def list_name
     return "#{self.gov_state} #{self.title}. #{self.first_name} #{self.last_name}"
-  end
-
-  def set_image
-    url = "http://theunitedstates.io/images/congress/original/#{self.bioguide_id}.jpg"
-
-    puts "#{self.list_name} -  #{url}"
-
-    begin
-      self.image = URI.parse(url)
-    rescue
-      return
-    end
   end
 end
