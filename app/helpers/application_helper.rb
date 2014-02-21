@@ -19,7 +19,7 @@ module ApplicationHelper
     @current_user ||= User.find_by_session_token(session[:token])
   end
 
-  def logout
+  def logout!
     current_user.reset_session_token!
     session[:token] = nil
     # session[:last_visited] = nil

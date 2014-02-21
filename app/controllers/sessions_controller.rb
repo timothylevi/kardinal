@@ -50,7 +50,7 @@ class SessionsController < ApplicationController
 
   def destroy
     @user = current_user
-    logout
+    logout!
 
     flash[:notices] = "See you next time, #{@user.first_name}."
     redirect_to login_url
