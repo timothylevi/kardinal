@@ -28,7 +28,8 @@ class Recipient < ActiveRecord::Base
 
   has_attached_file :image, :styles => {
                       :profile => "200x200#",
-                      :thumbnail => "25x25#"}
+                      :thumbnail => "25x25#"},
+  :default_url => "https://s3.amazonaws.com/changeorg_clone_dev/default_:style.png"
 
   validates :title, :first_name, :last_name, :gov_state,
             :creator_id, presence: true
