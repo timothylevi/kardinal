@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140220203351) do
+ActiveRecord::Schema.define(:version => 20140220205430) do
 
   create_table "contact_details", :force => true do |t|
     t.string   "street_address"
@@ -68,18 +68,22 @@ ActiveRecord::Schema.define(:version => 20140220203351) do
   add_index "petitions", ["creator_id"], :name => "index_petitions_on_creator_id"
 
   create_table "recipients", :force => true do |t|
-    t.string   "title",       :null => false
-    t.string   "first_name",  :null => false
+    t.string   "title",              :null => false
+    t.string   "first_name",         :null => false
     t.string   "middle_name"
     t.string   "last_name"
     t.string   "bioguide_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.string   "gov_state"
     t.string   "office"
     t.string   "party"
     t.string   "email"
     t.integer  "creator_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "recipients", ["bioguide_id"], :name => "index_recipients_on_bioguide_id"

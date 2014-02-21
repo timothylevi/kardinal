@@ -24,7 +24,8 @@ class User < ActiveRecord::Base
 
   has_attached_file :image, :styles => {
                       :profile => "200x200#",
-                      :thumbnail => "25x25#"}
+                      :thumbnail => "25x25#"},
+    :default_url => "https://s3.amazonaws.com/changeorg_clone_dev/default_:style.png"
 
   before_validation :ensure_tokens # tested!
 
@@ -52,10 +53,10 @@ class User < ActiveRecord::Base
     SecureRandom.urlsafe_base64(16)
   end
 
-  def image_from_url(url="https://s3.amazonaws.com/changeorg_clone_dev/default.png")
-    self.image = URI.parse(url)
-    self.save!
-  end
+  # def set_image(url="https://s3.amazonaws.com/changeorg_clone_dev/default.png")
+  #   puts " -- Saving #{self.name}'s image"
+  #   self.image = URI.parse(url)
+  # end
 
   def ensure_tokens # tested!
     self.pwreset_token ||= User.generate_token
