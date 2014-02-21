@@ -1,5 +1,4 @@
 puts "1. Start Destroying everything"
-
 User.destroy_all
 ContactDetail.destroy_all
 Petition.destroy_all
@@ -7,12 +6,11 @@ Victory.destroy_all
 Recipient.destroy_all
 PetitionRecipient.destroy_all
 PetitionSignature.destroy_all
-
 puts "   Finish Destroying everything\n"
+
 
 # -----
 
-Congress.key = ENV["CONGRESS_KEY"]
 
 def create_petition(user, count)
   count.times do |i|
@@ -30,13 +28,14 @@ def create_fake_victory(petition)
   petition.update_attributes(is_victory: true)
 end
 
+
 puts "2. Start Creating my account"
 m = User.create!(
               email: "tlc9406@gmail.com",
               password: "password",
               name: "Timothy Levi Campbell")
-
 puts "   Finish Creating my account\n"
+
 
 puts "3. Start Creating new users"
 50.times do |i|
@@ -50,6 +49,7 @@ puts "3. Start Creating new users"
   u.save!
 end
 puts "  Finish Creating new users\n"
+
 
 puts "4. Start Creating Contact Details and Petitions"
 User.find_in_batches do |batch|
@@ -75,6 +75,7 @@ User.find_in_batches do |batch|
 end
 puts "   End creating Contact Details and Petitions\n"
 
+
 puts "5. Start Creating PetitionSignatures"
 1000.times do |i|
   j = User.find(rand(User.first.id..User.last.id))
@@ -85,10 +86,10 @@ puts "5. Start Creating PetitionSignatures"
 end
 puts "   End Creating PetitionSignatures"
 
-m = User.first
 
 puts "6. Creates Recipients"
-
+Congress.key = ENV["CONGRESS_KEY"]
+m = User.first
 legislators = Congress.legislators(per_page: "all")[:results]
 
 legislators.each do |legislator|
@@ -114,9 +115,11 @@ legislators.each do |legislator|
 end
 puts "   Finishes creating recipients"
 
+
 puts "7. Sets images for Recipients"
 Recipient.set_images
 puts "   Finishes setting images for Recipients"
+
 
 puts "8. Creates PetitionRecipients"
 Petition.find_in_batches do |batch|
