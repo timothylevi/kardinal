@@ -16,7 +16,8 @@
       <li><%= link_to current_user.name, me_url %></li>
       <li><%= button_to "Log out", session_url, method: :delete %></li>
       <% else %>
-      <li><%= link_to "Sign In", login_url %>
+      <li><%= link_to "Sign In", login_url %></li>
+      <li><a href="/auth/facebook">Sign In via Facebook</a></li>
       <% end %>
     </ul>
   </nav>
