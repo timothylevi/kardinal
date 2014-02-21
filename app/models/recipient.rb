@@ -34,9 +34,6 @@ class Recipient < ActiveRecord::Base
   validates :title, :first_name, :last_name, :gov_state,
             :creator_id, presence: true
 
-  validates_attachment :image,
-    :content_type => { :content_type => ["image/jpg", "image/gif", "image/png"] }
-
   has_many :contact_details, as: :contactable, dependent: :destroy
   has_many :petition_recipients, dependent: :destroy
 
