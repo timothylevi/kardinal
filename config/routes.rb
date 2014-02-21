@@ -11,6 +11,8 @@ Cardinal::Application.routes.draw do
   resources :victories, only: [:index, :create]
 
   get '/login', to: 'sessions#new'
+  get 'auth/facebook/callback', to: 'sessions#create'
+
   get '/me', to: 'users#me'
   get '/me/edit', to: 'users#edit'
 
