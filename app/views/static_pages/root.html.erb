@@ -1,19 +1,22 @@
 <% unless logged_in? %>
+<h1>Sign Up or Log In</h1>
   <%= render "sessions/form", user: @user %>
 <% end %>
 
-<% if @petitions %>
+<% if @victories %>
+<h2><a href="<%= victories_url %>">Victories</a></h2>
 <ol>
-  <% @petitions.each do |petition| %>
-  <li><%= link_to petition.title, petition_url(petition) %></li>
+  <% @victories.each do |victory| %>
+  <li><%= link_to victory.petition.title, petition_url(victory.petition) %></li>
   <% end %>
 </ol>
 <% end %>
 
-<% if @victories %>
+<% if @petitions %>
+<h2><a href="<%= petitions_url %>">Popular Petitions</a></h2>
 <ol>
-  <% @victories.each do |victory| %>
-  <li><%= link_to victory.petition.title, petition_url(victory.petition) %></li>
+  <% @petitions.each do |petition| %>
+  <li><%= link_to petition.title, petition_url(petition) %></li>
   <% end %>
 </ol>
 <% end %>
