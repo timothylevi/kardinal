@@ -1,0 +1,19 @@
+<% unless logged_in? %>
+  <%= render "sessions/form", user: @user %>
+<% end %>
+
+<% if @petitions %>
+<ol>
+  <% @petitions.each do |petition| %>
+  <li><%= link_to petition.title, petition_url(petition) %></li>
+  <% end %>
+</ol>
+<% end %>
+
+<% if @victories %>
+<ol>
+  <% @victories.each do |victory| %>
+  <li><%= link_to victory.petition.title, petition_url(victory.petition) %></li>
+  <% end %>
+</ol>
+<% end %>
