@@ -76,6 +76,6 @@ class SessionsController < ApplicationController
     logout!
 
     flash[:notices] = "See you next time, #{@user.first_name}."
-    redirect_to login_url
+    redirect_to root_url
   end
 end
