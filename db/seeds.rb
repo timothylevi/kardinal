@@ -114,7 +114,11 @@ legislators.each do |legislator|
 end
 puts "   Finishes creating recipients"
 
-puts "7. Creates PetitionRecipients"
+puts "7. Sets images for Recipients"
+Recipient.set_images
+puts "   Finishes setting images for Recipients"
+
+puts "8. Creates PetitionRecipients"
 Petition.find_in_batches do |batch|
   batch.each do |petition|
     3.times do
