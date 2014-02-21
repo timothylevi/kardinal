@@ -36,9 +36,6 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true } # tested!
   validates :activated, inclusion: {in: ["t", "f"]}
 
-  # validates_attachment :image,
-  #   :content_type => { :content_type => ["image/jpg", "image/gif", "image/png"] }
-
   has_many :recipients, foreign_key: :creator_id
   has_many :petition_signatures, dependent: :destroy
   has_many :contact_details, as: :contactable, dependent: :destroy
