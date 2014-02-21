@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140220205430) do
+ActiveRecord::Schema.define(:version => 20140221145210) do
 
   create_table "contact_details", :force => true do |t|
     t.string   "street_address"
@@ -103,9 +103,12 @@ ActiveRecord::Schema.define(:version => 20140220205430) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["uid"], :name => "index_users_on_uid"
 
   create_table "victories", :force => true do |t|
     t.integer  "petition_id", :null => false
