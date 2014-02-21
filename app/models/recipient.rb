@@ -47,10 +47,7 @@ class Recipient < ActiveRecord::Base
       url = "http://theunitedstates.io/images/congress/original/#{recipient.bioguide_id}.jpg"
 
       begin
-        # p url
-        # p open(url)
-        # puts
-        recipient.image = open(url)
+        recipient.image = url
         recipient.save
       rescue
       end
