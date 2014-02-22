@@ -11,3 +11,165 @@
  *= require_self
  *= require_tree .
  */
+
+html, body, header, main,
+footer, div, ul, li, small,
+address, details, p, img,
+h1, h2, h3, h4, h5, h6, hr,
+ol, a, form, summary {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-family: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+  line-height: 100%;
+  color: black;
+  text-decoration: none;
+  outline: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+input[type="submit"] {
+  border: 0;
+  margin: 0;
+  padding: 0;d
+  font-family: inherit;
+  font-size: 100%;
+  -webkit-appearance: none;
+  outline: 0;
+}
+
+body {
+  font-family: sans-serif;
+  min-width: 22em;
+}
+
+.group:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+/*@media all and (max-width: 699px) and (min-width: 520px) {
+  body {
+    background: #ccc;
+  }
+}*/
+
+@media all and (max-width: 22em) {
+  header > nav > .main-links,
+  .fb-login {
+    display: none;
+  }
+
+  body {
+    font-size: 0.9em;
+    background-color: #D5D5D5;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  /* header and footer styles */
+
+  header {
+    background-color: #FAFAFA;
+    padding: 1em;
+  }
+
+  header img {
+    display: none;
+  }
+
+  header summary {
+    margin-bottom: 0.5em;
+  }
+
+  header .logo {
+    color: #E89267;
+    font-weight: bold;
+  }
+
+  header .user a {
+    color: #C1C1C1;
+  }
+
+  a.mild-action,
+  input[type="submit"].mild-action {
+    position: relative;
+    width: 100%;
+    padding: 0.5em;
+    background-color: #ddd;
+    border-radius: 0.25em;
+    box-shadow: 0 3px #a1a1a1;
+    font-weight: bold;
+    color: #888;
+  }
+
+  a.mild-action:hover,
+  input[type="submit"].mild-action:hover {
+    background-color: #ccc;
+    color:  #777;
+    text-decoration: none;
+  }
+
+  a.mild-action:active,
+  input[type="submit"].mild-action:active {
+    top: 3px;
+    box-shadow: none;
+  }
+
+  footer {
+    text-align: center;
+    border-top: 2px dotted #C1C1C1;
+    margin: 1em 1em;
+    padding-top: 0.5em;
+  }
+
+  footer li {
+    margin-left: 0.5em;
+    float: right;
+  }
+
+  footer li:before {
+    content: "· ";
+    color: #a1a1a1;
+  }
+
+  footer a {
+    color: #a1a1a1;
+  }
+
+  footer small {
+    color: #DB9E36;
+  }
+
+  footer small:before {
+    content: "© ";
+  }
+
+  /* form style */
+
+  main {
+    padding-top: 1em;
+    background: #DB9E36;
+  }
+
+  form {
+  }
+
+}
