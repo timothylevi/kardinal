@@ -12,8 +12,9 @@
   <%= link_to "Edit petition", edit_petition_url(@petition) %>
   <%= button_to "Delete petition", petition_url(@petition), method: :delete%>
 <% end %>
-
+<br><br>
 <% unless @petition.recipients.empty? %>
+
 <details>
   <summary>Petitioning:</summary>
   <ul>
