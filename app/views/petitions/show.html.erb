@@ -1,4 +1,5 @@
 <h2><%= @petition.title %></h2>
+<small>Status: <%= @petition.approved %></small>
 
 <% if @petition_signature.persisted? %>
 <h4>You've signed this petition!</h4>
