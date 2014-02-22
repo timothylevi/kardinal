@@ -28,6 +28,8 @@ class UsersController < ApplicationController
     if @user.update_attributes(params[:user]) &&
       @contact_detail.update_attributes(params[:contact_details])
 
+      @contact_detail.update_attributes(website: "http://#{@contact_detail.website}")
+
       flash[:notices] = "Your profile was successfully updated!"
       redirect_to me_url
     else
