@@ -61,9 +61,8 @@ body {
   float : right;
 }
 
-/* small screen */
-
-@media all and (max-width:22em) {
+/* smallmedium screen */
+@media all and (min-width: 22em) and (max-width: 33em) {
   header > nav > .main-links, .fb-login {
     display : none;
   }
@@ -85,7 +84,8 @@ body {
   }
 
   header img {
-    display : none;
+    width: 0.9em;
+    height: 0.9em;
   }
 
   header summary {
