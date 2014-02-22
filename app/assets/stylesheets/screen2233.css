@@ -1,12 +1,11 @@
 /* small-medium screen */
 @media all and (min-width: 22em) and (max-width: 33em) {
-  header > nav > .main-links, .fb-login {
+  .main-links, .fb-login {
     display : none;
   }
 
   body {
     font-size : 1em;
-    background-color : #D5D5D5;
   }
 
   /* header and footer styles */
@@ -54,31 +53,5 @@
   a.mild-action:active, input[type="submit"].mild-action:active {
     top : 3px;
     box-shadow : none;
-  }
-
-  footer {
-    text-align : center;
-    border-top : 2px dotted #C1C1C1;
-    margin : 1em 1em;
-    padding-top : 0.5em;
-  }
-
-  footer li {
-    margin-left : 0.5em;
-    float : right;
-  }
-
-  footer a,
-  footer li {
-    color : #a1a1a1;
-  }
-
-  footer small {
-    color : #DB9E36;
-  }
-
-  main {
-  padding-top : 1em;
-  background : #DB9E36;
   }
 }
