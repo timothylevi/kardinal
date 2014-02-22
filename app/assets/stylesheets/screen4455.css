@@ -1,0 +1,85 @@
+/* medium-large screen */
+@media all and (min-width: 44em) and (max-width: 55em) {
+  body {
+    font-size : 1.1em;
+  }
+
+  /* header and footer styles */
+
+  h2 {
+    font-size : 1.5em;
+  }
+
+  header {
+    background-color : #FAFAFA;
+    padding : 1em;
+  }
+
+  header img {
+    width: 1.1em;
+    height: 1.1em;
+  }
+
+  header a {
+    color : #C1C1C1;
+  }
+
+  header .main-links {
+    float: left;
+  }
+
+  header li {
+    float: left;
+  }
+
+  header .main-links li a {
+    margin-left: 1em;
+  }
+
+  header .main-links a:hover,
+  header .user a:hover {
+    color: #808080;
+    text-decoration: none;
+  }
+
+  .fb-login {
+    display: none;
+  }
+
+  a.mild-action,
+  input[type="submit"].mild-action {
+    position : relative;
+    font-size: .8em;
+    width : 100%;
+    padding : 0.5em;
+    background-color : #ddd;
+    border-radius : 0.25em;
+    box-shadow : 0 3px #a1a1a1;
+    font-weight : bold;
+    color : #888;
+    cursor: pointer;
+  }
+
+  input[type="submit"].mild-action {
+    margin-top: 0.5em;
+  }
+
+  a.mild-action:hover,
+  input[type="submit"].mild-action:hover {
+    background-color : #ccc;
+    color : #777;
+    text-decoration : none;
+  }
+
+  a.mild-action:active,
+  input[type="submit"].mild-action:active {
+    top : 3px;
+    box-shadow : none;
+  }
+
+  a.copy {
+    display: inline;
+    font-weight: bold;
+    color: #F1986B;
+  }
+}
