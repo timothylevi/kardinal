@@ -1,11 +1,11 @@
-/* small screen */
-@media all and (max-width:22em) {
+/* medium screen */
+@media all and (min-width: 33em) and (max-width: 44em) {
   header > nav > .main-links, .fb-login {
     display : none;
   }
 
   body {
-    font-size : 0.9em;
+    font-size : 1.1em;
     background-color : #D5D5D5;
   }
 
@@ -21,19 +21,18 @@
   }
 
   header img {
-    display : none;
-  }
-
-  header summary {
-    margin-bottom : 0.5em;
+    width: 1.1em;
+    height: 1.1em;
   }
 
   header .user a {
     color : #C1C1C1;
   }
 
-  a.mild-action, input[type="submit"].mild-action {
-  position : relative;
+  a.mild-action,
+  input[type="submit"].mild-action {
+    position : relative;
+    font-size: .8em;
     width : 100%;
     padding : 0.5em;
     background-color : #ddd;
@@ -41,16 +40,22 @@
     box-shadow : 0 3px #a1a1a1;
     font-weight : bold;
     color : #888;
-  }
-
-  a.mild-action:hover, input[type="submit"].mild-action:hover {
-    background-color : #ccc;
-    color : #777;
-    text-decoration : none;
     cursor: pointer;
   }
 
-  a.mild-action:active, input[type="submit"].mild-action:active {
+  input[type="submit"].mild-action {
+    margin-top: 0.5em;
+  }
+
+  a.mild-action:hover,
+  input[type="submit"].mild-action:hover {
+    background-color : #ccc;
+    color : #777;
+    text-decoration : none;
+  }
+
+  a.mild-action:active,
+  input[type="submit"].mild-action:active {
     top : 3px;
     box-shadow : none;
   }

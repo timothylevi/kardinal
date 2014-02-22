@@ -1,11 +1,11 @@
-/* small screen */
-@media all and (max-width:22em) {
+/* small-medium screen */
+@media all and (min-width: 22em) and (max-width: 33em) {
   header > nav > .main-links, .fb-login {
     display : none;
   }
 
   body {
-    font-size : 0.9em;
+    font-size : 1em;
     background-color : #D5D5D5;
   }
 
@@ -21,7 +21,8 @@
   }
 
   header img {
-    display : none;
+    width: 1em;
+    height: 1em;
   }
 
   header summary {
