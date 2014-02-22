@@ -5,6 +5,9 @@
 <h4>You've signed this petition!</h4>
 <% end %>
 
+<summary><%= @petition.petition_signatures.count %> signatures</summary>
+<small><%= @petition.goal %> needed</small>
+
 <% if current_user == @petition.creator && @petition.victory.nil? %>
   <%= link_to "Edit petition", edit_petition_url(@petition) %>
   <%= button_to "Delete petition", petition_url(@petition), method: :delete%>
