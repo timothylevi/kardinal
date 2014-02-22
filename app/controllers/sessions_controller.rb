@@ -60,11 +60,12 @@ class SessionsController < ApplicationController
           # then they should go to their edit page
           redirect_to me_edit_url
         else
-          # DONE-ish
+          # DONE
           # if a user does not exist and has errors upon creation
           # then they should go to a User#new view
           # and flash the errors
           flash[:errors] = @user.errors.full_messages
+
           redirect_to new_user_url
         end
       end
