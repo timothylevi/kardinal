@@ -45,6 +45,9 @@ input[type="submit"] {
 body {
   font-family : sans-serif;
   min-width : 22em;
+  background-color : #FAFAFA;
+  max-width: 65em;
+  margin: auto;
 }
 
 .group:after {
@@ -65,22 +68,42 @@ header .logo {
   color : #E89267;
   font-weight : bold;
   padding-bottom: 2px;
-  border-bottom: 1px dashed #E89267;
+  border-bottom: 1px dashed #F1986B;
   text-decoration: none;
 }
 
 header .logo:hover {
-  border-bottom: 1px solid #E89267;
+  border-bottom: 1px solid #F1986B;
 }
 
-@media all and (min-width: 55em) {
-  body {
-    background-color: red;
-  }
+footer {
+  text-align : center;
+  border-top : 1px dotted #F1986B;
+  margin : 1em 1em;
+  padding-top : 0.5em;
 }
 
-@media all and (min-width: 44em) and (max-width: 55em) {
-  body {
-    background-color: pink;
-  }
+footer li {
+  margin-left : 0.5em;
+  float : left;
+}
+
+footer a,
+footer li {
+  color : #a1a1a1;
+}
+
+footer small {
+  color : #F1986B;
+}
+
+main {
+  padding : 1em;
+  background : #f0c0a8;
+  max-width: 61em;
+  margin: auto;
+}
+
+.copy {
+  display: none;
 }
