@@ -1,0 +1,34 @@
+#flash {
+  padding: 0.5em;
+  border-left: 2px solid #F1986B;
+  background-color: #fffcfa;
+  margin: 0 1em 0.5em 1em;
+  text-align: left;
+  font-weight: bold;
+}
+
+#flash > .notices {
+  color: #459A7E;
+}
+
+#flash > li.notices:before {
+  content: "○";
+  padding-right: 0.5em;
+}
+
+#flash > .errors {
+  color: #D55F7A;
+}
+
+#flash > li.errors:before {
+  content: "✕ ";
+  padding-right: 0.5em;
+}
+
+#flash > .warnings {
+  color: #FFCC00;
+}
+
+#flash > .warnings:before {
+  content: "! ";
+}
