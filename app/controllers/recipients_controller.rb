@@ -23,4 +23,8 @@ class RecipientsController < ApplicationController
       render :new
     end
   end
+
+  def show
+    @recipient = Recipient.includes(:contact_details, :petitions).find(params[:id])
+  end
 end
