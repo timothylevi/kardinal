@@ -1,14 +1,18 @@
 <section>
-  <img src="<%= @user.image.url(:profile) %>">
-  <h2><%= @user.name %></h2>
+  <img src="<%= user.image.url(:profile) %>">
+  <h2><%= user.name %></h2>
   <ul>
-    <% unless @contact_detail.city.blank? || @contact_detail.state.blank? %>
-    <li><%= @contact_detail.city %>, <%= @contact_detail.state %></li>
+    <% if user.is_a?(Recipient) %>
+    <%= "(#{user.party}) - #{user.title} #{user.gov_state}" %>
     <% end %>
 
-    <% unless @contact_detail.website.blank? %>
-    <li><%= link_to @contact_detail.website, "http://#{@contact_detail.website}" %></li>
+    <% unless contact_detail.city.blank? || contact_detail.state.blank? %>
+    <li><%= contact_detail.city %>, <%= contact_detail.state %></li>
+    <% end %>
+
+    <% unless contact_detail.website.blank? %>
+    <li><%= link_to contact_detail.website, "http://#{contact_detail.website}" %></li>
     <% end %>
   </ul>
-  <p><%= @contact_detail.description %></p>
+  <p><%= contact_detail.description %></p>
 </section>
