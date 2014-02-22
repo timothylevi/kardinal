@@ -11,7 +11,7 @@
     <% end %>
 
     <% unless contact_detail.website.blank? %>
-    <li><%= link_to contact_detail.website, "http://#{contact_detail.website}" %></li>
+    <li><%= link_to contact_detail.website, contact_detail.website %></li>
     <% end %>
   </ul>
   <p><%= contact_detail.description %></p>
