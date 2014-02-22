@@ -13,7 +13,7 @@ class RecipientsController < ApplicationController
 
     if @recipient.save &&
       @recipient.contact_details.create(params[:contact_detail])
-      flash[:notices] = "#{@recipient.first_name} #{@recipient.last_name} was successfully saved!"
+      flash[:notices] = ["#{@recipient.first_name} #{@recipient.last_name} was successfully saved!"]
 
       redirect_to new_petition_url
     else

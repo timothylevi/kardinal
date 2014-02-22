@@ -8,7 +8,7 @@ class VictoriesController < ApplicationController
     petition.create_victory(params[:victory])
     petition.update_attributes(is_victory: true)
 
-    flash[:notice] = "Congratulations on your victory!"
+    flash[:notice] = ["Congratulations on your victory!"]
     redirect_to petition_url(petition)
   end
 end

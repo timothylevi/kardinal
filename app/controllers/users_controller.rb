@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 
       @contact_detail.update_attributes(website: "http://#{@contact_detail.website}")
 
-      flash[:notices] = "Your profile was successfully updated!"
+      flash[:notices] = ["Your profile was successfully updated!"]
       redirect_to me_url
     else
       render :edit

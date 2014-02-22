@@ -26,7 +26,7 @@ class PetitionsController < ApplicationController
       current_user.save
 
       current_user.petitions.last.petition_signatures.create(user_id: current_user.id)
-      flash[:notices] = "Your petition was successfully created!"
+      flash[:notices] = ["Your petition was successfully created!"]
       redirect_to petition_url(current_user.petitions.last)
     else
       render :new
@@ -39,7 +39,7 @@ class PetitionsController < ApplicationController
     @recipients = Recipient.order(:gov_state, :last_name)
 
     if current_user != @creator
-      flash[:errors] = "You can only edit petitions you've created."
+      flash[:errors] = ["You can only edit petitions you've created."]
       redirect_to @petition
     end
   end
@@ -48,7 +48,7 @@ class PetitionsController < ApplicationController
     @petition = Petition.find(params[:id])
 
     if @petition.update_attributes(params[:petition])
-      flash[:notices] = "Your petition was successfully updated!"
+      flash[:notices] = ["Your petition was successfully updated!"]
       redirect_to @petition
     else
       render :edit
@@ -59,7 +59,7 @@ class PetitionsController < ApplicationController
     @petition = Petition.find(params[:id])
     @petition.destroy
 
-    flash[:notices] = "Your petition was successfully deleted."
+    flash[:notices] = ["Your petition was successfully deleted."]
     redirect_to me_url
   end
 end

@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 
       if @user
         login(@user)
-        flash[:notices] = "Welcome back, #{@user.first_name}!"
+        flash[:notices] = ["Welcome back, #{@user.first_name}!"]
         # DONE
         # if a user does exist with an associated fb uid
         # user should be redirected back to the root url
@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
       else
         @user = User.create_from_fb(fb_data)
         login(@user)
-        flash[:notices] = "Welcome, #{@user.first_name}!"
+        flash[:notices] = ["Welcome, #{@user.first_name}!"]
         # DONE
         # if a user does not exist by fb uid
         # then they should be created (^)
@@ -35,13 +35,13 @@ class SessionsController < ApplicationController
       if @user
         if @user.is_password?(params[:user][:password])
           login(@user)
-          flash[:notices] = "Welcome back, #{@user.first_name}!"
+          flash[:notices] = ["Welcome back, #{@user.first_name}!"]
           # DONE
           # if a user does exist, and login is successful
           # user should be redirected to the root page
           redirect_to root_url
         else
-          flash.now[:errors] = "Your username or password is incorrect."
+          flash.now[:errors] = ["Your username or password is incorrect."]
           # DONE
           # if a user does exist, but has errors upon login
           # then they should go to Session#new and
@@ -54,7 +54,7 @@ class SessionsController < ApplicationController
 
         if create_user(@user, contact).valid?
           login(@user)
-          flash[:notices] = "Welcome, #{@user.first_name}!"
+          flash[:notices] = ["Welcome, #{@user.first_name}!"]
           # DONE
           # if a user does not exist and user creation is valid
           # then they should go to their edit page
@@ -76,7 +76,7 @@ class SessionsController < ApplicationController
     @user = current_user
     logout!
 
-    flash[:notices] = "See you next time, #{@user.first_name}."
+    flash[:notices] = ["See you next time, #{@user.first_name}."]
     redirect_to root_url
   end
 end
