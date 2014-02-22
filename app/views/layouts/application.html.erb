@@ -10,13 +10,13 @@
 <body>
   <header class="group">
     <a class="logo left" href="<%= root_url %>">kardinal</a>
-    <nav class="group right">
-      <ul class="main-links">
-        <li><%= link_to "Home", root_url %></li>
-        <li><%= link_to "Start a petition", new_petition_url%></li>
-        <li><%= link_to "Browse petitions", petitions_url %></li>
-      </ul>
 
+    <ul class="main-links">
+      <li><%= link_to "Start a petition", new_petition_url%></li>
+      <li><%= link_to "Browse petitions", petitions_url %></li>
+    </ul>
+
+    <nav class="group right">
       <ul class="user">
         <% if logged_in? %>
         <details>
