@@ -68,7 +68,7 @@ body {
   }
 
   body {
-    font-size : 0.9em;
+    font-size : 1em;
     background-color : #D5D5D5;
   }
 
@@ -84,8 +84,8 @@ body {
   }
 
   header img {
-    width: 0.9em;
-    height: 0.9em;
+    width: 1em;
+    height: 1em;
   }
 
   header summary {
