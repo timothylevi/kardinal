@@ -6,6 +6,7 @@ class VictoriesController < ApplicationController
   def create
     petition = Petition.find(params[:petition_id])
     petition.create_victory(params[:victory])
+    petition.update_attributes(is_victory: true)
 
     flash[:notice] = "Congratulations on your victory!"
     redirect_to petition_url(petition)
