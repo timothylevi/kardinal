@@ -61,91 +61,26 @@ body {
   float : right;
 }
 
-/* smallmedium screen */
-@media all and (min-width: 22em) and (max-width: 33em) {
-  header > nav > .main-links, .fb-login {
-    display : none;
-  }
+header .logo {
+  color : #E89267;
+  font-weight : bold;
+  padding-bottom: 2px;
+  border-bottom: 1px dashed #E89267;
+  text-decoration: none;
+}
 
+header .logo:hover {
+  border-bottom: 1px solid #E89267;
+}
+
+@media all and (min-width: 55em) {
   body {
-    font-size : 1em;
-    background-color : #D5D5D5;
+    background-color: red;
   }
+}
 
-  /* header and footer styles */
-
-  h2 {
-    font-size : 1.5em;
-  }
-
-  header {
-    background-color : #FAFAFA;
-    padding : 1em;
-  }
-
-  header img {
-    width: 1em;
-    height: 1em;
-  }
-
-  header summary {
-    margin-bottom : 0.5em;
-  }
-
-  header .logo {
-    color : #E89267;
-    font-weight : bold;
-  }
-
-  header .user a {
-    color : #C1C1C1;
-  }
-
-  a.mild-action, input[type="submit"].mild-action {
-  position : relative;
-    width : 100%;
-    padding : 0.5em;
-    background-color : #ddd;
-    border-radius : 0.25em;
-    box-shadow : 0 3px #a1a1a1;
-    font-weight : bold;
-    color : #888;
-  }
-
-  a.mild-action:hover, input[type="submit"].mild-action:hover {
-    background-color : #ccc;
-    color : #777;
-    text-decoration : none;
-  }
-
-  a.mild-action:active, input[type="submit"].mild-action:active {
-    top : 3px;
-    box-shadow : none;
-  }
-
-  footer {
-    text-align : center;
-    border-top : 2px dotted #C1C1C1;
-    margin : 1em 1em;
-    padding-top : 0.5em;
-  }
-
-  footer li {
-    margin-left : 0.5em;
-    float : right;
-  }
-
-  footer a,
-  footer li {
-    color : #a1a1a1;
-  }
-
-  footer small {
-    color : #DB9E36;
-  }
-
-  main {
-  padding-top : 1em;
-  background : #DB9E36;
+@media all and (min-width: 44em) and (max-width: 55em) {
+  body {
+    background-color: pink;
   }
 }
