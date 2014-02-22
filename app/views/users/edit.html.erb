@@ -40,6 +40,7 @@
 
   <label>State:<br>
     <select name="contact_details[state]">
+      <option value=""> </option>
       <% ContactDetail.list_states.each do |state| %>
       <option value="<%= state %>" <%= "selected" if @contact_detail.state == state %>>
         <%= state %>
