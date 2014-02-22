@@ -33,12 +33,17 @@
       </ul>
     </nav>
   </header>
+  <% unless flash.keys.empty? %>
+
+  <div id="flash">
+  <% flash.try(:each) {|name, messages| %>
+      <% messages.try(:each) {|message| %>
+      <li class="<%= name %>"><%= message %></li>
+      <% } %>
+  <% } %>
+  </div>
+  <% end %>
   <main>
-    <ul>
-    <% flash.try(:each) {|name, message| %>
-      <li><%= message %></li>
-    <% } %>
-    </ul>
     <%= yield %>
   </main>
   <footer>
