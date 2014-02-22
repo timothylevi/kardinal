@@ -19,8 +19,8 @@
   <ul>
     <% @petition.recipients.each do |recipient| %>
     <li>
-      <img src="<%= recipient.image.url(:thumbnail) %>">
-      <%= recipient.list_name %>
+      <a href="<%= recipient_url(recipient) %>"><img src="<%= recipient.image.url(:thumbnail) %>"></a>
+      <a href="<%= recipient_url(recipient) %>"><%= recipient.list_name %></a>
     </li>
     <% end %>
   </ul>
