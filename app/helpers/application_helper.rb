@@ -10,7 +10,9 @@ module ApplicationHelper
 
   def require_logged_in
     unless logged_in?
-      redirect_to login_url, alert: "You must be logged in to go there."
+      flash[:warnings] = "You must be logged in to go there."
+
+      redirect_to login_url
     end
   end
 

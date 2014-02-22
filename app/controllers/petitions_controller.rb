@@ -39,7 +39,7 @@ class PetitionsController < ApplicationController
     @recipients = Recipient.order(:gov_state, :last_name)
 
     if current_user != @creator
-      flash[:show] = "You can only edit petitions you've created."
+      flash[:errors] = "You can only edit petitions you've created."
       redirect_to @petition
     end
   end
