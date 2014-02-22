@@ -17,7 +17,8 @@ def create_petition(user, count)
     user.petitions.create(
     title: "#{Faker::Company.catch_phrase} #{i}",
     body: Faker::Lorem.paragraph(3),
-    background: Faker::Lorem.paragraph(6))
+    background: Faker::Lorem.paragraph(6),
+    goal: 21)
   end
 end
 
