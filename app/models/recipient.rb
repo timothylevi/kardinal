@@ -62,4 +62,8 @@ class Recipient < ActiveRecord::Base
   def list_name
     return "#{self.gov_state} #{self.title}. #{self.first_name} #{self.last_name}"
   end
+
+  def name
+    "#{self.first_name} #{self.middle_name} #{self.last_name}"
+  end
 end
