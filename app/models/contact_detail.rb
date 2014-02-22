@@ -39,4 +39,8 @@ class ContactDetail < ActiveRecord::Base
           OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY PR AS GU
           MP VI UM FM PW)
   end
+
+  def website_form_show
+    self.website[7..-1]
+  end
 end
