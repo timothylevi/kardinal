@@ -6,15 +6,14 @@
 <% end %>
 
 <summary><%= @petition.petition_signatures.count %> signatures</summary>
-<small><%= @petition.goal %> needed</small>
+<small><%= @petition.goal %> needed</small><br>
 
 <% if current_user == @petition.creator && @petition.victory.nil? %>
   <%= link_to "Edit petition", edit_petition_url(@petition) %>
   <%= button_to "Delete petition", petition_url(@petition), method: :delete%>
 <% end %>
-<br><br>
+<br>
 <% unless @petition.recipients.empty? %>
-
 <details>
   <summary>Petitioning:</summary>
   <ul>
@@ -37,10 +36,16 @@
     <% end %>
     <% end %></p>
   <hr>
-<p><small>Petition background:</small><br>
-  <%= @petition.background %></p>
-<p><small>Petition text:</small><br>
-  <%= @petition.body %></p>
+
+  <% if @victory.persisted? %>
+  <h4>Victory message:</h4>
+  <%= @victory.description %>
+  <% end %>
+
+<h4>Petition background:</h4>
+<p><%= @petition.background %></p>
+<h4>Petition text:</h4>
+<p><%= @petition.body %></p>
 
   <form
     action="<%= petition_petition_signature_index_url(@petition) %>"
