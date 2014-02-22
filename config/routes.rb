@@ -6,7 +6,7 @@ Cardinal::Application.routes.draw do
     resources :victories, only: :create
   end
 
-  resources :recipients, only: [:new, :create]
+  resources :recipients, only: [:new, :create, :show]
 
   resources :victories, only: [:index, :create]
 
