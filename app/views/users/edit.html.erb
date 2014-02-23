@@ -21,65 +21,55 @@
       </ul>
     <% end %>
 
-  <label>Email:<br>
-    <input type="text" name="user[email]"
-           value="<%= @user.email %>">
-  </label><br>
+    <label for="user_image">Photo:</label>
+      <input type="file" name="user[image]" value="user_image" id="user_image">
 
-  <label>Name:<br>
-    <input type="text" name="user[name]"
-           value="<%= @user.name %>">
-  </label><br>
+    <label for="user_email">Email:</label>
+      <input type="text" name="user[email]"
+             value="<%= @user.email %>" id="user_email">
 
-  <label>Street Address:<br>
-    <input type="text" name="contact_details[street_address]"
-           value="<%= @contact_detail.street_address %>">
-  </label><br>
+    <label for="user_name">Name:</label>
+      <input type="text" name="user[name]"
+             value="<%= @user.name %>" id="user_name">
 
-  <label>City:<br>
-    <input type="text" name="contact_details[city]"
-           value="<%= @contact_detail.city %>">
-  </label><br>
+    <label for="contact_details_street_Address">Street Address:</label>
+      <input type="text" name="contact_details[street_address]"
+             value="<%= @contact_detail.street_address %>"
+             id="contact_details_street_Address">
 
-  <label>State:<br>
-    <select name="contact_details[state]">
-      <option value=""> </option>
-      <% ContactDetail.list_states.each do |state| %>
-      <option value="<%= state %>" <%= "selected" if @contact_detail.state == state %>>
-        <%= state %>
-      </option>
-      <% end %>
-    </select>
-  </label><br>
+    <label for="contact_details_city">City:</label>
+      <input type="text" name="contact_details[city]"
+             value="<%= @contact_detail.city %>" id="contact_details_city">
 
-  <label>Zip:<br>
-    <input type="text" name="contact_details[zip]"
-           value="<%= @contact_detail.zip %>">
-  </label><br>
+    <label for="contact_details_state">State:</label>
+      <select name="contact_details[state]" id="contact_details_state">
+        <option value=""> </option>
+        <% ContactDetail.list_states.each do |state| %>
+        <option value="<%= state %>" <%= "selected" if @contact_detail.state == state %>>
+          <%= state %>
+        </option>
+        <% end %>
+      </select>
 
-  <label>Country:<br>
-    <input type="text" name="contact_details[country]"
-           value="<%= @contact_detail.country %>">
-  </label><br>
+    <label for="contact_details_zip">Zip:</label>
+      <input type="text" name="contact_details[zip]"
+             value="<%= @contact_detail.zip %>" id="contact_details_zip">
 
-  <label>Phone:<br>
-    <input type="text" name="contact_details[phone]"
-           value="<%= @contact_detail.phone %>">
-  </label><br>
+    <label for="contact_details_country">Country:</label>
+      <input type="text" name="contact_details[country]"
+             value="<%= @contact_detail.country %>" id="contact_details_country">
 
-  <label>Birthday:<br>
-    <input type="date" name="contact_details[birthday]"
-           value="<%= @contact_detail.birthday %>">
-  </label><br>
+    <label for="contact_details_phone">Phone:</label>
+      <input type="text" name="contact_details[phone]"
+             value="<%= @contact_detail.phone %>" id="contact_details_phone">
 
-  <label>Website:<br>
-    http://<input type="text" name="contact_details[website]"
-           value="<%= @contact_detail.website_form_show %>">
-  </label><br>
+    <label for="contact_details_birthday">Birthday:</label>
+      <input type="date" name="contact_details[birthday]"
+             value="<%= @contact_detail.birthday %>" id="contact_details_birthday">
 
-  <label>Description:<br>
-    <textarea name="contact_details[description]"><%= @contact_detail.description %></textarea>
-  </label><br>
+    <label for="contact_details_website">Website:</label>
+      http://<input type="text" name="contact_details[website]"
+             value="<%= @contact_detail.website_form_show %>" id="contact_details_website">
 
   <input type="submit">
 </form>
