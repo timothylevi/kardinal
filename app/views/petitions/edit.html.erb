@@ -1,5 +1,6 @@
 <main id="petition-form">
   <%= render "form", petition: @petition, recipients: @recipients %>
+  <%= button_to "Delete petition", petition_url(@petition), method: :delete, class: "delete"%>
 
   <form action="<%= petition_victories_url(@petition) %>"
         method="post" id="victory-form">

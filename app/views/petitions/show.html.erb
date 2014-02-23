@@ -24,7 +24,6 @@
 
   <% if current_user == @petition.creator && @petition.victory.nil? %>
   <div class="controls group">
-    <%= button_to "Delete petition", petition_url(@petition), method: :delete, class: "left delete"%>
     <%= link_to "Edit petition", edit_petition_url(@petition), class: "left edit" %>
   </div>
   <% end %>

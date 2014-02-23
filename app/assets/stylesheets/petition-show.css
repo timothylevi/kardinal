@@ -47,35 +47,13 @@
 
 #petition-show .controls:before {
   content: "Controls:";
-  display: inline;
+  display: block;
   color: #aaa;
-}
-
-#petition-show .controls .delete {
-  background-color: #D55F7A;
-  color: white;
-  padding: 0.5em;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 0.5em;
-  box-shadow: 0 0.2em #b34259;
-  position: relative;
-}
-
-#petition-show .controls .delete:hover {
-  background-color: #c45168;
-}
-
-#petition-show .controls .delete:active {
-  top: 0.2em;
-  box-shadow: none;
 }
 
 #petition-show .controls .edit {
   color: black;
-  padding: 0.55em;
   font-weight: bold;
-  box-shadow: 0 0.2em transparent;
 }
 
 #petition-show .victory:before {
