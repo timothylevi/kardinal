@@ -1,9 +1,10 @@
-<h1>Edit Profile</h1>
-<form action="<%= user_url(@user) %>" method="post"
-      enctype="multipart/form-data">
-  <input type="hidden" name="_method" value="put">
-  <input type="hidden" name="authenticity_token"
-         value="<%= form_authenticity_token %>">
+<main id="user-edit">
+  <form action="<%= user_url(@user) %>" method="post"
+        enctype="multipart/form-data">
+    <h1>Edit Profile</h1>
+    <input type="hidden" name="_method" value="put">
+    <input type="hidden" name="authenticity_token"
+           value="<%= form_authenticity_token %>">
 
   <ul>
   <% @user.errors.full_messages.try(:each) { |message| %>
