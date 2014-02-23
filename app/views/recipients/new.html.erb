@@ -1,119 +1,117 @@
-<h2>Create Recipient</h2>
+<main id="user-edit">
+  <form action="<%= recipients_url %>" method="post">
+    <input type="hidden" name="authenticity_token"
+           value="<%= form_authenticity_token %>">
 
-<form action="<%= recipients_url %>" method="post">
-  <input type="hidden" name="authenticity_token"
-         value="<%= form_authenticity_token %>">
+    <h1>Create Recipient</h1>
+    <h2>Recipient Personal Information</h2>
 
-  <h3>Recipient Personal Information</h3>
+    <ul>
+    <% @recipient.errors.full_messages.try(:each) { |message| %>
+      <li><%= message %></li>
+    <% } %>
 
-  <ul>
-  <% @recipient.errors.full_messages.try(:each) { |message| %>
-    <li><%= message %></li>
-  <% } %>
+    </ul>
 
-  </ul>
-
-  <label>Title:<br>
-    <select name="recipient[title]">
-      <% Recipient.list_titles.each do |title| %>
-      <option value="<%= title %>" <%= "selected" if @recipient.title == title %>>
-        <%= title %>
-      </option>
-      <% end %>
-    </select>
-  </label><br>
-
-
-  <label>First Name:<br>
-    <input type="text" name="recipient[first_name]"
-           value="<%= @recipient.first_name %>">
-  </label><br>
-
-  <label>Middle Name:<br>
-    <input type="text" name="recipient[middle_name]"
-           value="<%= @recipient.middle_name %>">
-  </label><br>
-
-  <label>Last Name:<br>
-    <input type="text" name="recipient[last_name]"
-           value="<%= @recipient.last_name %>">
-  </label><br>
-
-  <label>Region of Influence:<br>
-    <select name="recipient[gov_state]">
-      <% ContactDetail.list_states.each do |state| %>
-      <option value="<%= state %>" <%= "selected" if @recipient.gov_state == state %>>
-        <%= state %>
-      </option>
-      <% end %>
-      <option value="US" <%= "selected" if @contact_detail.state == "US" %>>
-        US
-      </option>
-    </select>
-  </label><br>
+    <label for="recipient_title">Title:</label>
+      <select id="recipient_title" name="recipient[title]">
+        <% Recipient.list_titles.each do |title| %>
+        <option value="<%= title %>" <%= "selected" if @recipient.title == title %>>
+          <%= title %>
+        </option>
+        <% end %>
+      </select>
 
 
-  <hr>
 
-  <h3>Recipient Contact Information</h3>
+    <label for="recipient_first_name">First Name:</label>
+      <input type="text" id="recipient_first_name" name="recipient[first_name]"
+             value="<%= @recipient.first_name %>">
 
-  <% @contact_detail.errors.full_messages.try(:each) { |message| %>
-    <li><%= message %></li>
-  <% } %>
 
-  <label>Email:<br>
-    <input type="text" name="recipient[email]"
-           value="<%= @recipient.email %>">
-  </label><br>
+    <label for="recipient_middle_name">Middle Name:</label>
+      <input type="text" id="recipient_middle_name" name="recipient[middle_name]"
+             value="<%= @recipient.middle_name %>">
 
-  <label>Street Address:<br>
-    <input type="text" name="contact_details[street_address]"
-           value="<%= @contact_detail.street_address %>">
-  </label><br>
 
-  <label>City:<br>
-    <input type="text" name="contact_details[city]"
-           value="<%= @contact_detail.city %>">
-  </label><br>
+    <label for="recipient_last_name">Last Name:</label>
+      <input type="text" id="recipient_last_name" name="recipient[last_name]"
+             value="<%= @recipient.last_name %>">
 
-  <label>State:<br>
-    <select name="contact_details[state]">
-      <% ContactDetail.list_states.each do |state| %>
-      <option value="<%= state %>" <%= "selected" if @contact_detail.state == state %>>
-        <%= state %>
-      </option>
-      <% end %>
-    </select>
-  </label><br>
 
-  <label>Zip:<br>
-    <input type="text" name="contact_details[zip]"
-           value="<%= @contact_detail.zip %>">
-  </label><br>
+    <label for="recipient_gov_state">Region of Influence:</label>
+      <select id="recipient_gov_state" name="recipient[gov_state]">
+        <% ContactDetail.list_states.each do |state| %>
+        <option value="<%= state %>" <%= "selected" if @recipient.gov_state == state %>>
+          <%= state %>
+        </option>
+        <% end %>
+        <option value="US" <%= "selected" if @contact_detail.state == "US" %>>
+          US
+        </option>
+      </select>
 
-  <label>Country:<br>
-    <input type="text" name="contact_details[country]"
-           value="<%= @contact_detail.country %>">
-  </label><br>
+    <h2>Recipient Contact Information</h2>
 
-  <label>Phone:<br>
-    <input type="text" name="contact_details[phone]"
-           value="<%= @contact_detail.phone %>">
-  </label><br>
+    <% @contact_detail.errors.full_messages.try(:each) { |message| %>
+      <li><%= message %></li>
+    <% } %>
 
-  <label>Birthday:<br>
-    <input type="date" name="contact_details[birthday]"
-           value="<%= @contact_detail.birthday %>">
-  </label><br>
+    <label for="recipient_email">Email:</label>
+      <input type="text" id="recipient_email" name="recipient[email]"
+             value="<%= @recipient.email %>">
 
-  <label>Website:<br>
-    <input type="text" name="contact_details[website]"
-           value="<%= @contact_detail.website %>">
-  </label><br>
 
-  <label>Description:<br>
-    <textarea name="contact_details[description]"><%= @contact_detail.description %></textarea>
-  </label><br>
+    <label for="contact_details_street_address">Street Address:</label>
+      <input type="text" id="contact_details_street_address"
+             name="contact_details[street_address]"
+             value="<%= @contact_detail.street_address %>">
 
-  <input type="submit">
-</form>
+
+    <label for="contact_details_city">City:</label>
+      <input type="text" id="contact_details_city" name="contact_details[city]"
+             value="<%= @contact_detail.city %>">
+
+
+    <label for="contact_details_state">State:</label>
+      <select id="contact_details_state" name="contact_details[state]">
+        <% ContactDetail.list_states.each do |state| %>
+        <option value="<%= state %>" <%= "selected" if @contact_detail.state == state %>>
+          <%= state %>
+        </option>
+        <% end %>
+      </select>
+
+
+    <label for="contact_details_zip">Zip:</label>
+      <input type="text" id="contact_details_zip" name="contact_details[zip]"
+             value="<%= @contact_detail.zip %>">
+
+
+    <label for="contact_details_country">Country:</label>
+      <input type="text" id="contact_details_country" name="contact_details[country]"
+             value="<%= @contact_detail.country %>">
+
+
+    <label for="contact_details_phone">Phone:</label>
+      <input type="text" id="contact_details_phone" name="contact_details[phone]"
+             value="<%= @contact_detail.phone %>">
+
+
+    <label for="contact_details_birthday">Birthday:</label>
+      <input type="date" id="contact_details_birthday" name="contact_details[birthday]"
+             value="<%= @contact_detail.birthday %>">
+
+
+    <label for="contact_details_website">Website:</label>
+      <input type="text" id="contact_details_website" name="contact_details[website]"
+             value="<%= @contact_detail.website %>">
+
+
+    <label for="contact_details_description">Description:</label>
+      <textarea id="contact_details_description" name="contact_details[description]"><%= @contact_detail.description %></textarea>
+
+
+    <input type="submit" class="call-to-action">
+  </form>
+</main>
