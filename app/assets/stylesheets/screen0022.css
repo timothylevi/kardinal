@@ -8,26 +8,26 @@
     font-size : 0.9em;
   }
 
-  /* header and footer styles */
-  header {
+  /* header.app and footer styles */
+  header.app {
     background-color : #FAFAFA;
     padding : 1em;
   }
 
-  header img {
+  header.app img {
     display : none;
   }
 
-  header summary {
+  header.app summary {
     margin-bottom : 0.5em;
   }
 
-  header .user a {
+  header.app .user a {
     color : #C1C1C1;
   }
 
   a.mild-action, input[type="submit"].mild-action {
-  position : relative;
+    position : relative;
     width : 100%;
     padding : 0.5em;
     background-color : #ddd;
@@ -47,5 +47,10 @@
   a.mild-action:active, input[type="submit"].mild-action:active {
     top : 3px;
     box-shadow : none;
+  }
+
+  /* index view styles */
+  #index summary {
+    display: none;
   }
 }

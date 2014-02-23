@@ -4,35 +4,35 @@
     font-size : 1.1em;
   }
 
-  /* header and footer styles */
-  header {
+  /* header.app and footer styles */
+  header.app {
     background-color : #FAFAFA;
     padding : 1em;
   }
 
-  header img {
+  header.app img {
     width: 1.1em;
     height: 1.1em;
   }
 
-  header a {
+  header.app a {
     color : #C1C1C1;
   }
 
-  header .main-links {
+  header.app .main-links {
     float: left;
   }
 
-  header li {
+  header.app li {
     float: left;
   }
 
-  header .main-links li a {
+  header.app .main-links li a {
     margin-left: 1em;
   }
 
-  header .main-links a:hover,
-  header .user a:hover {
+  header.app .main-links a:hover,
+  header.app .user a:hover {
     color: #808080;
     text-decoration: none;
   }

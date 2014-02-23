@@ -1,22 +1,29 @@
-<h1>Petitions</h1>
-<p>This is the petitions page! Look at all these petitions!</p>
-<ul>
-  <% @petitions.each do |petition| %>
-  <li>
-    <h3><%= link_to petition.title, petition_url(petition) %></h3>
-    <summary>
-      <% if logged_in? %>
-        <% text = (petition.petition_signatures.include?(PetitionSignature.find_single(current_user, petition)) ? "View" : "Sign")%>
-      <% else %>
-        <% text = "Sign" %>
-      <% end %>
-      <%# this cond will need to be changed by adding a default image for users %>
-      <img src="<%= petition.creator.image.url(:thumbnail) %>">
-      <%= link_to petition.creator.name, user_url(petition.creator) %> ·
-      <%= petition.petition_signatures.length %> signatures ·
+<main id="index">
+  <header>
+    <h1>Petitions</h1>
+    <h2>Find a petition you're passionate about and find ways to make <span class="logo">change</span> in your community.</h2>
+  </header>
 
-      <%= link_to text, petition_url(petition) %>
-    </summary>
-  </li>
-  <% end %>
-</ul>
+  <ul>
+    <% @petitions.each do |petition| %>
+    <li>
+      <h3><%= link_to petition.title, petition_url(petition) %></h3>
+      <summary>
+        <% if logged_in? %>
+          <% text = (petition.petition_signatures.include?(PetitionSignature.find_single(current_user, petition)) ? "View" : "Sign")%>
+        <% else %>
+          <% text = "Sign" %>
+        <% end %>
+        <%# this cond will need to be changed by adding a default image for users %>
+        <img src="<%= petition.creator.image.url(:thumbnail) %>">
+        <%= link_to petition.creator.name, user_url(petition.creator) %> ·
+        <%= petition.petition_signatures.length %> signatures ·
+        <%= link_to text, petition_url(petition) %>
+      </summary>
+      <p>
+        <%= petition.body %>
+      </p>
+    </li>
+    <% end %>
+  </ul>
+</main>

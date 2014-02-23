@@ -8,18 +8,18 @@
     font-size : 1.1em;
   }
 
-  /* header and footer styles */
-  header {
+  /* header.app and footer styles */
+  header.app {
     background-color : #FAFAFA;
     padding : 1em;
   }
 
-  header img {
+  header.app img {
     width: 1.1em;
     height: 1.1em;
   }
 
-  header .user a {
+  header.app .user a {
     color : #C1C1C1;
   }
 

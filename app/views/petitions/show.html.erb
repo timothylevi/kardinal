@@ -1,51 +1,63 @@
-<h2><%= @petition.title %></h2>
-<small>Status: <%= @petition.approved %></small>
-
-<% if @petition_signature.persisted? %>
-<h4>You've signed this petition!</h4>
-<% end %>
-
-<summary><%= @petition.petition_signatures.count %> signatures</summary>
-<small><%= @petition.goal %> needed</small><br>
-
-<% if current_user == @petition.creator && @petition.victory.nil? %>
-  <%= link_to "Edit petition", edit_petition_url(@petition) %>
-  <%= button_to "Delete petition", petition_url(@petition), method: :delete%>
-<% end %>
-<br>
-<% unless @petition.recipients.empty? %>
-<details>
-  <summary>Petitioning:</summary>
-  <ul>
-    <% @petition.recipients.each do |recipient| %>
-    <li>
-      <a href="<%= recipient_url(recipient) %>"><img src="<%= recipient.image.url(:thumbnail) %>"></a>
-      <a href="<%= recipient_url(recipient) %>"><%= recipient.list_name %></a>
-    </li>
-    <% end %>
-  </ul>
-</details>
-<% end %>
-
-<p><small>Petition by:</small><br>
-  <img src="<%= @creator.image.url(:thumbnail) %>">
-  <%= link_to @creator.name, user_url(@creator) %><br>
-  <% if @creator.contact_details[0] %>
-  <% unless @creator.contact_details[0].city.blank? || @creator.contact_details[0].state.blank? %>
-    <%= @creator.contact_details[0].city %>, <%= @creator.contact_details[0].state %>
-    <% end %>
-    <% end %></p>
-  <hr>
-
+<main id="petition-show">
   <% if @victory.persisted? %>
-  <h4>Victory message:</h4>
-  <%= @victory.description %>
+  <h4 class="action">Victorious!</h4>
+  <% end; if @petition_signature.persisted? %>
+  <h4 class="action">Signed!</h4>
   <% end %>
 
-<h4>Petition background:</h4>
-<p><%= @petition.background %></p>
-<h4>Petition text:</h4>
-<p><%= @petition.body %></p>
+  <header>
+    <h1><%= @petition.title %></h1>
+    <summary><%= @petition.petition_signatures.count %> signatures of <%= @petition.goal %> needed</summary>
+    <small class="<%= @petition.approved.downcase %>"><%= @petition.approved %></small>
+    <div class="creator">
+      <img src="<%= @creator.image.url(:thumbnail) %>">
+      <%= link_to @creator.name, user_url(@creator) %>
+      <address>
+      <% if @creator.contact_details[0] %>
+        <% unless @creator.contact_details[0].city.blank? || @creator.contact_details[0].state.blank? %>
+          <%= @creator.contact_details[0].city %>, <%= @creator.contact_details[0].state %>
+        <% end %>
+      <% end %>
+      </address>
+    </div>
+  </header>
+
+  <% if current_user == @petition.creator && @petition.victory.nil? %>
+  <div class="controls group">
+    <%= button_to "Delete petition", petition_url(@petition), method: :delete, class: "left delete"%>
+    <%= link_to "Edit petition", edit_petition_url(@petition), class: "left edit" %>
+  </div>
+  <% end %>
+
+  <% unless @petition.recipients.empty? %>
+  <details>
+    <summary>Petitioning:</summary>
+    <ul>
+      <% @petition.recipients.each do |recipient| %>
+      <li>
+        <a href="<%= recipient_url(recipient) %>"><img src="<%= recipient.image.url(:thumbnail) %>"></a>
+        <a href="<%= recipient_url(recipient) %>"><%= recipient.list_name %></a>
+      </li>
+      <% end %>
+    </ul>
+  </details>
+  <% end %>
+
+
+
+  <% if @victory.persisted? %>
+  <section class="victory">
+    <p><%= @victory.description %></p>
+  </div>
+  <% end %>
+
+  <section class="background">
+    <p><%= @petition.background %></p>
+  </div>
+
+  <section class="letter-body">
+    <p><%= @petition.body %></p>
+  </section>
 
   <form
     action="<%= petition_petition_signature_index_url(@petition) %>"
@@ -54,5 +66,6 @@
       type="hidden"
       value="<%= form_authenticity_token %>">
 
-    <input type="submit" value="Sign" <%= "disabled" if @petition_signature.persisted? %>>
+    <input class="call-to-action" type="submit" value="Sign" <%= "disabled" if @petition_signature.persisted? %>>
   </form>
+</main>

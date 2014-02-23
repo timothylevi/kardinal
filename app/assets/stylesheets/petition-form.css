@@ -1,0 +1,61 @@
+#petition-form header {
+  padding-bottom: 1em;
+  border-bottom: 1px dotted #F1986B;
+  margin-bottom: 1em;
+}
+
+#petition-form h1 {
+  color: #F1986B;
+  font-size: 2em;
+}
+
+#petition-form .input {
+  margin: 1em 0 0 0;
+}
+
+#petition-form select,
+#petition-form textarea,
+#petition-form input {
+  display: block;
+}
+
+#petition-form  label {
+  display: block;
+  font-weight: bold;
+  padding: 0 0 0.5em 0;
+}
+
+#petition-form div.input input,
+#petition-form div.input textarea,
+#petition-form div.input select {
+  border-bottom: 1px solid #F1986B;
+  padding: 5px 10px;
+  background-color: white;
+  width: 75%;
+}
+
+#petition-form div.input input:focus,
+#petition-form div.input textarea:focus,
+#petition-form div.input select:focus {
+  border-bottom: 1px solid #F1986B;
+  padding: 5px 10px;
+  background-color: white;
+  width: 75%;
+}
+
+#petition-form .create-recipient:before {
+  content: "Don't see your recipient here?";
+  padding-right: 0.5em;
+  margin-top: 0.25em;
+  display: inline-block;
+  color: #aaa;
+  text-decoration: none;
+}
+
+#petition-form .create-recipient {
+  display: block;
+}
+
+#victory-form {
+  margin-top: 3em;
+}

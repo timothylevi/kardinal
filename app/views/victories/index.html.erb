@@ -1,17 +1,23 @@
-<h1>Victories</h1>
-<p>This is the victories page! Look at all these victories!</p>
-<ul>
-  <% @victories.each do |victory| %>
-  <li>
-    <h3><%= link_to victory.petition.title, petition_url(victory.petition) %></h3>
-    <summary>
-      <img src="<%= victory.petition.creator.image.url(:thumbnail) %>">
-      <%= link_to victory.petition.creator.name, user_url(victory.petition.creator) %> ·
-      <%= victory.petition.petition_signatures.length %> signatures · <%= victory.created_at %>
-    </summary>
-    <p>
-      <%= victory.description %>
-    </p>
-  </li>
-  <% end %>
-</ul>
+<main id="index">
+  <header>
+    <h1>Victories</h1>
+    <h2>Every day, <span class="logo">kardinal</span> members win people-powered campaigns for social change.</h2>
+  </header>
+
+  <ul>
+    <% @victories.each do |victory| %>
+    <li>
+      <h3><%= link_to victory.petition.title, petition_url(victory.petition) %></h3>
+      <summary>
+        <img src="<%= victory.petition.creator.image.url(:thumbnail) %>">
+        <%= link_to victory.petition.creator.name, user_url(victory.petition.creator) %> ·
+        <%= victory.petition.petition_signatures.length %> signatures ·
+        <%= "#{I18n.t("date.abbr_month_names")[victory.created_at.month]}. #{victory.created_at.day}, #{victory.created_at.year}" %>
+      </summary>
+      <p>
+        <%= victory.description %>
+      </p>
+    </li>
+    <% end %>
+  </ul>
+</main>

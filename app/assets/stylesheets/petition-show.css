@@ -1,0 +1,144 @@
+#petition-show header {
+  padding-bottom: 1em;
+  border-bottom: 1px dotted #F1986B;
+  margin-bottom: 1em;
+}
+
+#petition-show h1 {
+  color: #F1986B;
+  font-size: 2em;
+}
+
+#petition-show h4.action {
+  color: #f0a884;
+  font-weight: bold;
+  padding: 1em;
+  background-color: #ddd;
+  margin: 0 0 1em 0;
+  display: inline-block;
+  border-radius: 0.5em;
+  text-transform: uppercase;
+}
+
+#petition-show .creator:before {
+  content: "Creator:";
+  display: block;
+  color: #aaa;
+  margin-top: 1em;
+}
+
+#petition-show .creator img {
+  border-radius: 50%;
+  display: block;
+}
+
+#petition-show .creator a {
+  font-weight: bold;
+}
+
+#petition-show .creator address {
+  font-style: normal;
+}
+
+#petition-show .controls {
+  padding: 0.5em 0;
+  margin-top: 1em;
+}
+
+#petition-show .controls:before {
+  content: "Controls:";
+  display: inline;
+  color: #aaa;
+}
+
+#petition-show .controls .delete {
+  background-color: #D55F7A;
+  color: white;
+  padding: 0.5em;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 0.5em;
+  box-shadow: 0 0.2em #b34259;
+  position: relative;
+}
+
+#petition-show .controls .delete:hover {
+  background-color: #c45168;
+}
+
+#petition-show .controls .delete:active {
+  top: 0.2em;
+  box-shadow: none;
+}
+
+#petition-show .controls .edit {
+  color: black;
+  padding: 0.55em;
+  font-weight: bold;
+  box-shadow: 0 0.2em transparent;
+}
+
+#petition-show .victory:before {
+  content: "Victory message:";
+  display: block;
+  margin-top: 1em;
+  color: #aaa;
+}
+
+#petition-show .background:before {
+  content: "About the cause:";
+  display: block;
+  margin-top: 1em;
+  color: #aaa;
+}
+
+#petition-show .letter-body:before {
+  content: "Letter body:";
+  display: block;
+  margin-top: 1em;
+  color: #aaa;
+}
+
+#petition-show details {
+  margin-top: 1em;
+}
+
+#petition-show details ul {
+  padding-left: 1em;
+}
+
+#petition-show details img {
+  border-radius: 50%;
+}
+
+/* approval status styling */
+
+#petition-show .pending {
+  color: #999;
+  text-transform: lowercase;
+}
+
+#petition-show .pending:before {
+  content: "!";
+  padding-right: 0.5em;
+}
+
+#petition-show .approved {
+  color: #0A0;
+  text-transform: lowercase;
+}
+
+#petition-show .approved:before {
+  content: "○";
+  padding-right: 0.5em;
+}
+
+#petition-show .denied {
+  color: #C00;
+  text-transform: lowercase;
+}
+
+#petition-show .denied:before {
+  content: "✕";
+  padding-right: 0.5em;
+}

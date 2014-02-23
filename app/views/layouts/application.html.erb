@@ -8,7 +8,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <header class="group">
+  <header class="app group">
     <a class="logo left" href="<%= root_url %>">kardinal</a>
 
     <ul class="main-links">
@@ -43,9 +43,9 @@
   <% } %>
   </div>
   <% end %>
-  <main>
-    <%= yield %>
-  </main>
+
+  <%= yield %>
+
   <footer>
     <nav class="group">
       <small class="left">&copy; 2014

@@ -1,17 +1,24 @@
-<%= render "form", petition: @petition, recipients: @recipients %>
+<main id="petition-form">
+  <%= render "form", petition: @petition, recipients: @recipients %>
 
-<h2>Declare a Victory</h2>
-<form action="<%= petition_victories_url(@petition) %>" method="post">
-  <input type="hidden" name="authenticity_token"
-         value="<%= form_authenticity_token %>">
+  <form action="<%= petition_victories_url(@petition) %>"
+        method="post" id="victory-form">
+    <input type="hidden" name="authenticity_token"
+           value="<%= form_authenticity_token %>">
+     <header>
+       <h1>Declare a Victory</h1>
+     </header>
 
-  <label>Description:<br>
-    <input type="text" name="victory[description]">
-  </label><br>
+    <div class="input">
+      <label>Description:</label>
+      <input type="text" name="victory[description]">
+    </div>
 
-  <label>Message:<br>
-    <textarea name="victory[message]"></textarea>
-  </label><br>
+    <div class="input">
+      <label>Message:</label>
+      <textarea name="victory[message]"></textarea>
+    </div>
 
-  <input type="submit">
-</form>
+    <input type="submit" value="Declare victory" class="call-to-action">
+  </form>
+</main>

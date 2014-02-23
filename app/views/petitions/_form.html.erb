@@ -2,51 +2,58 @@
 <% action = (petition.persisted? ? petition_url(petition) : petitions_url)%>
 <% form_method = (petition.persisted? ? "put" : "post")%>
 
-<h2><%= title %></h2>
+<header>
+  <h1><%= title %></h1>
+</header>
 
 <form action="<%= action %>" method="post">
   <input type="hidden" name="authenticity_token"
          value="<%= form_authenticity_token %>">
   <input type="hidden" name="_method" value="<%= form_method %>">
 
-  <select name="petition[recipient_ids][]" >
-    <option value=""></option>
-    <% recipients.each do |recipient| %>
-    <option
-      value="<%= recipient.id %>"
-      <% if petition.recipients[0] %>
-      <%= "selected" if petition.recipients[0].id == recipient.id %>
-      <% end %>>
-      <%= recipient.list_name %>
-    </option>
-    <% end %>
-  </select>
-  <select name="petition[recipient_ids][]" >
-    <option value=""></option>
-    <% recipients.each do |recipient| %>
-    <option
-      value="<%= recipient.id %>"
-      <% if petition.recipients[1] %>
-      <%= "selected" if petition.recipients[1].id == recipient.id %>
-      <% end %>>
-      <%= recipient.list_name %>
-    </option>
-    <% end %>
-  </select>
-  <select name="petition[recipient_ids][]" >
-    <option value=""></option>
-    <% recipients.each do |recipient| %>
-    <option
-      value="<%= recipient.id %>"
-      <% if petition.recipients[2] %>
-      <%= "selected" if petition.recipients[2].id == recipient.id %>
-      <% end %>>
-      <%= recipient.list_name %>
-    </option>
-    <% end %>
-  </select>
-  <br>
-  <%= link_to "Create Recipient", new_recipient_url %>
+  <div class="input">
+    <label for="petition_recipient_ids">Recipients</label>
+    <select name="petition[recipient_ids][]" id="petition_recipient_ids">
+      <option value=""></option>
+      <% recipients.each do |recipient| %>
+      <option
+        value="<%= recipient.id %>"
+        <% if petition.recipients[0] %>
+        <%= "selected" if petition.recipients[0].id == recipient.id %>
+        <% end %>>
+        <%= recipient.list_name %>
+      </option>
+      <% end %>
+    </select>
+
+    <select name="petition[recipient_ids][]" >
+      <option value=""></option>
+      <% recipients.each do |recipient| %>
+      <option
+        value="<%= recipient.id %>"
+        <% if petition.recipients[1] %>
+        <%= "selected" if petition.recipients[1].id == recipient.id %>
+        <% end %>>
+        <%= recipient.list_name %>
+      </option>
+      <% end %>
+    </select>
+
+    <select name="petition[recipient_ids][]" >
+      <option value=""></option>
+      <% recipients.each do |recipient| %>
+      <option
+        value="<%= recipient.id %>"
+        <% if petition.recipients[2] %>
+        <%= "selected" if petition.recipients[2].id == recipient.id %>
+        <% end %>>
+        <%= recipient.list_name %>
+      </option>
+      <% end %>
+    </select>
+
+    <%= link_to "Create Recipient", new_recipient_url, class: "create-recipient" %>
+  </div>
 
 
   <ul>
@@ -55,18 +62,22 @@
   <% } %>
   </ul>
 
-  <label>Title:<br>
-    <input type="text" name="petition[title]" value="<%= petition.title %>">
-  </label><br>
+  <div class="input">
+    <label for="petition_title">Title:</label>
+      <input type="text" name="petition[title]"
+             value="<%= petition.title %>" id="petition_title">
+  </div>
 
-  <label>Background:<br>
+  <div class="input">
+    <label>Background:</label>
     <textarea name="petition[background]"><%= petition.background %></textarea>
-  </label><br>
+  </div>
 
-  <label>Body:<br>
+  <div class="input">
+    <label>Body:</label>
     <textarea name="petition[body]"><%= petition.body %></textarea>
-  </label><br>
+  </div>
 
-  <input type="submit">
+  <input type="submit" value="Save" class="call-to-action">
 
 </form>

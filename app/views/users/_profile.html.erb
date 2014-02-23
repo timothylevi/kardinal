@@ -1,6 +1,6 @@
 <section>
   <img src="<%= user.image.url(:profile) %>">
-  <h2><%= user.name %></h2>
+  <h1><%= user.name %></h1>
   <ul>
     <% if user.is_a?(Recipient) %>
     <%= "(#{user.party}) - #{user.title} #{user.gov_state}" %>

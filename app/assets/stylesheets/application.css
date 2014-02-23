@@ -16,7 +16,8 @@ html, body, header, main,
 footer, div, ul, li, small,
 address, details, p, img,
 h1, h2, h3, h4, h5, h6, hr,
-ol, a, form, summary {
+ol, a, form, summary, .button_to,
+textarea {
   border : 0;
   padding : 0;
   margin : 0;
@@ -28,18 +29,42 @@ ol, a, form, summary {
   color : black;
   text-decoration : none;
   outline : none;
+  font-weight: normal;
+  background-color: transparent;
 }
 
 a:hover {
   text-decoration : underline;
 }
 
+input[type="text"],
+input[type="email"],
+input[type="password"],
 input[type="submit"] {
-  border : 0;
-  margin : 0;
-  padding : 0;
-  font-size : 100%;
-  outline : 0;
+  -webkit-appearance: none;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  width: auto;
+  border-radius: 0;
+}
+
+select {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  width: auto;
+  border-radius: 0;
 }
 
 body {
@@ -64,15 +89,15 @@ body {
   float : right;
 }
 
-header .logo {
-  color : #E89267;
+header.app .logo {
+  color : #F1986B;
   font-weight : bold;
   padding-bottom: 2px;
   border-bottom: 1px dashed #F1986B;
   text-decoration: none;
 }
 
-header .logo:hover {
+header.app .logo:hover {
   border-bottom: 1px solid #F1986B;
 }
 
@@ -97,6 +122,10 @@ footer small {
   color : #F1986B;
 }
 
+.copy {
+  display: none;
+}
+
 main {
   padding : 1em;
   background : #F2F2F2;
@@ -104,6 +133,26 @@ main {
   margin: auto;
 }
 
-.copy {
-  display: none;
+input.call-to-action {
+  width: 100%;
+  padding: 0.5em 0;
+  margin-top: 1em;
+  display: block;
+  background-color: #F1986B;
+  color: white;
+  padding: 0.5em;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 0.5em;
+  box-shadow: 0 0.3em #e08a5e;
+  position: relative;
+}
+
+input.call-to-action:hover {
+  background-color: #faa57d;
+}
+
+input.call-to-action:active {
+  top: 0.3em;
+  box-shadow: none;
 }
