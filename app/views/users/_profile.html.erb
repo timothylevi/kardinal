@@ -1,5 +1,5 @@
-<section>
-  <img src="<%= user.image.url(:profile) %>">
+<header class="group">
+  <img src="<%= user.image.url(:profile) %>" class="left">
   <h1><%= user.name %></h1>
   <ul>
     <% if user.is_a?(Recipient) %>
@@ -15,4 +15,4 @@
     <% end %>
   </ul>
   <p><%= contact_detail.description %></p>
-</section>
+</header>
