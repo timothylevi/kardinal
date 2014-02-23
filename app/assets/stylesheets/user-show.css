@@ -1,3 +1,27 @@
+#user-show .controls {
+  background-color: #ffe1bd;
+  margin-bottom: 1em;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  display: inline-block;
+  color: #aaa;
+}
+
+#user-show .controls a {
+  color: #eb966e;
+  display: block;
+  padding-bottom: 0.5em;
+}
+
+#user-show .controls a:last-child {
+  padding: 0;
+}
+
+#user-show .controls a:hover {
+  color: #faa57d;
+  text-decoration: none;
+}
+
 #user-show img {
   border-radius: 50%;
 }
