@@ -6,6 +6,16 @@
   font-size: 2em;
 }
 
+#user-edit h2 {
+  color: #F1986B;
+  font-size: 1.25em;
+  margin-top: 1.5em;
+}
+
+#user-edit h2:first-child {
+  margin-top: 0;
+}
+
 #user-edit label {
   display: block;
   font-weight: bold;
