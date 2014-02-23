@@ -1,43 +1,43 @@
-#index header {
+#petition-index header {
   padding-bottom: 1em;
   border-bottom: 1px dotted #F1986B;
   margin-bottom: 1em;
 }
 
-#index h1,
-#index h2 {
+#petition-index h1,
+#petition-index h2 {
   color: #F1986B;
 }
 
-#index h1 {
+#petition-index h1 {
   font-size: 2em;
 }
 
-#index h2 {
+#petition-index h2 {
   font-size: 1.1em;
   margin-top: 0.5em;
   width: 75%;
 }
 
-#index h3 a {
+#petition-index h3 a {
   font-weight: bold;
 }
 
-#index .logo {
+#petition-index .logo {
   font-weight : bold;
 }
 
-#index p {
+#petition-index p {
   margin-bottom: 1em;
   width: 90%;
 }
 
-#index summary {
+#petition-index summary {
   font-size: .8em;
   vertical-align: center;
 }
 
-#index summary img {
+#petition-index summary img {
   border-radius: 50%;
   background-color: white;
 }
