@@ -5,6 +5,8 @@
   border-radius: 0.5em;
   display: inline-block;
   color: #aaa;
+  width: 200px;
+  text-align: center;
 }
 
 #user-show .controls a {
