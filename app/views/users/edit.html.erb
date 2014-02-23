@@ -71,5 +71,10 @@
       http://<input type="text" name="contact_details[website]"
              value="<%= @contact_detail.website_form_show %>" id="contact_details_website">
 
-  <input type="submit">
-</form>
+    <label for="contact_details_description">Description:</label>
+      <textarea name="contact_details[description]" id="contact_details_description"><%= @contact_detail.description %></textarea>
+
+    <input type="submit" class="call-to-action">
+    <%= button_to "Delete account", user_url(@user), method: :delete, class: "delete"%>
+  </form>
+</main>
