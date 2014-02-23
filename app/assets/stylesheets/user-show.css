@@ -55,3 +55,43 @@
   margin-top: 1em;
   width: 90%;
 }
+
+#user-show section h2 {
+  color: #faa57d;
+  font-size: 1.25em;
+  padding-bottom: 0.25em;
+  border-bottom: 1px solid #F1986B;
+  margin-bottom: 0.25em;
+}
+
+#user-show section h3,
+#user-show section h3 a {
+  font-weight: bold;
+}
+
+#user-show section small {
+  color: #506e00;
+  display: inline-block;
+  font-size: 0.5em;
+  text-transform: uppercase;
+  padding: 0.5em;
+  background-color: #d3eb9d;
+  border-radius: 0.5em;
+  border: 1px solid #a7cc52;
+}
+
+#user-show section li:first-child {
+  border: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+#user-show section li {
+  margin-top: 1em;
+  border-top: 1px solid #ccc;
+  padding-top: 0.5em;
+}
+
+#user-show section p {
+  margin-top: 0.25em;
+}
