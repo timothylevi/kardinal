@@ -6,18 +6,20 @@
     <input type="hidden" name="authenticity_token"
            value="<%= form_authenticity_token %>">
 
-  <ul>
-  <% @user.errors.full_messages.try(:each) { |message| %>
-    <li><%= message %></li>
-  <% } %>
-  <% @contact_detail.errors.full_messages.try(:each) { |message| %>
-    <li><%= message %></li>
-  <% } %>
-  </ul>
+    <% if !@user.errors.empty? %>
+      <ul id="flash">
+      <% @user.errors.full_messages.try(:each) { |message| %>
+        <li class="errors"><%= message %></li>
+      <% } %>
+      </ul>
 
-  <label>Photo:<br>
-    <input type="file" name="user[image]" value="">
-  </label><br>
+    <% elsif !@contact_detail.errors.empty? %>
+      <ul id="flash">
+      <% @contact_detail.errors.full_messages.try(:each) { |message| %>
+        <li class="errors"><%= message %></li>
+      <% } %>
+      </ul>
+    <% end %>
 
   <label>Email:<br>
     <input type="text" name="user[email]"
