@@ -2,6 +2,33 @@
   border-radius: 50%;
 }
 
+#user-show header {
+  padding-bottom: 1em;
+  border-bottom: 1px dotted #F1986B;
+  margin-bottom: 1em;
+}
+
 #user-show header h1 {
-  display: block;
+  color: #F1986B;
+  font-size: 2em;
+  margin-top: 0.5em;
+}
+
+#user-show header h2 {
+  color: #faa57d;
+  font-size: 1.25em;
+}
+
+#user-show header h2 a {
+  color: #aaa;
+}
+
+#user-show header h2 a:hover {
+  color: #888;
+  text-decoration: none;
+}
+
+#user-show header p {
+  margin-top: 1em;
+  width: 90%;
 }
