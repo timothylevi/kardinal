@@ -1,5 +1,8 @@
 <% unless petitions.empty? %>
-<h2>Petitions</h2>
+<section>
+<h2>
+  <% if user.is_a?(Recipient) %>Petitioned by<% else %>Petitions<% end %>
+</h2>
 <ul>
   <% petitions.each do |petition| %>
   <li>
