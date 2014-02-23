@@ -1,0 +1,74 @@
+#user-edit h1 {
+  padding-bottom: 0.5em;
+  border-bottom: 1px dotted #F1986B;
+  margin-bottom: 0.5em;
+  color: #F1986B;
+  font-size: 2em;
+}
+
+#user-edit label {
+  display: block;
+  font-weight: bold;
+  padding: 0 0 0.25em 0;
+  margin-top: 1em;
+}
+
+#user-edit input {
+  display: block;
+}
+
+#user-edit input,
+#user-edit textarea,
+#user-edit select {
+  border-bottom: 1px solid #F1986B;
+  padding: 5px 10px;
+  background-color: white;
+  width: 90%;
+}
+
+#user-edit .delete {
+  margin-top: 0.5em;
+  background-color: #D55F7A;
+  color: white;
+  padding: 0.5em;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 0.5em;
+  box-shadow: 0 0.3em #b34259;
+  position: relative;
+  width: 100%;
+  border: 0;
+}
+
+#user-edit .delete:hover {
+  background-color: #e36f86;
+}
+
+#user-edit .delete:active {
+  top: 0.3em;
+  box-shadow: none;
+}
+
+#user-edit input.call-to-action {
+  width: 100%;
+  padding: 0.5em 0;
+  margin-top: 1em;
+  display: block;
+  background-color: #F1986B;
+  color: white;
+  padding: 0.5em;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 0.5em;
+  box-shadow: 0 0.3em #e08a5e;
+  position: relative;
+}
+
+#user-edit input.call-to-action:hover {
+  background-color: #faa57d;
+}
+
+#user-edit input.call-to-action:active {
+  top: 0.3em;
+  box-shadow: none;
+}
