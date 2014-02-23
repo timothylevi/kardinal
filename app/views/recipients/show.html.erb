@@ -1,4 +1,4 @@
 <main id="user-show">
   <%= render "users/profile", user: @recipient, contact_detail: @recipient.contact_details.first %>
-  <%= render "petitions/list", petitions: @recipient.petitions %>
+  <%= render "petitions/list", user: @recipient, petitions: @recipient.petitions %>
 </main>

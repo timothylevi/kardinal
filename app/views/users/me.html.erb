@@ -1,6 +1,5 @@
 <main id="user-show">
   <%= render "profile", user: @user, contact_detail: @contact_detail %>
-  <%= link_to "Edit Profile", me_edit_url %>
-  <%= link_to "Preview Profile", user_url(current_user) %>
-  <%= render "petitions/list", petitions: current_user.petitions %>
+
+  <%= render "petitions/list", user: @user, petitions: current_user.petitions %>
 </main>
