@@ -1,18 +1,17 @@
 <header class="group">
-  <img src="<%= user.image.url(:profile) %>" class="left">
+  <img src="<%= user.image.url(:profile) %>">
   <h1><%= user.name %></h1>
-  <ul>
-    <% if user.is_a?(Recipient) %>
-    <%= "(#{user.party}) - #{user.title} #{user.gov_state}" %>
-    <% end %>
+  <% if user.is_a?(Recipient) %>
+  <h2><%= "(#{user.party}) - #{user.title} #{user.gov_state}" %></h2>
+  <% end %>
 
-    <% unless contact_detail.city.blank? || contact_detail.state.blank? %>
-    <li><%= contact_detail.city %>, <%= contact_detail.state %></li>
-    <% end %>
+  <% unless contact_detail.city.blank? || contact_detail.state.blank? %>
+  <h2><%= contact_detail.city %>, <%= contact_detail.state %></h2>
+  <% end %>
 
-    <% unless contact_detail.website.blank? %>
-    <li><%= link_to contact_detail.website, contact_detail.website %></li>
-    <% end %>
+  <% unless contact_detail.website.blank? %>
+  <h2><%= link_to contact_detail.website, contact_detail.website %></h2>
+  <% end %>
   </ul>
   <p><%= contact_detail.description %></p>
 </header>
