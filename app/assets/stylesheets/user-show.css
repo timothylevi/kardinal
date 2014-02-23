@@ -1,0 +1,7 @@
+#user-show img {
+  border-radius: 50%;
+}
+
+#user-show header h1 {
+  display: block;
+}
