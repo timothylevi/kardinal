@@ -33,6 +33,7 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true # tested!
   validates :email, :pw_digest, :name, :pwreset_token,
             :activation_token, :session_token, presence: true # tested!
+  validates :contact_details, presence: {message: "must include zip"}
   validates :password, length: { minimum: 6, allow_nil: true } # tested!
   validates :activated, inclusion: {in: ["t", "f"]}
 
