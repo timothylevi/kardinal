@@ -1,6 +1,7 @@
 /* small-medium screen */
 @media all and (min-width: 22em) and (max-width: 33em) {
-  .main-links, .fb-login {
+  .main-links, .fb-login,
+  header.app a .tag {
     display : none;
   }
 
