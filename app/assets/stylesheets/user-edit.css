@@ -16,6 +16,18 @@
   margin-top: 0;
 }
 
+#user-edit h3 a {
+  display: block;
+  text-align: center;
+  margin-top: 1em;
+  color: #aaa;
+}
+
+#user-edit h3 a:hover {
+  color: #888;
+  text-decoration: none;
+}
+
 #user-edit label {
   display: block;
   font-weight: bold;
