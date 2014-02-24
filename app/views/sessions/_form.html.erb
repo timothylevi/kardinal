@@ -1,26 +1,20 @@
 <form action="<%= session_url %>" method="post">
-  <h1>Sign Up or Log In</h1>
-  <a href="/auth/facebook">Sign In via Facebook</a>
   <ul>
   <% user.errors.full_messages.try(:each) { |message| %>
     <li><%= message %></li>
   <% } %>
   </ul>
-  <label>Email:<br>
+  <label>Email:</label>
     <input type="text" name="user[email]" value="<% user.email %>">
-  </label><br>
 
-  <label>Password:<br>
+  <label>Password:</label>
     <input type="password" name="user[password]">
-  </label><br>
 
-  <label>Name:<br>
+  <label>Name:</label>
     <input type="text" name="user[name]">
-  </label><br>
 
-  <label>Zip:<br>
+  <label>Zip:</label>
     <input type="text" name="contact_details[zip]">
-  </label><br>
 
-  <input type="submit">
+  <input type="submit" class="call-to-action">
 </form>
