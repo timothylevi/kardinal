@@ -1,5 +1,16 @@
-<% unless logged_in? %>
-  <%= render "sessions/form", user: @user %>
+<main id="root" class="group">
+<% if logged_in? %>
+<header>
+<h1>Dashboard</h1>
+</header>
+<% else %>
+<header>
+  <h1>Welcome!</h1>
+</header>
+  <section id="user-edit">
+    <%= render "sessions/form", user: @user %>
+    <h3><a href="/auth/facebook">Sign Up via Facebook</a></h3>
+  </section>
 <% end %>
 
 <h2><a href="<%= victories_url %>">Recent victories</a></h2>
