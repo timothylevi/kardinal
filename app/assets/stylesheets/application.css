@@ -101,6 +101,19 @@ header.app .logo:hover {
   border-bottom: 1px solid #F1986B;
 }
 
+header.app .tag {
+  text-decoration: none;
+  color: #F1986B;
+}
+
+header.app .tag:hover {
+  text-decoration: none;
+}
+
+header.app a:hover {
+  text-decoration: none;
+}
+
 footer {
   text-align : center;
   border-top : 1px dotted #F1986B;
