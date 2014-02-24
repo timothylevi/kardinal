@@ -1,0 +1,34 @@
+#root h1 {
+  padding-bottom: 0.5em;
+  border-bottom: 1px dotted #F1986B;
+  margin-bottom: 0.5em;
+  color: #F1986B;
+  font-size: 2em;
+}
+
+#root h2 {
+  font-size: 1.5em;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  color: #F1986B;
+}
+
+#root h2:first-child {
+  margin-top: 0;
+}
+
+#root h2 a {
+  color: #f1986b;
+}
+
+#root h2 a:hover {
+  text-decoration: none;
+  color: #faa57d;
+  border-bottom: 1px dotted #faa57d;
+}
+
+#root section#user-edit {
+  width: 10em;
+  float: right;
+  margin-left: 2em;
+}
