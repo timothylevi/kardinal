@@ -7,7 +7,6 @@ Cardinal::Application.routes.draw do
   end
 
   resources :recipients, only: [:new, :create, :show]
-
   resources :victories, only: [:index, :create]
 
   get '/login', to: 'sessions#new'
@@ -15,6 +14,8 @@ Cardinal::Application.routes.draw do
 
   get '/me', to: 'users#me'
   get '/me/edit', to: 'users#edit'
+
+  get '/activate', to: 'static_pages#activate'
 
   root to: "static_pages#root"
 
