@@ -1,6 +1,7 @@
 class VictoriesController < ApplicationController
   def index
     @victories = Victory.includes(petition: [:creator, :petition_signatures]).limit(10)
+    @causes = Cause.all
   end
 
   def create
