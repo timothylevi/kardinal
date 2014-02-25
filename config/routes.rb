@@ -15,7 +15,7 @@ Cardinal::Application.routes.draw do
   get '/me', to: 'users#me'
   get '/me/edit', to: 'users#edit'
 
-  get '/activate', to: 'static_pages#activate'
+  get '/activate/:token', to: 'static_pages#activate', as: "activate"
 
   root to: "static_pages#root"
 
