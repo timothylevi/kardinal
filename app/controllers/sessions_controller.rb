@@ -26,6 +26,7 @@ class SessionsController < ApplicationController
         # then they should be created (^)
         # upon successful creation
         # user should be redirected to their edit page
+        ActivationMailer.signup_email(@user).deliver!
         redirect_to me_edit_url
       end
 
@@ -58,6 +59,8 @@ class SessionsController < ApplicationController
           # DONE
           # if a user does not exist and user creation is valid
           # then they should go to their edit page
+
+          ActivationMailer.signup_email(@user).deliver!
           redirect_to me_edit_url
         else
           # DONE
