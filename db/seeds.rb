@@ -12,17 +12,17 @@
 #
 # # -----
 #
-# causes = [
-#   "animals", "criminal_justice", "disabled_rights",
-#   "economic_justice", "education", "environment",
-#   "gay_rights", "health", "human_rights",
-#   "human_trafficking", "immigrant_rights", "sports",
-#   "sustainable_food", "technology", "feminism"
-#   ]
-#
-# def create_cause(name)
-#   Cause.create(name: name)
-# end
+causes = [
+  "animals", "criminal_justice", "disabled_rights",
+  "economic_justice", "education", "environment",
+  "gay_rights", "health", "human_rights",
+  "human_trafficking", "immigrant_rights", "sports",
+  "sustainable_food", "technology", "feminism"
+  ]
+
+def create_cause(name)
+  Cause.create(name: name)
+end
 #
 # def create_petition(user, count)
 #   count.times do |i|
@@ -63,17 +63,17 @@
 # end
 # puts "  Finish Creating new users\n"
 #
-# puts "4. Creating Causes"
-# causes.each do |cause|
-#   create_cause(cause)
-# end
-#
-# Petition.find_each do |petition|
-#   petition.petition_causes
-#     .create(cause_id: rand(Cause.first.id..Cause.last.id))
-#   petition.save
-# end
-# puts "   Finishes creating causes"
+puts "4. Creating Causes"
+causes.each do |cause|
+  create_cause(cause)
+end
+
+Petition.find_each do |petition|
+  petition.petition_causes
+    .create(cause_id: rand(Cause.first.id..Cause.last.id))
+  petition.save
+end
+puts "   Finishes creating causes"
 #
 #
 # puts "5. Start Creating Contact Details and Petitions"
