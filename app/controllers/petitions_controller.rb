@@ -18,7 +18,7 @@ class PetitionsController < ApplicationController
 
   def create
     @petition = Petition.new(params[:petition])
-
+    @recipients = Recipient.order(:gov_state, :last_name)
 
     if @petition.valid?
 
