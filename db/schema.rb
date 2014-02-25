@@ -41,6 +41,15 @@ ActiveRecord::Schema.define(:version => 20140225145116) do
 
   add_index "contact_details", ["contactable_id", "contactable_type"], :name => "index_contact_details_on_contactable_id_and_contactable_type"
 
+  create_table "petition_causes", :force => true do |t|
+    t.integer  "petition_id", :null => false
+    t.integer  "cause_id",    :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "petition_causes", ["petition_id", "cause_id"], :name => "index_petition_causes_on_petition_id_and_cause_id", :unique => true
+
   create_table "petition_recipients", :force => true do |t|
     t.integer  "petition_id",  :null => false
     t.integer  "recipient_id", :null => false
