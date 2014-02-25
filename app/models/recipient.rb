@@ -114,12 +114,10 @@ class Recipient < ActiveRecord::Base
       contact = recipient.contact_details.first
       info = recipient.get_description
 
-      puts "#{recipient.name} info[0]"
       if info[0].nil?
-        puts "- description not found"
         next
       else
-        # if recipient.contact_details.first.description.blank?
+        if recipient.contact_details.first.description.blank?
           description = info[0]
           source = info[1]
           index = info[2]
@@ -131,7 +129,7 @@ class Recipient < ActiveRecord::Base
             index = info[2]
           end
 
-        # end
+        end
         contact.update_attributes(
           description: description,
           desc_source: source)
