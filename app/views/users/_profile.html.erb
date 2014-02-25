@@ -14,4 +14,7 @@
   <% end %>
   </ul>
   <p><%= contact_detail.description %></p>
+  <% if user.is_a?(Recipient) && contact_detail.desc_source %>
+    <small class="source"><%= link_to "Source", contact_detail.desc_source %></small>
+  <% end %>
 </header>
