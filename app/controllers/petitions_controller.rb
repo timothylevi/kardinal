@@ -1,5 +1,6 @@
 class PetitionsController < ApplicationController
   before_filter :require_logged_in, only: [:new, :create]
+
   def index
     @petitions = Petition.get_non_victories.limit(10)
   end
