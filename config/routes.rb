@@ -8,6 +8,7 @@ Cardinal::Application.routes.draw do
 
   resources :recipients, only: [:new, :create, :show]
   resources :victories, only: [:index, :create]
+  resources :causes, only: [:show]
 
   get '/login', to: 'sessions#new'
   get 'auth/facebook/callback', to: 'sessions#create'
