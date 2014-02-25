@@ -116,6 +116,10 @@ legislators.each do |legislator|
 end
 puts "   Finishes creating recipients"
 
+puts "7. Getting Recipients' descriptions"
+Recipient.set_descriptions
+puts "   Finishes seeding descriptions"
+
 
 puts "7. Sets images for Recipients"
 Recipient.set_images
