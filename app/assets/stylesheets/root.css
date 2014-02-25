@@ -29,6 +29,11 @@
 
 #root section#user-edit {
   width: 10em;
-  float: right;
+  float: left;
   margin-left: 2em;
+  margin-right: 2em;
+}
+
+#root section {
+  margin-bottom: 2em;
 }

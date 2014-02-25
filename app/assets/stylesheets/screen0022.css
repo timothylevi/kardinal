@@ -46,7 +46,11 @@
   }
 
   /* index view styles */
-  #index summary {
+  main#petition-index summary {
     display: none;
+  }
+
+  #root {
+    background-color: red;
   }
 }
