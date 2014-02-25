@@ -42,7 +42,11 @@ class ContactDetail < ActiveRecord::Base
   end
 
   def http_website
-    self.website.include?("http://") ? self.website : "http://#{website}"
+    if self.website
+      self.website.include?("http://") ? self.website : "http://#{website}"
+    else
+      nil
+    end
   end
 
 end
