@@ -68,8 +68,8 @@
              value="<%= @contact_detail.birthday %>" id="contact_details_birthday">
 
     <label for="contact_details_website">Website:</label>
-      http://<input type="text" name="contact_details[website]"
-             value="<%= @contact_detail.website%>" id="contact_details_website">
+      <input type="text" name="contact_details[website]"
+             value="<%= @contact_detail.http_website %>" id="contact_details_website">
 
     <label for="contact_details_description">Description:</label>
       <textarea name="contact_details[description]" id="contact_details_description"><%= @contact_detail.description %></textarea>

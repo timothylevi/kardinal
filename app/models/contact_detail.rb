@@ -39,4 +39,9 @@ class ContactDetail < ActiveRecord::Base
           OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY PR AS GU
           MP VI UM FM PW)
   end
+
+  def http_website
+    self.website.include?("http://") ? self.website : "http://#{website}"
+  end
+
 end

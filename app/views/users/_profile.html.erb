@@ -10,7 +10,7 @@
   <% end %>
 
   <% unless contact_detail.website.blank? %>
-  <h2><%= link_to contact_detail.website, contact_detail.website %></h2>
+  <h2><%= link_to contact_detail.website, contact_detail.http_website %></h2>
   <% end %>
   </ul>
   <p><%= contact_detail.description %></p>
