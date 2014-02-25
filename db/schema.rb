@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140225145116) do
+ActiveRecord::Schema.define(:version => 20140225160119) do
 
   create_table "causes", :force => true do |t|
     t.string   "name",       :null => false
@@ -69,15 +69,19 @@ ActiveRecord::Schema.define(:version => 20140225145116) do
   add_index "petition_signatures", ["user_id", "petition_id"], :name => "index_petition_signatures_on_user_id_and_petition_id", :unique => true
 
   create_table "petitions", :force => true do |t|
-    t.integer  "creator_id",                        :null => false
-    t.string   "title",                             :null => false
-    t.text     "body",                              :null => false
-    t.text     "background",                        :null => false
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
-    t.string   "approved",   :default => "Pending"
+    t.integer  "creator_id",                                :null => false
+    t.string   "title",                                     :null => false
+    t.text     "body",                                      :null => false
+    t.text     "background",                                :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+    t.string   "approved",           :default => "Pending"
     t.integer  "goal"
-    t.boolean  "is_victory", :default => false
+    t.boolean  "is_victory",         :default => false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "petitions", ["creator_id", "title"], :name => "index_petitions_on_creator_id_and_title"
