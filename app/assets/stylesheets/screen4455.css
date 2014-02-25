@@ -1,5 +1,5 @@
 /* medium-large screen */
-@media all and (min-width: 44em) and (max-width: 50em) {
+@media all and (min-width: 44em) and (max-width: 55em) {
   body {
     font-size : 1.1em;
   }
