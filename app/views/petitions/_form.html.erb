@@ -6,7 +6,8 @@
   <h1><%= title %></h1>
 </header>
 
-<form action="<%= action %>" method="post">
+<form action="<%= action %>" method="post"
+        enctype="multipart/form-data">
   <input type="hidden" name="authenticity_token"
          value="<%= form_authenticity_token %>">
   <input type="hidden" name="_method" value="<%= form_method %>">
@@ -18,6 +19,11 @@
     <% } %>
     </ul>
   <% end %>
+
+  <div class="input">
+  <label for="petition_image">Photo:</label>
+    <input type="file" name="petition[image]" value="petition_image" id="petition_image">
+  </div>
 
   <div class="input">
     <label for="petition_recipient_ids">Recipients</label>
