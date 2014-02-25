@@ -19,6 +19,7 @@ class StaticPagesController < ApplicationController
 
     if @user
       @user.update_attributes(activated: "t")
+      @user.reset_activation_token!
       login(@user)
       redirect_to root_url
     end
