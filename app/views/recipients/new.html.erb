@@ -6,12 +6,13 @@
     <h1>Create Recipient</h1>
     <h2>Recipient Personal Information</h2>
 
-    <ul>
+    <% unless @recipient.errors.full_messages.blank? %>
+    <ul id="flash">
     <% @recipient.errors.full_messages.try(:each) { |message| %>
-      <li><%= message %></li>
+      <li class="errors"><%= message %></li>
     <% } %>
-
     </ul>
+    <% end %>
 
     <label for="recipient_title">Title:</label>
       <select id="recipient_title" name="recipient[title]">
@@ -53,9 +54,13 @@
 
     <h2>Recipient Contact Information</h2>
 
+    <% unless @contact_detail.errors.full_messages.blank? %>
+    <ul id="flash">
     <% @contact_detail.errors.full_messages.try(:each) { |message| %>
-      <li><%= message %></li>
+      <li class="errors"><%= message %></li>
     <% } %>
+    </ul>
+    <% end %>
 
     <label for="recipient_email">Email:</label>
       <input type="text" id="recipient_email" name="recipient[email]"
