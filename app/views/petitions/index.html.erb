@@ -1,10 +1,10 @@
-<main id="petition-index">
+<main id="petition-index" class="group">
   <header>
     <h1>Petitions</h1>
     <h2>Find a petition you're passionate about and find ways to make <span class="logo">change</span> in your community.</h2>
   </header>
 
-  <ul>
+  <ul class="petitions left">
     <% @petitions.each do |petition| %>
     <li>
       <h3><%= link_to petition.title, petition_url(petition) %></h3>
@@ -26,4 +26,14 @@
     </li>
     <% end %>
   </ul>
+
+  <ul class="causes left">
+    <h2>Causes</h3>
+    <% @causes.each do |cause| %>
+    <li>
+      <%= link_to cause.name.humanize, cause_url(cause) %>
+    </li>
+    <% end %>
+  </ul>
+
 </main>

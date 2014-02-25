@@ -3,6 +3,7 @@ class PetitionsController < ApplicationController
 
   def index
     @petitions = Petition.get_non_victories.limit(10)
+    @causes = Cause.order(:name)
   end
 
   def show
