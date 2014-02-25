@@ -1,32 +1,38 @@
 <main id="petition-show">
-  <% if @victory.persisted? %>
-  <h4 class="action">Victorious!</h4>
-  <% end; if @petition_signature.persisted? %>
-  <h4 class="action">Signed!</h4>
-  <% end %>
-
-  <header>
-    <h1><%= @petition.title %></h1>
-    <summary><%= @petition.petition_signatures.count %> signatures of <%= @petition.goal %> needed</summary>
-    <small class="<%= @petition.approved.downcase %>"><%= @petition.approved %></small>
-    <div class="creator">
-      <img src="<%= @creator.image.url(:thumbnail) %>">
-      <%= link_to @creator.name, user_url(@creator) %>
-      <address>
-      <% if @creator.contact_details[0] %>
-        <% unless @creator.contact_details[0].city.blank? || @creator.contact_details[0].state.blank? %>
-          <%= @creator.contact_details[0].city %>, <%= @creator.contact_details[0].state %>
-        <% end %>
-      <% end %>
-      </address>
-    </div>
-  </header>
 
   <% if current_user == @petition.creator && @petition.victory.nil? %>
   <div class="controls group">
     <%= link_to "Edit petition", edit_petition_url(@petition), class: "left edit" %>
   </div>
   <% end %>
+
+
+  <% if @victory.persisted? %>
+  <h4 class="action">Victorious!</h4>
+  <% end; if @petition_signature.persisted? %>
+  <h4 class="action">Signed!</h4>
+  <% end %>
+
+  <header class="group">
+    <img src="<%= @petition.image.url(:profile) %>" class="left"><br>
+
+    <div class="headertext left">
+      <h1><%= @petition.title %></h1>
+      <summary><%= @petition.petition_signatures.count %> signatures of <%= @petition.goal %> needed</summary>
+      <small class="<%= @petition.approved.downcase %>"><%= @petition.approved %></small>
+      <div class="creator">
+        <img src="<%= @creator.image.url(:thumbnail) %>">
+        <%= link_to @creator.name, user_url(@creator) %>
+        <address>
+          <% if @creator.contact_details[0] %>
+          <% unless @creator.contact_details[0].city.blank? || @creator.contact_details[0].state.blank? %>
+          <%= @creator.contact_details[0].city %>, <%= @creator.contact_details[0].state %>
+          <% end %>
+          <% end %>
+        </address>
+      </div>
+    </div>
+  </header>
 
   <% unless @petition.recipients.empty? %>
   <details>
