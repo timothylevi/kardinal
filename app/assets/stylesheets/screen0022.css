@@ -50,7 +50,12 @@
     display: none;
   }
 
-  #root {
-    background-color: red;
+  #root section#user-edit {
+    width: 18em;
+  }
+
+  #root #user-edit input,
+  #root #user-edit button{
+    width: 18em;
   }
 }

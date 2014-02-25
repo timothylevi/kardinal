@@ -1,5 +1,5 @@
 /* medium-large screen */
-@media all and (min-width: 44em) and (max-width: 55em) {
+@media all and (min-width: 44em) and (max-width: 50em) {
   body {
     font-size : 1.1em;
   }
@@ -68,4 +68,13 @@
     font-weight: bold;
     color: #F1986B;
   }
+
+  #root section#user-edit {
+    width: 22em;
+  }
+
+  #root #user-edit input,
+  #root #user-edit button{
+    width: 22em;
+   }
 }
