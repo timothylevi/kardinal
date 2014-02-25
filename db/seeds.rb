@@ -6,17 +6,18 @@
 # Recipient.destroy_all
 # PetitionRecipient.destroy_all
 # PetitionSignature.destroy_all
+# Cause.destroy_all
 # puts "   Finish Destroying everything\n"
 #
 #
 # # -----
 #
 # causes = [
-#   "Animals", "Criminal Justice", "Disabled Rights",
-#   "Economic Justice", "Education", "Environment",
-#   "Gay Rights", "Health", "Human ""Rights",
-#   "Human Trafficking", "Immigrant Rights", "Sports",
-#   "Sustainable Food", "Technology", "Women's Rights"
+#   "animals", "criminal_justice", "disabled_rights",
+#   "economic_justice", "education", "environment",
+#   "gay_rights", "health", "human_rights",
+#   "human_trafficking", "immigrant_rights", "sports",
+#   "sustainable_food", "technology", "feminism"
 #   ]
 #
 # def create_cause(name)
@@ -63,6 +64,10 @@
 # puts "  Finish Creating new users\n"
 #
 # puts "4. Creating Causes"
+# causes.each do |cause|
+#   create_cause(cause)
+# end
+#
 # Petition.find_each do |petition|
 #   petition.petition_causes
 #     .create(cause_id: rand(Cause.first.id..Cause.last.id))
