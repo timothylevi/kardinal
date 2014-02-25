@@ -42,12 +42,12 @@ puts "3. Start Creating new users"
 50.times do |i|
   name = Faker::Name.name
 
-  u = User.new(email: Faker::Internet.email(name),
+  u = User.new(email: Faker::Internet.safe_email(name),
               password: "password",
               name: name)
   puts "- Creating user #{u.id} - #{u.name}"
 
-  u.save!
+  u.save! if u.valid?
 end
 puts "  Finish Creating new users\n"
 
