@@ -16,6 +16,8 @@
 #  image_content_type :string(255)
 #  image_file_size    :integer
 #  image_updated_at   :datetime
+#  provider           :string(255)
+#  uid                :string(255)
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl
