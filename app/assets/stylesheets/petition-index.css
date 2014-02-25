@@ -23,6 +23,15 @@
   font-weight: bold;
 }
 
+#petition-index .causes {
+  padding: 0 0 1em 2.5em;
+  border-left: 1px dotted #F1986B;
+}
+
+#petition-index .petitions {
+  max-width: 30em;
+}
+
 #petition-index .logo {
   font-weight : bold;
 }
