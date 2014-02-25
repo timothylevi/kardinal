@@ -8,4 +8,14 @@ class StaticPagesController < ApplicationController
     @victories = Victory.includes(petition: [:creator, :petition_signatures])
             .limit(5)
   end
+
+  def activate
+    @user = User.find_by_activation_token(params[:token])
+
+    if @user
+      @user.update_attributes(activted: "t")
+      login(@user)
+      redirect_to root_url
+    end
+  end
 end
