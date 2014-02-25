@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140221145210) do
+ActiveRecord::Schema.define(:version => 20140224231334) do
 
   create_table "contact_details", :force => true do |t|
     t.string   "street_address"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20140221145210) do
     t.string   "twitter_id"
     t.string   "facebook_id"
     t.string   "contact_form"
+    t.string   "desc_source"
   end
 
   add_index "contact_details", ["contactable_id", "contactable_type"], :name => "index_contact_details_on_contactable_id_and_contactable_type"
