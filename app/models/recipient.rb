@@ -66,4 +66,77 @@ class Recipient < ActiveRecord::Base
   def name
     "#{self.first_name} #{self.middle_name} #{self.last_name}"
   end
+
+  def possible_names
+    [
+      "#{self.first_name}_#{self.middle_name}_#{self.last_name}",
+      "#{self.first_name.capitalize}_#{self.last_name}_(U.S._politician)",
+      self.first_middle_and_last,
+      "#{self.first_name.capitalize}_#{self.last_name}"
+    ]
+  end
+
+  def get_description(index=nil)
+    if index.nil?
+      names = self.possible_names
+    else
+      names = self.possible_names.dup
+      names.delete(index)
+    end
+
+    names.each_with_index do |name, index|
+      begin
+        url = Addressable::URI.new(
+                scheme: "http",
+                host: "en.wikipedia.org",
+                path: "wiki/#{name}" ,
+        ).to_s
+
+        page = Nokogiri::HTML(open(url))
+        element = page.css('div#mw-content-text p').first
+        description = self.remove_notes(ActionView::Base.full_sanitizer.sanitize(element.to_s))
+
+        return [description, url, index]
+      rescue
+        next
+      end
+    end
+
+    return [nil, nil, nil]
+  end
+
+  def remove_notes(description)
+    description.gsub!(/\(.*\).?|\[.*\].?/, "")
+  end
+
+  def self.set_descriptions
+    Recipient.find_each do |recipient|
+      contact = recipient.contact_details.first
+      info = recipient.get_description
+
+      puts "#{recipient.name} info[0]"
+      if info[0].nil?
+        puts "- description not found"
+        next
+      else
+        # if recipient.contact_details.first.description.blank?
+          description = info[0]
+          source = info[1]
+          index = info[2]
+
+          if description.length < 100
+            info = recipient.get_description(index)
+            description = info[0]
+            source = info[1]
+            index = info[2]
+          end
+
+        # end
+        contact.update_attributes(
+          description: description,
+          desc_source: source)
+      end
+    end
+  end
+
 end
