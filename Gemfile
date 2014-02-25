@@ -6,7 +6,9 @@ gem 'figaro'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'faker'
-
+gem 'nokogiri'
+gem 'rest-client'
+gem 'addressable', require: 'addressable/uri'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
