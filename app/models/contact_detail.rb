@@ -19,6 +19,7 @@
 #  twitter_id       :string(255)
 #  facebook_id      :string(255)
 #  contact_form     :string(255)
+#  desc_source      :string(255)
 #
 
 class ContactDetail < ActiveRecord::Base
