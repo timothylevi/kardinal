@@ -10,11 +10,6 @@
   }
 
   /* header.app and footer styles */
-  header.app {
-    background-color : #FAFAFA;
-    padding : 1em;
-  }
-
   header.app img {
     display : none;
   }

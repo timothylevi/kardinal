@@ -5,11 +5,6 @@
   }
 
   /* header.app and footer styles */
-  header.app {
-    background-color : #FAFAFA;
-    padding : 1em;
-  }
-
   header.app img {
     width: 1.1em;
     height: 1.1em;
@@ -35,10 +30,6 @@
   header.app .user a:hover {
     color: #808080;
     text-decoration: none;
-  }
-
-  .fb-login {
-    display: none;
   }
 
   a.mild-action,

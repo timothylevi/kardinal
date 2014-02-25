@@ -70,8 +70,8 @@ select {
 body {
   font-family : sans-serif;
   min-width : 22em;
-  background-color : #FAFAFA;
-  max-width: 65em;
+  background-color : white;
+  max-width: 50em;
   margin: auto;
 }
 
@@ -87,6 +87,11 @@ body {
 
 .right {
   float : right;
+}
+
+header.app {
+  background-color : white;
+  padding : 1em;
 }
 
 header.app .logo {
@@ -141,7 +146,7 @@ footer small {
 
 main {
   padding : 1em;
-  background : #F2F2F2;
+  background : #FAFAFA;
   max-width: 61em;
   margin: auto;
 }
