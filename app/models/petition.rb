@@ -16,7 +16,7 @@
 
 class Petition < ActiveRecord::Base
   attr_accessible :title, :body, :background, :is_victory,
-                  :recipient_ids, :approved, :goal
+                  :recipient_ids, :approved, :goal, :petition_causes
 
   validates :title, :body, :background, presence: true
   # validates :title, uniqueness: true
@@ -29,9 +29,11 @@ class Petition < ActiveRecord::Base
 
   has_many :petition_signatures, dependent: :destroy
   has_many :petition_recipients, dependent: :destroy
+  has_many :petition_causes, dependent: :destroy
 
   has_many :recipients, through: :petition_recipients, source: :recipient
   has_many :supporters, through: :petition_signatures, source: :user
+  has_many :causes, through: :petition_causes, source: :cause
 
   has_one :victory, dependent: :destroy
 
