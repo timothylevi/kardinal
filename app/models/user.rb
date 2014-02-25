@@ -82,6 +82,11 @@ class User < ActiveRecord::Base
     self.save!
   end
 
+  def reset_activation_token!
+    self.activation_token = User.generate_token
+    self.save!
+  end
+
   def password=(secret) # tested!
     @password = secret
     self.pw_digest = BCrypt::Password.create(secret)
