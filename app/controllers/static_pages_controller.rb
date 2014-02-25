@@ -18,7 +18,7 @@ class StaticPagesController < ApplicationController
     puts; puts
 
     if @user
-      @user.update_attributes(activted: "t")
+      @user.update_attributes(activated: "t")
       login(@user)
       redirect_to root_url
     end
