@@ -12,6 +12,11 @@ class StaticPagesController < ApplicationController
   def activate
     @user = User.find_by_activation_token(params[:token])
 
+    puts; puts
+    puts @user
+    puts params[:token]
+    puts; puts
+
     if @user
       @user.update_attributes(activted: "t")
       login(@user)
