@@ -11,6 +11,14 @@
          value="<%= form_authenticity_token %>">
   <input type="hidden" name="_method" value="<%= form_method %>">
 
+  <% unless petition.errors.full_messages.blank? %>
+    <ul id="flash">
+    <% petition.errors.full_messages.try(:each) { |message| %>
+     <li class="errors"><%= message %></li>
+    <% } %>
+    </ul>
+  <% end %>
+
   <div class="input">
     <label for="petition_recipient_ids">Recipients</label>
     <select name="petition[recipient_ids][]" id="petition_recipient_ids">
@@ -54,13 +62,6 @@
 
     <%= link_to "Create Recipient", new_recipient_url, class: "create-recipient" %>
   </div>
-
-
-  <ul>
-  <% petition.errors.full_messages.try(:each) { |message| %>
-   <li><%= message %></li>
-  <% } %>
-  </ul>
 
   <div class="input">
     <label for="petition_title">Title:</label>
