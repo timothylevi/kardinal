@@ -28,6 +28,10 @@
   border-left: 1px dotted #F1986B;
 }
 
+#petition-index .causes h2 {
+  margin-bottom: 0.5em;
+}
+
 #petition-index .petitions {
   max-width: 30em;
 }
