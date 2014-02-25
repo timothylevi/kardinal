@@ -16,4 +16,8 @@ class Cause < ActiveRecord::Base
 
   has_many :petition_causes
   has_many :petitions, through: :petition_causes, source: :petition
+
+  def to_param
+    "#{self.name}"
+  end
 end
