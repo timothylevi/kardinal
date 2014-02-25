@@ -1,12 +1,37 @@
+#petition-show .controls {
+  display: inline-block;
+  margin-right: 1em;
+}
+
+#petition-show .controls:before {
+  content: "Controls:";
+  display: block;
+  color: #aaa;
+}
+
+#petition-show .controls .edit {
+  color: black;
+  font-weight: bold;
+}
+
 #petition-show header {
   padding-bottom: 1em;
   border-bottom: 1px dotted #F1986B;
   margin-bottom: 1em;
 }
 
+#petition-show header img {
+  margin-top: 1em;
+}
+
+#petition-show header .headertext {
+  padding-left: 1em;
+}
+
 #petition-show h1 {
   color: #F1986B;
   font-size: 2em;
+  width: 13em;
 }
 
 #petition-show h4.action {
@@ -14,7 +39,7 @@
   font-weight: bold;
   padding: 1em;
   background-color: #ddd;
-  margin: 0 0 1em 0;
+  margin: 0 0 0 0;
   display: inline-block;
   border-radius: 0.5em;
   text-transform: uppercase;
@@ -38,22 +63,6 @@
 
 #petition-show .creator address {
   font-style: normal;
-}
-
-#petition-show .controls {
-  padding: 0.5em 0;
-  margin-top: 1em;
-}
-
-#petition-show .controls:before {
-  content: "Controls:";
-  display: block;
-  color: #aaa;
-}
-
-#petition-show .controls .edit {
-  color: black;
-  font-weight: bold;
 }
 
 #petition-show .victory:before {
