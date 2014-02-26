@@ -63,7 +63,7 @@
   font-style: normal;
 }
 
-#petition-show .victory:before {
+#petition-show .victory-block:before {
   content: "Victory message:";
   display: block;
   margin-top: 1em;
