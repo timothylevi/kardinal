@@ -71,7 +71,6 @@ class Recipient < ActiveRecord::Base
     [
       "#{self.first_name}_#{self.middle_name}_#{self.last_name}",
       "#{self.first_name.capitalize}_#{self.last_name}_(U.S._politician)",
-      self.first_middle_and_last,
       "#{self.first_name.capitalize}_#{self.last_name}"
     ]
   end
