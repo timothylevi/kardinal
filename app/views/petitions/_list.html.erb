@@ -7,7 +7,8 @@
   <% petitions.each do |petition| %>
   <li>
     <h3>
-      <% if petition.victory %><small>Victory</small><% end %>
+      <% if petition.victory %><small class="victory">Victory</small><% end %>
+      <% if petition.supporters.include?(current_user) %><small class="signed">Signed</small><% end %>
       <%= link_to petition.title, petition_url(petition) %>
     </h3>
     <p><%= petition.body %></p>
