@@ -71,7 +71,7 @@
 
   <div class="input">
     <label for="petition_goal">Signatures Needed:</label>
-    <input type="number" name="petition[goal]" value="<%= petition.goal %>">
+    <input type="number" name="petition[goal]" id="petition_goal" value="<%= petition.goal %>">
   </div>
 
   <div class="input">
@@ -81,13 +81,13 @@
   </div>
 
   <div class="input">
-    <label>Background:</label>
-    <textarea name="petition[background]"><%= petition.background %></textarea>
+    <label for="petition_background">Background:</label>
+    <textarea name="petition[background]" id="petition_background"><%= petition.background %></textarea>
   </div>
 
   <div class="input">
-    <label>Body:</label>
-    <textarea name="petition[body]"><%= petition.body %></textarea>
+    <label for="petition_body">Body:</label>
+    <textarea name="petition[body]" id="petition_body"><%= petition.body %></textarea>
   </div>
 
   <input type="submit" value="Save" class="call-to-action">
