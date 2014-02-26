@@ -78,17 +78,6 @@
   font-weight: bold;
 }
 
-#user-show section small {
-  color: #506e00;
-  display: inline-block;
-  font-size: 0.5em;
-  text-transform: uppercase;
-  padding: 0.5em;
-  background-color: #d3eb9d;
-  border-radius: 0.5em;
-  border: 1px solid #a7cc52;
-}
-
 #user-show section li:first-child {
   border: none;
   padding-top: 0;

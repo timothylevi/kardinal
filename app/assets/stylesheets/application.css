@@ -179,3 +179,25 @@ input.call-to-action:active {
   font-size: 0.75em;
   color: #C1C1C1;
 }
+
+small.victory {
+  color: #F1986B;
+  display: inline-block;
+  font-size: 0.5em;
+  text-transform: uppercase;
+  padding: 0.5em;
+  background-color: #ffffe0;
+  border-radius: 0.5em;
+  border: 1px solid #ffb68c;
+}
+
+small.signed {
+  color: #749c6e;
+  display: inline-block;
+  font-size: 0.5em;
+  text-transform: uppercase;
+  padding: 0.5em;
+  background-color: #deffd9;
+  border-radius: 0.5em;
+  border: 1px solid #91b88c;
+}
