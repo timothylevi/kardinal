@@ -6,15 +6,19 @@
   </div>
   <% end %>
 
-
-  <% if @victory.persisted? %>
-  <h4 class="action">Victorious!</h4>
-  <% end; if @petition_signature.persisted? %>
-  <h4 class="action">Signed!</h4>
-  <% end %>
-
   <header class="group">
-    <img src="<%= @petition.image.url(:profile) %>" class="left"><br>
+    <div class="headerimage">
+      <img src="<%= @petition.image.url(:profile) %>" class="left"><br>
+
+      <div class="actions">
+        <% if @victory.persisted? %>
+        <h4 class="victory">Victory</h4>
+        <% end; if @petition_signature.persisted? %>
+        <h4 class="signed">Signed</h4>
+        <% end %>
+      </div>
+
+    </div>
 
     <div class="headertext left">
       <h1><%= @petition.title %></h1>
