@@ -65,8 +65,8 @@
   </div>
 
   <div class="input">
-    <label for="petition_causes">Cause</label>
-    <select name="petition[causes][]" id="petition_causes">
+    <label for="petition_cause_ids">Cause</label>
+    <select name="petition[cause_ids][]" id="petition_cause_ids">
       <option value=""></option>
       <% Cause.find_each do |cause| %>
       <option value="<%= cause.id %>"
