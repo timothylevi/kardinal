@@ -21,6 +21,7 @@
 class Petition < ActiveRecord::Base
   attr_accessible :title, :body, :background, :is_victory, :image,
                   :recipient_ids, :approved, :goal, :cause_ids
+                  # to fix merge
 
   has_attached_file :image, :styles => {
                       :profile => "300x200#",
