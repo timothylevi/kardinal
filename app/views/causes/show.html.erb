@@ -1,4 +1,9 @@
 <main id="petition-index">
+  <section id="breadcrumbs">
+    <%= link_to "Petitions", petitions_url %> ›
+    <%= link_to @cause.name.humanize, cause_url(@cause) %>
+  </section>
+
   <header>
     <h1><%= @cause.name.humanize %></h1>
     <% if @cause.description %><h2><%= @cause.description.html_safe %></h2><% end %>

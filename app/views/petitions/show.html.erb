@@ -1,4 +1,9 @@
 <main id="petition-show">
+  <section id="breadcrumbs">
+    <%= link_to "Petitions", petitions_url %> ›
+    <%= link_to @petition.causes.first.name.humanize, cause_url(@petition.causes.first) %> ›
+    <%= link_to @petition.title, petition_url(@petition) %>
+  </section>
 
   <% if current_user == @petition.creator && @petition.victory.nil? %>
   <div class="controls group">
