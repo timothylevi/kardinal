@@ -47,6 +47,11 @@ class User < ActiveRecord::Base
     foreign_key: :creator_id,
     primary_key: :id,
     dependent: :destroy
+  has_many :authored_comments,
+     class_name: "Comment",
+     foreign_key: :user_id,
+     primary_key: :id,
+     dependent: :destroy
 
   has_many :signed_petitions, through: :petition_signatures, source: :petition
 
