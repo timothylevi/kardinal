@@ -1,27 +1,31 @@
 <% create_url = (profile.is_a?(User) ? user_comments_url(profile.id) : petition_comments_url(profile.id)) %>
 
 
-<section>
+<section id="comments">
   <% if profile.comments %>
   <h2>Comments</h2>
   <ul>
     <% profile.comments.each do |comment|%>
-    <li>
-      <h3><img src="<%= comment.user.image.url(:thumbnail) %>"><%= link_to comment.user.name, user_url(comment.user) %></h3>
-      <%= comment.body %>
-      <% if current_user == comment.user %><br>
-      <%= button_to "Delete Comment", comment_url(comment), method: :delete %>
+    <li class="group">
+      <summary class="left">
+        <h3><img src="<%= comment.user.image.url(:thumbnail) %>"><%= link_to comment.user.name, user_url(comment.user) %></h3>
+        <p><%= comment.body %></p>
+      </summary>
+      <% if current_user == comment.user %>
+      <%= button_to "Delete", comment_url(comment), method: :delete, class: "delete right" %>
       <% end %>
     </li>
     <% end %>
   </ul>
   <% end %>
 
-  <form action="<%= create_url %>" class="user-edit" method="post">
+  <form action="<%= create_url %>" class="user-edit group" method="post">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"
-    <div class="input">
+    <div class="input right">
       <label for="comment_body">Leave a comment:</label>
       <input type="text" name="comment[body]">
+
+      <input type="submit" class="call-to-action right">
     </div>
   </form>
 </section>
