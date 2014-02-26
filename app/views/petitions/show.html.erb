@@ -73,4 +73,6 @@
 
     <input class="call-to-action" type="submit" value="Sign" <%= "disabled" if @petition_signature.persisted? %>>
   </form>
+
+  <%= render "comments/list", profile: @petition %>
 </main>
