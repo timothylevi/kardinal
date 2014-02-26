@@ -13,34 +13,32 @@
   margin: 1em 0 0 0;
 }
 
-#petition-form select,
-#petition-form textarea,
-#petition-form input {
-  display: block;
-}
-
 #petition-form  label {
   display: block;
   font-weight: bold;
-  padding: 0 0 0.5em 0;
+  padding: 5px 10px 0.25em 0;
+  margin: 1em auto 0 auto;
+  width: 50%;
+
 }
 
 #petition-form div.input input,
 #petition-form div.input textarea,
 #petition-form div.input select {
-  border-bottom: 1px solid #F1986B;
+  display: block;
+  border: 1px solid #aaa;
   padding: 5px 10px;
-  background-color: white;
-  width: 90%;
+  background-color: #fcfcfc;
+  width: 50%;
+  margin: 0 auto;
+
 }
 
 #petition-form div.input input:focus,
 #petition-form div.input textarea:focus,
 #petition-form div.input select:focus {
   border-bottom: 1px solid #F1986B;
-  padding: 5px 10px;
-  background-color: white;
-  width: 90%;
+  background-color: #fffff5;
 }
 
 #petition-form .create-recipient:before {
@@ -54,6 +52,8 @@
 
 #petition-form .create-recipient {
   display: block;
+  width: 50%;
+  margin: auto;
 }
 
 #petition-form .delete {

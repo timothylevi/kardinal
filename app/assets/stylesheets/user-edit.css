@@ -9,7 +9,9 @@
 #user-edit h2 {
   color: #F1986B;
   font-size: 1.25em;
-  margin-top: 1.5em;
+  margin: 1.5em auto 0 auto;
+  padding-left: 1em;
+  width: 55%;
 }
 
 #user-edit h2:first-child {
@@ -31,8 +33,9 @@
 #user-edit label {
   display: block;
   font-weight: bold;
-  padding: 0 0 0.25em 0;
-  margin-top: 1em;
+  padding: 5px 10px 0.25em 0px;
+  margin: 1em auto 0 auto;
+  width: 50%;
 }
 
 #user-edit input {
@@ -42,14 +45,22 @@
 #user-edit input,
 #user-edit textarea,
 #user-edit select {
-  border-bottom: 1px solid #F1986B;
+  display: block;
+  border: 1px solid #aaa;
   padding: 5px 10px;
-  background-color: white;
-  width: 90%;
+  background-color: #fcfcfc;
+  width: 50%;
+  margin: 0 auto;
+}
+
+#user-edit input:focus,
+#user-edit textarea:focus,
+#user-edit select:focus {
+  background-color: #fffff5;
 }
 
 #user-edit .delete {
-  margin-top: 0.5em;
+  margin: 0.5em auto;
   background-color: #D55F7A;
   color: white;
   padding: 0.5em;
@@ -58,7 +69,6 @@
   border-radius: 0.5em;
   box-shadow: 0 0.3em #b34259;
   position: relative;
-  width: 100%;
   border: 0;
 }
 
@@ -72,9 +82,8 @@
 }
 
 #user-edit input.call-to-action {
-  width: 100%;
   padding: 0.5em 0;
-  margin-top: 1em;
+  margin: 1em auto;
   display: block;
   background-color: #F1986B;
   color: white;
@@ -84,6 +93,7 @@
   border-radius: 0.5em;
   box-shadow: 0 0.3em #e08a5e;
   position: relative;
+  border: 0;
 }
 
 #user-edit input.call-to-action:hover {
