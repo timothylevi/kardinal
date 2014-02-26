@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_filter :require_logged_in
+
   def create
     if params[:user_id]
       User.find(params[:user_id]).comments.create(user_id: current_user.id, body: params[:comment][:body])
