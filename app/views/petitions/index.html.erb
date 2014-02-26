@@ -4,6 +4,15 @@
     <h2>Find a petition you're passionate about and find ways to make <span class="logo">change</span> in your community.</h2>
   </header>
 
+  <ul class="causes left">
+    <h2>Causes</h3>
+    <% @causes.each do |cause| %>
+    <li>
+      <%= link_to cause.name.humanize, cause_url(cause) %>
+    </li>
+    <% end %>
+  </ul>
+
   <ul class="petitions left">
     <% @petitions.each do |petition| %>
     <li>
@@ -23,15 +32,6 @@
       <p>
         <%= petition.body %>
       </p>
-    </li>
-    <% end %>
-  </ul>
-
-  <ul class="causes left">
-    <h2>Causes</h3>
-    <% @causes.each do |cause| %>
-    <li>
-      <%= link_to cause.name.humanize, cause_url(cause) %>
     </li>
     <% end %>
   </ul>
