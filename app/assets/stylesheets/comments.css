@@ -38,16 +38,21 @@
 }
 
 #comments form input {
-  background-color: white;
-  border-bottom: 1px solid #F1986B;
   padding: 0.5em;
   width: 70%;
   margin-top: 0.5em;
+  border: 1px solid #aaa;
+  background-color: #fcfcfc;
+}
+
+#comments form input:focus {
+  background-color: #fffff5;
 }
 
 #comments form input[type="submit"] {
   background-color: #F1986B;
   width: 20%;
+  border: 0;
 }
 
 #comments img {
