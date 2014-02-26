@@ -24,8 +24,9 @@
 }
 
 #petition-index .causes {
-  padding: 0 0 1em 2.5em;
-  border-left: 1px dotted #F1986B;
+  padding: 0 1.5em 1em 0;
+  border-right: 1px dotted #F1986B;
+  margin: 0 1.5em 1.5em 0;
 }
 
 #petition-index .causes h2 {
