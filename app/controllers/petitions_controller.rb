@@ -48,6 +48,7 @@ class PetitionsController < ApplicationController
 
   def update
     @petition = Petition.find(params[:id])
+    @recipients = Recipient.order(:gov_state, :last_name)
 
     if @petition.update_attributes(params[:petition])
       flash[:notices] = ["Your petition was successfully updated!"]
