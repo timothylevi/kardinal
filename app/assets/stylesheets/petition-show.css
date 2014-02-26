@@ -22,11 +22,8 @@
 
 #petition-show header img {
   margin-top: 1em;
+  margin-right: 1em;
   border-radius: 0.5em;
-}
-
-#petition-show header .headertext {
-  padding-left: 1em;
 }
 
 #petition-show h1 {
