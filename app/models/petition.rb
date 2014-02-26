@@ -20,7 +20,7 @@
 
 class Petition < ActiveRecord::Base
   attr_accessible :title, :body, :background, :is_victory, :image,
-                  :recipient_ids, :approved, :goal, :petition_causes
+                  :recipient_ids, :approved, :goal, :cause_ids
 
   has_attached_file :image, :styles => {
                       :profile => "300x200#",
