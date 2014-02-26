@@ -1,14 +1,18 @@
 #flash {
   padding: 0.5em;
-  border-left: 2px solid #F1986B;
-  background-color: #fffcfa;
+  /*border-left: 2px solid #F1986B;*/
+  /*background-color: #fffcfa;*/
   margin: 0 1em 0.5em 1em;
   text-align: left;
   font-weight: bold;
 }
 
 #flash > .notices {
-  color: #459A7E;
+  color: #658c5f;
+  background-color: #deffd9;
+  border-radius: 0.5em;
+  border: 1px solid #91b88c;
+  padding: 0.5em;
 }
 
 #flash > li.notices:before {
@@ -18,6 +22,11 @@
 
 #flash > .errors {
   color: #D55F7A;
+  background-color: #fffcff;
+  border-radius: 0.5em;
+  border: 1px solid #f07f94;
+  padding: 0.5em;
+  margin-bottom: 0.25em;
 }
 
 #flash > li.errors:before {
@@ -26,7 +35,11 @@
 }
 
 #flash > .warnings {
-  color: #FFCC00;
+  color: #F1986B;
+  background-color: #ffffe0;
+  border-radius: 0.5em;
+  border: 1px solid #ffb68c;
+  padding: 0.5em;
 }
 
 #flash > .warnings:before {
