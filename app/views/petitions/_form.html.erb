@@ -21,11 +21,6 @@
   <% end %>
 
   <div class="input">
-  <label for="petition_image">Photo:</label>
-    <input type="file" name="petition[image]" value="petition_image" id="petition_image">
-  </div>
-
-  <div class="input">
     <label for="petition_recipient_ids">Recipients</label>
     <select name="petition[recipient_ids][]" id="petition_recipient_ids">
       <option value=""></option>
@@ -67,6 +62,26 @@
     </select>
 
     <%= link_to "Create Recipient", new_recipient_url, class: "create-recipient" %>
+  </div>
+
+  <div class="input">
+    <label for="petition_causes">Cause</label>
+    <select name="petition[causes][]" id="petition_causes">
+      <option value=""></option>
+      <% Cause.find_each do |cause| %>
+      <option value="<%= cause.id %>"
+        <% if petition.causes[0] %>
+        <%= "selected" if petition.causes[0].id == cause.id %>
+        <% end %>>
+        <%= cause.name.humanize %>
+      </option>
+      <% end %>
+    </select>
+  </div>
+
+  <div class="input">
+  <label for="petition_image">Photo:</label>
+    <input type="file" name="petition[image]" value="petition_image" id="petition_image">
   </div>
 
   <div class="input">
