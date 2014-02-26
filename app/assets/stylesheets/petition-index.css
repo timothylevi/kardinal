@@ -47,11 +47,10 @@
 }
 
 #petition-index summary {
-  font-size: .8em;
-  vertical-align: center;
+  font-size: 0.8em;
 }
 
 #petition-index summary img {
-  border-radius: 50%;
+  border-radius: 0.5em;
   background-color: white;
 }
