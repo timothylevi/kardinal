@@ -1,14 +1,18 @@
 Cardinal::Application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :update, :destroy, :show]
+  resources :users, only: [:new, :update, :destroy, :show] do
+    resources :comments, only: :create
+  end
   resources :petitions do
     resources :petition_signatures, only: :create, as: :petition_signature
     resources :victories, only: :create
+    resources :comments, only: :create
   end
 
   resources :recipients, only: [:new, :create, :show]
   resources :victories, only: [:index, :create]
-  resources :causes, only: [:show]
+  resources :causes, only: :show
+  resources :comments, only: :destroy
 
   get '/login', to: 'sessions#new'
   get 'auth/facebook/callback', to: 'sessions#create'
