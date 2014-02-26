@@ -25,7 +25,7 @@
 }
 
 #user-show img {
-  border-radius: 50%;
+  border-radius: 0.5em;
 }
 
 #user-show header {
