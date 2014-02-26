@@ -24,23 +24,47 @@
   margin-top: 1em;
   margin-right: 1em;
   border-radius: 0.5em;
+  z-index: 1;
+}
+
+#petition-show div.headerimage {
+  position: relative;
+}
+
+#petition-show div.headerimage .actions {
+  position: absolute;
+  top: 1em;
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+#petition-show .headerimage .signed {
+  display: inline-block;
+  background-color: #deffd9;
+  text-transform: uppercase;
+  border: 2px solid #91b88c;
+  border-radius: 0.3em;
+  margin-left: -5px;
+  color: #749c6e;
+  padding: 0.5em;
+  margin-top: 0.5em;
+}
+
+#petition-show .headerimage .victory {
+  background-color: #ffffe0;
+  border-radius: 0.3em;
+  text-transform: uppercase;
+  border: 2px solid #ffb68c;
+  margin-left: -5px;
+  color: #F1986B;
+  padding: 0.5em;
+  margin-top: 0.5em;
 }
 
 #petition-show h1 {
   color: #F1986B;
   font-size: 2em;
   width: 13em;
-}
-
-#petition-show h4.action {
-  color: #f0a884;
-  font-weight: bold;
-  padding: 1em;
-  background-color: #ddd;
-  margin: 0 0 0 0;
-  display: inline-block;
-  border-radius: 0.5em;
-  text-transform: uppercase;
 }
 
 #petition-show .creator:before {
