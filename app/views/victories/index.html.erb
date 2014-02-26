@@ -4,6 +4,15 @@
     <h2>Every day, <span class="logo">kardinal</span> members win people-powered campaigns for social change.</h2>
   </header>
 
+  <ul class="causes left">
+    <h2>Causes</h3>
+    <% @causes.each do |cause| %>
+    <li>
+      <%= link_to cause.name.humanize, cause_url(cause) %>
+    </li>
+    <% end %>
+  </ul>
+
   <ul class="petitions left">
     <% @victories.each do |victory| %>
     <li>
@@ -21,12 +30,4 @@
     <% end %>
   </ul>
 
-  <ul class="causes left">
-    <h2>Causes</h3>
-    <% @causes.each do |cause| %>
-    <li>
-      <%= link_to cause.name.humanize, cause_url(cause) %>
-    </li>
-    <% end %>
-  </ul>
 </main>
