@@ -39,7 +39,8 @@ a:hover {
 input[type="text"],
 input[type="email"],
 input[type="password"],
-input[type="submit"] {
+input[type="submit"],
+input[type="number"] {
   -webkit-appearance: none;
   display: inline-block;
   margin: 0;
@@ -199,4 +200,13 @@ small.signed {
   background-color: #deffd9;
   border-radius: 0.5em;
   border: 1px solid #91b88c;
+}
+
+#breadcrumbs {
+  color: #aaa;
+}
+
+#breadcrumbs a:hover {
+  color: #777;
+  text-decoration: none;
 }
