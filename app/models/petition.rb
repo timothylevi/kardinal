@@ -39,6 +39,7 @@ class Petition < ActiveRecord::Base
   has_many :petition_signatures, dependent: :destroy
   has_many :petition_recipients, dependent: :destroy
   has_many :petition_causes, dependent: :destroy
+  has_many :comments, as: :commentable, dependent: :destroy
 
   has_many :recipients, through: :petition_recipients, source: :recipient
   has_many :supporters, through: :petition_signatures, source: :user
