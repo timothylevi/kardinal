@@ -1,17 +1,16 @@
 <main id="root" class="group">
-  <% if logged_in? %>
-  <header>
-  <h1>Dashboard</h1>
-  </header>
-  <% else %>
-  <header>
-    <h1>Welcome!</h1>
-  </header>
+  <% unless logged_in? %>
     <section id="user-edit">
       <%= render "sessions/form", user: @user %>
       <h3><a href="/auth/facebook">Sign Up via Facebook</a></h3>
     </section>
   <% end %>
+
+  <section class="banner">
+    <h2>The world's platform for change</h2>
+    <h3><%= User.count %> people taking action. <%= link_to "Victories every day.", victories_url %>
+    <%= link_to "Start a petition", new_petition_url, class: "call-to-action" %>
+  </section>
 
   <section class="left">
     <h2><a href="<%= victories_url %>">Recent victories</a></h2>
