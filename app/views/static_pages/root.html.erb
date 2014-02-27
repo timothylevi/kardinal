@@ -22,10 +22,10 @@
   </section>
 
   <section class="left">
-    <h2><a href="<%= petitions_url %>">Popular petitions</a></h2>
+    <h2><a href="<%= petitions_url %>">Recent petitions</a></h2>
     <ul>
       <% @petitions.each do |petition| %>
-      <li><%= link_to petition.title, petition_url(petition) %></li>
+        <%= render "petitions/root_list", petition: petition %>
       <% end %>
     </ul>
   </section>
