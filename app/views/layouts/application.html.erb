@@ -48,7 +48,14 @@
             <img src="<%= current_user.image.url(:thumbnail) %>">
             <%= link_to current_user.name, me_url %>
           </summary>
-        <%= button_to "Log out", session_url, method: :delete, class: "mild-action" %>
+          <ul>
+            <li><%= link_to "My petitions", me_url %></li>
+            <li><%= link_to "Profile", user_url(current_user) %></li>
+            <li><%= link_to "Account", me_edit_url %></li>
+            <li>
+            <%= button_to "Log out", session_url, method: :delete, class: "mild-action" %>
+            </li>
+          </ul>
         </details>
         <% else %>
         <li><%= link_to "Sign in", login_url, class: "mild-action" %></li>
