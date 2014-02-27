@@ -42,14 +42,14 @@ class Recipient < ActiveRecord::Base
   belongs_to :creator, class_name: "User"
 
   def self.set_images
-    Recipient.all.each do |recipient|
+    Recipient.all.each_with_index do |recipient, index|
 
       url = "http://theunitedstates.io/images/congress/original/#{recipient.bioguide_id}.jpg"
 
       begin
         recipient.image = url
         recipient.save
-        puts "   Saving image for #{recipient.list_name}..."
+        puts "   (#{index+1}/#{Recipient.count}) Saved image for #{recipient.list_name}..."
       rescue
       end
     end
