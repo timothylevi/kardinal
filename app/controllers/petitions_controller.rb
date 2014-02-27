@@ -9,7 +9,7 @@ class PetitionsController < ApplicationController
   def show
     @petition = Petition.includes(:recipients, creator: :contact_details).find(params[:id])
 
-    session[:last_viewed] = ActiveSupport::JSON.encode(@petition)
+    session[:last_viewed] = @petition.id
     @creator = @petition.creator
     @petition_signature = PetitionSignature.find_single(current_user, @petition) || PetitionSignature.new
     @victory = Victory.find_by_petition_id(@petition.id) || Victory.new
