@@ -9,6 +9,7 @@ gem 'faker'
 gem 'nokogiri'
 gem 'rest-client'
 gem 'addressable', require: 'addressable/uri'
+gem 'kaminari'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

@@ -111,6 +111,9 @@ GEM
     json (1.8.1)
     jwt (0.1.11)
       multi_json (>= 1.5)
+    kaminari (0.15.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     launchy (2.4.2)
       addressable (~> 2.3)
     letter_opener (1.2.0)
@@ -249,6 +252,7 @@ DEPENDENCIES
   figaro
   guard-rspec
   jquery-rails
+  kaminari
   launchy
   letter_opener
   nokogiri
