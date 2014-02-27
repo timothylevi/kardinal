@@ -7,6 +7,7 @@ class StaticPagesController < ApplicationController
             .limit(10)
     @victories = Victory.includes(petition: [:creator, :petition_signatures])
             .limit(5)
+    @causes = Cause.all
   end
 
   def activate
