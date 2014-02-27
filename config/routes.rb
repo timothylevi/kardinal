@@ -20,9 +20,10 @@ Cardinal::Application.routes.draw do
   get '/me', to: 'users#me'
   get '/me/edit', to: 'users#edit'
 
-  get '/activate/:token', to: 'static_pages#activate', as: "activate"
+  get '/activate/:token', to: 'static_pages#activate', as: 'activate'
+  get '/demo', to: 'static_pages#demo', as: 'demo'
 
-  root to: "static_pages#root"
+  root to: 'static_pages#root'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
