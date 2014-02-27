@@ -13,10 +13,10 @@
   </section>
 
   <section class="left">
-    <h2><a href="<%= victories_url %>">Recent victories</a></h2>
+    <h2><a href="<%= victories_url %>">Victories</a></h2>
     <ul>
       <% @victories.each do |victory| %>
-      <li><%= link_to victory.petition.title, petition_url(victory.petition) %></li>
+        <%= render "victories/root_list", victory: victory %>
       <% end %>
     </ul>
   </section>
