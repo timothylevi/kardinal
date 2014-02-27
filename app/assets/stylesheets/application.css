@@ -210,3 +210,18 @@ small.signed {
   color: #777;
   text-decoration: none;
 }
+.show-modal {
+  display: none;
+}
+
+.modal-box {
+  display: none;
+}
+
+.has-active-modal .modal {
+  display: block;
+}
+
+.modal {
+  display: none;
+}
