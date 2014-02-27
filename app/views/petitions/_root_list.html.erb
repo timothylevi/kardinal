@@ -1,0 +1,11 @@
+<li>
+  <h3>
+    <%= link_to petition.title, petition_url(petition) %>
+  </h3>
+
+  <img src="<%= petition.creator.image.url(:thumbnail) %>"><br>
+  <%= link_to petition.creator.name, user_url(petition.creator) %><br>
+  <%= petition.creator.contact.city %>, <%= petition.creator.contact.state %><br>
+  <%= petition.petition_signatures.count %> Signatures<br>
+  <%= petition.created_at %> Created at<br><br>
+</li>
