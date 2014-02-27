@@ -119,4 +119,8 @@ class User < ActiveRecord::Base
     @middle_name = split_name.join(" ")
   end
 
+  def contact
+    self.contact_details.first
+  end
+
 end
