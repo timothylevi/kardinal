@@ -5,6 +5,8 @@ class PetitionsController < ApplicationController
     @petitions = Petition.get_non_victories.limit(10)
     @causes = Cause.order(:name)
     @last_viewed = Petition.find(session[:last_viewed])
+    @victories = Victory.includes(petition: [:creator, :petition_signatures])
+            .limit(5)
   end
 
   def show
