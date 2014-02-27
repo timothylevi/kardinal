@@ -16,6 +16,13 @@
 
   <%= render "petitions/last_viewed", last_viewed: @last_viewed %>
 
+  <ul class="left">
+    <h2>Victories</h2>
+    <% @victories.each do |victory| %>
+      <%= render "victories/root_list", victory: victory %>
+    <% end %>
+  </ul>
+
   <ul class="petitions left">
     <% @petitions.each do |petition| %>
     <li>
