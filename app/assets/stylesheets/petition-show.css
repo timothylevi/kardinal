@@ -49,7 +49,6 @@
   padding: 0.5em;
   margin-top: 0.5em;
   position: relative;
-  z-index: 500;
 }
 
 #petition-show .headerimage .signed:after {
