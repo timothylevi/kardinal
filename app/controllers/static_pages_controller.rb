@@ -24,4 +24,32 @@ class StaticPagesController < ApplicationController
       redirect_to root_url
     end
   end
+
+  def demo
+    user = User.find_by_email("demo@example.com")
+
+    unless user
+      user = User.create!(
+        name: Faker::Name.name,
+        password: "password",
+        email: "demo@example.com",
+        image: "http://placekitten.com/600/600")
+
+      user.contact_details.create!(
+        zip: 10003,
+        website: "http://kardinal.herokuapp.com",
+        city: "New York",
+        state: "NY",
+        country: "United States of America",
+        description: "I was created as a demo for kardinal! Feel free to edit this info and play around!")
+    else
+      user.contact_details.first.update_attributes(
+        description: "I was created as a demo for kardinal! Feel free to edit this info and play around!")
+
+    end
+
+    login(user)
+    flash[:notices] = ["Thanks for logging in to the demo account!"]
+    redirect_to me_url
+  end
 end
