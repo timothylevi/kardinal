@@ -4,6 +4,7 @@ class PetitionsController < ApplicationController
   def index
     @petitions = Petition.get_non_victories.limit(10)
     @causes = Cause.order(:name)
+    @last_viewed = Petition.find(session[:last_viewed])
   end
 
   def show
