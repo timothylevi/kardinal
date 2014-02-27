@@ -1,5 +1,5 @@
 Cardinal::Application.routes.draw do
-  resource :session, only: [:new, :create, :destroy]
+  resource :session, only: [:create, :destroy]
   resources :users, only: [:new, :update, :destroy, :show] do
     resources :comments, only: :create
   end
