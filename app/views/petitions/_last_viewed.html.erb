@@ -1,0 +1,9 @@
+<ul class="last-viewed left">
+  <h2>Last Viewed</h2>
+  <li>
+    <img src="<%= last_viewed.image.url(:thumbnail) %>" class="left"
+      alt="Petition thumbnail image" title="<%= "#{last_viewed.title}'s petition image" %>">
+    <%= link_to last_viewed.title, petition_url(last_viewed), title: last_viewed.title %><br>
+    by <%= link_to last_viewed.creator.name, user_url(last_viewed.creator), title: last_viewed.creator.name %>
+  </li>
+</ul>
