@@ -9,12 +9,8 @@
   </header>
 
   <ul class="causes left">
-    <h2>Causes</h3>
-    <% @causes.each do |cause| %>
-    <li>
-      <%= link_to cause.name.humanize, cause_url(cause) %>
-    </li>
-    <% end %>
+    <h2>Causes</h2>
+    <%= render "causes/list", causes: @causes %>
   </ul>
 
   <ul class="petitions left">
