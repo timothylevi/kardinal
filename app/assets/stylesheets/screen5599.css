@@ -69,3 +69,86 @@
     color: #F1986B;
   }
 }
+
+@media all and (min-width: 85em) and (max-width: 150em){
+  /* modal styles */
+  section.modal h1 a {
+    font-size: 2em;
+    font-weight: lighter;
+    margin: 0 0 30px 0;
+    text-decoration: none;
+    border: 0;
+    color: white;
+  }
+
+  .modal p {
+    margin-top: 1em;
+  }
+
+  .show-modal {
+    display: inline-block;
+    padding-left: 1em;
+  }
+
+  .has-active-modal .modal {
+    display: block;
+  }
+
+  .modal {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-weight: 300;
+    overflow: hidden;
+    z-index: 5;
+  }
+
+  header.app section.modal article.modal-box div#modal-contatiner p a {
+    color: white;
+    font-weight: lighter;
+    border-bottom: 1px dotted white;
+    text-decoration: none;
+  }
+
+  .modal:before {
+    content: "";
+    display: block;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(240,152,108,0.25);
+  }
+
+  .modal-box {
+    display: block;
+    position: absolute;
+    max-width: 10em;
+    height: 100%;
+    padding: 1em;
+    color: white;
+    font-size: 1em;
+
+    background: rgb(240,152,108);
+  }
+
+  .modal-close-button {
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0.5em;
+    font-size: 2em;
+    line-height: 1.0;
+    font-weight: lighter;
+    color: white;
+    cursor: pointer;
+  }
+
+  .modal-close-button:hover {
+    color: #ffc29c;
+  }
+
+
+}
