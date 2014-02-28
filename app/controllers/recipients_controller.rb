@@ -26,5 +26,11 @@ class RecipientsController < ApplicationController
 
   def show
     @recipient = Recipient.includes(:contact_details, :petitions).find(params[:id])
+    @url = Addressable::URI.new(
+                path: "/petitions/new",
+                query_values: {
+                  recipient_id: @recipient.id
+                }
+        ).to_s
   end
 end
