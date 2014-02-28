@@ -10,6 +10,7 @@ gem 'nokogiri'
 gem 'rest-client'
 gem 'addressable', require: 'addressable/uri'
 gem 'kaminari'
+gem 'chosen-rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
