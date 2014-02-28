@@ -22,7 +22,8 @@
 
   <div class="input">
     <label for="petition_recipient_ids">Recipients</label>
-    <select name="petition[recipient_ids][]" id="petition_recipient_ids">
+    <select name="petition[recipient_ids][]" id="petition_recipient_ids"
+    class="chosen-select" multiple data-placeholder="Search for a recipient">
       <option value=""></option>
       <% recipients.each do |recipient| %>
       <option
@@ -34,40 +35,14 @@
       </option>
       <% end %>
     </select>
-
-    <select name="petition[recipient_ids][]" >
-      <option value=""></option>
-      <% recipients.each do |recipient| %>
-      <option
-        value="<%= recipient.id %>"
-        <% if petition.recipients[1] %>
-        <%= "selected" if petition.recipients[1].id == recipient.id %>
-        <% end %>>
-        <%= recipient.list_name %>
-      </option>
-      <% end %>
-    </select>
-
-    <select name="petition[recipient_ids][]" >
-      <option value=""></option>
-      <% recipients.each do |recipient| %>
-      <option
-        value="<%= recipient.id %>"
-        <% if petition.recipients[2] %>
-        <%= "selected" if petition.recipients[2].id == recipient.id %>
-        <% end %>>
-        <%= recipient.list_name %>
-      </option>
-      <% end %>
-    </select>
-
     <%= link_to "Create Recipient", new_recipient_url, class: "create-recipient",
     title: "Create a recipient" %>
   </div>
 
   <div class="input">
     <label for="petition_cause_ids">Cause</label>
-    <select name="petition[cause_ids][]" id="petition_cause_ids">
+    <select name="petition[cause_ids][]" id="petition_cause_ids"
+    class="chosen-select" data-placeholder="What's your cause?">
       <option value=""></option>
       <% Cause.find_each do |cause| %>
       <option value="<%= cause.id %>"
