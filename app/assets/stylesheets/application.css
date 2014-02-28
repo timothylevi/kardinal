@@ -96,6 +96,31 @@ header.app {
   padding : 1em;
 }
 
+header.app nav ul.user details ul.group li {
+  display: block;
+  clear: both;
+  width: 100%;
+  text-align: right;
+
+}
+
+header.app nav ul.user details ul.group li a {
+  color: #ccc;
+}
+
+header.app nav ul.user details ul.group li a:hover {
+  color: #aaa;
+}
+
+input.menu-action {
+  color: #a85454;
+  cursor: pointer;
+}
+
+input.menu-action:hover {
+  color: #c27474;
+}
+
 header.app .logo {
   color : #F1986B;
   font-weight : bold;
