@@ -45,13 +45,11 @@
               <%= current_user.name %>
             </a>
           </summary>
-          <ul>
+          <ul class="group">
             <li><%= link_to "My petitions", me_url, title: "View your petitions" %></li>
             <li><%= link_to "Profile", user_url(current_user), title: "View your profile page" %></li>
             <li><%= link_to "Account", me_edit_url, title: "Edit your profile" %></li>
-            <li>
-            <%= button_to "Log out", session_url, method: :delete, class: "mild-action", title: "Log out" %>
-            </li>
+            <li><%= button_to "Log out", session_url, method: :delete, class: "menu-action", title: "Log out" %></li>
           </ul>
         </details>
         <% else %>
