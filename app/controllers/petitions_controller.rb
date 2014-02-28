@@ -7,7 +7,7 @@ class PetitionsController < ApplicationController
             .where(is_victory: false)
             .page(params[:page])
     @causes = Cause.order(:name)
-    @last_viewed = Petition.find(session[:last_viewed])
+    @last_viewed = Petition.find(session[:last_viewed]) if session[:last_viewed]
     @victories = Victory.includes(petition: [:creator, :petition_signatures])
             .limit(5)
   end
