@@ -2,7 +2,10 @@ class PetitionsController < ApplicationController
   before_filter :require_logged_in, only: [:new, :create]
 
   def index
-    @petitions = Petition.get_non_victories.limit(10)
+    @petitions = Petition.includes(:creator, :petition_signatures)
+            .order("created_at DESC")
+            .where(is_victory: false)
+            .page(params[:page])
     @causes = Cause.order(:name)
     @last_viewed = Petition.find(session[:last_viewed])
     @victories = Victory.includes(petition: [:creator, :petition_signatures])
