@@ -1,6 +1,6 @@
-<ul class="causes left">
+<ul class="causes left group">
   <h2>Causes</h2>
   <% causes.each do |cause| %>
-  <li><%= link_to cause.name.humanize.titleize, cause_url(cause), title: "See all petitions for #{cause.name.humanize.titleize}" %></li>
+  <li class="left"><%= link_to cause.name.humanize.titleize, cause_url(cause), title: "See all petitions for #{cause.name.humanize.titleize}" %></li>
   <% end %>
 </ul>

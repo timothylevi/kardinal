@@ -1,4 +1,4 @@
-<ul class="left victories-list">
+<ul>
   <h2><%= link_to "Victories", victories_url, title: "View all victories" %></h2>
   <% victories.each do |victory| %>
   <li class="group">
@@ -9,7 +9,7 @@
          <span class="left text">
     <%= link_to victory.description, petition_url(victory.petition_id),
          title: "View petition \"#{victory.petition.title}\"" %><br>
-         by:
+          <%= "#{I18n.t("date.abbr_month_names")[victory.created_at.month]}. #{victory.created_at.day}, #{victory.created_at.year}" %>
        </span>
   </li>
   <% end %>

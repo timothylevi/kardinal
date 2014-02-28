@@ -13,23 +13,17 @@
         <h3><a href="/auth/facebook" title="Sign up via Facebook">Sign Up via Facebook</a></h3>
       </section>
     <% end %>
-
-  </section>
-
-  <section class="left">
-    <%= render "victories/list", victories: @victories %>
-  </section>
-
-  <section class="left">
-    <h2><%= link_to "Recent petitions", petitions_url, title: "View all petitions" %></h2>
-    <ul>
-      <% @petitions.each do |petition| %>
-        <%= render "petitions/root_list", petition: petition %>
-      <% end %>
-    </ul>
   </section>
 
   <section class="left">
     <%= render "causes/list", causes: @causes %>
+  </section>
+
+  <section class="left petitions-list">
+    <%= render "petitions/root_list", petitions: @petitions %>
+  </section>
+
+  <section class="left victories-list">
+    <%= render "victories/list", victories: @victories %>
   </section>
 </main>

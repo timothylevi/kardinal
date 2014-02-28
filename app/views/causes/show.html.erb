@@ -7,14 +7,13 @@
   <header>
     <h1><%= @cause.name.humanize %></h1>
     <% if @cause.description %><h2><%= @cause.description.html_safe %></h2><% end %>
-    <%= link_to "Start a petition", new_petition_url, title: "Start a petition" %>
+    <%= link_to "Start a petition", new_petition_url, title: "Start a petition", class: "start-petition" %>
 
   </header>
 
   <%= render "causes/list", causes: @causes %>
-  <%= render "victories/list", victories: @victories %>
 
-  <ul class="left">
+  <ul class="petitions-list left">
     <% @petitions.each do |petition| %>
     <li>
       <h3><%= link_to petition.title, petition_url(petition), title: "View \"#{petition.title}\"" %></h3>
@@ -38,5 +37,10 @@
     </li>
     <% end %>
   </ul>
+
+  <section class="victories-list left">
+    <%= render "victories/list", victories: @victories %>
+  </section>
+
 
 </main>

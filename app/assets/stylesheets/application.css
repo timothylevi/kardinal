@@ -229,6 +229,10 @@ small.signed {
   border: 1px solid #91b88c;
 }
 
+header {
+  position: relative;
+}
+
 #breadcrumbs {
   color: #aaa;
 }
@@ -253,9 +257,9 @@ small.signed {
   display: none;
 }
 
-.start-petition {
-  top: 5em;
-  right: -1em;
+header .start-petition {
+  top: 0em;
+  right: -2em;
   position: absolute;
   display: block;
   background: #F1986B;
@@ -264,17 +268,17 @@ small.signed {
   border-bottom: 2px solid #e08a5e;
 }
 
-.start-petition:hover {
+header .start-petition:hover {
   text-decoration: none;
   background-color: #ffa87d;
 }
-
 .victories-list {
-  width: 65%;
+  width: 40%;
 }
 
 .victories-list li {
-  margin-top: 0.5em;
+  margin-top: 0.25em;
+  padding-top: 0.25em;
 }
 
 .victories-list li img {
@@ -283,12 +287,61 @@ small.signed {
 
 .victories-list a {
   text-decoration: none;
+  color: #777;
 }
 
 .victories-list a:hover {
-
+  color: #222;
 }
 
 .victories-list li .text {
   width: 50%;
+  color: #aaa;
+  margin-left: 0.5em;
+}
+
+.petitions-list {
+  width: 50%;
+  border-right: 1px solid rgba(222,136,93,0.15);
+}
+
+.petitions-list li {
+  margin-top: 0.25em;
+  padding-top: 0.25em;
+}
+
+.petitions-list li img {
+  border-bottom: 1px solid #ccc;
+}
+
+.petitions-list a {
+  text-decoration: none;
+  color: #777;
+}
+
+.petitions-list a:hover {
+  color: #222;
+}
+
+.petitions-list li .text {
+  width: 75%;
+  color: #aaa;
+  margin-left: 0.5em;
+  font-size: 0.8em;
+}
+
+.text h3 {
+  font-size: 1.5em;
+}
+
+.causes {
+  margin-top: 1em;
+}
+
+.causes h2 {
+  font-weight: lighter;
+}
+
+.causes li{
+  margin-right: 1em;
 }

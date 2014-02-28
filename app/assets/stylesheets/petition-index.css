@@ -24,9 +24,7 @@
 }
 
 #petition-index .causes {
-  padding: 0 1.5em 1em 0;
-  border-right: 1px dotted #F1986B;
-  margin: 0 1.5em 1.5em 0;
+  margin: 0 0 1em 0;
 }
 
 #petition-index .causes h2 {
@@ -53,4 +51,8 @@
 #petition-index summary img {
   border-radius: 0.5em;
   background-color: white;
+}
+
+#petition-index .victories-list {
+  margin-left: 1em;
 }

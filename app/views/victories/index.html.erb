@@ -6,7 +6,7 @@
   <header>
     <h1>Victories</h1>
     <h2>Every day, <span class="logo">kardinal</span> members win people-powered campaigns for social change.</h2>
-    <%= link_to "Start a petition", new_petition_url, title: "Start a petition" %>
+    <%= link_to "Start a petition", new_petition_url, title: "Start a petition", class: "start-petition" %>
   </header>
 
   <%= render "causes/list", causes: @causes %>

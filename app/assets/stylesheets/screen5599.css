@@ -87,7 +87,6 @@
 
   .show-modal {
     display: inline-block;
-    padding-left: 1em;
   }
 
   .has-active-modal .modal {

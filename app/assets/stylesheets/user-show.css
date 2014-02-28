@@ -1,3 +1,7 @@
+#user-show {
+  position: relative;
+}
+
 #user-show .controls {
   background-color: #ffe1bd;
   margin-bottom: 1em;
@@ -92,4 +96,20 @@
 
 #user-show section p {
   margin-top: 0.25em;
+}
+
+#user-show .start-petition {
+  top: 2em;
+  right: -1em;
+  position: absolute;
+  background: #F1986B;
+  padding: 0.5em 3em 0.5em 0.5em;
+  color: white;
+  border-bottom: 2px solid #e08a5e;
+  z-index: 50;
+}
+
+#user-show .start-petition:hover {
+  text-decoration: none;
+  background-color: #ffa87d;
 }

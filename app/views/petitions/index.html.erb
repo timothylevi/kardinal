@@ -6,7 +6,7 @@
   <header>
     <h1>Petitions</h1>
     <h2>Find a petition you're passionate about and find ways to make <span class="logo">change</span> in your community.</h2>
-    <%= link_to "Start a petition", new_petition_url, title: "Start a petition" %>
+    <%= link_to "Start a petition", new_petition_url, title: "Start a petition", class: "start-petition" %>
   </header>
 
   <%= render "causes/list", causes: @causes %>
