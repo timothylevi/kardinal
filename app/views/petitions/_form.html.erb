@@ -28,6 +28,7 @@
       <% recipients.each do |recipient| %>
       <option
         value="<%= recipient.id %>"
+        <%= "selected" if params[:recipient_id] == recipient.id.to_s %>
         <% if petition.recipients[0] %>
         <%= "selected" if petition.recipients.include?(recipient) %>
         <% end %>>
