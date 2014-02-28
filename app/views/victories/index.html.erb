@@ -1,6 +1,6 @@
 <main id="petition-index" class="group">
   <section id="breadcrumbs">
-    <%= link_to "Victories", victories_url %>
+    <%= link_to "Victories", victories_url, title: "Start a petition" %>
   </section>
 
   <header>
@@ -13,7 +13,7 @@
     <h2>Causes</h3>
     <% @causes.each do |cause| %>
     <li>
-      <%= link_to cause.name.humanize, cause_url(cause) %>
+      <%= link_to cause.name.humanize, cause_url(cause), title: "#{cause.name.humanize} petitions index page" %>
     </li>
     <% end %>
   </ul>
