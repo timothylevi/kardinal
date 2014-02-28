@@ -21,7 +21,8 @@
 class Petition < ActiveRecord::Base
   attr_accessible :title, :body, :background, :is_victory, :image,
                   :recipient_ids, :approved, :goal, :cause_ids
-                  # to fix merge
+
+  before_validation :ensure_goal
 
   has_attached_file :image, :styles => {
                       :profile => "300x200#",
@@ -49,4 +50,8 @@ class Petition < ActiveRecord::Base
   has_one :victory, dependent: :destroy
 
   paginates_per 10
+
+  def ensure_goal
+    self.goal ||= 100
+  end
 end
