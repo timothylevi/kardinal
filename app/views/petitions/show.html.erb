@@ -12,6 +12,19 @@
   <% end %>
 
   <header class="group">
+    <% unless @petition_signature.persisted? %>
+    <form
+      action="<%= petition_petition_signature_index_url(@petition) %>"
+      method="post"
+      class="sign-form">
+      <input name="authenticity_token"
+        type="hidden"
+        value="<%= form_authenticity_token %>">
+
+      <input class="sign-petition" type="submit" value="Sign" title="Sign petition" <%= "disabled" if @petition_signature.persisted? %>>
+    </form>
+    <% end %>
+
     <div class="headerimage">
       <img src="<%= @petition.image.url(:profile) %>" class="left" alt="Petition image" title="<%= "#{@petition.title}'s petition image" %>"><br>
 
@@ -75,16 +88,6 @@
   <section class="letter-body">
     <p><%= @petition.body %></p>
   </section>
-
-  <form
-    action="<%= petition_petition_signature_index_url(@petition) %>"
-    method="post">
-    <input name="authenticity_token"
-      type="hidden"
-      value="<%= form_authenticity_token %>">
-
-    <input class="call-to-action" type="submit" value="Sign" title="Sign petition" <%= "disabled" if @petition_signature.persisted? %>>
-  </form>
 
   <%= render "comments/list", profile: @petition %>
 </main>

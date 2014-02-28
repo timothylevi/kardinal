@@ -345,3 +345,9 @@ header .start-petition:hover {
 .causes li{
   margin-right: 1em;
 }
+
+@media all and (max-width: 50em) {
+  main {
+    overflow: hidden;
+  }
+}
