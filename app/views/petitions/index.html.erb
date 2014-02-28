@@ -1,19 +1,15 @@
 <main id="petition-index" class="group">
   <section id="breadcrumbs">
-    <%= link_to "Petitions", petitions_url %>
+    <%= link_to "Petitions", petitions_url, title: "Petitions Index" %>
   </section>
 
   <header>
     <h1>Petitions</h1>
     <h2>Find a petition you're passionate about and find ways to make <span class="logo">change</span> in your community.</h2>
-    <%= link_to "Start a petition", new_petition_url %>
+    <%= link_to "Start a petition", new_petition_url, title: "Start a petition" %>
   </header>
 
-  <ul class="causes left">
-    <h2>Causes</h2>
-    <%= render "causes/list", causes: @causes %>
-  </ul>
-
+  <%= render "causes/list", causes: @causes %>
   <%= render "petitions/last_viewed", last_viewed: @last_viewed %>
 
   <ul class="left">
