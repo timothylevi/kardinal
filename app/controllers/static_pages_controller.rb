@@ -4,7 +4,7 @@ class StaticPagesController < ApplicationController
     @petitions = Petition.includes(:creator, :petition_signatures)
             .order("created_at DESC")
             .where(is_victory: false)
-            .limit(10)
+            .limit(5)
     @victories = Victory.includes(petition: [:creator, :petition_signatures])
             .limit(5)
     @causes = Cause.all
