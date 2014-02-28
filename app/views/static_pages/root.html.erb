@@ -17,7 +17,7 @@
   </section>
 
   <section class="left">
-    <h2><%= link_to "Recent petitions", petitions_url %></h2>
+    <h2><%= link_to "Recent petitions", petitions_url, title: "Recent petitions" %></h2>
     <ul>
       <% @petitions.each do |petition| %>
         <%= render "petitions/root_list", petition: petition %>
