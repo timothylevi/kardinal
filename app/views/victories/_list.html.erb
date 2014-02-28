@@ -1,12 +1,16 @@
-<ul class="left">
+<ul class="left victories-list">
   <h2><%= link_to "Victories", victories_url, title: "View all victories" %></h2>
   <% victories.each do |victory| %>
-  <li>
+  <li class="group">
     <img src="<%= victory.petition.image.url(:thumbnail) %>"
          alt="Petition photo thumbnail"
-         title="<%= "#{victory.description}'s petition image" %>">
+         title="<%= "#{victory.description}'s petition image" %>"
+         class="left">
+         <span class="left text">
     <%= link_to victory.description, petition_url(victory.petition_id),
-         title: "View petition \"#{victory.petition.title}\"" %>
+         title: "View petition \"#{victory.petition.title}\"" %><br>
+         by:
+       </span>
   </li>
   <% end %>
 </ul>

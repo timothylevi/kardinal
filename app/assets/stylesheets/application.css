@@ -176,6 +176,7 @@ main {
   background : #fbfbfb;
   max-width: 61em;
   margin: auto;
+  border: 1px solid #fbfbfb;
 }
 
 input.call-to-action {
@@ -266,4 +267,28 @@ small.signed {
 .start-petition:hover {
   text-decoration: none;
   background-color: #ffa87d;
+}
+
+.victories-list {
+  width: 65%;
+}
+
+.victories-list li {
+  margin-top: 0.5em;
+}
+
+.victories-list li img {
+  border-bottom: 1px solid #ccc;
+}
+
+.victories-list a {
+  text-decoration: none;
+}
+
+.victories-list a:hover {
+
+}
+
+.victories-list li .text {
+  width: 50%;
 }

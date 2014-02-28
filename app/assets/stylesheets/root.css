@@ -44,7 +44,7 @@
 }
 
 #root .banner {
-  margin: -1em 0 0 -1em;
+  margin: -1.5em 0 0 -1em;
   width: 100%;
   clear: both;
   background-image: url('https://s3.amazonaws.com/changeorg_clone_dev/world_light.png');
@@ -54,6 +54,8 @@
   background-color: #fffefa;
   padding: 3em 0 3em 2em;
   color: #e08a5e;
+  border: 1px solid rgba(222,136,93,0.15);
+  border-radius: 0.5em;
 }
 
 #root .banner h2 {
