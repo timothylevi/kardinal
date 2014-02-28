@@ -1,4 +1,5 @@
-<ul>
+<ul class="causes left">
+  <h2>Causes</h2>
   <% causes.each do |cause| %>
   <li><%= link_to cause.name.humanize.titleize, cause_url(cause) %></li>
   <% end %>
