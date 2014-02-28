@@ -9,14 +9,7 @@
     <%= link_to "Start a petition", new_petition_url, title: "Start a petition" %>
   </header>
 
-  <ul class="causes left">
-    <h2>Causes</h3>
-    <% @causes.each do |cause| %>
-    <li>
-      <%= link_to cause.name.humanize, cause_url(cause), title: "#{cause.name.humanize} petitions index page" %>
-    </li>
-    <% end %>
-  </ul>
+  <%= render "causes/list", causes: @causes %>
 
   <ul class="petitions left">
     <%= paginate @victories %>
