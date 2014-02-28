@@ -56,3 +56,7 @@
 #petition-index .victories-list {
   margin-left: 1em;
 }
+
+#petition-index header {
+  position: relative;
+}
