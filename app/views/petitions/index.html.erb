@@ -10,7 +10,9 @@
   </header>
 
   <%= render "causes/list", causes: @causes %>
-  <%= render "petitions/last_viewed", last_viewed: @last_viewed %>
+  <% if @last_viewed %>
+    <%= render "petitions/last_viewed", last_viewed: @last_viewed %>
+  <% end %>
   <%= render "victories/list", victories: @victories %>
 
   <ul class="petitions left">
