@@ -11,13 +11,7 @@
 
   <%= render "causes/list", causes: @causes %>
   <%= render "petitions/last_viewed", last_viewed: @last_viewed %>
-
-  <ul class="left">
-    <h2>Victories</h2>
-    <% @victories.each do |victory| %>
-      <%= render "victories/root_list", victory: victory %>
-    <% end %>
-  </ul>
+  <%= render "victories/list", victories: @victories %>
 
   <ul class="petitions left">
     <%= paginate @petitions %>

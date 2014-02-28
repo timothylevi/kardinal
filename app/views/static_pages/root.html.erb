@@ -13,12 +13,7 @@
   </section>
 
   <section class="left">
-    <h2><a href="<%= victories_url %>">Victories</a></h2>
-    <ul>
-      <% @victories.each do |victory| %>
-        <%= render "victories/root_list", victory: victory %>
-      <% end %>
-    </ul>
+    <%= render "victories/list", victories: @victories %>
   </section>
 
   <section class="left">
