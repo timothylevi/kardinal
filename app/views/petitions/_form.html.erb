@@ -29,7 +29,7 @@
       <option
         value="<%= recipient.id %>"
         <% if petition.recipients[0] %>
-        <%= "selected" if petition.recipients[0].id == recipient.id %>
+        <%= "selected" if petition.recipients.include?(recipient) %>
         <% end %>>
         <%= recipient.list_name %>
       </option>
