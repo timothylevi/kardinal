@@ -1,7 +1,7 @@
 <main id="user-show">
   <div class="controls right">
-    <%= link_to "Edit Profile", me_edit_url %>
-    <%= link_to "Preview Profile", user_url(current_user) %>
+    <%= link_to "Edit Profile", me_edit_url, title: "Edit profile" %>
+    <%= link_to "Preview Profile", user_url(current_user), title: "Preview profile" %>
   </div>
 
   <%= render "profile", user: @user, contact_detail: @contact_detail %>

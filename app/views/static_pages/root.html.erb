@@ -2,14 +2,14 @@
   <% unless logged_in? %>
     <section id="user-edit">
       <%= render "sessions/form", user: @user %>
-      <h3><a href="/auth/facebook">Sign Up via Facebook</a></h3>
+      <h3><a href="/auth/facebook" title="Sign up via Facebook">Sign Up via Facebook</a></h3>
     </section>
   <% end %>
 
   <section class="banner">
     <h2>The world's platform for change</h2>
-    <h3><%= User.count %> people taking action. <%= link_to "Victories every day.", victories_url %>
-    <%= link_to "Start a petition", new_petition_url, class: "call-to-action" %>
+    <h3><%= User.count %> people taking action. <%= link_to "Victories every day.", victories_url, title: "Browse victories" %>
+    <%= link_to "Start a petition", new_petition_url, class: "call-to-action", title: "Start a petition" %>
   </section>
 
   <section class="left">
@@ -17,7 +17,7 @@
   </section>
 
   <section class="left">
-    <h2><%= link_to "Recent petitions", petitions_url, title: "Recent petitions" %></h2>
+    <h2><%= link_to "Recent petitions", petitions_url, title: "View all petitions" %></h2>
     <ul>
       <% @petitions.each do |petition| %>
         <%= render "petitions/root_list", petition: petition %>

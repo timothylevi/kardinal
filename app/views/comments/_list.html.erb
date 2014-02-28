@@ -1,6 +1,5 @@
 <% create_url = (profile.is_a?(User) ? user_comments_url(profile.id) : petition_comments_url(profile.id)) %>
 
-
 <section id="comments">
   <% if profile.comments %>
   <h2>Comments</h2>
@@ -8,11 +7,15 @@
     <% profile.comments.each do |comment|%>
     <li class="group">
       <summary class="left">
-        <h3><img src="<%= comment.user.image.url(:thumbnail) %>"><%= link_to comment.user.name, user_url(comment.user) %></h3>
+        <h3>
+          <a href="<%= user_url(comment.user) %>" title="<%= "View #{comment.user.name}'s profile" %>">
+            <img src="<%= comment.user.image.url(:thumbnail) %>" alt="User profile image thumbnail"><%= comment.user.name %>
+          </a>
+        </h3>
         <p><%= comment.body %></p>
       </summary>
       <% if current_user == comment.user %>
-      <%= button_to "Delete", comment_url(comment), method: :delete, class: "delete right" %>
+        <%= button_to "Delete", comment_url(comment), method: :delete, class: "delete right", title: "Delete comment" %>
       <% end %>
     </li>
     <% end %>
@@ -25,7 +28,7 @@
       <label for="comment_body">Leave a comment:</label>
       <input type="text" name="comment[body]">
 
-      <input type="submit" class="call-to-action right">
+      <input type="submit" class="call-to-action right" title="Submit comment">
     </div>
   </form>
 </section>

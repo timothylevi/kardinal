@@ -1,5 +1,5 @@
 <header class="group">
-  <img src="<%= user.image.url(:profile) %>">
+  <img src="<%= user.image.url(:profile) %>", alt="User profile photo">
   <h1><%= user.name %></h1>
   <% if user.is_a?(Recipient) %>
   <h2><%= "(#{user.party}) - #{user.title} #{user.gov_state}" %></h2>
@@ -11,12 +11,12 @@
   <% end %>
 
   <% unless contact_detail.website.blank? %>
-  <h2><%= link_to contact_detail.website, contact_detail.http_website %></h2>
+  <h2><%= link_to contact_detail.website, contact_detail.http_website, title: "Visit #{user.name}'s website" %></h2>
   <% end %>
   </ul>
   <p><%= contact_detail.description %></p>
   <% if user.is_a?(Recipient) && contact_detail.desc_source %>
-    <small class="source"><%= link_to "Source", contact_detail.desc_source %></small>
+    <small class="source"><%= link_to "Source", contact_detail.desc_source, title: "View description on Wikipedia" %></small>
   <% end %>
   <% end %>
 </header>

@@ -1,6 +1,6 @@
 <main id="petition-index" class="group">
   <section id="breadcrumbs">
-    <%= link_to "Victories", victories_url, title: "Start a petition" %>
+    <%= link_to "Victories", victories_url, title: "View all victories" %>
   </section>
 
   <header>
@@ -15,10 +15,10 @@
     <%= paginate @victories %>
     <% @victories.each do |victory| %>
     <li>
-      <h3><%= link_to victory.petition.title, petition_url(victory.petition) %></h3>
+      <h3><%= link_to victory.petition.title, petition_url(victory.petition), title: "View \"#{victory.petition.title}\"" %></h3>
       <summary>
         <img src="<%= victory.petition.creator.image.url(:thumbnail) %>">
-        <%= link_to victory.petition.creator.name, user_url(victory.petition.creator) %> ·
+        <%= link_to victory.petition.creator.name, user_url(victory.petition.creator), title: "View #{victory.petition.creator}'s name" %> ·
         <%= victory.petition.petition_signatures.length %> signatures ·
         <%= "#{I18n.t("date.abbr_month_names")[victory.created_at.month]}. #{victory.created_at.day}, #{victory.created_at.year}" %>
       </summary>

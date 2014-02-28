@@ -24,33 +24,32 @@
       </select>
 
 
-
     <label for="recipient_first_name">First Name:</label>
-      <input type="text" id="recipient_first_name" name="recipient[first_name]"
+    <input type="text" id="recipient_first_name" name="recipient[first_name]"
              value="<%= @recipient.first_name %>">
 
 
     <label for="recipient_middle_name">Middle Name:</label>
-      <input type="text" id="recipient_middle_name" name="recipient[middle_name]"
+    <input type="text" id="recipient_middle_name" name="recipient[middle_name]"
              value="<%= @recipient.middle_name %>">
 
 
     <label for="recipient_last_name">Last Name:</label>
-      <input type="text" id="recipient_last_name" name="recipient[last_name]"
+    <input type="text" id="recipient_last_name" name="recipient[last_name]"
              value="<%= @recipient.last_name %>">
 
 
     <label for="recipient_gov_state">Region of Influence:</label>
-      <select id="recipient_gov_state" name="recipient[gov_state]">
-        <% ContactDetail.list_states.each do |state| %>
-        <option value="<%= state %>" <%= "selected" if @recipient.gov_state == state %>>
-          <%= state %>
-        </option>
-        <% end %>
-        <option value="US" <%= "selected" if @contact_detail.state == "US" %>>
-          US
-        </option>
-      </select>
+    <select id="recipient_gov_state" name="recipient[gov_state]">
+      <% ContactDetail.list_states.each do |state| %>
+      <option value="<%= state %>" <%= "selected" if @recipient.gov_state == state %>>
+        <%= state %>
+      </option>
+      <% end %>
+      <option value="US" <%= "selected" if @contact_detail.state == "US" %>>
+        US
+      </option>
+    </select>
 
     <!-- <h2>Recipient Contact Information</h2>
 
@@ -116,6 +115,6 @@
       <textarea id="contact_details_description" name="contact_details[description]"><%= @contact_detail.description %></textarea> -->
 
 
-    <input type="submit" class="call-to-action">
+    <input type="submit" class="call-to-action" title="Save recipient">
   </form>
 </main>

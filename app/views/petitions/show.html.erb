@@ -1,19 +1,19 @@
 <main id="petition-show">
   <section id="breadcrumbs">
-    <%= link_to "Petitions", petitions_url %> ›
-    <%= link_to @petition.causes.first.name.humanize, cause_url(@petition.causes.first) %> ›
-    <%= link_to @petition.title, petition_url(@petition) %>
+    <%= link_to "Petitions", petitions_url, title: "View all petitions" %> ›
+    <%= link_to @petition.causes.first.name.humanize, cause_url(@petition.causes.first), title: "View all petitions for #{@petition.causes.first.name}" %> ›
+    <%= link_to @petition.title, petition_url(@petition), title: "View \"#{@petition.title}\"" %>
   </section>
 
   <% if current_user == @petition.creator && @petition.victory.nil? %>
   <div class="controls group">
-    <%= link_to "Edit petition", edit_petition_url(@petition), class: "left edit" %>
+    <%= link_to "Edit petition", edit_petition_url(@petition), class: "left edit", title: "Edit \"#{@petition.title}\"" %>
   </div>
   <% end %>
 
   <header class="group">
     <div class="headerimage">
-      <img src="<%= @petition.image.url(:profile) %>" class="left"><br>
+      <img src="<%= @petition.image.url(:profile) %>" class="left" alt="Petition image" title="<%= "#{@petition.title}'s petition image" %>"><br>
 
       <div class="actions">
         <% if @victory.persisted? %>
@@ -22,16 +22,17 @@
         <h4 class="signed">Signed</h4>
         <% end %>
       </div>
-
     </div>
 
     <div class="headertext left">
       <h1><%= @petition.title %></h1>
       <summary><%= @petition.petition_signatures.count %> signatures of <%= @petition.goal %> needed</summary>
-      <small class="<%= @petition.approved.downcase %>"><%= @petition.approved %></small>
+      <!-- Implement this later; not doing anything now. <small class="<%= @petition.approved.downcase %>"><%= @petition.approved %></small> -->
       <div class="creator">
-        <img src="<%= @creator.image.url(:thumbnail) %>">
-        <%= link_to @creator.name, user_url(@creator) %>
+        <a href="<%= user_url(@creator) %>" title="<%= "View #{@creator.name}'s profile" %>">
+          <img src="<%= @creator.image.url(:thumbnail) %>" alt="User profile photo thumbnail">
+          <%= @creator.name %>
+        </a>
         <address>
           <% if @creator.contact_details[0] %>
           <% unless @creator.contact_details[0].city.blank? || @creator.contact_details[0].state.blank? %>
@@ -49,8 +50,10 @@
     <ul>
       <% @petition.recipients.each do |recipient| %>
       <li>
-        <a href="<%= recipient_url(recipient) %>"><img src="<%= recipient.image.url(:thumbnail) %>"></a>
-        <a href="<%= recipient_url(recipient) %>"><%= recipient.list_name %></a>
+        <a href="<%= recipient_url(recipient) %>" title="<%= "View #{recipient.name}'s recipient profile" %>">
+          <img src="<%= recipient.image.url(:thumbnail) %>" alt="Recipient profile photo">
+          <%= recipient.list_name %>
+        </a>
       </li>
       <% end %>
     </ul>
@@ -80,7 +83,7 @@
       type="hidden"
       value="<%= form_authenticity_token %>">
 
-    <input class="call-to-action" type="submit" value="Sign" <%= "disabled" if @petition_signature.persisted? %>>
+    <input class="call-to-action" type="submit" value="Sign" title="Sign petition" <%= "disabled" if @petition_signature.persisted? %>>
   </form>
 
   <%= render "comments/list", profile: @petition %>

@@ -9,7 +9,7 @@
     <h3>
       <% if petition.victory %><small class="victory">Victory</small><% end %>
       <% if petition.supporters.include?(current_user) %><small class="signed">Signed</small><% end %>
-      <%= link_to petition.title, petition_url(petition) %>
+      <%= link_to petition.title, petition_url(petition), title: "View \"#{petition.title}\"" %>
     </h3>
     <p><%= petition.body %></p>
   </li>
