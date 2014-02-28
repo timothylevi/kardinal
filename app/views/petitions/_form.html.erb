@@ -80,29 +80,31 @@
   </div>
 
   <div class="input">
-  <label for="petition_image">Photo:</label>
-    <input type="file" name="petition[image]" value="petition_image" id="petition_image">
+    <label for="petition_goal">How many signatures do you need?</label>
+    <small>(Defaults to 100)</small>
+    <input type="number" name="petition[goal]" id="petition_goal"
+           value="<%= petition.goal %>">
   </div>
 
   <div class="input">
-    <label for="petition_goal">Signatures Needed:</label>
-    <input type="number" name="petition[goal]" id="petition_goal" value="<%= petition.goal %>">
+    <label for="petition_title">What action do you want taken?</label>
+    <input type="text" name="petition[title]"
+           value="<%= petition.title %>" id="petition_title">
   </div>
 
   <div class="input">
-    <label for="petition_title">Title:</label>
-      <input type="text" name="petition[title]"
-             value="<%= petition.title %>" id="petition_title">
-  </div>
-
-  <div class="input">
-    <label for="petition_background">Background:</label>
+    <label for="petition_background">Why is this important to you?</label>
     <textarea name="petition[background]" id="petition_background"><%= petition.background %></textarea>
   </div>
 
   <div class="input">
-    <label for="petition_body">Body:</label>
+    <label for="petition_body">What should the letter say?</label>
     <textarea name="petition[body]" id="petition_body"><%= petition.body %></textarea>
+  </div>
+
+  <div class="input">
+  <label for="petition_image">Upload a photo:</label>
+    <input type="file" name="petition[image]" value="petition_image" id="petition_image">
   </div>
 
   <input type="submit" value="Save" class="call-to-action">
