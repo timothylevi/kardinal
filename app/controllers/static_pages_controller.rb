@@ -43,6 +43,13 @@ class StaticPagesController < ApplicationController
         state: "NY",
         country: "United States of America",
         description: "I was created as a demo for kardinal! Feel free to edit this info and play around!")
+      petition = user.petitions.create!(
+        title: "Justice for Kwadir Felton",
+        background: "The Jersey City Police Department and Judicial System has stripped a young man of his life and independence, not once, but twice. Kwadir Felton has been charged with six charges of conspiracy. Though there is no strong evidence of his involvement in any drug conspiracy he will be facing 30 years and with a possibility of parole after 15 years. Kwadir was shot in the head by undercover police officers, which lead to a permanent loss of his eyesight. The police officer has not been indicted of any charges because of this. Instead, he has been demoted from Detective to a Blue suit officer. The courts are taking the word of one man as the truth, when his truth could be a fabricated lie to protect his reputation and job. The Jersey City Police Department has not taken any responsibility for crippling a man and wrongfully incarcerating him without irrefutable proof of guilt.",
+        body: "Justice for Kwadir Felton !!!!",
+        image: "http://imgick.nj.com/home/njo-media/pgmain/img/jersey-journal/photo/2013/11/-b6482708df9c7230.jpg",
+        cause_ids: [Cause.find_by_name("criminal_justice").id]
+        )
     else
       user.contact_details.first.update_attributes(
         description: "I was created as a demo for kardinal! Feel free to edit this info and play around!")
