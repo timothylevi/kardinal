@@ -17,4 +17,6 @@ class Victory < ActiveRecord::Base
   validates :petition_id, uniqueness: true
 
   belongs_to :petition
+
+  paginates_per 10
 end
