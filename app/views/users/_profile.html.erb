@@ -5,6 +5,7 @@
   <h2><%= "(#{user.party}) - #{user.title} #{user.gov_state}" %></h2>
   <% end %>
 
+  <% if contact_detail %>
   <% unless contact_detail.city.blank? || contact_detail.state.blank? %>
   <h2><%= contact_detail.city %>, <%= contact_detail.state %></h2>
   <% end %>
@@ -16,5 +17,6 @@
   <p><%= contact_detail.description %></p>
   <% if user.is_a?(Recipient) && contact_detail.desc_source %>
     <small class="source"><%= link_to "Source", contact_detail.desc_source %></small>
+  <% end %>
   <% end %>
 </header>
