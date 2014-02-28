@@ -251,3 +251,19 @@ small.signed {
 .modal {
   display: none;
 }
+
+.start-petition {
+  top: 5em;
+  right: -1em;
+  position: absolute;
+  display: block;
+  background: #F1986B;
+  padding: 0.5em 3em 0.5em 0.5em;
+  color: white;
+  border-bottom: 2px solid #e08a5e;
+}
+
+.start-petition:hover {
+  text-decoration: none;
+  background-color: #ffa87d;
+}
