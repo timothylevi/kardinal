@@ -29,6 +29,7 @@
       <option
         value="<%= recipient.id %>"
         <%= "selected" if params[:recipient_id] == recipient.id.to_s %>
+        <%= "selected" if session[:recipient_id] == recipient.id %>
         <% if petition.recipients[0] %>
         <%= "selected" if petition.recipients.include?(recipient) %>
         <% end %>>
