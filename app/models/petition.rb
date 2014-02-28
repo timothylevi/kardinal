@@ -48,9 +48,5 @@ class Petition < ActiveRecord::Base
 
   has_one :victory, dependent: :destroy
 
-  def self.get_non_victories
-    Petition.includes(:creator, :petition_signatures)
-            .order("created_at DESC")
-            .where(is_victory: false)
-  end
+  paginates_per 10
 end
