@@ -7,7 +7,7 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body <% if ((current_user && current_user.email == "demo@example.com") || !logged_in? ) %>class="has-active-modal">
+<body <% if ((current_user && current_user.email == "demo@example.com") || !logged_in? ) %>class="has-active-modal"<% end %>>
   <section class="modal">
     <article class="modal-box">
       <span class="modal-close-button">&times;</span>
