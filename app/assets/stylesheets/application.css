@@ -100,8 +100,8 @@ header.app nav ul.user details ul.group li {
   display: block;
   clear: both;
   width: 100%;
-  text-align: right;
-
+  text-align: left;
+  margin-left: 2.75em;
 }
 
 header.app nav ul.user details ul.group li a {
@@ -118,7 +118,7 @@ input.menu-action {
 }
 
 input.menu-action:hover {
-  color: #c27474;
+  color: #cf8282;
 }
 
 header.app .logo {
