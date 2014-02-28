@@ -1,0 +1,12 @@
+<ul class="left">
+  <h2>Victories</h2>
+  <% victories.each do |victory| %>
+  <li>
+    <img src="<%= victory.petition.image.url(:thumbnail) %>"
+         alt="Thumbnail image of victorious petition"
+         title="<%= "#{victory.description}'s petition image" %>">
+    <%= link_to victory.description, petition_url(victory.petition_id),
+         title: "Victory text for petition: #{victory.petition.title}" %>
+  </li>
+  <% end %>
+</ul>
