@@ -1,4 +1,5 @@
 <main id="user-show">
+  <%= link_to "Start a petition to #{@recipient.name}", @url, title: "Start a petition to #{@recipient.name}" %>
   <%= render "users/profile", user: @recipient, contact_detail: @recipient.contact_details.first %>
   <%= render "petitions/list", user: @recipient, petitions: @recipient.petitions %>
 </main>
