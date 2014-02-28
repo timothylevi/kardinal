@@ -119,7 +119,7 @@
     position: fixed;
     width: 100%;
     height: 100%;
-    background: rgba(240,152,108,0.35);
+    background: rgba(220,132,88,0.35);
   }
 
   .modal-box {
@@ -131,7 +131,7 @@
     color: white;
     font-size: 1em;
 
-    background: rgb(240,152,108);
+    background: rgb(255,152,108);
   }
 
   .modal-close-button {
