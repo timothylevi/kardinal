@@ -125,6 +125,8 @@
     $("#switch-text").html("<span>" + window.location.pathname + "</span><p>This is the petitions <b>browse</b> page.</p><p>From here you can find a petition by cause (by clicking a link under the 'Causes' heading), or click on a popular petition directly.</p>")
   } else if (window.location.pathname == "/petitions/new") {
     $("#switch-text").html("<span>" + window.location.pathname + "</span><p>This is the <b>start a petition</b> page.</p><p>This is where the magic starts! Here you'll put in all the ingredients for a successful petition, and once you click 'Save', it's available for all to see. Make sure to add at least one recipient (you can create your own if you want!) and include all other fields.</p>")
+  } else if (window.location.pathname == "/victories") {
+    $("#switch-text").html("<span>" + window.location.pathname + "</span><p>This is the <b>victories</b> index!</p><p>Here you can see all of the great change being made by users like you. :) Click on a petition to learn more!</p>")
   } else if (window.location.pathname.indexOf("petitions/") > 0) {
     $("#switch-text").html("<span>/petitions</span><p>This is a <b>petition profile</b> page.</p><p>Read up on the petitions you're interested in, click the black triangle next to 'Petitioning' to see the recipients, and sign! You can also leave comments on the petition for the petition author or recipient.</p>")
   } else if (window.location.pathname == "/recipients/new") {
