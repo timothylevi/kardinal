@@ -11,6 +11,7 @@ gem 'rest-client'
 gem 'addressable', require: 'addressable/uri'
 gem 'kaminari'
 gem 'chosen-rails'
+gem 'newrelic_rpm'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
