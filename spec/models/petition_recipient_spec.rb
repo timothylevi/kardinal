@@ -12,5 +12,12 @@
 require 'spec_helper'
 
 describe PetitionRecipient do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "::find_single finds PetitionRecipient by recipient_id and petition_id" do
+    pr = PetitionRecipient.create(
+      petition_id: 10,
+      recipient_id: 20
+    )
+
+    expect(PetitionRecipient.find_single(20, 10)).not_to be_nil
+  end
 end
