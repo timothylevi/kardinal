@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<title>class StaticPagesController - Rails Application Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>app/controllers/static_pages_controller.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="ApplicationController.html">ApplicationController</a>
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-i-activate">#activate</a>
+    
+    <li><a href="#method-i-demo">#demo</a>
+    
+    <li><a href="#method-i-root">#root</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./doc/README_FOR_APP.html">README_FOR_APP</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./ActivationMailer.html">ActivationMailer</a>
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./Cause.html">Cause</a>
+  
+    <li><a href="./CausesController.html">CausesController</a>
+  
+    <li><a href="./CausesHelper.html">CausesHelper</a>
+  
+    <li><a href="./Comment.html">Comment</a>
+  
+    <li><a href="./CommentsController.html">CommentsController</a>
+  
+    <li><a href="./CommentsHelper.html">CommentsHelper</a>
+  
+    <li><a href="./ContactDetail.html">ContactDetail</a>
+  
+    <li><a href="./Petition.html">Petition</a>
+  
+    <li><a href="./PetitionCause.html">PetitionCause</a>
+  
+    <li><a href="./PetitionRecipient.html">PetitionRecipient</a>
+  
+    <li><a href="./PetitionSignature.html">PetitionSignature</a>
+  
+    <li><a href="./PetitionSignaturesController.html">PetitionSignaturesController</a>
+  
+    <li><a href="./PetitionSignaturesHelper.html">PetitionSignaturesHelper</a>
+  
+    <li><a href="./PetitionsController.html">PetitionsController</a>
+  
+    <li><a href="./PetitionsHelper.html">PetitionsHelper</a>
+  
+    <li><a href="./Recipient.html">Recipient</a>
+  
+    <li><a href="./RecipientsController.html">RecipientsController</a>
+  
+    <li><a href="./RecipientsHelper.html">RecipientsHelper</a>
+  
+    <li><a href="./SessionsController.html">SessionsController</a>
+  
+    <li><a href="./SessionsHelper.html">SessionsHelper</a>
+  
+    <li><a href="./StaticPagesController.html">StaticPagesController</a>
+  
+    <li><a href="./StaticPagesHelper.html">StaticPagesHelper</a>
+  
+    <li><a href="./User.html">User</a>
+  
+    <li><a href="./UsersController.html">UsersController</a>
+  
+    <li><a href="./UsersHelper.html">UsersHelper</a>
+  
+    <li><a href="./VictoriesController.html">VictoriesController</a>
+  
+    <li><a href="./VictoriesHelper.html">VictoriesHelper</a>
+  
+    <li><a href="./Victory.html">Victory</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class StaticPagesController</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-activate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">activate</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="activate-source">
+            <pre><span class="ruby-comment"># File app/controllers/static_pages_controller.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">activate</span>
+  <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by_activation_token</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:token</span>])
+
+  <span class="ruby-identifier">puts</span>; <span class="ruby-identifier">puts</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-ivar">@user</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:token</span>]
+  <span class="ruby-identifier">puts</span>; <span class="ruby-identifier">puts</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@user</span>
+    <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">update_attributes</span>(<span class="ruby-identifier">activated</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;t&quot;</span>)
+    <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">reset_activation_token!</span>
+    <span class="ruby-identifier">login</span>(<span class="ruby-ivar">@user</span>)
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">root_url</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- activate-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- activate-method -->
+
+    
+      <div id="method-i-demo" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">demo</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="demo-source">
+            <pre><span class="ruby-comment"># File app/controllers/static_pages_controller.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">demo</span>
+  <span class="ruby-identifier">user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by_email</span>(<span class="ruby-string">&quot;demo@example.com&quot;</span>)
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">user</span>
+    <span class="ruby-identifier">user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">create!</span>(
+      <span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-constant">Faker</span><span class="ruby-operator">::</span><span class="ruby-constant">Name</span>.<span class="ruby-identifier">name</span>,
+      <span class="ruby-identifier">password</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;password&quot;</span>,
+      <span class="ruby-identifier">email</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;demo@example.com&quot;</span>,
+      <span class="ruby-identifier">image</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;http://placekitten.com/600/600&quot;</span>)
+
+    <span class="ruby-identifier">user</span>.<span class="ruby-identifier">contact_details</span>.<span class="ruby-identifier">create!</span>(
+      <span class="ruby-identifier">zip</span><span class="ruby-operator">:</span> <span class="ruby-value">10003</span>,
+      <span class="ruby-identifier">website</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;http://kardinal.herokuapp.com&quot;</span>,
+      <span class="ruby-identifier">city</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;New York&quot;</span>,
+      <span class="ruby-identifier">state</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;NY&quot;</span>,
+      <span class="ruby-identifier">country</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;United States of America&quot;</span>,
+      <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;I was created as a demo for kardinal! Feel free to edit this info and play around!&quot;</span>)
+    <span class="ruby-identifier">petition</span> = <span class="ruby-identifier">user</span>.<span class="ruby-identifier">petitions</span>.<span class="ruby-identifier">create!</span>(
+      <span class="ruby-identifier">title</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Justice for Kwadir Felton&quot;</span>,
+      <span class="ruby-identifier">background</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;The Jersey City Police Department and Judicial System has stripped a young man of his life and independence, not once, but twice. Kwadir Felton has been charged with six charges of conspiracy. Though there is no strong evidence of his involvement in any drug conspiracy he will be facing 30 years and with a possibility of parole after 15 years. Kwadir was shot in the head by undercover police officers, which lead to a permanent loss of his eyesight. The police officer has not been indicted of any charges because of this. Instead, he has been demoted from Detective to a Blue suit officer. The courts are taking the word of one man as the truth, when his truth could be a fabricated lie to protect his reputation and job. The Jersey City Police Department has not taken any responsibility for crippling a man and wrongfully incarcerating him without irrefutable proof of guilt.&quot;</span>,
+      <span class="ruby-identifier">body</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Justice for Kwadir Felton !!!!&quot;</span>,
+      <span class="ruby-identifier">image</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;http://imgick.nj.com/home/njo-media/pgmain/img/jersey-journal/photo/2013/11/-b6482708df9c7230.jpg&quot;</span>,
+      <span class="ruby-identifier">cause_ids</span><span class="ruby-operator">:</span> [<span class="ruby-constant">Cause</span>.<span class="ruby-identifier">find_by_name</span>(<span class="ruby-string">&quot;criminal_justice&quot;</span>).<span class="ruby-identifier">id</span>]
+      )
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">user</span>.<span class="ruby-identifier">contact_details</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">update_attributes</span>(
+      <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;I was created as a demo for kardinal! Feel free to edit this info and play around!&quot;</span>)
+
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">login</span>(<span class="ruby-identifier">user</span>)
+  <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notices</span>] = [<span class="ruby-string">&quot;Thanks for logging in to the demo account!&quot;</span>]
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">me_url</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- demo-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- demo-method -->
+
+    
+      <div id="method-i-root" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">root</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="root-source">
+            <pre><span class="ruby-comment"># File app/controllers/static_pages_controller.rb, line 2</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">root</span>
+  <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@petitions</span> = <span class="ruby-constant">Petition</span>.<span class="ruby-identifier">includes</span>(<span class="ruby-value">:creator</span>, <span class="ruby-value">:petition_signatures</span>)
+          .<span class="ruby-identifier">order</span>(<span class="ruby-string">&quot;created_at DESC&quot;</span>)
+          .<span class="ruby-identifier">where</span>(<span class="ruby-identifier">is_victory</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+          .<span class="ruby-identifier">limit</span>(<span class="ruby-value">5</span>)
+  <span class="ruby-ivar">@victories</span> = <span class="ruby-constant">Victory</span>.<span class="ruby-identifier">includes</span>(<span class="ruby-identifier">petition</span><span class="ruby-operator">:</span> [<span class="ruby-value">:creator</span>, <span class="ruby-value">:petition_signatures</span>])
+          .<span class="ruby-identifier">limit</span>(<span class="ruby-value">5</span>)
+  <span class="ruby-ivar">@causes</span> = <span class="ruby-constant">Cause</span>.<span class="ruby-identifier">all</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- root-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- root-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

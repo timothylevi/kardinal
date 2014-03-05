@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<title>class Recipient - Rails Application Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>app/models/recipient.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">ActiveRecord::Base
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-list_titles">::list_titles</a>
+    
+    <li><a href="#method-c-set_descriptions">::set_descriptions</a>
+    
+    <li><a href="#method-c-set_images">::set_images</a>
+    
+    <li><a href="#method-i-get_description">#get_description</a>
+    
+    <li><a href="#method-i-list_name">#list_name</a>
+    
+    <li><a href="#method-i-name">#name</a>
+    
+    <li><a href="#method-i-possible_names">#possible_names</a>
+    
+    <li><a href="#method-i-remove_notes">#remove_notes</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./doc/README_FOR_APP.html">README_FOR_APP</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./ActivationMailer.html">ActivationMailer</a>
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./Cause.html">Cause</a>
+  
+    <li><a href="./CausesController.html">CausesController</a>
+  
+    <li><a href="./CausesHelper.html">CausesHelper</a>
+  
+    <li><a href="./Comment.html">Comment</a>
+  
+    <li><a href="./CommentsController.html">CommentsController</a>
+  
+    <li><a href="./CommentsHelper.html">CommentsHelper</a>
+  
+    <li><a href="./ContactDetail.html">ContactDetail</a>
+  
+    <li><a href="./Petition.html">Petition</a>
+  
+    <li><a href="./PetitionCause.html">PetitionCause</a>
+  
+    <li><a href="./PetitionRecipient.html">PetitionRecipient</a>
+  
+    <li><a href="./PetitionSignature.html">PetitionSignature</a>
+  
+    <li><a href="./PetitionSignaturesController.html">PetitionSignaturesController</a>
+  
+    <li><a href="./PetitionSignaturesHelper.html">PetitionSignaturesHelper</a>
+  
+    <li><a href="./PetitionsController.html">PetitionsController</a>
+  
+    <li><a href="./PetitionsHelper.html">PetitionsHelper</a>
+  
+    <li><a href="./Recipient.html">Recipient</a>
+  
+    <li><a href="./RecipientsController.html">RecipientsController</a>
+  
+    <li><a href="./RecipientsHelper.html">RecipientsHelper</a>
+  
+    <li><a href="./SessionsController.html">SessionsController</a>
+  
+    <li><a href="./SessionsHelper.html">SessionsHelper</a>
+  
+    <li><a href="./StaticPagesController.html">StaticPagesController</a>
+  
+    <li><a href="./StaticPagesHelper.html">StaticPagesHelper</a>
+  
+    <li><a href="./User.html">User</a>
+  
+    <li><a href="./UsersController.html">UsersController</a>
+  
+    <li><a href="./UsersHelper.html">UsersHelper</a>
+  
+    <li><a href="./VictoriesController.html">VictoriesController</a>
+  
+    <li><a href="./VictoriesHelper.html">VictoriesHelper</a>
+  
+    <li><a href="./Victory.html">Victory</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Recipient</h1>
+
+  <div id="description" class="description">
+    
+<h2 id="label-Schema+Information">Schema Information</h2>
+
+<p>Table name: recipients</p>
+
+<pre>id                 :integer          not null, primary key
+title              :string(255)      not null
+first_name         :string(255)      not null
+middle_name        :string(255)
+last_name          :string(255)
+bioguide_id        :string(255)
+created_at         :datetime         not null
+updated_at         :datetime         not null
+gov_state          :string(255)
+office             :string(255)
+party              :string(255)
+email              :string(255)
+creator_id         :integer
+image_file_name    :string(255)
+image_content_type :string(255)
+image_file_size    :integer
+image_updated_at   :datetime</pre>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-list_titles" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">list_titles</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="list_titles-source">
+            <pre><span class="ruby-comment"># File app/models/recipient.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">list_titles</span>
+  <span class="ruby-node">%w(Mr Ms Mx Sen Rep Del Com)</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- list_titles-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- list_titles-method -->
+
+    
+      <div id="method-c-set_descriptions" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_descriptions</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="set_descriptions-source">
+            <pre><span class="ruby-comment"># File app/models/recipient.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">set_descriptions</span>
+  <span class="ruby-constant">Recipient</span>.<span class="ruby-identifier">find_each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">recipient</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">contact</span> = <span class="ruby-identifier">recipient</span>.<span class="ruby-identifier">contact_details</span>.<span class="ruby-identifier">first</span>
+    <span class="ruby-identifier">info</span> = <span class="ruby-identifier">recipient</span>.<span class="ruby-identifier">get_description</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">info</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">nil?</span>
+      <span class="ruby-keyword">next</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">recipient</span>.<span class="ruby-identifier">contact_details</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">description</span>.<span class="ruby-identifier">blank?</span>
+        <span class="ruby-identifier">description</span> = <span class="ruby-identifier">info</span>[<span class="ruby-value">0</span>]
+        <span class="ruby-identifier">source</span> = <span class="ruby-identifier">info</span>[<span class="ruby-value">1</span>]
+        <span class="ruby-identifier">index</span> = <span class="ruby-identifier">info</span>[<span class="ruby-value">2</span>]
+
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">description</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">100</span>
+          <span class="ruby-identifier">info</span> = <span class="ruby-identifier">recipient</span>.<span class="ruby-identifier">get_description</span>(<span class="ruby-identifier">index</span>)
+          <span class="ruby-identifier">description</span> = <span class="ruby-identifier">info</span>[<span class="ruby-value">0</span>]
+          <span class="ruby-identifier">source</span> = <span class="ruby-identifier">info</span>[<span class="ruby-value">1</span>]
+          <span class="ruby-identifier">index</span> = <span class="ruby-identifier">info</span>[<span class="ruby-value">2</span>]
+        <span class="ruby-keyword">end</span>
+
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">contact</span>.<span class="ruby-identifier">update_attributes</span>(
+        <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-identifier">description</span>,
+        <span class="ruby-identifier">desc_source</span><span class="ruby-operator">:</span> <span class="ruby-identifier">source</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- set_descriptions-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- set_descriptions-method -->
+
+    
+      <div id="method-c-set_images" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_images</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="set_images-source">
+            <pre><span class="ruby-comment"># File app/models/recipient.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">set_images</span>
+  <span class="ruby-constant">Recipient</span>.<span class="ruby-identifier">all</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">recipient</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+
+    <span class="ruby-identifier">url</span> = <span class="ruby-node">&quot;http://theunitedstates.io/images/congress/original/#{recipient.bioguide_id}.jpg&quot;</span>
+
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">recipient</span>.<span class="ruby-identifier">image</span> = <span class="ruby-identifier">url</span>
+      <span class="ruby-identifier">recipient</span>.<span class="ruby-identifier">save</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;   (#{index+1}/#{Recipient.count}) Saved image for #{recipient.list_name}...&quot;</span>
+    <span class="ruby-keyword">rescue</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- set_images-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- set_images-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-get_description" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_description</span><span
+            class="method-args">(index=nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_description-source">
+            <pre><span class="ruby-comment"># File app/models/recipient.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_description</span>(<span class="ruby-identifier">index</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">index</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">names</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">possible_names</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">names</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">possible_names</span>.<span class="ruby-identifier">dup</span>
+    <span class="ruby-identifier">names</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">index</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">names</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">url</span> = <span class="ruby-constant">Addressable</span><span class="ruby-operator">::</span><span class="ruby-constant">URI</span>.<span class="ruby-identifier">new</span>(
+              <span class="ruby-identifier">scheme</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;http&quot;</span>,
+              <span class="ruby-identifier">host</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;en.wikipedia.org&quot;</span>,
+              <span class="ruby-identifier">path</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;wiki/#{name}&quot;</span> ,
+      ).<span class="ruby-identifier">to_s</span>
+
+      <span class="ruby-identifier">page</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">HTML</span>(<span class="ruby-identifier">open</span>(<span class="ruby-identifier">url</span>))
+      <span class="ruby-identifier">element</span> = <span class="ruby-identifier">page</span>.<span class="ruby-identifier">css</span>(<span class="ruby-string">'div#mw-content-text p'</span>).<span class="ruby-identifier">first</span>
+      <span class="ruby-identifier">description</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">remove_notes</span>(<span class="ruby-constant">ActionView</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">full_sanitizer</span>.<span class="ruby-identifier">sanitize</span>(<span class="ruby-identifier">element</span>.<span class="ruby-identifier">to_s</span>))
+
+      <span class="ruby-keyword">return</span> [<span class="ruby-identifier">description</span>, <span class="ruby-identifier">url</span>, <span class="ruby-identifier">index</span>]
+    <span class="ruby-keyword">rescue</span>
+      <span class="ruby-keyword">next</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> [<span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_description-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_description-method -->
+
+    
+      <div id="method-i-list_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">list_name</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="list_name-source">
+            <pre><span class="ruby-comment"># File app/models/recipient.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">list_name</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-node">&quot;#{self.gov_state} #{self.title}. #{self.first_name} #{self.last_name}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- list_name-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- list_name-method -->
+
+    
+      <div id="method-i-name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">name</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="name-source">
+            <pre><span class="ruby-comment"># File app/models/recipient.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">name</span>
+  <span class="ruby-node">&quot;#{self.first_name} #{self.middle_name} #{self.last_name}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- name-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- name-method -->
+
+    
+      <div id="method-i-possible_names" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">possible_names</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="possible_names-source">
+            <pre><span class="ruby-comment"># File app/models/recipient.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">possible_names</span>
+  [
+    <span class="ruby-node">&quot;#{self.first_name}_#{self.middle_name}_#{self.last_name}&quot;</span>,
+    <span class="ruby-node">&quot;#{self.first_name.capitalize}_#{self.last_name}_(U.S._politician)&quot;</span>,
+    <span class="ruby-node">&quot;#{self.first_name.capitalize}_#{self.last_name}&quot;</span>
+  ]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- possible_names-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- possible_names-method -->
+
+    
+      <div id="method-i-remove_notes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove_notes</span><span
+            class="method-args">(description)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="remove_notes-source">
+            <pre><span class="ruby-comment"># File app/models/recipient.rb, line 107</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">remove_notes</span>(<span class="ruby-identifier">description</span>)
+  <span class="ruby-identifier">description</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">/\(.*\).?|\[.*\].?/</span>, <span class="ruby-string">&quot;&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- remove_notes-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- remove_notes-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
