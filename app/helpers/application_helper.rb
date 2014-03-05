@@ -59,8 +59,8 @@ module ApplicationHelper
   end
 
   def create_and_sign_petition(petition)
-    petition = current_user.petitions.create(petition)
+    new_petition = current_user.petitions.create(petition)
 
-    petition.petition_signatures.create(user_id: current_user.id)
+    new_petition.petition_signatures.create(user_id: current_user.id)
   end
 end
