@@ -110,7 +110,7 @@ class Recipient < ActiveRecord::Base
 
   def self.set_descriptions
     Recipient.find_each do |recipient|
-    info = recipient.get_description
+      info = recipient.get_description
 
       info[0].nil? ? next : recipient.set_description(info)
     end
