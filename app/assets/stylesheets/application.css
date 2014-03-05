@@ -342,6 +342,12 @@ header .start-petition:hover {
   margin-right: 1em;
 }
 
+.demo-link {
+  display: block;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
 @media all and (max-width: 50em) {
   main {
     overflow: hidden;
