@@ -31,11 +31,10 @@ class PetitionsController < ApplicationController
     @recipients = Recipient.order(:gov_state, :last_name)
 
     if @petition.valid?
-
-      current_user.petitions.build(params[:petition])
-      current_user.save
+      current_user.petitions.create(params[:petition])
 
       current_user.petitions.last.petition_signatures.create(user_id: current_user.id)
+
       session[:recipient_id] = nil
 
       flash[:notices] = ["Your petition was successfully created!"]
