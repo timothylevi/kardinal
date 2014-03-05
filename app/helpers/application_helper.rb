@@ -56,4 +56,10 @@ module ApplicationHelper
       return false
     end
   end
+
+  def create_and_sign_petition(petition)
+    petition = current_user.petitions.create(petition)
+
+    petition.petition_signatures.create(user_id: current_user.id)
+  end
 end

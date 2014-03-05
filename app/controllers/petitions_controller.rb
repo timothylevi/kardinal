@@ -31,9 +31,7 @@ class PetitionsController < ApplicationController
     @recipients = Recipient.order(:gov_state, :last_name)
 
     if @petition.valid?
-      current_user.petitions.create(params[:petition])
-
-      current_user.petitions.last.petition_signatures.create(user_id: current_user.id)
+      create_and_sign_petition(params[:petition])
 
       session[:recipient_id] = nil
 
