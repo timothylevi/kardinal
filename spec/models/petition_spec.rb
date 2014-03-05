@@ -21,5 +21,25 @@
 require 'spec_helper'
 
 describe Petition do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "#ensure_goal sets petition.goal to 100 if not specified" do
+    user = FactoryGirl.create(:user)
+    petition = user.petitions.create(
+      title: "petition title",
+      body: "petition letter body",
+      background: "petition background")
+
+    expect(petition.goal).to be(100)
+  end
+
+  it "#ensure_goal does not alter petition.goal when specified" do
+    user = FactoryGirl.create(:user)
+    petition = user.petitions.create(
+      title: "petition title",
+      body: "petition letter body",
+      background: "petition background",
+      goal: 200)
+
+    expect(petition.goal).not_to be(100)
+    expect(petition.goal).to be(200)
+  end
 end
