@@ -110,30 +110,28 @@ class Recipient < ActiveRecord::Base
 
   def self.set_descriptions
     Recipient.find_each do |recipient|
-      contact = recipient.contact_details.first
-      info = recipient.get_description
+    info = recipient.get_description
 
-      if info[0].nil?
-        next
-      else
-        if recipient.contact_details.first.description.blank?
-          description = info[0]
-          source = info[1]
-          index = info[2]
-
-          if description.length < 100
-            info = recipient.get_description(index)
-            description = info[0]
-            source = info[1]
-            index = info[2]
-          end
-
-        end
-        contact.update_attributes(
-          description: description,
-          desc_source: source)
-      end
+      info[0].nil? ? next : recipient.set_description(info)
     end
   end
 
+  def set_description(info)
+    if self.contact_details.first.description.blank?
+      description = info[0]
+      source = info[1]
+      index = info[2]
+
+      if description.length < 100
+        info = self.get_description(index)
+        description = info[0]
+        source = info[1]
+        index = info[2]
+      end
+    end
+
+    self.contact_details.first.update_attributes(
+      description: description,
+      desc_source: source)
+  end
 end
