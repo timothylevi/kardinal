@@ -25,5 +25,28 @@
 require 'spec_helper'
 
 describe ContactDetail do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "::list_states returns 60 potential states" do
+    expect(ContactDetail.list_states.count).to eq(60)
+  end
+
+  it "#http_website appends \"http://\" to website when it doesn't exist" do
+    cd = ContactDetail.create(
+      zip: "12345",
+      contactable_id: 1,
+      contactable_type: "User",
+      website: "example.com")
+
+    expect(cd.http_website).to eq("http://example.com")
+  end
+
+  it "#http_website returns website when \"http://\" exists" do
+    cd = ContactDetail.create(
+      zip: "12345",
+      contactable_id: 1,
+      contactable_type: "User",
+      website: "http://www.example.com")
+
+    expect(cd.http_website).not_to eq("example.com")
+    expect(cd.http_website).to eq("http://www.example.com")
+  end
 end
