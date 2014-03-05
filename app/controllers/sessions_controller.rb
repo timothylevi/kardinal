@@ -34,17 +34,10 @@ class SessionsController < ApplicationController
         if create_user(@user, contact).valid?
           login(@user)
           flash[:notices] = ["Welcome, #{@user.first_name}!"]
-          # DONE
-          # if a user does not exist and user creation is valid
-          # then they should go to their edit page
 
           ActivationMailer.signup_email(@user).deliver!
           redirect_to me_edit_url
         else
-          # DONE
-          # if a user does not exist and has errors upon creation
-          # then they should go to a User#new view
-          # and flash the errors
           flash[:errors] = @user.errors.full_messages
 
           redirect_to new_user_url
