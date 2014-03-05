@@ -1,12 +1,16 @@
 Cardinal::Application.routes.draw do
   resource :session, only: [:create, :destroy]
   resources :users, only: [:new, :update, :destroy, :show] do
-    resources :comments, only: :create
+    member do
+      resources :comments, only: :create, as: "user_comments"
+    end
   end
   resources :petitions do
     resources :petition_signatures, only: :create, as: :petition_signature
     resources :victories, only: :create
-    resources :comments, only: :create
+    member do
+      resources :comments, only: :create, as: "petition_comments"
+    end
   end
 
   resources :recipients, only: [:new, :create, :show]
