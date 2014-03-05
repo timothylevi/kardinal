@@ -12,5 +12,9 @@
 require 'spec_helper'
 
 describe Cause do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "#to_param returns name attribute" do
+    cause = Cause.create!(name: "example")
+
+    expect(cause.to_param).to eq("example")
+  end
 end
