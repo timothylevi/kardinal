@@ -32,4 +32,19 @@ module ApplicationHelper
       redirect_to root_url
     end
   end
+
+  def facebook_login(fb_data)
+    @user = User.find_by_uid(fb_data[:uid])
+
+    if @user
+      login(@user)
+
+      return true
+    else
+      @user = User.create_from_fb(fb_data)
+      login(@user)
+      ActivationMailer.signup_email(@user).deliver!
+
+      return false
+  end
 end
