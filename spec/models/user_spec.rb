@@ -42,8 +42,8 @@ describe User do
       expect(user).to be_valid
     end
 
-    it "validates presence of authorization token" do
-      user = FactoryGirl.build(:user, auth_token: nil)
+    it "validates presence of activation token" do
+      user = FactoryGirl.build(:user, activation_token: nil)
       expect(user).to be_valid
     end
 
@@ -71,46 +71,63 @@ describe User do
     it "creates tokens before saving" do
       user = FactoryGirl.create(:user)
       expect(user.pwreset_token).not_to be_nil
-      expect(user.auth_token).not_to be_nil
+      expect(user.activation_token).not_to be_nil
       expect(user.session_token).not_to be_nil
     end
 
   end
 
   context "class methods" do
-    it "generates a random token" do
+    it "::generate_token generates a random token" do
       token1 = User.generate_token
       token2 = User.generate_token
       expect(token1).not_to eq(token2)
     end
-  end
 
-  context "before saving" do
+    it "::create_from_fb(fb_data) creates a user from Facebook data" do
+      fb_data = {
+        uid: 123456,
+        provider: "facebook",
+        info: {
+          location: "New York, New York",
+          email: "tlc9406@gmail.com",
+          name: "Timothy Levi Campbell",
+          password: Faker::Internet.password,
+          image: "https://scontent-a.xx.fbcdn.net/hphotos-ash3/t1/1780910_10152225732661620_621223880_n.jpg"
+        }
+      }
 
+      u = User.create_from_fb(fb_data)
+      expect(u.uid).to eq(fb_data[:uid])
+      expect(u.provider).to eq(fb_data[:provider])
+      expect(u.first_name).to eq("Timothy")
+      expect(u.last_name).to eq("Campbell")
+
+    end
   end
 
   context "name methods" do
-    it "splits name into first and last" do
+    it "#first_name and #last_name split name into first and last" do
       user = FactoryGirl.build(:user, name: "Timothy Campbell")
       expect(user.first_name).to eq("Timothy")
       expect(user.last_name).to eq("Campbell")
     end
 
-    it "splits name into first, middle, and last" do
+    it "#first_name, #middle_name, and #last_name split name into first, middle, and last" do
       user = FactoryGirl.build(:user, name: "Timothy Levi Campbell")
       expect(user.first_name).to eq("Timothy")
       expect(user.middle_name).to eq("Levi")
       expect(user.last_name).to eq("Campbell")
     end
 
-    it "can split name into multiple middle names" do
+    it "#middle_name can split name into multiple middle names" do
       user = FactoryGirl.build(:user, name: "Timothy Levi Warner Campbell")
       expect(user.middle_name).to eq("Levi Warner")
     end
   end
 
   context "password methods" do
-    it "sets password digest when given a password" do
+    it "#password= sets password digest when given a password" do
       user = FactoryGirl.build(:user)
       expect(user.pw_digest).not_to be_nil
     end
@@ -121,7 +138,7 @@ describe User do
       expect(user1.password).to be_nil
     end
 
-    it "can check a password against password digest" do
+    it "#is_password? can check a password against password digest" do
       password = "password"
       user = FactoryGirl.build(:user, password: password)
       expect(user.is_password?(password)).to be_true
@@ -129,16 +146,24 @@ describe User do
   end
 
   context "token methods" do
+    it "#ensure_tokens saves tokens before " do
+      user = FactoryGirl.create(:user)
+
+      expect(user.session_token).not_to be_nil
+      expect(user.activation_token).not_to be_nil
+      expect(user.pwreset_token).not_to be_nil
+    end
+
     it "resets it's tokens and saves the model" do
-      user = FactoryGirl.build(:user)
+      user = FactoryGirl.create(:user)
       session_token = user.session_token
-      pwreset_token = user.pwreset_token
-      auth_token = user.auth_token
+      activation_token = user.activation_token
 
       user.reset_session_token!
+      user.reset_activation_token!
+
       expect(user.session_token).not_to eq(session_token)
-      expect(user.pwreset_token).not_to eq(pwreset_token)
-      expect(user.auth_token).not_to eq(auth_token)
+      expect(user.activation_token).not_to eq(activation_token)
     end
   end
 
