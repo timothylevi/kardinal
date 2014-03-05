@@ -46,6 +46,7 @@ module ApplicationHelper
       ActivationMailer.signup_email(@user).deliver!
 
       return false
+    end
   end
 
   def check_user_credentials(user)
