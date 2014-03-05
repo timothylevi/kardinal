@@ -2,17 +2,21 @@ class CommentsController < ApplicationController
   before_filter :require_logged_in
 
   def create
-    if params[:user_id]
-      User.find(params[:user_id]).comments.create(user_id: current_user.id, body: params[:comment][:body])
-      flash[:notices] = ["Comment saved!"]
+    is_user = request.url.include?("users")
 
-      redirect_to user_url(params[:user_id])
-    elsif params[:petition_id]
-      Petition.find(params[:petition_id]).comments.create(user_id: current_user.id, body: params[:comment][:body])
-      flash[:notices] = ["Comment saved!"]
+    class_name = (is_user ? User : Petition)
+    url = (is_user ? user_url(params[:id]) : petition_url(params[:id]))
 
-      redirect_to petition_url(params[:petition_id])
-    end
+    class_name.find(params[:id])
+              .comments
+              .create(
+                user_id: current_user.id,
+                body: params[:comment][:body])
+
+
+    flash[:notices] = ["Comment saved!"]
+
+    redirect_to url
   end
 
   def destroy
