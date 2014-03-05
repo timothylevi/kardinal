@@ -24,6 +24,12 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :recipient do
+  factory :recipient do |f|
+    f.title "Sen"
+    f.first_name "Elizabeth"
+    f.last_name "Warren"
+    f.bioguide_id "W000817"
+    f.gov_state "MA"
+    f.office "317 Hart Senate Office Building"
   end
 end
