@@ -9,7 +9,7 @@
 A petition site built on Ruby on Rails as a clone of Change.org. Integrates with several APIs as well as two custom built web-scrapers in Ruby to fetch photos of legislators, and to get their descriptions from Wikipedia.org and persist them to the database.
 
 ## Features
-### App Helptips and Demo Account
+### Help-tips and Demo Account
 At full-screen, help-tips appear for users not logged in and for the demo account. [Open the app](http://kardinal.timothylevi.com) at full-screen to experience the help-tips.
 
 ### Scraper to Retrieve Recipient Descriptions
@@ -48,6 +48,9 @@ Integrates sign-up and login in with Facebook to create a user profile on the ap
       "#{self.name}"
     end
 
+## Tests
+Run `rake` (or `bundle exec rake`) to see model tests.
+
 ## Todo
 * Finish formatting forms and buttons to be consistent with updated layout.
 * Add JS to flash messages to allow users to remove them without having to refresh the page.
@@ -57,6 +60,7 @@ Integrates sign-up and login in with Facebook to create a user profile on the ap
 * Separate help-tips into Backbone Views for better organization.
 * Refactor code smells (CommentsController#create, RecipientsController#create, SessionsController#create)
 * Refactor Recipient::self_images to separate out into a class and instance method
+* Write integration tests
 
 ## Contact
 
