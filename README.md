@@ -12,6 +12,16 @@ A petition site built on Ruby on Rails as a clone of Change.org. Integrates with
 ### App Helptips and Demo Account
 At full-screen, help-tips appear for users not logged in and for the demo account. [Open the app](http://kardinal.timothylevi.com) at full-screen to experience the help-tips.
 
+### Scraper to Retrieve Recipient Descriptions
+Iterates through a list of possible Wikipedia page titles for each recipient in the database, and creates a URI to a Wikipedia page using Addressable. Then opens the page and then converts it to a Nokogiri object. Then grabs the first paragraph of the main content using a css selector (``page.css('div#mw-content-text p').first``). Uses a regex to remove footnotes and parenthetical information from the paragraph, and then tries to save it.
+
+See [Recipient::set_descriptions](https://github.com/timothylevi/kardinal/blob/master/app/models/recipient.rb) and associated methods for a fuller understanding of the implementation.
+
+### Uses APIs to Retrieve Information about Legislators
+Sets Recipient's image by using Paperclip and [the /unitedstates project](http://theunitedstates.io/)'s images API to get a Recipient's image.
+
+Uses [Sunlight's Congress API](http://sunlightlabs.github.io/congress/) and [congress](http://rubygems.org/gems/congress) gem to get information about each recipient. (Also submitted pull request to update documentation in order to make it easier for future users to use the gem to find all recipients in one go.)
+
 ### Create a petition from Recipient's profile
 By creating a url with a query string that includes a recipient's id, when a user clicks "Start a petition to...", the recipient's id is sent up as a parameter to the new petition page with the recipient pre-selected.
 
@@ -46,6 +56,7 @@ Integrates sign-up and login in with Facebook to create a user profile on the ap
 * One or two spots where queries are not optimized.
 * Separate help-tips into Backbone Views for better organization.
 * Refactor code smells (CommentsController#create, RecipientsController#create, SessionsController#create)
+* Refactor Recipient::self_images to separate out into a class and instance method
 
 ## Contact
 
