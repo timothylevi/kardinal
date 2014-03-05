@@ -58,7 +58,7 @@
   </header>
 
   <% unless @petition.recipients.empty? %>
-  <details>
+  <details open>
     <summary>Petitioning:</summary>
     <ul>
       <% @petition.recipients.each do |recipient| %>
