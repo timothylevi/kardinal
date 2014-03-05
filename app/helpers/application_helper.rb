@@ -24,7 +24,7 @@ module ApplicationHelper
   def logout!
     current_user.reset_session_token!
     session[:token] = nil
-    # session[:last_visited] = nil
+    session[:last_visited] = nil
   end
 
   def require_not_logged_in
