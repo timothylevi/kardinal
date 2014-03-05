@@ -47,4 +47,13 @@ module ApplicationHelper
 
       return false
   end
+
+  def check_user_credentials(user)
+    if user.is_password?(params[:user][:password])
+      login(user)
+      return true
+    else
+      return false
+    end
+  end
 end

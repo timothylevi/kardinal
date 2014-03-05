@@ -20,19 +20,11 @@ class SessionsController < ApplicationController
       @user = User.find_by_email(params[:user][:email])
 
       if @user
-        if @user.is_password?(params[:user][:password])
-          login(@user)
+        if check_user_credentials(@user)
           flash[:notices] = ["Welcome back, #{@user.first_name}!"]
-          # DONE
-          # if a user does exist, and login is successful
-          # user should be redirected to the root page
           redirect_to root_url
         else
           flash.now[:errors] = ["Your username or password is incorrect."]
-          # DONE
-          # if a user does exist, but has errors upon login
-          # then they should go to Session#new and
-          # flash login errors
           render :new
         end
       else
