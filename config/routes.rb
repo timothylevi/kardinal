@@ -5,6 +5,7 @@ Cardinal::Application.routes.draw do
       resources :comments, only: :create, as: "user_comments"
     end
   end
+
   resources :petitions do
     resources :petition_signatures, only: :create, as: :petition_signature
     resources :victories, only: :create
