@@ -14,6 +14,10 @@ Cardinal::Application.routes.draw do
     end
   end
 
+  namespace :api do
+    resource :petitions
+  end
+
   resources :recipients, only: [:new, :create, :show]
   resources :victories, only: [:index, :create]
   resources :causes, only: :show
