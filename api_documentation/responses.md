@@ -1,9 +1,6 @@
 # Responses
 
-Depending on its type, a request is either processed immediately or queued for
-processing later. Generally, requests that are seeking information will get an
-immediate response; requests that are modifying or adding data will be queued
-for later.
+At the moment, kardinal only supports GET requests to its API. Below is a list of the possible responses you might receive.
 
 ## Response Codes
 
