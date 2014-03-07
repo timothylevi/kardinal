@@ -54,4 +54,44 @@
   #root #user-edit button{
     width: 20em;
   }
+
+  #root .banner .bannertext {
+    float: none;
+    display: block;
+    clear: both;
+    width: 100%;
+    margin: 0;
+    margin-bottom: 2em;
+  }
+
+  #root .banner .bannertext h2 {
+    width: 75%;
+  }
+
+  #root .banner .login {
+    float: none;
+    display: block;
+    clear: both;
+    margin: 0;
+    margin-left: 5em;
+    width: 11em;
+  }
+
+  #root .banner .login label {
+    text-align: center;
+    display: block;
+  }
+
+  #root .petitions-list {
+    border: 0;
+    width: 100%;
+  }
+
+  #root .petitions-list ul li img {
+    display: none;
+  }
+
+  #root .victories-list {
+    width: 100%;
+  }
 }
