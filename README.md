@@ -6,7 +6,7 @@
 *kardinal makes creating, signing, and sharing petitions easier.*
 [Live Site](http://kardinal.timothylevi.com)
 
-A petition site built on Ruby on Rails as a clone of Change.org. Integrates with several APIs as well as two custom built web-scrapers in Ruby to fetch photos of legislators, and to get their descriptions from Wikipedia.org and persist them to the database.
+A petition site built on Ruby on Rails as a clone of Change.org. Integrates with several APIs as well as two custom built web-scrapers in Ruby to fetch photos of legislators, and to get their descriptions from Wikipedia.org and persist them to the database. (Please note that currently the data for the site was primarily generated using the Faker gem, and names and descriptions of most petitions are mostly incomprehensible.)
 
 ## Features
 ### Help-tips and Demo Account
