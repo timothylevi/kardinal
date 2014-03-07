@@ -53,8 +53,9 @@ Run `rake` (or `bundle exec rake`) to see model tests.
 
 ## Todo
 ### Currently working on:
-* *Update responsiveness of updated views to look good on all screen sizes.*
+* **Update responsiveness of updated views to look good on all screen sizes.**
 * Finish formatting forms and buttons to be consistent with updated layout.
+
 ### For the future:
 * Add JS to flash messages to allow users to remove them without having to refresh the page.
 * Finish updating help-tips; make sure they are on ALL pages (missing: Users/new, Sessions/new, Petitions/edit, Victories/index)
