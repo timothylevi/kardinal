@@ -13,7 +13,7 @@
 
   <%= render "causes/list", causes: @causes %>
 
-  <ul class="petitions-list left">
+  <ul class="petitions left">
     <% @petitions.each do |petition| %>
     <li>
       <h3><%= link_to petition.title, petition_url(petition), title: "View \"#{petition.title}\"" %></h3>
