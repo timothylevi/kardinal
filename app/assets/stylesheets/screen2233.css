@@ -94,4 +94,33 @@
   #root .victories-list {
     width: 100%;
   }
+
+  #petition-index .victories-list {
+    display: none;
+  }
+
+  #petition-index .last-viewed {
+    margin: 2em 0;
+  }
+
+  #petition-index .last-viewed h2 {
+    margin-bottom: 0.25em;
+  }
+
+  #petition-index .petitions:before {
+    content: "Petitions";
+    font-size: 1.1em;
+    color: #F1986B;
+    margin-bottom: 0.25em;
+    display: block;
+    font-weight: normal;
+  }
+
+  #petition-index .petitions nav.pagination {
+    font-size: 1.5em;
+    font-weight: lighter;
+    text-transform: lowercase;
+    color: gray;
+    margin-bottom: 0.5em;
+  }
 }
