@@ -49,8 +49,7 @@ Integrates sign-up and login in with Facebook to create a user profile on the ap
     end
 
 ## Tests
-Run `rspec spec` to see model tests. (Currently working on fixing Rakefile to ease this.)
-Read model specs [here](https://github.com/timothylevi/kardinal/tree/master/spec/models)!
+Run `rspec spec` to see [model tests](https://github.com/timothylevi/kardinal/tree/master/spec/models). (Currently working on fixing Rakefile to ease this.)
 
 ## Todo
 ### Currently working on:
