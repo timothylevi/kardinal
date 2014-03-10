@@ -76,12 +76,8 @@ class Recipient < ActiveRecord::Base
   end
 
   def get_description(index=nil)
-    if index.nil?
-      names = self.possible_names
-    else
-      names = self.possible_names.dup
-      names.delete(index)
-    end
+    names_list = self.possible_names.dup
+    names = (index.nil? ? names_list : names_list.delete(index))
 
     names.each_with_index do |name, index|
       begin
