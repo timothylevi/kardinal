@@ -30,12 +30,12 @@ class User < ActiveRecord::Base
                       :thumbnail => "25x25#"},
     :default_url => "https://s3.amazonaws.com/changeorg_clone_dev/default_:style.png"
 
-  before_validation :ensure_tokens # tested!
+  before_validation :ensure_tokens
 
-  validates :email, uniqueness: true # tested!
+  validates :email, uniqueness: true
   validates :email, :pw_digest, :name, :pwreset_token,
-            :activation_token, :session_token, presence: true # tested!
-  validates :password, length: { minimum: 6, allow_nil: true } # tested!
+            :activation_token, :session_token, presence: true
+  validates :password, length: { minimum: 6, allow_nil: true }
   validates :activated, inclusion: {in: ["t", "f"]}
 
   has_many :comments, as: :commentable, dependent: :destroy
@@ -55,7 +55,7 @@ class User < ActiveRecord::Base
 
   has_many :signed_petitions, through: :petition_signatures, source: :petition
 
-  def self.generate_token # tested!
+  def self.generate_token
     SecureRandom.urlsafe_base64(16)
   end
 
@@ -77,13 +77,13 @@ class User < ActiveRecord::Base
     return u
   end
 
-  def ensure_tokens # tested!
+  def ensure_tokens
     self.pwreset_token ||= User.generate_token
     self.activation_token ||= User.generate_token
     self.session_token ||= User.generate_token
   end
 
-  def reset_session_token! # tested!
+  def reset_session_token!
     self.session_token = User.generate_token
     self.save!
   end
@@ -93,26 +93,26 @@ class User < ActiveRecord::Base
     self.save!
   end
 
-  def password=(secret) # tested!
+  def password=(secret)
     @password = secret
     self.pw_digest = BCrypt::Password.create(secret)
   end
 
-  def is_password?(password) # tested!
+  def is_password?(password)
     BCrypt::Password.new(self.pw_digest).is_password?(password)
   end
 
-  def first_name # tested!
+  def first_name
     split_name = self.name.split
     @first_name = split_name.shift
   end
 
-  def last_name # tested!
+  def last_name
     split_name = self.name.split
     @last_name = split_name.pop
   end
 
-  def middle_name # tested!
+  def middle_name
     split_name = self.name.split
     split_name.shift
     split_name.pop
