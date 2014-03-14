@@ -45,6 +45,7 @@ group :test do
   gem 'capybara'
   gem 'guard-rspec'
   gem 'launchy'
+  gem 'codeclimate-test-reporter'
 end
 
 gem 'jquery-rails'
