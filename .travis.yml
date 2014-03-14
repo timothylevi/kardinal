@@ -2,6 +2,7 @@ language: ruby
 
 before_install:
   - createuser -s -r appacademy
+  - bundle install
 
 rvm:
   - "1.9.3"

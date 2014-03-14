@@ -284,6 +284,7 @@ DEPENDENCIES
   paperclip (~> 3.5.3)
   pg
   rails (= 3.2.16)
+  rake
   rest-client
   rspec-rails
   sass-rails (~> 3.2.3)
