@@ -5,6 +5,7 @@ before_install:
   - bundle install
   - rake db:create:all
   - rake db:migrate
+  - CODECLIMATE_REPO_TOKEN=dbf850838306191002f7c1bfa9c441a02fc09490579fabbb40b56fa3c7e0550e
 
 rvm:
   - "1.9.3"
