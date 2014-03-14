@@ -48,6 +48,7 @@ group :test do
   gem 'guard-rspec'
   gem 'launchy'
   gem 'codeclimate-test-reporter'
+  gem 'rake'
 end
 
 gem 'jquery-rails'
