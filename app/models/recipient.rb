@@ -1,3 +1,4 @@
+require 'addressable/uri'
 # == Schema Information
 #
 # Table name: recipients

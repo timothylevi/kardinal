@@ -1,3 +1,5 @@
+require 'addressable/uri'
+
 class RecipientsController < ApplicationController
   before_filter :require_logged_in
 
