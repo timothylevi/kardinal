@@ -3,8 +3,8 @@ language: ruby
 before_install:
   - createuser -s -r appacademy
   - bundle install
+  - rake db:create:all
   - rake db:migrate
-  - rake db:test:prepare
 
 rvm:
   - "1.9.3"
