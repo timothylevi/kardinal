@@ -1,3 +1,4 @@
+require 'bcrypt'
 # == Schema Information
 #
 # Table name: users

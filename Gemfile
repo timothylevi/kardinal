@@ -14,7 +14,7 @@ gem 'chosen-rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-gem 'bcrypt-ruby', require: 'bcrypt'
+gem 'bcrypt-ruby'
 gem 'annotate'
 gem 'congress'
 gem 'paperclip', '~> 3.5.3'
