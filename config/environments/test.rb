@@ -35,3 +35,4 @@ Cardinal::Application.configure do
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
 end
+ENV['CODECLIMATE_REPO_TOKEN'] = "dbf850838306191002f7c1bfa9c441a02fc09490579fabbb40b56fa3c7e0550e"
