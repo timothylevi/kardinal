@@ -2,6 +2,8 @@
 <small>by Timothy Levi Campbell</small>
 
 [![Code Climate](https://codeclimate.com/github/timothylevi/kardinal.png)](https://codeclimate.com/github/timothylevi/kardinal)
+[![Build Status](https://travis-ci.org/timothylevi/kardinal.png?branch=master)](https://travis-ci.org/timothylevi/kardinal)
+[![Code Climate](https://codeclimate.com/github/timothylevi/kardinal.png)](https://codeclimate.com/github/timothylevi/kardinal)
 
 *kardinal makes creating, signing, and sharing petitions easier.*
 [Live Site](http://kardinal.timothylevi.com)
