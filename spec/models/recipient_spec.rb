@@ -47,4 +47,8 @@ describe Recipient do
     recipient = FactoryGirl.build(:recipient)
     expect(recipient.list_name).to eq("MA Sen. Elizabeth Warren")
   end
+
+  it "::list_titles" do
+    expect(Recipient.list_titles).should include("Mr")
+  end
 end
