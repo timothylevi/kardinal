@@ -57,15 +57,15 @@
       </ul>
     </nav>
   </header>
-  <% unless flash.keys.empty? %>
 
-  <div id="flash">
-  <% flash.try(:each) {|name, messages| %>
-      <% messages.try(:each) {|message| %>
+  <% unless flash.keys.empty? %>
+  <ul id="flash">
+  <% flash.try(:each) do |name, messages| %>
+    <% messages.try(:each) do |message| %>
       <li class="<%= name %>"><%= message %></li>
-      <% } %>
-  <% } %>
-  </div>
+    <% end %>
+  <% end %>
+  </ul>
   <% end %>
 
   <%= yield %>
