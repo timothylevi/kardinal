@@ -11,7 +11,6 @@ gem 'nokogiri'
 gem 'rest-client'
 gem 'addressable'
 gem 'kaminari'
-#gem 'chosen-rails', '~> 1.4.3' 
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
