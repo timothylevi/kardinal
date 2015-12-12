@@ -91,7 +91,7 @@
 
   <% unless @embedded %>
     <textarea class="form-control">
-      <%== %Q[<script type="text/javascript" language="JavaScript" src="js/api/embed.site.api.js?version=1.0&url=http://www.dou.ua&width=auto&prefix=change-it"></script>] %>
+    <%== %Q[<script type="text/javascript" language="JavaScript" src="#{root_url}javascripts/embed.site.api.js?version=1.0&url=#{request.original_url}/embedded&width=auto&prefix=change-it"></script>] %>
     </textarea> 
 
   <% end %>

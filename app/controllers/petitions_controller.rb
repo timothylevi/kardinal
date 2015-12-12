@@ -19,6 +19,7 @@ class PetitionsController < ApplicationController
     @creator = @petition.creator
     @petition_signature = PetitionSignature.find_single(current_user, @petition) || PetitionSignature.new
     @victory = Victory.find_by_petition_id(@petition.id) || Victory.new
+    response.headers['X-Frame-Options'] = 'ALLOWALL'
   end
 
   def embedded
