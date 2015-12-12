@@ -29,9 +29,7 @@ class SessionsController < ApplicationController
         end
       else
         @user = User.new(user_params)
-        contact = params[:contact_details]
-
-        if create_user(@user, contact).valid?
+        if @user.save
           login(@user)
           flash[:notices] = ["Welcome, #{@user.first_name}!"]
 
@@ -40,7 +38,9 @@ class SessionsController < ApplicationController
         else
           flash[:errors] = @user.errors.full_messages
 
-          redirect_to new_user_url
+          logger.info "Redirecting. Errors: #{@user.errors.full_messages}"
+
+          render :new
         end
       end
     end
