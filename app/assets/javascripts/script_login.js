@@ -3,7 +3,7 @@ $(window).load(function() {
 
     $("#registration").click(function(){
         regcheck=1;
-        $("#send").val("Зареєструватися")
+        $("#send").val("Зареєструватись")
 
     })
     $("#enter").click(function(){
@@ -13,7 +13,7 @@ $(window).load(function() {
     $("#send").click(function(){
         if (regcheck){
         //$(".button_facebook_div")
-        $(".main").text("���������")//.css('backgroundColor',"blue");;
+        // $(".main").text("")//.css('backgroundColor',"blue");;
         }
     })
 

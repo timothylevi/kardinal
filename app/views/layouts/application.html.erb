@@ -1,142 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>kardinal</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <%= stylesheet_link_tag "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body <% if ((current_user && current_user.email == "demo@example.com") || !logged_in? ) %>class="has-active-modal"<% end %>>
-  <!--section class="modal">
-    <article class="modal-box">
-      <span class="modal-close-button" title="Close this help tip">&times;</span>
-
-      <div id="modal-container">
-        <% unless logged_in? %>
-        <a href="<%= demo_url %>" class="demo-link" title="Click here to log in to the demo account">Click here to log in to the demo account.</a>
-        <% end %>
-        <h1>kardinal</h1>
-        <section id="switch-text"></section>
-      </div>
-    </article>
-  </section-->
-
-  <header class="app group">
-    <a class="left" href="<%= root_url %>" title="kardinal home page">
-      <span class="logo">kardinal</span>
-      <span class="tag">activism</span>
-    </a>
-
-    <ul class="main-links">
-      <li><%= link_to "Start a petition", new_petition_url, title: "Start a petition" %></li>
-      <li><%= link_to "Browse petitions", petitions_url, title: "View all petitions" %></li>
-      <li><a href="#" class="show-modal" title="Click for help tip">?</a></li>
-    </ul>
-
-    <nav class="group right">
-      <ul class="user">
-        <% if logged_in? %>
-        <details>
-          <summary>
-            <a href="<%= me_url %>" title="Go to your page">
-              <img src="<%= current_user.image.url(:thumbnail) %>" alt="Your profile image thumbnail">
-              <%= current_user.name %>
-            </a>
-          </summary>
-          <ul class="group">
-            <li><%= link_to "My petitions", me_url, title: "View your petitions" %></li>
-            <li><%= link_to "Profile", user_url(current_user), title: "View your profile page" %></li>
-            <li><%= link_to "Account", me_edit_url, title: "Edit your profile" %></li>
-            <li><%= button_to "Log out", session_url, method: :delete, class: "menu-action", title: "Log out" %></li>
-          </ul>
-        </details>
-        <% else %>
-        <li><%= link_to "Log in", login_url, class: "mild-action", title: "Log in" %></li>
-        <% end %>
-      </ul>
-    </nav>
-  </header>
-
-  <% unless flash.keys.empty? %>
-  <ul id="flash">
-  <% flash.try(:each) do |name, messages| %>
-    <% messages.try(:each) do |message| %>
-      <li class="<%= name %>"><%= message %></li>
-    <% end %>
-  <% end %>
-  </ul>
-  <% end %>
-
-  <%= yield %>
-
-  <footer>
-    <nav class="group">
-      <small class="left">&copy; 2014
-        <a class="copy" href="http://www.timothylevi.com" title="Go to the developer's websites">Timothy Levi Campbell</a></small>
-      <ul class="right">
-        <!-- <li>&middot; <%= link_to "About", "#", title: "Read about this website" %></li> -->
-        <li>&middot; <%= link_to "Browse Petitions", petitions_url, title: "View all petitions" %></li>
-        <li>&middot; <%= link_to "Victories", victories_url, title: "View all victories" %></li>
-        <!-- <li>&middot; <%= link_to "Credits", "#", title: "Read this page's credits" %></li> -->
-      </ul>
-    </nav>
-  </footer>
-
-  <script>
-
-  //$(document).ready(function(){
-
- //   window.modal = {
- //     show: function(){
- //       $("body").addClass("has-active-modal");
- //     },
- //     hide: function(){
- //       $("body").removeClass("has-active-modal");
- //     }
- //   };
- //
- //   $("body").on("click", ".show-modal", function(event){
- //     event.preventDefault();
- //     window.modal.show();
- //   });
- //
- //   $(".modal").on("click", function(event){
- //
- //     $target = $(event.target);
- //
- //     if($target.is(".modal") || $target.is(".modal-close-button")){
- //       event.preventDefault();
- //       window.modal.hide();
- //     }
- //   });
- // });
-
- // if (window.location.pathname == "/") {
- //   $("#switch-text").html("<span>" + window.location.pathname + "</span><p>Welcome to my app! This demo works best in full-screen.</p>")
- // } else if (window.location.pathname == "/me/edit") {
- //   $("#switch-text").html("<span>" + window.location.pathname + "</span><p>This is your <b>profile edit</b> page.</p><p>Add a photo, update your information, or delete your account...</p>")
- // } else if (window.location.pathname == "/me") {
- //   $("#switch-text").html("<span>" + window.location.pathname + "</span><p>This is your <b>personal profile</b> page.</p><p>From here you can see the petitions that you've created, their statuses, and comments left on your page. You can also edit your profile and view it as other users would.</p><p>Users can leave comments on their own profile or others' easily by typing into the box under the 'leave a comment' heading.</p>")
- // } else if (window.location.pathname == "/petitions") {
- //   $("#switch-text").html("<span>" + window.location.pathname + "</span><p>This is the petitions <b>browse</b> page.</p><p>From here you can find a petition by cause (by clicking a link under the 'Causes' heading), or click on a popular petition directly.</p>")
- // } else if (window.location.pathname == "/petitions/new") {
- //   $("#switch-text").html("<span>" + window.location.pathname + "</span><p>This is the <b>start a petition</b> page.</p><p>This is where the magic starts! Here you'll put in all the ingredients for a successful petition, and once you click 'Save', it's available for all to see. Make sure to add at least one recipient (you can create your own if you want!) and include all other fields.</p>")
- // } else if (window.location.pathname == "/victories") {
- //   $("#switch-text").html("<span>" + window.location.pathname + "</span><p>This is the <b>victories</b> index!</p><p>Here you can see all of the great change being made by users like you. :) Click on a petition to learn more!</p>")
- // } else if (window.location.pathname.indexOf("petitions/") > 0) {
- //   $("#switch-text").html("<span>/petitions</span><p>This is a <b>petition profile</b> page.</p><p>Read up on the petitions you're interested in, click the black triangle next to 'Petitioning' to see the recipients, and sign! You can also leave comments on the petition for the petition author or recipient.</p>")
- // } else if (window.location.pathname == "/recipients/new") {
- //   $("#switch-text").html("<span>" + window.location.pathname + "</span><p>This is the <b>create recipient</b> page.</p><p>If you can't find the recipient you need to petition, you are welcome to add a copy of their information here. Please include at email or physical address.</p>")
- // } else if (window.location.pathname.indexOf("users") > 0) {
- //   $("#switch-text").html("<span>/users</span><p>This is a <b>user profile</b> page.</p><p>See what people are up to, leave comments on their profile, and sign their petitions!</p>")
- // } else if (window.location.pathname.indexOf("causes") > 0) {
- //   $("#switch-text").html("<span>/causes</span><p>This is a <b>cause</b> page.</p><p>Find petitions that you're passionate about organized by the causes you care about most!</p>")
- // } else if (window.location.pathname.indexOf("recipients") > 0) {
- //   $("#switch-text").html("<span>/recipients</span><p>This is a <b>recipient profile</b> page.</p><p>Get some more information on a petition recipient, and look at which petitions they're called to act on and their statuses. Also, visit their website and wikipedia page!</p>")
- // } else {
- //   $("#switch-text").html("<p>Hello there!</p>")
- // }
-  </script>
-</body>
+	<head>
+		<%= stylesheet_link_tag "application" %>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tags %>
+		<meta charset="UTF-8">
+		<title>Change IT</title>
+	</head>
+	<body>
+		<div class="row">
+			<div class="col-md-2"></div>
+			<%= yield %>
+			<div class="col-md-2"></div>
+		</div>
+	</body>
 </html>
+
