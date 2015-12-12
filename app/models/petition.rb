@@ -45,6 +45,8 @@ class Petition < ActiveRecord::Base
   has_many :causes, through: :petition_causes, source: :cause
 
   has_one :victory, dependent: :destroy
+  belongs_to :organization
+  belongs_to :category
 
   paginates_per 10
 

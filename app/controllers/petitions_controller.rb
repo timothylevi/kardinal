@@ -10,6 +10,8 @@ class PetitionsController < ApplicationController
     @last_viewed = Petition.find(session[:last_viewed]) if session[:last_viewed]
     @victories = Victory.includes(petition: [:creator, :petition_signatures])
             .limit(5)
+    @featured_petitions = ::Petition.includes(:creator, :petition_signatures).order('created_at DESC').limit(3)
+    @top_comments = ::Comment.order('rating DESC').limit(3)
   end
 
   def show
@@ -19,12 +21,13 @@ class PetitionsController < ApplicationController
     @creator = @petition.creator
     @petition_signature = PetitionSignature.find_single(current_user, @petition) || PetitionSignature.new
     @victory = Victory.find_by_petition_id(@petition.id) || Victory.new
-    response.headers['X-Frame-Options'] = 'ALLOWALL'
+    @organization = @petition.organization
   end
 
   def embedded
     @embedded = true
     self.show
+    response.headers['X-Frame-Options'] = 'ALLOWALL'
     render template: 'petitions/show', layout: false
   end
 
