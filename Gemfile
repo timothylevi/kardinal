@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.16'
 gem 'pg'
+gem 'sqlite3'
 gem 'figaro'
 gem 'omniauth'
 gem 'omniauth-facebook'
