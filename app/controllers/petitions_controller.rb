@@ -43,6 +43,8 @@ class PetitionsController < ApplicationController
       session[:recipient_id] = nil
 
       flash[:notices] = ["Your petition was successfully created!"]
+
+      ::Helpers::Rating.update(@petition.creator, :petition_added)
       redirect_to petition_url(current_user.petitions.last)
     else
       render :new
