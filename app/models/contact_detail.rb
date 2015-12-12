@@ -23,11 +23,11 @@
 #
 
 class ContactDetail < ActiveRecord::Base
-  attr_accessible :street_address, :city, :state,
-                  :zip, :phone, :country, :birthday,
-                  :twitter_id, :facebook_id, :contact_form,
-                  :description, :desc_source, :website,
-                  :contactable_id, :contactable_type
+  #attr_accessible :street_address, :city, :state,
+  #               :zip, :phone, :country, :birthday,
+  #               :twitter_id, :facebook_id, :contact_form,
+  #               :description, :desc_source, :website,
+  #               :contactable_id, :contactable_type
 
   validates :zip, presence: true
   # validates :contactable_id, :contactable_type, presence: true

@@ -12,6 +12,9 @@ Cardinal::Application.routes.draw do
     member do
       resources :comments, only: :create, as: "petition_comments"
     end
+    member do
+      match :embedded, via: :get
+    end
   end
 
   namespace :api do

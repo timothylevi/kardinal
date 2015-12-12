@@ -23,9 +23,9 @@ require 'addressable/uri'
 #
 
 class Recipient < ActiveRecord::Base
-  attr_accessible :title, :first_name, :middle_name, :last_name,
-                  :bioguide_id, :gov_state, :office, :party,
-                  :email, :image
+  #attr_accessible :title, :first_name, :middle_name, :last_name,
+  #                :bioguide_id, :gov_state, :office, :party,
+  #                :email, :image
 
   has_attached_file :image, :styles => {
                       :profile => "200x200#",

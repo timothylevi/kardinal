@@ -89,5 +89,12 @@
     <p><%= @petition.body %></p>
   </section>
 
+  <% unless @embedded %>
+    <textarea class="form-control">
+    <%== %Q[<script type="text/javascript" language="JavaScript" src="#{root_url}javascripts/embed.site.api.js?version=1.0&url=#{request.original_url}/embedded&width=auto&prefix=change-it"></script>] %>
+    </textarea> 
+
+  <% end %>
+
   <%= render "comments/list", profile: @petition %>
 </main>

@@ -10,7 +10,7 @@
 #
 
 class PetitionSignature < ActiveRecord::Base
-  attr_accessible :user_id, :petition_id
+  #attr_accessible :user_id, :petition_id
 
   validates :user_id, :petition_id, presence: true
 
