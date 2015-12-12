@@ -54,8 +54,8 @@ class User < ActiveRecord::Base
      foreign_key: :user_id,
      primary_key: :id,
      dependent: :destroy
-
   has_many :signed_petitions, through: :petition_signatures, source: :petition
+  has_many :organizations
 
   def self.generate_token
     SecureRandom.urlsafe_base64(16)
@@ -78,7 +78,6 @@ class User < ActiveRecord::Base
       avatar_url = open(fb_data[:info][:image], allow_redirections: :safe) do |r|
         r.base_uri.to_s
       end
-      logger.info "Image url: #{avatar_url}"
       user.update_attribute(:image, URI.parse(avatar_url))
     end
     user.contact_details.create(
