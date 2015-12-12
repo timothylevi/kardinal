@@ -2,7 +2,8 @@
 require File.expand_path('../application', __FILE__)
 
 # Initialize the rails application
-Cardinal::Application.initialize!
+#Cardinal::Application.initialize!
+Rails.application.initialize!
 
 if Rails.env.production?
   ActionMailer::Base.smtp_settings = {

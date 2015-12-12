@@ -12,7 +12,7 @@
 #
 
 class Comment < ActiveRecord::Base
-  attr_accessible :user_id, :commentable_id, :commentable_type, :body
+  #attr_accessible :user_id, :commentable_id, :commentable_type, :body
 
   belongs_to :commentable, polymorphic: true
   belongs_to :user,
