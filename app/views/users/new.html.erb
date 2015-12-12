@@ -1,5 +1,13 @@
-<main id="user-edit">
-  <h1>Sign Up</h1>
-  <%= render "sessions/form", user: @user %>
-  <h3><a href="/auth/facebook" title="Sign up via Facebook">Sign Up via Facebook</a></h3>
-</main>
+<div class="col-md-8 well">
+	<button class="col-md-6 button btn btn-default" id="enter">Увійти</button>
+	<button class="col-md-6 button btn btn-default" id="registration">Реестрація</button>
+	<div class="col-md-12 button_facebook_div">
+		<a href="/auth/facebook" title="Sign up via Facebook" class="col-md-12 button_facebook btn btn-link">
+			<%= image_tag "social_facebook_box_blue.png", class: "button_img",  alt: "Facebook" %>
+		</a>
+	</div>
+	<div class="col-md-12">
+		<%= render "sessions/form", user: @user %>
+	</div>
+</div>
+

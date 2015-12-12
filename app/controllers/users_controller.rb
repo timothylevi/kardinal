@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   def show
     @user = User.includes(:contact_details, :signed_petitions, petitions: :victory).find(params[:id])
     @contact_detail = @user.contact_details.first
+    @organizations = @user.organizations
   end
 
   def me

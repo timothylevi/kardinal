@@ -22,8 +22,6 @@ require 'bcrypt'
 #
 
 class User < ActiveRecord::Base
-  #attr_accessible :email, :password, :name, :contact_details, :image,
-  #                :uid, :provider, :activated
   attr_reader :first_name, :last_name, :password
 
   has_attached_file :image, :styles => {
@@ -34,7 +32,7 @@ class User < ActiveRecord::Base
   before_validation :ensure_tokens
 
   validates :email, uniqueness: true
-  validates :email, :pw_digest, :name, :pwreset_token,
+  validates :email, :pw_digest, :pwreset_token,
             :activation_token, :session_token, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :activated, inclusion: {in: ["t", "f"]}
@@ -54,8 +52,8 @@ class User < ActiveRecord::Base
      foreign_key: :user_id,
      primary_key: :id,
      dependent: :destroy
-
   has_many :signed_petitions, through: :petition_signatures, source: :petition
+  has_many :organizations
 
   def self.generate_token
     SecureRandom.urlsafe_base64(16)
@@ -78,7 +76,6 @@ class User < ActiveRecord::Base
       avatar_url = open(fb_data[:info][:image], allow_redirections: :safe) do |r|
         r.base_uri.to_s
       end
-      logger.info "Image url: #{avatar_url}"
       user.update_attribute(:image, URI.parse(avatar_url))
     end
     user.contact_details.create(
