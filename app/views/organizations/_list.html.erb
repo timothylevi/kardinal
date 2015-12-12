@@ -1,0 +1,10 @@
+<section>
+<h2>
+  Organizations
+</h2>
+<ul>
+  <% organizations.each do |organization| %>
+    <li><h3><%= link_to organization.name, organization %></h3></li>
+  <% end %>
+</ul>
+</section>
