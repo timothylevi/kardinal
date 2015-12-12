@@ -21,17 +21,23 @@ class PetitionsController < ApplicationController
     @victory = Victory.find_by_petition_id(@petition.id) || Victory.new
   end
 
+  def embedded
+    @embedded = true
+    self.show
+    render template: 'petitions/show', layout: false
+  end
+
   def new
     @petition = Petition.new
     @recipients = Recipient.order(:gov_state, :last_name)
   end
 
   def create
-    @petition = Petition.new(params[:petition])
+    @petition = Petition.new(petition_params)
     @recipients = Recipient.order(:gov_state, :last_name)
 
     if @petition.valid?
-      create_and_sign_petition(params[:petition])
+      create_and_sign_petition(petition_params)
 
       session[:recipient_id] = nil
 
@@ -57,7 +63,7 @@ class PetitionsController < ApplicationController
     @petition = Petition.find(params[:id])
     @recipients = Recipient.order(:gov_state, :last_name)
 
-    if @petition.update_attributes(params[:petition])
+    if @petition.update_attributes(petition_params)
       flash[:notices] = ["Your petition was successfully updated!"]
       redirect_to @petition
     else
@@ -71,5 +77,11 @@ class PetitionsController < ApplicationController
 
     flash[:notices] = ["Your petition was successfully deleted."]
     redirect_to me_url
+  end
+
+  private
+
+  def petition_params
+    params.require(:petition).permit(:cause_ids, :goal, :title, :background, :body, :is_victory, :image, :recipient_ids, :approved)
   end
 end
