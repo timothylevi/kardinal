@@ -11,6 +11,8 @@ gem 'nokogiri'
 gem 'rest-client'
 gem 'addressable'
 gem 'kaminari'
+gem 'dotenv-rails', '~> 2.0'
+gem 'open_uri_redirections'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
