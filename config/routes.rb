@@ -1,4 +1,6 @@
 Cardinal::Application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   resource :session, only: [:create, :destroy]
   resources :users, only: [:new, :update, :destroy, :show] do
     member do

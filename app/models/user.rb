@@ -79,10 +79,10 @@ class User < ActiveRecord::Base
       user.update_attribute(:image, URI.parse(avatar_url))
     end
     user.contact_details.create(
-      zip: "Please set!",
       facebook_id: user.uid,
       city: location[0],
       state: location[1])
+    ::Helpers::Rating.update(self, :facebook_connected)
     return user
   end
 

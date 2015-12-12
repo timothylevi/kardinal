@@ -13,6 +13,8 @@ gem 'addressable'
 gem 'kaminari'
 gem 'dotenv-rails', '~> 2.0'
 gem 'open_uri_redirections'
+gem 'activeadmin', github: 'activeadmin'
+gem 'devise'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
