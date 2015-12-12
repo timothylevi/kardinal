@@ -22,8 +22,8 @@ require 'bcrypt'
 #
 
 class User < ActiveRecord::Base
-  #attr_accessible :email, :password, :name, :contact_details, :image,
-  #                :uid, :provider, :activated
+  :email, :password, :name, :contact_details, :image,
+                 :uid, :provider, :activated
   attr_reader :first_name, :last_name, :password
 
   has_attached_file :image, :styles => {
@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
   before_validation :ensure_tokens
 
   validates :email, uniqueness: true
-  validates :email, :pw_digest, :name, :pwreset_token,
+  validates :email, :pw_digest, :pwreset_token,
             :activation_token, :session_token, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :activated, inclusion: {in: ["t", "f"]}
