@@ -11,7 +11,7 @@
 #
 
 class Victory < ActiveRecord::Base
-  attr_accessible :message, :description
+  #attr_accessible :message, :description
 
   validates :petition_id, :description, :message, presence: true
   validates :petition_id, uniqueness: true

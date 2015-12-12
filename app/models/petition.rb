@@ -19,8 +19,8 @@
 #
 
 class Petition < ActiveRecord::Base
-  attr_accessible :title, :body, :background, :is_victory, :image,
-                  :recipient_ids, :approved, :goal, :cause_ids
+  #attr_accessible :title, :body, :background, :is_victory, :image,
+  #                :recipient_ids, :approved, :goal, :cause_ids
 
   before_validation :ensure_goal
 

@@ -10,7 +10,7 @@
 #
 
 class PetitionRecipient < ActiveRecord::Base
-  attr_accessible :petition_id, :recipient_id
+  #attr_accessible :petition_id, :recipient_id
 
   validates :petition_id, :recipient_id, presence: true
 
