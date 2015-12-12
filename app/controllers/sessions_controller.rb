@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
         if check_user_credentials(@user)
           logger.info "User logged in #{@user.inspect}"
           flash[:notices] = ["Welcome back, #{@user.first_name}!"]
-          #sign_in @user, bypass: true
+          sign_in @user, bypass: true
           redirect_to root_url
         else
           flash[:errors] = ["Your username or password is incorrect."]
