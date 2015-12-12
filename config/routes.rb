@@ -24,6 +24,7 @@ Cardinal::Application.routes.draw do
   resources :recipients, only: [:new, :create, :show]
   resources :victories, only: [:index, :create]
   resources :causes, only: :show
+  resources :organizations
   resources :comments, only: :destroy
 
   get '/login', to: 'sessions#new'

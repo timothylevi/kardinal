@@ -28,7 +28,7 @@ class SessionsController < ApplicationController
           render :new
         end
       else
-        @user = User.new(params[:user])
+        @user = User.new(user_params)
         contact = params[:contact_details]
 
         if create_user(@user, contact).valid?
@@ -53,4 +53,11 @@ class SessionsController < ApplicationController
     flash[:notices] = ["See you next time, #{@user.first_name}."]
     redirect_to root_url
   end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:email, :password, :name, :contact_details, :image, :uid, :provider, :activated)
+  end
+
 end

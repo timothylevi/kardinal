@@ -1,5 +1,6 @@
 <main id="user-show">
   <%= render "profile", user: @user, contact_detail: @contact_detail %>
+  <%= render "organizations/list", organizations: @organizations %>
   <%= render "petitions/list", user: @user, petitions: @user.petitions %>
   <%= render "comments/list", profile: @user %>
 </main>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140226145852) do
+ActiveRecord::Schema.define(version: 20151212155452) do
 
   create_table "causes", force: :cascade do |t|
     t.string   "name",        null: false
@@ -50,6 +50,19 @@ ActiveRecord::Schema.define(version: 20140226145852) do
   end
 
   add_index "contact_details", ["contactable_id", "contactable_type"], name: "index_contact_details_on_contactable_id_and_contactable_type"
+
+  create_table "organizations", force: :cascade do |t|
+    t.string   "name",              limit: 100, default: "", null: false
+    t.integer  "user_id"
+    t.integer  "head_id"
+    t.text     "description"
+    t.string   "type"
+    t.string   "facebook_page_url", limit: 250, default: "", null: false
+    t.string   "website_url",       limit: 250, default: "", null: false
+    t.string   "phone",             limit: 100, default: "", null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+  end
 
   create_table "petition_causes", force: :cascade do |t|
     t.integer  "petition_id", null: false
