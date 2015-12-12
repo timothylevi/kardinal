@@ -1,11 +1,11 @@
 <form action="<%= session_url %>" method="post" name=entry>
   <ul>
-  <% user.errors.full_messages.try(:each) { |message| %>
+  <% user.errors.full_messages.try(:each) do |message| %>
     <li><%= message %></li>
-  <% } %>
+  <% end %>
   </ul>
   <div class=form-group>
-    <input type="email" name="user[email]" value="<% user.email %>" class="form-control" placeholder="Email">
+    <input type="email" name="user[email]" value="<%= user.email %>" class="form-control" placeholder="Email">
   </div>
   <div class=form-group>
     <input type="password" name="user[password]" class="form-control" placeholder="Пароль">
