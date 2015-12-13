@@ -23,10 +23,6 @@
 #
 
 class ContactDetail < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, 
-         :recoverable, :rememberable, :trackable, :validatable
   #attr_accessible :street_address, :city, :state,
   #               :zip, :phone, :country, :birthday,
   #               :twitter_id, :facebook_id, :contact_form,
@@ -37,7 +33,7 @@ class ContactDetail < ActiveRecord::Base
   belongs_to :user, foreign_key: 'contactable_id', class_name: ::User
 
   def email
-    ''
+    self.user.email
   end
 
   def email_changed?
