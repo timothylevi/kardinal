@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%= stylesheet_link_tag "application" %>
+        <%= javascript_include_tag "application" %>
+        <%= csrf_meta_tags %>
+        <meta charset="UTF-8">
+        <title>Change IT</title>
+    </head>
+    <body class="landing">
+      <div id="page-wrapper">
+        <%= yield %>
+      </div>
+    </body>
+</html>
