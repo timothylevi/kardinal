@@ -1,146 +1,203 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>User page </title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/font-awesome.css"  rel="stylesheet" >
-  </head>
-  <body>
-   <header>
-      <nav class="navbar navbar-default navbar-top navbar-fixed-top">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    <a class="navbar-brand" href="#">ChangeIT</a>
-    </div>
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-left">
-        <li><a href="#">
-          <span class="fa fa-file-text-o "></span>
-          <span>Створити петицію</span>
-            </a></li>
-        <li><a href="#">
-          <span class="fa fa-list"></span>
-          <span>Переглянути петиції</span>
-            </a></li>
-        <li><a href="#">
-          <span class="fa fa-search"></span>
-          <span>Пошук</span>
-        </a></li>
-      </ul> 
-      <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              <span class="profile_image"><img src="img/profile_image.jpg" alt=""></span>
-              <span class="profile_name">Username User</span>
-               <span class="caret"></span>
-             </a>
-            <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-            <a href="#">
+<!DOCTYPE HTML>
+<!--
+	Alpha by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html xmlns="http://www.w3.org/1999/html">
+	<head>
+		<title>ChangeIt</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/owl.carousel.css">
+		<link rel="stylesheet" href="assets/css/owl.transitions.css">
+		<link rel="stylesheet" href="assets/css/owl.theme.css">
 
-              </a>
-        </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-   </header>
-   <div class="container">
-        <div class="container-fluid">
-        <!-- PROFILE SIDEBAR -->
-          <div class="col-lg-4 profile_info">
-            <div class="profile_image">
-              <img src="img/profile_image-cropped.jpg" alt="profile_image">
-            </div>
-            <div class="profile_name">
-              <span>User Usernamemovich</span>
-            </div>
-            <div class="profile_change profile_buttons">
-              <span class="fa fa-cog"></span>
-              <span>Редагувати профіль</span>
-            </div>
-            <div class="profile_message profile_buttons">
-              <span>Повідомлення 
-                <span class="profile_newmessage">+1</span>
-              </span>
-            </div>
-            <div class="profile_invitations profile_buttons ">
-              <span>Invitations</span>
-            </div>
-          </div>
-          <div class="col-lg-6 profile-petition">
-           
-            <!-- 
-            PETITION SECTOR
-          -->
-            <div class="petition_categories">
-              <ul>
-                <li class="fav petition_li" id="fav" onclick="fav(this)">Вибрані</li>
-                <li onclick="popular(this)" class="pop petition_li" id="pop">Популярні</li>
-                <li onclick="last(this)" class="last petition_li" id="last">Останні</li>
-                <li onclick="my(this)" class="own petition_li" id="own">Мої петиції</li>
-              </ul>
-              <ul class="sub-petition-categories" id="sub-popular">
-                <li onclick="populartoday(this)" class="sub-popular-li sub-popular-today">Сьогодні</li>
-                <li onclick="popularweek(this)" class="sub-popular-li sub-popular-week">Цього тижня</li>
-                <li onclick="popularwhole(this)" class="sub-popular-li sub-popular-whole">За весь час</li>
-              </ul>
-              <ul class="sub-petition-categories" id="sub-user">
-                <li class="sub-user-li own-all" onclick="myall(this)">Всі</li>
-                <li class="sub-user-li own-mine" onclick="myown(this)">Мої</li>
-              </ul>
-            </div>
-            <div class="container">
-                <div class="petition_category petition-fav"></div>
-                <div class="petition_category petition-popular-today"></div>
-                <div class="petition_category petition-popular-week"></div>
-                <div class="petition_category petition-popular-whole"></div>
-                <div class="petition_category petition-last"></div>
-                <div class="petition_category petition-my-all">
-                  <div class="petition">
-                      <div class="container">
-                    <div class="col-lg-2"><img src="img/petition.jpg" alt=""></div>
-                    <div class="col-lg-4">
-                      <h3><a href="#">Lorem IPSUM!</a></h3>
-                      <ul>
-                        <li>Автор:<a href="#">Author</a></li>
-                        <li class="petition-number">49 599</li>
-                        <li><a href="#">Підписати</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                <div class="petition_category petition-my-own"></div>
-            </div>
-          </div>
-         </div>
-          <div class="col-lg-2"></div>
-        </div>
-     </div>
-   </div>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery-2.1.4.min.js"></script>
-    <script src="js/script.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-  </body>
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body class="landing">
+	<!-- Header -->
+	<header id="header" class="alt">
+	<!--PUT LOGO HERE -->
+	<h1><a href="index.html">Громадський сервіс петицій</a> </h1>
+	<div id="headerBar">
+		<nav id="nav">
+			<ul>
+			<li><a href="index.html">Створити петицію</a></li>
+			<li><a href="index.html">Переглянути петицію</a></li>
+			<li><a href="index.html">Рейтинги</a></li>
+			<li>
+			<a href="#" class="icon fa-angle-down">Name Surname</a>
+			<ul>
+				<li><a href="generic.html">Generic</a></li>
+				<li><a href="contact.html">Contact</a></li>
+				<li><a href="elements.html">Elements</a></li>
+			</ul>
+			</li>
+			<li><a href="#" class="button">Sign Up</a></li>
+			</ul>
+		</nav>
+	</div>
+	</header>
+
+	<!-- Banner -->
+	<section id="slider">
+	<div id="owl-demo" class="owl-carousel owl-theme">
+		<div class="item">
+			<img width="100%" src="images/pic01.jpg">
+			<h3>Lorem Ipsum</h3>
+		<div id="sliderMenu">
+			<a href="#" class="button"  id="winBtn">Перемога</a>
+			<a href="#" class="button" id="blagoBtn">Благоустрій</a>
+			<a href="#" id="userIcon"></a>
+			<p class="nameSurname" id="name">Name</p>
+			<p class="nameSurname" id="surname">Surname</p>
+			<p id="city">City,</p>
+			<p id="region">Region</p>
+			<p id="followerCounter">123,000</p>
+			<p id="followers">Користувачів</p>
+			<p id="lastActivity">Остання активність</p>
+			<p id="lastActivityMinutes">3 хвилини тому</p>
+		</div>
+		</div>
+		<div class="item">lololololo<h1>2</h1></div>
+		<div class="item">lololololo<h1>3</h1></div>
+	</div>
+	</section>
+			<!-- Main -->
+	<section id="main">
+	<div class="box">
+		<button class="fa fa-times" id="closeBtn"></button>
+		<h2 style="text-align: center">Громадський сервіс петицій додержавних органів України</h2>
+		<div class="text-center">
+			<div class="circle">
+				<h3 class="circleText">Створи <br> петицію</h3>
+			</div>
+			<div class="arrow-box">
+				<i class="glyphicon glyphicon-arrow-right"></i>
+			</div>
+
+			<div class="circle">
+				<h3 class="circleText">Збери<br>підписи</h3>
+			</div>
+			<div class="arrow-box">
+				<i class="glyphicon glyphicon-arrow-right"></i>
+			</div>
+			<div class="circle">
+				<h3 class="circleText">Слідкуй за<br>рішенням</h3>
+			</div>
+			<div class="arrow-box">
+				<a href="#"><h2>Що таке <br>петиції?</h2></a>
+			</div>
+		</div>
+
+	</div>
+	</section>
+					<!--<section class="box special features">-->
+						<!--<div class="features-row">-->
+							<!--<section>-->
+								<!--<span class="icon major fa-bolt accent2"></span>-->
+								<!--<h3>Magna etiam</h3>-->
+								<!--<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>-->
+							<!--</section>-->
+							<!--<section>-->
+								<!--<span class="icon major fa-area-chart accent3"></span>-->
+								<!--<h3>Ipsum dolor</h3>-->
+								<!--<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>-->
+							<!--</section>-->
+						<!--</div>-->
+						<!--<div class="features-row">-->
+							<!--<section>-->
+								<!--<span class="icon major fa-cloud accent4"></span>-->
+								<!--<h3>Sed feugiat</h3>-->
+								<!--<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>-->
+							<!--</section>-->
+							<!--<section>-->
+								<!--<span class="icon major fa-lock accent5"></span>-->
+								<!--<h3>Enim phasellus</h3>-->
+								<!--<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>-->
+							<!--</section>-->
+						<!--</div>-->
+					<!--</section>-->
+
+					<!--<div class="row">-->
+						<!--<div class="6u 12u(narrower)">-->
+
+							<!--<section class="box special">-->
+								<!--<span class="image featured"><img src="images/pic02.jpg" alt="" /></span>-->
+								<!--<h3>Sed lorem adipiscing</h3>-->
+								<!--<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>-->
+								<!--<ul class="actions">-->
+									<!--<li><a href="#" class="button alt">Learn More</a></li>-->
+								<!--</ul>-->
+							<!--</section>-->
+
+						<!--</div>-->
+						<!--<div class="6u 12u(narrower)">-->
+
+							<!--<section class="box special">-->
+								<!--<span class="image featured"><img src="images/pic03.jpg" alt="" /></span>-->
+								<!--<h3>Accumsan integer</h3>-->
+								<!--<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>-->
+								<!--<ul class="actions">-->
+									<!--<li><a href="#" class="button alt">Learn More</a></li>-->
+								<!--</ul>-->
+							<!--</section>-->
+
+						<!--</div>-->
+					<!--</div>-->
+	</section>
+
+			<!-- CTA -->
+				<section id="cta">
+
+					<h2>Sign up for beta access</h2>
+					<p>Blandit varius ut praesent nascetur eu penatibus nisi risus faucibus nunc.</p>
+
+					<form>
+						<div class="row uniform 50%">
+							<div class="8u 12u(mobilep)">
+								<input type="email" name="email" id="email" placeholder="Email Address" />
+							</div>
+							<div class="4u 12u(mobilep)">
+								<input type="submit" value="Sign Up" class="fit" />
+							</div>
+						</div>
+					</form>
+
+				</section>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<ul class="icons">
+						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+						<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+						<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrollgress.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/owl.carousel.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
 </html>
