@@ -1,74 +1,57 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <%= stylesheet_link_tag "application" %>
+        <%= javascript_include_tag "application" %>
+        <%= csrf_meta_tags %>
+        <meta charset="UTF-8">
+        <title>Change IT</title>
+    </head>
+    <body class="landing">
+        <div id="page-wrapper">
+            <!-- Header -->
+            <header id="header" class="alt">
+                <!--PUT LOGO HERE -->
+                <h1><a href="index.html">Громадський сервіс петицій</a> </h1>
+                <div id="headerBar">
+                    <nav id="nav">
+                        <ul>
+                            <li><%= link_to 'Створити петицію', new_petition_url %></li>
+                            <li><a href="index.html">Рейтинги</a></li>
+                            <% if current_user %>
+                                <li>
+                                    <a href="#" class="icon fa-angle-down"><%= link_to current_user.name, current_user %></a>
+                                    <ul>
+                                        <li><a href="generic.html">Generic</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="elements.html">Elements</a></li>
+                                    </ul>
+                                </li>
+                            <% else %>
+                                <li><a href="#" class="button">Sign Up</a></li>
+                        <% end %>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
 
-	<head>
-		<%= stylesheet_link_tag "application" %>
-		<%= javascript_include_tag "application" %>
-		<%= csrf_meta_tags %>
-		<meta charset="UTF-8">
-		<title>Change IT</title>
-	</head>
-  <body class="landing">
-    <div id="page-wrapper">
+            <%= yield %>
 
-			<!-- Header -->
-				<header id="header" class="alt">
-					<!--PUT LOGO HERE -->
-          <h1><a href="index.html">Громадський сервіс петицій</a> </h1>
-          <div id="headerBar">
-            <nav id="nav">
-              <ul>
-                <li><%= link_to 'Створити петицію', new_petition_url %></li>
-                <li><a href="index.html">Рейтинги</a></li>
-                <% if current_user %>
-                  <li>
-                    <a href="#" class="icon fa-angle-down"><%= link_to current_user.name, current_user %></a>
-                    <ul>
-                      <li><a href="generic.html">Generic</a></li>
-                      <li><a href="contact.html">Contact</a></li>
-                      <li><a href="elements.html">Elements</a></li>
-                    </ul>
-                  </li>
-                <% else %>
-                  <li><a href="#" class="button">Sign Up</a></li>
-                <% end %>
-              </ul>
-            </nav>
-          </div>
-        </header>
+            <!-- Footer -->
+            <footer id="footer">
+                <ul class="icons">
+                    <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                    <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                    <li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+                    <li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+                    <li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
+                </ul>
+                <ul class="copyright">
+                    <li>&copy; Change IT. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                </ul>
+            </footer>
         </div>
-
-		<div class="row">
-      <div class="col-md-2"></div>
-      <% if flash[:errors].present? %>
-        <% flash[:errors].each do |error| %>
-          <div class="alert alert-danger" role="alert"><%= error %></div>
-        <% end %>
-      <% end %>
-      <% if flash[:notices].present? %>
-        <% flash[:notices].each do |notice| %>
-          <div class="alert alert-success" role="alert"><%= notice %></div>
-        <% end %>
-      <% end %>
-
-      <%= yield %>
-
-
-			<!-- Footer -->
-				<footer id="footer">
-					<ul class="icons">
-						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
-						<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-						<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
-					</ul>
-					<ul class="copyright">
-						<li>&copy; Change IT. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
-				</footer>
-		</div>
-	</body>
+    </body>
 </html>
 
