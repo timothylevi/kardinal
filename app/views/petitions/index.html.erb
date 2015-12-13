@@ -5,6 +5,7 @@
                 <%= image_tag petition.image_file_name, width: "100%" %>
                 <div id="sliderMenu">
                     <a href="#" class="button"  id="winBtn"><%= petition.category.name %></a>
+                    <a href="<%= petition_url(petition) %>" class="button" id="blagoBtn"><%= petition.title %></a>
                     <a href="#" id="userIcon">
                         <%= image_tag petition.creator.image_file_name %>
                     </a>
