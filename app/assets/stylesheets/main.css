@@ -2190,7 +2190,7 @@
 		border-radius: 6px;
 		box-shadow: 0 2px 0 0 #e5e5e5;
 		margin: 0 0 2em 0;
-		padding: 3em;
+		padding: 8em;
 	}
 
 		.box > :last-child {
@@ -3103,12 +3103,13 @@
 /* Main */
 
 	#main {
-		padding: 4em 0;
+		padding: 0em 0;
+		width: 100%;
 	}
 
 		#main > header {
 			text-align: center;
-			margin: 0 0 3em 0;
+			margin: 0 ;
 		}
 
 			#main > header h2 {
@@ -3254,7 +3255,10 @@
 
 
 		/* Slider Menu */
-
+		.item h3{
+			font-size: 14pt;
+			color: black;
+		}
 		#sliderMenu {
 			padding: 2em;
 		}
@@ -3358,8 +3362,6 @@
 		  user-select: none;
 		  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 	  }
-
-
 	}
 
 /* Normal */
@@ -3756,6 +3758,35 @@
 				padding: 0;
 				margin-top: 0;
 			}
+
+		}
+		#closeBtn{
+			float: right;
+		}
+		.circle {
+			margin-top: 2em;
+			display: inline-block;
+			margin-left: 2em;
+			margin-right: 2em;
+			width: 160px;
+			height: 160px;
+			background: #b3b3b3;
+			-moz-border-radius: 80px;
+			-webkit-border-radius: 80px;
+			border-radius: 80px;
+		}
+		.arrow-box {
+			margin-top: 2em;
+			display: inline-block;
+			height: 160px;
+			font-size: 4em;
+		}
+		.circleText {
+			margin-top: 2em;
+			text-align: center;
+			display: inline-block;
+			padding: 0;
+		}
 
 		/* Footer */
 
