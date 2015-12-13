@@ -25,7 +25,7 @@
                     <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                         <div class="panel-body">
                             <textarea class="form-control">
-                    <%== %Q[<script type="text/javascript" language="JavaScript" src="#{root_url}javascripts/embed.site.api.js?version=1.0&url=#{request.original_url}/embedded&width=auto&prefix=change-it"></script>] %>
+                    <%== %Q[<script type="text/javascript" language="JavaScript" src="#{root_url}javascripts/embed.site.api.js?version=1.0&url=#{request.original_url}/embedded&width=500&prefix=change-it"></script>] %>
                             </textarea> 
                         </div>
                     </div>
@@ -35,7 +35,7 @@
     </div>
     <% if current_user %>
         <div class="col-md-3">
-            <form action="<%=petition_petition_signature_index %>" method="post" name="entry">
+            <form action="/petition_signatures/create" method="post" name="entry">
             <input type="hidden" name="petition_id" value="<%= @petition.id %>" class="form-control">
             <div class=form-group>
                 <input type="submit" title="Підписати" id="send" value="Підписати" class="form-control">
