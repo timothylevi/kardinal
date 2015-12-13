@@ -2,7 +2,7 @@
     <div id="owl-demo" class="owl-carousel owl-theme">
         <% @petitions.each do |petition| %>
             <div class="item">
-                <%= image_tag petition.image, width: "100%" %>
+                <%= image_tag petition.image, width: "80%", heigh: '80%;' %>
                 <div id="sliderMenu">
                     <% if petition.category %>
                       <a href="#" class="button"  id="winBtn"><%= petition.category.name if petition.category %></a>
