@@ -30,6 +30,8 @@ Cardinal::Application.routes.draw do
   resources :organizations
   resources :comments, only: :destroy
 
+  match :sign_petition, to: 'petition_signatures#create', via: :post
+
   get '/login', to: 'sessions#new'
   get 'auth/facebook/callback', to: 'sessions#create'
 

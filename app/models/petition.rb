@@ -29,6 +29,7 @@ class Petition < ActiveRecord::Base
   validates :title, :body, :background, :goal, presence: true
   validates :approved, inclusion: {in: %w(Approved Pending Denied)}
   validates :title, uniqueness: {scope: :creator_id}
+  validates_attachment_content_type :image, content_type: ['image/jpg', 'image/jpeg', 'image/png', 'image/gif']
 
   belongs_to :creator,
     class_name: "User",
