@@ -1,100 +1,47 @@
-<main id="petition-show">
-  <section id="breadcrumbs">
-    <%= link_to "Petitions", petitions_url, title: "View all petitions" %> ›
-    <%= link_to @petition.causes.first.name.humanize, cause_url(@petition.causes.first), title: "View all petitions for #{@petition.causes.first.name}" %> ›
-    <%= link_to @petition.title, petition_url(@petition), title: "View \"#{@petition.title}\"" %>
-  </section>
 
-  <% if current_user == @petition.creator && @petition.victory.nil? %>
-  <div class="controls group">
-    <%= link_to "Edit petition", edit_petition_url(@petition), class: "left edit", title: "Edit \"#{@petition.title}\"" %>
-  </div>
-  <% end %>
-
-  <header class="group">
-    <% unless @petition_signature.persisted? %>
-    <form
-      action="<%= petition_petition_signature_index_url(@petition) %>"
-      method="post"
-      class="sign-form">
-      <input name="authenticity_token"
-        type="hidden"
-        value="<%= form_authenticity_token %>">
-
-      <input class="sign-petition" type="submit" value="Sign" title="Sign petition" <%= "disabled" if @petition_signature.persisted? %>>
-    </form>
-    <% end %>
-
-    <div class="headerimage">
-      <img src="<%= @petition.image.url(:profile) %>" class="left" alt="Petition image" title="<%= "#{@petition.title}'s petition image" %>"><br>
-
-      <div class="actions">
-        <% if @victory.persisted? %>
-        <h4 class="victory">Victory</h4>
-        <% end; if @petition_signature.persisted? %>
-        <h4 class="signed">Signed</h4>
+<div class="row">
+    <br>
+    <br>
+    <br>
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="page-header">
+            <h1><%= @petition.title %></h1>
+            <small class=text-muted><%= @creator.name %></small>
+        </div>
+        <div class="well">
+            <%= @petition.body %>
+        </div>
+        <% unless @embedded %>
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Отримати код вбудовування петиції
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="panel-body">
+                            <textarea class="form-control">
+                    <%== %Q[<script type="text/javascript" language="JavaScript" src="#{root_url}javascripts/embed.site.api.js?version=1.0&url=#{request.original_url}/embedded&width=500&prefix=change-it"></script>] %>
+                            </textarea> 
+                        </div>
+                    </div>
+                </div>
+            </div>
         <% end %>
-      </div>
     </div>
+    <% if current_user %>
+        <div class="col-md-3">
+            <form action="/petition_signatures/create" method="post" name="entry">
+            <input type="hidden" name="petition_id" value="<%= @petition.id %>" class="form-control">
+            <div class=form-group>
+                <input type="submit" title="Підписати" id="send" value="Підписати" class="form-control">
+            </div>
+            </form>
+        </div>
+    <% end %>
+</div>
 
-    <div class="headertext left">
-      <h1><%= @petition.title %></h1>
-      <summary><%= @petition.petition_signatures.count %> signatures of <%= @petition.goal %> needed</summary>
-      <!-- Implement this later; not doing anything now. <small class="<%= @petition.approved.downcase %>"><%= @petition.approved %></small> -->
-      <div class="creator">
-        <a href="<%= user_url(@creator) %>" title="<%= "View #{@creator.name}'s profile" %>">
-          <img src="<%= @creator.image.url(:thumbnail) %>" alt="User profile photo thumbnail">
-          <%= @creator.name %>
-        </a>
-        <address>
-          <% if @creator.contact_details[0] %>
-          <% unless @creator.contact_details[0].city.blank? || @creator.contact_details[0].state.blank? %>
-          <%= @creator.contact_details[0].city %>, <%= @creator.contact_details[0].state %>
-          <% end %>
-          <% end %>
-        </address>
-      </div>
-    </div>
-  </header>
-
-  <% unless @petition.recipients.empty? %>
-  <details open>
-    <summary>Petitioning:</summary>
-    <ul>
-      <% @petition.recipients.each do |recipient| %>
-      <li>
-        <a href="<%= recipient_url(recipient) %>" title="<%= "View #{recipient.name}'s recipient profile" %>">
-          <img src="<%= recipient.image.url(:thumbnail) %>" alt="Recipient profile photo">
-          <%= recipient.list_name %>
-        </a>
-      </li>
-      <% end %>
-    </ul>
-  </details>
-  <% end %>
-
-
-
-  <% if @victory.persisted? %>
-  <section class="victory-block">
-    <p><%= @victory.description %></p>
-  </section>
-  <% end %>
-
-  <section class="background">
-    <p><%= @petition.background %></p>
-  </section>
-
-  <section class="letter-body">
-    <p><%= @petition.body %></p>
-  </section>
-
-  <% unless @embedded %>
-    <textarea class="form-control">
-    <%== %Q[<script type="text/javascript" language="JavaScript" src="#{root_url}javascripts/embed.site.api.js?version=1.0&url=#{request.original_url}/embedded&width=auto&prefix=change-it"></script>] %>
-    </textarea> 
-
-  <% end %>
-
-  <%= render "comments/list", profile: @petition %>
-</main>

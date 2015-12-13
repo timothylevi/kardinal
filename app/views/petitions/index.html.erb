@@ -4,7 +4,8 @@
             <div class="item">
                 <%= image_tag petition.image_file_name, width: "100%" %>
                 <div id="sliderMenu">
-                    <a href="#" class="button"  id="winBtn"><%= petition.category.name %></a>
+                    <a href="#" class="button"  id="winBtn"><%= petition.category.name if petition.category %></a>
+                    <a href="<%= petition_url(petition) %>" class="button" id="blagoBtn"><%= petition.title %></a>
                     <a href="#" id="userIcon">
                         <%= image_tag petition.creator.image_file_name %>
                     </a>
@@ -23,7 +24,7 @@
 </section>
 
 <section id="main">
-    <div class="box alert alert-info alert-dismissible" role="alert"">
+    <div class="box alert alert-info alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Закрити"><span aria-hidden="true">&times;</span></button>
         <div class="text-center">
             <h2>Громадський сервіс петицій до державних органів України</h2>
@@ -48,4 +49,40 @@
         </div>
     </div>
 </section>
+
+<!-- stats -->
+	<!--div class="statistics">
+		<button class="fa fa-times" style="float: right;"></button>
+		<h2>Статистика</h2>
+		<div id="registrated"></div>
+		<h3 style="text-align: center; margin-left: -44em;">1214 <br>Зареєстрованих</h3>
+		<div id="wins"></div>
+		<h3 style="margin-left: -20.5em; text-align: center";>1214<br> Перемог</h3>
+		<div id="petitions"></div>
+		<h3 style="margin-left: 3em; text-align: center";>1214<br> Петицій</h3>
+		<div id="usersPerDay"></div>
+		<h3 style="margin-left: 26em; text-align: center";>1214<br> Унікальних відвідувачів</h3>
+	</div>
+		<h2 style="margin-left: 20em ;padding: 2em 0 1em 0;">ТОП 3 за репутацією</h2>
+	<div class="topReputation">
+		<button class="fa fa-times" style="float: right;"></button>
+		<h3>Громадські організації - 1245</h3>
+
+		<h3>Медіа - 1245</h3>
+		<div class="userIconStat"></div>
+		<div class="userIconStat"></div>
+		<div class="userIconStat"></div>
+		<div class="userIconStat"></div>
+		<div class="userIconStat"></div>
+		<div class="userIconStat"></div>
+		<div style="margin-left: -1.3em">
+		<h3 class="underIconText">1245</h3>
+		<h3 class="underIconText">1245</h3>
+		<h3 class="underIconText">1245</h3>
+		<h3 class="underIconText">1245</h3>
+		<h3 class="underIconText">1245</h3>
+		<h3 class="underIconText">1245</h3>
+		</div>
+	</div-->
+<!-- /stats -->
 

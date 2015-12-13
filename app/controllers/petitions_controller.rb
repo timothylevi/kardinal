@@ -28,7 +28,7 @@ class PetitionsController < ApplicationController
     @embedded = true
     self.show
     response.headers['X-Frame-Options'] = 'ALLOWALL'
-    render template: 'petitions/show', layout: false
+    render template: 'petitions/show', layout: 'embedded'
   end
 
   def new
