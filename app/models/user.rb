@@ -22,22 +22,22 @@ require 'bcrypt'
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :password, :name, :contact_details, :image,
-                  :uid, :provider, :activated
+  #devise :database_authenticatable, :rememberable
   attr_reader :first_name, :last_name, :password
 
   has_attached_file :image, :styles => {
                       :profile => "200x200#",
                       :thumbnail => "25x25#"},
-    :default_url => "https://s3.amazonaws.com/changeorg_clone_dev/default_:style.png"
+    default_url: "https://s3.amazonaws.com/changeorg_clone_dev/default_:style.png"
 
   before_validation :ensure_tokens
 
   validates :email, uniqueness: true
-  validates :email, :pw_digest, :name, :pwreset_token,
+  validates :email, :pw_digest, :pwreset_token,
             :activation_token, :session_token, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :activated, inclusion: {in: ["t", "f"]}
+  validates_attachment_content_type :image, content_type: ['image/jpg', 'image/jpeg', 'image/png', 'image/gif']
 
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :recipients, foreign_key: :creator_id
@@ -53,8 +53,8 @@ class User < ActiveRecord::Base
      foreign_key: :user_id,
      primary_key: :id,
      dependent: :destroy
-
   has_many :signed_petitions, through: :petition_signatures, source: :petition
+  has_many :organizations
 
   def self.generate_token
     SecureRandom.urlsafe_base64(16)
@@ -62,20 +62,29 @@ class User < ActiveRecord::Base
 
   def self.create_from_fb(fb_data)
     location = fb_data[:info][:location].split(", ") if fb_data[:info][:location]
+    location ||= {}
 
-    u = User.create!(
+    logger.info "FB DATA: #{fb_data.inspect}"
+
+    user = User.create!(
       uid: fb_data[:uid],
       provider: fb_data[:provider],
       email: fb_data[:info][:email],
       name: fb_data[:info][:name],
       password: Faker::Internet.password,
-      image: fb_data[:info][:image])
-    u.contact_details.create(
-      zip: "Please set!",
-      facebook_id: u.uid,
+    )
+    if fb_data[:info][:image]
+      avatar_url = open(fb_data[:info][:image], allow_redirections: :safe) do |r|
+        r.base_uri.to_s
+      end
+      user.update_attribute(:image, URI.parse(avatar_url))
+    end
+    user.contact_details.create(
+      facebook_id: user.uid,
       city: location[0],
       state: location[1])
-    return u
+    ::Helpers::Rating.update(self, :facebook_connected)
+    return user
   end
 
   def ensure_tokens

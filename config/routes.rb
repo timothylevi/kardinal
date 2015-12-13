@@ -1,4 +1,7 @@
 Cardinal::Application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  devise_for :users
+  ActiveAdmin.routes(self)
   resource :session, only: [:create, :destroy]
   resources :users, only: [:new, :update, :destroy, :show] do
     member do
@@ -12,6 +15,9 @@ Cardinal::Application.routes.draw do
     member do
       resources :comments, only: :create, as: "petition_comments"
     end
+    member do
+      match :embedded, via: :get
+    end
   end
 
   namespace :api do
@@ -21,7 +27,10 @@ Cardinal::Application.routes.draw do
   resources :recipients, only: [:new, :create, :show]
   resources :victories, only: [:index, :create]
   resources :causes, only: :show
+  resources :organizations
   resources :comments, only: :destroy
+
+  match :sign_petition, to: 'petition_signatures#create', via: :post
 
   get '/login', to: 'sessions#new'
   get 'auth/facebook/callback', to: 'sessions#create'
@@ -32,7 +41,7 @@ Cardinal::Application.routes.draw do
   get '/activate/:token', to: 'static_pages#activate', as: 'activate'
   get '/demo', to: 'static_pages#demo', as: 'demo'
 
-  root to: 'static_pages#root'
+  root to: 'petitions#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

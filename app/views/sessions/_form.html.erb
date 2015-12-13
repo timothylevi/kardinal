@@ -1,20 +1,17 @@
-<form action="<%= session_url %>" method="post">
+<form action="<%= session_url %>" method="post" name=entry>
   <ul>
-  <% user.errors.full_messages.try(:each) { |message| %>
+  <% user.errors.full_messages.try(:each) do |message| %>
     <li><%= message %></li>
-  <% } %>
+  <% end %>
   </ul>
-  <label>Email:</label>
-    <input type="text" name="user[email]" value="<% user.email %>">
-
-  <label>Password:</label>
-    <input type="password" name="user[password]">
-
-  <label>Name:</label>
-    <input type="text" name="user[name]">
-
-  <label>Zip:</label>
-    <input type="text" name="contact_details[zip]">
-
-  <input type="submit" class="call-to-action" title="Submit">
+  <div class=form-group>
+    <input type="email" name="user[email]" value="<%= user.email %>" class="form-control" placeholder="Email">
+  </div>
+  <div class=form-group>
+    <input type="password" name="user[password]" class="form-control" placeholder="Пароль">
+  </div>
+  <div class=form-group>
+    <input type="submit" title="Увійти" id="send" value="Увійти" class="form-control">
+  </div>
 </form>
+

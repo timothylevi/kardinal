@@ -16,5 +16,9 @@
 
 # Ignore application configuration
 /config/application.yml
+/config/database.yml
+/config/initializers/secret_token.rb
+
+./idea
 
 .DS_Store

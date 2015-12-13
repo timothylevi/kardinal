@@ -19,9 +19,6 @@
 #
 
 class Petition < ActiveRecord::Base
-  attr_accessible :title, :body, :background, :is_victory, :image,
-                  :recipient_ids, :approved, :goal, :cause_ids
-
   before_validation :ensure_goal
 
   has_attached_file :image, :styles => {
@@ -32,6 +29,7 @@ class Petition < ActiveRecord::Base
   validates :title, :body, :background, :goal, presence: true
   validates :approved, inclusion: {in: %w(Approved Pending Denied)}
   validates :title, uniqueness: {scope: :creator_id}
+  validates_attachment_content_type :image, content_type: ['image/jpg', 'image/jpeg', 'image/png', 'image/gif']
 
   belongs_to :creator,
     class_name: "User",
@@ -48,6 +46,8 @@ class Petition < ActiveRecord::Base
   has_many :causes, through: :petition_causes, source: :cause
 
   has_one :victory, dependent: :destroy
+  belongs_to :organization
+  belongs_to :category
 
   paginates_per 10
 

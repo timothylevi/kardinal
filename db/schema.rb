@@ -9,145 +9,215 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140226145852) do
+ActiveRecord::Schema.define(version: 20151212222554) do
 
-  create_table "causes", :force => true do |t|
-    t.string   "name",        :null => false
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.string   "description"
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "active_admin_comments", force: :cascade do |t|
+    t.string   "namespace"
+    t.text     "body"
+    t.string   "resource_id",   null: false
+    t.string   "resource_type", null: false
+    t.integer  "author_id"
+    t.string   "author_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "comments", :force => true do |t|
+  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
+  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
+  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+
+  create_table "admin_users", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
+  add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "causes", force: :cascade do |t|
+    t.string   "name",        limit: 255, null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "description", limit: 255
+  end
+
+  create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "commentable_id"
-    t.string   "commentable_type"
-    t.string   "body"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.string   "commentable_type", limit: 255
+    t.string   "body",             limit: 255
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.integer  "rating",                       default: 0, null: false
   end
 
-  create_table "contact_details", :force => true do |t|
-    t.string   "street_address"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zip",              :null => false
-    t.string   "country"
-    t.string   "phone"
+  create_table "contact_details", force: :cascade do |t|
+    t.string   "street_address",   limit: 255
+    t.string   "city",             limit: 255
+    t.string   "state",            limit: 255
+    t.string   "zip",              limit: 255, null: false
+    t.string   "country",          limit: 255
+    t.string   "phone",            limit: 255
     t.datetime "birthday"
     t.text     "description"
-    t.integer  "contactable_id",   :null => false
-    t.string   "contactable_type", :null => false
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-    t.string   "website"
-    t.string   "twitter_id"
-    t.string   "facebook_id"
-    t.string   "contact_form"
-    t.string   "desc_source"
+    t.integer  "contactable_id",               null: false
+    t.string   "contactable_type", limit: 255, null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.string   "website",          limit: 255
+    t.string   "twitter_id",       limit: 255
+    t.string   "facebook_id",      limit: 255
+    t.string   "contact_form",     limit: 255
+    t.string   "desc_source",      limit: 255
   end
 
-  add_index "contact_details", ["contactable_id", "contactable_type"], :name => "index_contact_details_on_contactable_id_and_contactable_type"
+  add_index "contact_details", ["contactable_id", "contactable_type"], name: "index_contact_details_on_contactable_id_and_contactable_type", using: :btree
 
-  create_table "petition_causes", :force => true do |t|
-    t.integer  "petition_id", :null => false
-    t.integer  "cause_id",    :null => false
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+  create_table "organizations", force: :cascade do |t|
+    t.string   "name",              limit: 100, default: "", null: false
+    t.integer  "user_id"
+    t.integer  "head_id"
+    t.text     "description"
+    t.string   "type"
+    t.string   "facebook_page_url", limit: 250, default: "", null: false
+    t.string   "website_url",       limit: 250, default: "", null: false
+    t.string   "phone",             limit: 100, default: "", null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.integer  "rating",                        default: 0,  null: false
   end
 
-  add_index "petition_causes", ["petition_id", "cause_id"], :name => "index_petition_causes_on_petition_id_and_cause_id", :unique => true
-
-  create_table "petition_recipients", :force => true do |t|
-    t.integer  "petition_id",  :null => false
-    t.integer  "recipient_id", :null => false
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+  create_table "petition_causes", force: :cascade do |t|
+    t.integer  "petition_id", null: false
+    t.integer  "cause_id",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  add_index "petition_recipients", ["petition_id", "recipient_id"], :name => "index_petition_recipients_on_petition_id_and_recipient_id", :unique => true
+  add_index "petition_causes", ["petition_id", "cause_id"], name: "index_petition_causes_on_petition_id_and_cause_id", unique: true, using: :btree
 
-  create_table "petition_signatures", :force => true do |t|
-    t.integer  "user_id",     :null => false
-    t.integer  "petition_id", :null => false
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+  create_table "petition_recipients", force: :cascade do |t|
+    t.integer  "petition_id",  null: false
+    t.integer  "recipient_id", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
-  add_index "petition_signatures", ["user_id", "petition_id"], :name => "index_petition_signatures_on_user_id_and_petition_id", :unique => true
+  add_index "petition_recipients", ["petition_id", "recipient_id"], name: "index_petition_recipients_on_petition_id_and_recipient_id", unique: true, using: :btree
 
-  create_table "petitions", :force => true do |t|
-    t.integer  "creator_id",                                :null => false
-    t.string   "title",                                     :null => false
-    t.text     "body",                                      :null => false
-    t.text     "background",                                :null => false
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
-    t.string   "approved",           :default => "Pending"
+  create_table "petition_signatures", force: :cascade do |t|
+    t.integer  "user_id",     null: false
+    t.integer  "petition_id", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "petition_signatures", ["user_id", "petition_id"], name: "index_petition_signatures_on_user_id_and_petition_id", unique: true, using: :btree
+
+  create_table "petitions", force: :cascade do |t|
+    t.integer  "creator_id",                                         null: false
+    t.string   "title",              limit: 255,                     null: false
+    t.text     "body",                                               null: false
+    t.text     "background",                                         null: false
+    t.datetime "created_at",                                         null: false
+    t.datetime "updated_at",                                         null: false
+    t.string   "approved",           limit: 255, default: "Pending"
     t.integer  "goal"
-    t.boolean  "is_victory",         :default => false
-    t.string   "image_file_name"
-    t.string   "image_content_type"
+    t.boolean  "is_victory",                     default: false
+    t.string   "image_file_name",    limit: 255
+    t.string   "image_content_type", limit: 255
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "organization_id"
+    t.integer  "category_id"
   end
 
-  add_index "petitions", ["creator_id", "title"], :name => "index_petitions_on_creator_id_and_title"
-  add_index "petitions", ["creator_id"], :name => "index_petitions_on_creator_id"
+  add_index "petitions", ["creator_id", "title"], name: "index_petitions_on_creator_id_and_title", using: :btree
+  add_index "petitions", ["creator_id"], name: "index_petitions_on_creator_id", using: :btree
 
-  create_table "recipients", :force => true do |t|
-    t.string   "title",              :null => false
-    t.string   "first_name",         :null => false
-    t.string   "middle_name"
-    t.string   "last_name"
-    t.string   "bioguide_id"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
-    t.string   "gov_state"
-    t.string   "office"
-    t.string   "party"
-    t.string   "email"
+  create_table "rating_calculators", force: :cascade do |t|
+    t.integer  "facebook_connected", default: 0, null: false
+    t.integer  "profile_filled_in",  default: 0, null: false
+    t.integer  "petition_signed",    default: 0, null: false
+    t.integer  "petition_added",     default: 0, null: false
+    t.integer  "comment_upvoted",    default: 0, null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
+
+  create_table "recipients", force: :cascade do |t|
+    t.string   "title",              limit: 255, null: false
+    t.string   "first_name",         limit: 255, null: false
+    t.string   "middle_name",        limit: 255
+    t.string   "last_name",          limit: 255
+    t.string   "bioguide_id",        limit: 255
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "gov_state",          limit: 255
+    t.string   "office",             limit: 255
+    t.string   "party",              limit: 255
+    t.string   "email",              limit: 255
     t.integer  "creator_id"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
+    t.string   "image_file_name",    limit: 255
+    t.string   "image_content_type", limit: 255
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
   end
 
-  add_index "recipients", ["bioguide_id"], :name => "index_recipients_on_bioguide_id"
-  add_index "recipients", ["creator_id"], :name => "index_recipients_on_creator_id"
+  add_index "recipients", ["bioguide_id"], name: "index_recipients_on_bioguide_id", using: :btree
+  add_index "recipients", ["creator_id"], name: "index_recipients_on_creator_id", using: :btree
 
-  create_table "users", :force => true do |t|
-    t.string   "email",                               :null => false
-    t.string   "pw_digest",                           :null => false
-    t.string   "name",                                :null => false
-    t.string   "pwreset_token",                       :null => false
-    t.string   "session_token",                       :null => false
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
-    t.string   "activated",          :default => "f"
-    t.string   "activation_token"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
+  create_table "users", force: :cascade do |t|
+    t.string   "email",              limit: 255,               null: false
+    t.string   "pw_digest",          limit: 255,               null: false
+    t.string   "name",               limit: 250, default: "",  null: false
+    t.string   "pwreset_token",      limit: 255,               null: false
+    t.string   "session_token",      limit: 255,               null: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
+    t.string   "activated",          limit: 255, default: "f"
+    t.string   "activation_token",   limit: 255
+    t.string   "image_file_name",    limit: 255
+    t.string   "image_content_type", limit: 255
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.string   "provider"
-    t.string   "uid"
+    t.string   "provider",           limit: 255
+    t.string   "uid",                limit: 255
+    t.integer  "rating",                         default: 0,   null: false
   end
 
-  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "users", ["uid"], :name => "index_users_on_uid"
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["uid"], name: "index_users_on_uid", using: :btree
 
-  create_table "victories", :force => true do |t|
-    t.integer  "petition_id", :null => false
-    t.string   "description", :null => false
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.text     "message",     :null => false
+  create_table "victories", force: :cascade do |t|
+    t.integer  "petition_id",             null: false
+    t.string   "description", limit: 255, null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.text     "message",                 null: false
   end
 
-  add_index "victories", ["petition_id"], :name => "index_victories_on_petition_id", :unique => true
+  add_index "victories", ["petition_id"], name: "index_victories_on_petition_id", unique: true, using: :btree
 
 end

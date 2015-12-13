@@ -1,0 +1,150 @@
+a {
+    color: black;
+}
+
+/*a:hover {*/
+    /*color: black;*/
+    /*text-decoration: none;*/
+/*}*/
+
+
+
+.petitioncom_prev {
+    background-color: #e1edf7;
+    padding: 0px;
+}
+
+.petitioncom_prev_author {
+    font-size: 12px;
+    color: grey;
+    padding: 0px;
+}
+
+.petitioncom_prev_img {
+    padding: 5px;
+       /*height: 150px;*/
+    /*width: 150px;*/
+}
+
+.petitioncom_prev_body {
+    padding: 20px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+}
+
+.petitioncom_prev_text {
+    height: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 18px;
+    padding-right: 0px;
+}
+
+.petitioncom_prev_author > a {
+    font-size: 12px;
+}
+.petitioncom_prev_author_img{
+
+}
+.petitioncom_prev_act {
+    font-size: 12px;
+    color: grey;
+}
+
+.petitioncom_prev_author + p {
+    font-size: 12px;
+}
+.btn_prev{
+    font-size: 11px;
+    margin-bottom: 10px;
+}
+.petitioncom_prev_reputation{
+    font-size: 18px;
+
+}
+.buttons1{
+    text-align: center;
+    padding-top: 7%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-left: 3%;
+}
+.petitioncom_prev_info{
+padding: 0px;
+    padding-top: 9%;
+}
+
+
+
+
+.petition_prev {
+    background-color: #b3b3b3;
+    padding: 0px;
+    border: solid 1px grey;
+}
+
+
+
+.petition_prev_img {
+    padding: 5px;
+    /*height: 150px;*/
+    /*width: 150px;*/
+}
+
+.petition_prev_body {
+    padding-top: 1%;
+    padding-right: 0px;
+    padding-bottom: 0px;
+}
+
+.petition_prev_text {
+    height: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 20px;
+    padding-right: 0px;
+}
+
+.petition_prev_author > a {
+    font-size: 12px;
+}
+
+.petition_prev_act {
+    font-size: 12px;
+    color: grey;
+}
+
+.btn_prev{
+    font-size: 11px;
+    margin-bottom: 10px;
+
+}
+.petition_prev_reputation{
+    font-size: 27px;
+    padding-top: 3%;
+    margin-left: 20%;
+}
+.petition_prev_reputation>img{
+    width: 8%;
+    padding-right: 0px;
+}
+.petition_prev_reputation>p{
+    padding-left: 4px;
+    font-size: 14px;
+}
+.petition_prev_reputation>button{
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.petition_prev_text>img{
+    width: 15%;
+    float: right;
+}
+.buttons>button{
+    margin-top: 61%;
+}
+.petition_prev_info{
+    padding: 0px;
+    padding-left: 2%;
+}

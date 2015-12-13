@@ -10,7 +10,7 @@
 #
 
 class PetitionCause < ActiveRecord::Base
-  attr_accessible :petition_id, :cause_id
+  #attr_accessible :petition_id, :cause_id
 
   validates :petition_id, :cause_id, presence: true
 

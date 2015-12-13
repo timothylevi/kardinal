@@ -1,5 +1,7 @@
-<main id="user-edit">
-  <h1>Sign Up</h1>
-  <%= render "sessions/form", user: @user %>
-  <h3><a href="/auth/facebook" title="Sign up via Facebook">Sign Up via Facebook</a></h3>
-</main>
+<section id="main">
+    <a href="/auth/facebook" title="Sign up via Facebook" class="btn-link">
+	    <%= image_tag "social_facebook_box_blue.png", class: "button_img",  alt: "Facebook" %>
+    </a>
+    <%= render "sessions/form", user: @user %>
+</section>
+

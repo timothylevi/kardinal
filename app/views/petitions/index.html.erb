@@ -1,44 +1,114 @@
-<main id="petition-index" class="group">
-  <section id="breadcrumbs">
-    <%= link_to "Petitions", petitions_url, title: "View all petitions" %>
-  </section>
-
-  <header>
-    <h1>Petitions</h1>
-    <h2>Find a petition you're passionate about and find ways to make <span class="logo">change</span> in your community.</h2>
-    <%= link_to "Start a petition", new_petition_url, title: "Start a petition", class: "start-petition" %>
-  </header>
-
-  <%= render "causes/list", causes: @causes %>
-  <% if @last_viewed %>
-    <%= render "petitions/last_viewed", last_viewed: @last_viewed %>
-  <% end %>
-  <%= render "victories/list", victories: @victories %>
-
-  <ul class="petitions left">
-    <%= paginate @petitions %>
-    <% @petitions.each do |petition| %>
-    <li>
-      <h3><%= link_to petition.title, petition_url(petition), title: "View \"#{petition.title}\"" %></h3>
-      <summary>
-        <% if logged_in? %>
-          <% text = (petition.petition_signatures.include?(PetitionSignature.find_single(current_user, petition)) ? "View" : "Sign")%>
-        <% else %>
-          <% text = "Sign" %>
+<section id="slider">
+    <div id="owl-demo" class="owl-carousel owl-theme">
+        <% @petitions.each do |petition| %>
+            <div class="item">
+                <%= image_tag petition.image, width: "80%", heigh: '80%;' %>
+                <div id="sliderMenu">
+                    <% if petition.category %>
+                      <a href="#" class="button"  id="winBtn"><%= petition.category.name if petition.category %></a>
+                    <% end %>
+                    <a href="<%= petition_url(petition) %>" class="button btn btn-link" id="blagoBtn"><%= petition.title %></a>
+                    <%= link_to petition.creator, id: 'userIcon' do %>
+                      <%= image_tag petition.creator.image(:thumbnail) %>
+                    <% end %>
+                    </a>
+                    <p id="name"><%= petition.creator.first_name %></p>
+                    <p id="surname"><%= petition.creator.last_name %></p>
+                    <p id="city"><%= petition.creator.contact.city if petition.creator.contact %></p>
+                    <p id="region"><%= petition.creator.contact.state if petition.creator.contact %></p>
+                    <p id="followerCounter"><span class="badge"><%= petition.petition_signatures.count %></span></p>
+                    <p id="followers">Користувачів</p>
+                    <p id="lastActivity">Остання активність</p>
+                    <p id="lastActivityMinutes">3 хвилини тому</p>
+                </div>
+            </div>
         <% end %>
+    </div>
+</section>
 
-        <a href="<%= user_url(petition.creator) %>" title="<%= "View #{petition.creator.name}'s profile photo" %>">
-          <img src="<%= petition.creator.image.url(:thumbnail) %>" alt="User profile photo thumbnail">
-          <%= petition.creator.name %>
-        </a>
-        <%= petition.petition_signatures.length %> signatures ·
-        <%= link_to text, petition_url(petition), title: "#{text} \"#{petition.title}\"" %>
-      </summary>
-      <p>
-        <%= petition.body %>
-      </p>
-    </li>
-    <% end %>
-  </ul>
+<section id="main">
+    <div class="box alert alert-info alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Закрити"><span aria-hidden="true">&times;</span></button>
+        <div class="text-center">
+            <h2>Громадський сервіс петицій до державних органів України</h2>
+            <div class="circle">
+                <h3 class="circleText">Створи<br>петицію</h3>
+            </div>
+            <div class="arrow-box">
+                <i class="fa fa-arrow-right"></i>
+            </div>
+            <div class="circle">
+                <h3 class="circleText">Збери<br>підписи</h3>
+            </div>
+            <div class="arrow-box">
+                <i class="fa fa-arrow-right"></i>
+            </div>
+            <div class="circle">
+                <h3 class="circleText">Слідкуй за<br>рішенням</h3>
+            </div>
+            <div class="arrow-box" style="font-size: 1.5em; vertical-align: middle;">
+                <a href="#">Що таке<br>петиції?</a>
+            </div>
+        </div>
+    </div>
+</section>
 
-</main>
+<section id="list main">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <% @petitions.each do |petition| %>
+        <div class="panel panel-primary">
+          <div class="panel-heading"><%= petition.title %></div>
+          <div class="panel-body">
+            <%= petition.body %>
+            <div style="float: right">
+              <div class="btn btn-success"><a style="text-decoration: none; color: white;" href="<%= petition_url(petition) %>">Підтримати</a></div>
+            </div>
+          </div>
+          <div class="panel-footer">
+            <small class="text-muted"><%= link_to petition.creator.name, petition.creator %></small>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</section>
+
+<!-- stats -->
+	<!--div class="statistics">
+		<button class="fa fa-times" style="float: right;"></button>
+		<h2>Статистика</h2>
+		<div id="registrated"></div>
+		<h3 style="text-align: center; margin-left: -44em;">1214 <br>Зареєстрованих</h3>
+		<div id="wins"></div>
+		<h3 style="margin-left: -20.5em; text-align: center";>1214<br> Перемог</h3>
+		<div id="petitions"></div>
+		<h3 style="margin-left: 3em; text-align: center";>1214<br> Петицій</h3>
+		<div id="usersPerDay"></div>
+		<h3 style="margin-left: 26em; text-align: center";>1214<br> Унікальних відвідувачів</h3>
+	</div>
+		<h2 style="margin-left: 20em ;padding: 2em 0 1em 0;">ТОП 3 за репутацією</h2>
+	<div class="topReputation">
+		<button class="fa fa-times" style="float: right;"></button>
+		<h3>Громадські організації - 1245</h3>
+
+		<h3>Медіа - 1245</h3>
+		<div class="userIconStat"></div>
+		<div class="userIconStat"></div>
+		<div class="userIconStat"></div>
+		<div class="userIconStat"></div>
+		<div class="userIconStat"></div>
+		<div class="userIconStat"></div>
+		<div style="margin-left: -1.3em">
+		<h3 class="underIconText">1245</h3>
+		<h3 class="underIconText">1245</h3>
+		<h3 class="underIconText">1245</h3>
+		<h3 class="underIconText">1245</h3>
+		<h3 class="underIconText">1245</h3>
+		<h3 class="underIconText">1245</h3>
+		</div>
+	</div-->
+<!-- /stats -->
+

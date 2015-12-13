@@ -23,16 +23,23 @@
 #
 
 class ContactDetail < ActiveRecord::Base
-  attr_accessible :street_address, :city, :state,
-                  :zip, :phone, :country, :birthday,
-                  :twitter_id, :facebook_id, :contact_form,
-                  :description, :desc_source, :website,
-                  :contactable_id, :contactable_type
-
-  validates :zip, presence: true
-  # validates :contactable_id, :contactable_type, presence: true
+  #attr_accessible :street_address, :city, :state,
+  #               :zip, :phone, :country, :birthday,
+  #               :twitter_id, :facebook_id, :contact_form,
+  #               :description, :desc_source, :website,
+  #               :contactable_id, :contactable_type
 
   belongs_to :contactable, polymorphic: true
+  belongs_to :user, foreign_key: 'contactable_id', class_name: ::User
+
+  def email
+    self.user.email
+  end
+
+  def email_changed?
+    false
+  end
+
 
   def self.list_states
     %w(-- AL AK AZ AR CA CO CT DE DC FL GA HI ID IL IN IA KS KY

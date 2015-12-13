@@ -1,0 +1,27 @@
+.entry{
+    text-align: center;
+}
+.main{
+    border: solid 1px gray;
+    padding: 10px;
+    height: 250px;
+}
+.button{
+    height: 50px;
+
+   }
+.button_facebook_div{
+    height: 50px;
+    padding: 0px;
+
+}
+.button_facebook{
+
+}
+.button_img{
+    height: 35px;
+    width: 35px;
+}
+#info{
+    display: none;
+}

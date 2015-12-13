@@ -1,0 +1,135 @@
+header {
+	
+	height:50px;
+}
+.navbar-left {
+	font-size: 1.24em;
+	margin-left: 35px;
+	line-height: 45px;
+}
+.navbar-right {
+	font-size: 2em;
+	margin-right: 25px;
+}
+.navbar-left li {
+	margin-top: 3px;
+	
+}
+.navbar-top {
+	border:none !important;
+	border-radius: none !important;
+	box-shadow:2px 2px 0 1px rgba(0,0,0,.1); 
+}
+.navbar .profile_image img {
+	width:30px;
+	height:30px;
+}
+.navbar .profile_name {
+	font-size: 0.65em;
+}
+.navbar .navbar-right .dropdown {
+	height: 50px;
+}
+.navbar .navbar-right .open {
+	height: 50px;
+}
+.navbar-default .navbar-toggle {
+border:none;
+}
+.container {
+	padding-top: 60px;
+}
+.container .container-fluid {
+	height:700px;
+}
+/*PROFILE SIDEBAR */
+.profile_info {
+	text-align:center;
+}
+.profile_info .profile_image img {
+	height: 150px;
+	width: 170px;
+
+}
+.profile_info .profile_buttons {
+	height: 35px;
+	background: #dbd9db;
+	width: 170px;
+	text-align:center;
+	border-bottom: 3px solid #c7c4c7;
+	line-height: 30px;
+	cursor:pointer;
+	text-align:center;
+	margin:0 auto;
+	margin-bottom: 12px;
+}
+.profile_info .profile_name {
+ font-family: 'Myriad` Set Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+font-size: 1.3em;
+}
+.profile_info .profile_change {
+	background:#ec2c22;
+	color: #FFF;
+	border-color:#c01911;
+}
+.profile-petition {
+	overflow: hidden;
+}
+.profile-petition .petition_categories ul {
+	list-style-type: none;
+}
+.profile-petition .petition_categories ul li{
+	float: left;
+ 	width: 100px;
+	border-bottom: 1px solid #adacad;
+	display:block;
+	cursor: pointer;
+	text-align:center;
+	font-size: 1.2em;
+}
+.sub-popular, .sub-user {
+	display: none;
+}
+.profile-petition .petition_categories ul .own{
+	color:#EC2C22;
+	border-color: #EC2C22;
+}
+#sub-popular {
+	display: none;
+}
+.sub-petition-categories li {
+	background:#FFF;
+	display: block;
+	margin: 5px;
+	color:#333;
+}
+.sub-petition-categories .own-all {
+	background: #adacad;
+	color:#FFF;
+}
+.sub-petition-categories .sub-popular-today {
+	background: #adacad;
+	color:#FFF;
+}
+a {
+	color: #EC2C22;
+}
+a:hover {
+	color: #EC2C22;
+}
+.petition-my-all .container  {
+	border-bottom: 1px solid #adacad;
+	padding:4px;
+	vertical-align: center;
+	
+}
+.petition-my-all .petition .container li{
+	display: block;
+	float: left;
+	width:90px;
+	margin-left:5px;
+	text-align: center;
+}
+.petition-my-all .petition .container .petition-number {
+	color:#737273;
+}

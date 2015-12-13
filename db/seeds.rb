@@ -167,3 +167,4 @@ Petition.find_in_batches do |batch|
   end
 end
 puts "   Finished PetitionRecipients"
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')

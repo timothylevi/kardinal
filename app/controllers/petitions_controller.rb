@@ -10,6 +10,8 @@ class PetitionsController < ApplicationController
     @last_viewed = Petition.find(session[:last_viewed]) if session[:last_viewed]
     @victories = Victory.includes(petition: [:creator, :petition_signatures])
             .limit(5)
+    @featured_petitions = ::Petition.includes(:creator, :petition_signatures).order('created_at DESC').limit(3)
+    @top_comments = ::Comment.order('rating DESC').limit(3)
   end
 
   def show
@@ -19,6 +21,14 @@ class PetitionsController < ApplicationController
     @creator = @petition.creator
     @petition_signature = PetitionSignature.find_single(current_user, @petition) || PetitionSignature.new
     @victory = Victory.find_by_petition_id(@petition.id) || Victory.new
+    @organization = @petition.organization
+  end
+
+  def embedded
+    @embedded = true
+    self.show
+    response.headers['X-Frame-Options'] = 'ALLOWALL'
+    render template: 'petitions/show', layout: 'embedded'
   end
 
   def new
@@ -27,15 +37,17 @@ class PetitionsController < ApplicationController
   end
 
   def create
-    @petition = Petition.new(params[:petition])
+    @petition = Petition.new(petition_params)
     @recipients = Recipient.order(:gov_state, :last_name)
 
     if @petition.valid?
-      create_and_sign_petition(params[:petition])
+      create_and_sign_petition(petition_params)
 
       session[:recipient_id] = nil
 
       flash[:notices] = ["Your petition was successfully created!"]
+
+      ::Helpers::Rating.update(@petition.creator, :petition_added)
       redirect_to petition_url(current_user.petitions.last)
     else
       render :new
@@ -57,7 +69,7 @@ class PetitionsController < ApplicationController
     @petition = Petition.find(params[:id])
     @recipients = Recipient.order(:gov_state, :last_name)
 
-    if @petition.update_attributes(params[:petition])
+    if @petition.update_attributes(petition_params)
       flash[:notices] = ["Your petition was successfully updated!"]
       redirect_to @petition
     else
@@ -71,5 +83,11 @@ class PetitionsController < ApplicationController
 
     flash[:notices] = ["Your petition was successfully deleted."]
     redirect_to me_url
+  end
+
+  private
+
+  def petition_params
+    params.require(:petition).permit(:cause_ids, :goal, :title, :background, :body, :is_victory, :image, :recipient_ids, :approved)
   end
 end
