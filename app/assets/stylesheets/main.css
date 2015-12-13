@@ -3787,10 +3787,69 @@
 			display: inline-block;
 			padding: 0;
 		}
+		#closeBtnStat{
+			float: right;
+		}
+		.statistics{
+			margin-left: 17em;
+
+		}
+		.statistics h2{
+			padding-bottom: 1.5em;
+			margin-left: 14em;
+		}
+
+		#registrated{
+
+			width: 150px;
+			height: 150px;
+			background-color: #b3b3b3;
+		}
+		#wins{
+			margin-top: -16.2em;
+			margin-left: 20em;
+			width: 150px;
+			height: 150px;
+			background-color: #b3b3b3;
+		}
+		#petitions{
+			margin-top: -16.4em;
+			margin-left: 40em;
+			width: 150px;
+			height: 150px;
+			background-color: #b3b3b3;
+		}
+		#usersPerDay{
+			margin-top: -16.4em;
+			margin-left: 60em;
+			width: 150px;
+			height: 150px;
+			background-color: #b3b3b3;
+		}
+		.topReputation {
+			text-align: center;
+		}
+		.topReputation h3 {
+			padding: 0 8em 0 8em;
+			display: inline-block;
+		}
+		.topReputation .underIconText {
+
+			padding: 0 3.5em 0 3.5em;
+			display: inline-block;
+		}
+		.userIconStat {
+			display: inline-block;
+			margin: 3em 3em 0 2em;
+			width: 150px;
+			height: 150px;
+			background-color: #b3b3b3;
+		}
 
 		/* Footer */
 
 			#footer {
+				margin-top: 20em;
 				padding: 4em 0;
 			}
 
