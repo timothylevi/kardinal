@@ -3255,25 +3255,74 @@
 
 		/* Slider Menu */
 
-		ul#sliderMenu {
-			padding: 1em;
+		#sliderMenu {
+			padding: 2em;
 		}
-		ul#sliderMenu li#win{
-			left: 1em;
-		}
+		#winBtn {
+			margin-top: -1.7em;
+			float: left;
 
-		ul#sliderMenu li {
-			display: inline;
 		}
-
-		ul#sliderMenu li a {
-			background-color: black;
-			color: white;
-		}
-
-		ul#sliderMenu li a:hover {
+		#winBtn:hover{
 			background-color: red;
 		}
+		#blagoBtn {
+			float: left;
+			margin-top: -1.7em;
+			margin-left: 2.5em;
+		}
+		#userIcon {
+			margin-top: -1.7em;
+			margin-left: 7em;
+			float: left;
+			width: 50px;
+			height: 52px;
+			background-color: whitesmoke;
+		}
+		#name{
+			float: left;
+			margin-top: -1.7em;
+			margin-left: 0.5em;
+		}
+		#surname{
+			float: left;
+			margin-top: -1.7em;
+			margin-left: 0.5em;
+		}
+		#city{
+			float: left;
+			margin-left: -6.3em;
+		}
+		#region{
+			float: left;
+			margin-left: -4.3em;
+		}
+		#followerCounter {
+			float: left;
+			margin-left: 6em;
+			margin-top: -1.7em;
+		}
+		#followers{
+			float: left;
+			margin-left: -4.4em;
+		}
+		#lastActivity
+		/*ul#sliderMenu li#win{*/
+			/*left: 1em;*/
+		/*}*/
+
+		/*ul#sliderMenu li {*/
+			/*display: inline;*/
+		/*}*/
+
+		/*ul#sliderMenu li a {*/
+			/*background-color: black;*/
+			/*color: white;*/
+		/*}*/
+
+		/*ul#sliderMenu li a:hover {*/
+			/*background-color: red;*/
+		/*}*/
 
 		/* Slider */
 		#lol{
