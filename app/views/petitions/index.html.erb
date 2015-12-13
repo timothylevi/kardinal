@@ -1,44 +1,25 @@
-<main id="petition-index" class="group">
-  <section id="breadcrumbs">
-    <%= link_to "Petitions", petitions_url, title: "View all petitions" %>
-  </section>
-
-  <header>
-    <h1>Petitions</h1>
-    <h2>Find a petition you're passionate about and find ways to make <span class="logo">change</span> in your community.</h2>
-    <%= link_to "Start a petition", new_petition_url, title: "Start a petition", class: "start-petition" %>
-  </header>
-
-  <%= render "causes/list", causes: @causes %>
-  <% if @last_viewed %>
-    <%= render "petitions/last_viewed", last_viewed: @last_viewed %>
-  <% end %>
-  <%= render "victories/list", victories: @victories %>
-
-  <ul class="petitions left">
-    <%= paginate @petitions %>
-    <% @petitions.each do |petition| %>
-    <li>
-      <h3><%= link_to petition.title, petition_url(petition), title: "View \"#{petition.title}\"" %></h3>
-      <summary>
-        <% if logged_in? %>
-          <% text = (petition.petition_signatures.include?(PetitionSignature.find_single(current_user, petition)) ? "View" : "Sign")%>
-        <% else %>
-          <% text = "Sign" %>
+<section id="slider">
+    <div id="owl-demo" class="owl-carousel owl-theme">
+        <% @petitions.each do |petition| %>
+            <div class="item">
+                <%= image_tag petition.image_file_name, width: "100%" %>
+                <div id="sliderMenu">
+                    <a href="#" class="button"  id="winBtn">Перемога</a>
+                    <a href="#" class="button" id="blagoBtn">Благоустрій</a>
+                    <a href="#" id="userIcon">
+                        <%= image_tag petition.creator.image_file_name %>
+                    </a>
+                    <p id="name"><%= petition.creator.first_name %></p>
+                    <p id="surname"><%= petition.creator.last_name %></p>
+                    <p id="city">City,</p>
+                    <p id="region">Region</p>
+                    <p id="followerCounter"><%= petition.petition_signatures.count %></p>
+                    <p id="followers">Користувачів</p>
+                    <p id="lastActivity">Остання активність</p>
+                    <p id="lastActivityMinutes">3 хвилини тому</p>
+                </div>
+            </div>
         <% end %>
+    </div>
+</section>
 
-        <a href="<%= user_url(petition.creator) %>" title="<%= "View #{petition.creator.name}'s profile photo" %>">
-          <img src="<%= petition.creator.image.url(:thumbnail) %>" alt="User profile photo thumbnail">
-          <%= petition.creator.name %>
-        </a>
-        <%= petition.petition_signatures.length %> signatures ·
-        <%= link_to text, petition_url(petition), title: "#{text} \"#{petition.title}\"" %>
-      </summary>
-      <p>
-        <%= petition.body %>
-      </p>
-    </li>
-    <% end %>
-  </ul>
-
-</main>
