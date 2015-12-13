@@ -3306,7 +3306,15 @@
 			float: left;
 			margin-left: -4.4em;
 		}
-		#lastActivity
+		#lastActivity{
+			float: left;
+			margin-left: 8em;
+			margin-top: -1.7em;
+		}
+		#lastActivityMinutes{
+			float: left;
+			margin-left: -7.3em;
+		}
 		/*ul#sliderMenu li#win{*/
 			/*left: 1em;*/
 		/*}*/
