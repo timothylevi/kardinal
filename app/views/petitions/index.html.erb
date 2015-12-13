@@ -4,7 +4,7 @@
             <div class="item">
                 <%= image_tag petition.image_file_name, width: "100%" %>
                 <div id="sliderMenu">
-                    <a href="#" class="button"  id="winBtn"><%= petition.category.name %></a>
+                    <a href="#" class="button"  id="winBtn"><%= petition.category.name if petition.category %></a>
                     <a href="#" id="userIcon">
                         <%= image_tag petition.creator.image_file_name %>
                     </a>
