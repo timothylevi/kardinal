@@ -22,6 +22,7 @@ require 'bcrypt'
 #
 
 class User < ActiveRecord::Base
+  #devise :database_authenticatable, :rememberable
   attr_reader :first_name, :last_name, :password
 
   has_attached_file :image, :styles => {
