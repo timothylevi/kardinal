@@ -35,19 +35,6 @@ $(document).ready(function() {
 });
 
 (function($) {
-	$( "#closeBtn" ).click(function() {
-		$( ".box" ).hide();
-	});
-
-	skel.breakpoints({
-		wide: '(max-width: 1680px)',
-		normal: '(max-width: 1280px)',
-		narrow: '(max-width: 980px)',
-		narrower: '(max-width: 840px)',
-		mobile: '(max-width: 736px)',
-		mobilep: '(max-width: 480px)'
-	});
-
 	$(function() {
 
 		var	$window = $(window),
